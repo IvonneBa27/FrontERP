@@ -1,0 +1,101 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="ListUser()"
+                        value=""><i class="mdi mdi-arrow-left-bold"></i> Regresar</button></h4>
+            </div>
+            <div class="table-responsive">
+                <form (submit)="DeleteUser()"  [formGroup]="usersForm">
+                    <div class="row ">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">No. Empleado</label>
+                                <fieldset disabled>
+                                    <input type="text" id="numero_empleado" class="form-control"
+                                        placeholder="No. Empleado" formControlName="numero_empleado">
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Usuario</label>
+                                <fieldset disabled>
+                                    <input type="text" id="usuario" class="form-control" placeholder="Usuario"
+                                        formControlName="usuario">
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Departamento Empresa</label>
+                                <fieldset disabled>
+                                    <select class="form-control" id="id_departamento_empresa"
+                                        placeholder="Departamento Empresa" formControlName="id_departamento_empresa">
+                                        <option [value]="item.id" *ngFor="let item of Departamento">{{item.nombre}}
+                                        </option>
+                                    </select>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Apellido Paterno</label>
+                                <fieldset disabled>
+                                    <input type="text" id="apellido_pat" class="form-control"
+                                        placeholder="Apellido Paterno" formControlName="apellido_pat">
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                    <label class="control-label">Apellido Materno</label>
+                                    <input type="text" id="apellido_mat" class="form-control"
+                                        placeholder="Apellido Materno" formControlName="apellido_mat">
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                    <label class="control-label">Nombre</label>
+                                    <input type="text" id="nombre" class="form-control" placeholder="Nombre"
+                                        formControlName="nombre">
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Fecha Baja</label>
+                                <input type="date" id="fecha_baja" class="form-control" placeholder="yyyy/mm/dd"
+                                    formControlName="fecha_baja">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Motivo Baja</label>
+                                <input type="text" id="motivo_baja" class="form-control" placeholder="Motivo Baja"
+                                    formControlName="motivo_baja">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Mes Baja</label>
+                                <input type="text" id="mes_baja" class="form-control" placeholder="Mes Baja"
+                                    formControlName="mes_baja">
+                            </div>
+                        </div>
+                    </div>
+                    <div mat-dialog-actions class="btn-create botones">
+                        <button class="btn btn-warning" style="text-align: end;">Cancelar</button>
+
+                        <button type="submit" class="btn btn-primary" style="text-align: end;">Eliminar Usuario</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
