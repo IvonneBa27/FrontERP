@@ -183,6 +183,17 @@ export class GeneralService {
     return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
   }
 
+  getTypeModule(): Observable<any> {
+    const URL = this.baseUrl + 'TipoModulo/get';
+    const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Authorization', token);
+
+    return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  }
+
   public requestCatalogos(): Observable<any[]> {
   
     let response1 = this.getTipoUsuario(); 
@@ -196,9 +207,10 @@ export class GeneralService {
     let response9 = this.getPuesto();
     let response10 = this.getTurno();
     let response11 = this.getBanco();
+    let response12 = this.getTypeModule();
     
 
-    return forkJoin([response1, response2, response3, response4, response5, response6, response7, response8, response9, response10, response11]);
+    return forkJoin([response1, response2, response3, response4, response5, response6, response7, response8, response9, response10, response11, response12]);
 
   }
 

@@ -18,11 +18,16 @@ import { CampaniaListComponent } from '../pages/campanias/campania-list/campania
 import { SeeUserComponent } from './users/see-user/see-user.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DeleteUserComponent } from './users/delete-user/delete-user.component';
+import { CreateModuleComponent } from './security/modules/create-module/create-module.component';
+import { EditModuleComponent } from './security/modules/edit-module/edit-module.component';
+import { ListModuleComponent } from './security/modules/list-module/list-module.component';
+import { DeleteModuleComponent } from './security/modules/delete-module/delete-module.component';
+import { SeeModuleComponent } from './security/modules/see-module/see-module.component';
 
 
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, ChangePasswordComponent, UserListComponent, EditUserComponent, ListRolesComponent, CreateRolesComponent, EditRolesComponent, ListPermissComponent, CreatePermissComponent, EditPermissComponent, SeeUserComponent, DeleteUserComponent],
+  declarations: [LoginComponent, RegisterComponent, ChangePasswordComponent, UserListComponent, EditUserComponent, ListRolesComponent, CreateRolesComponent, EditRolesComponent, ListPermissComponent, CreatePermissComponent, EditPermissComponent, SeeUserComponent, DeleteUserComponent, CreateModuleComponent, EditModuleComponent, ListModuleComponent, DeleteModuleComponent, SeeModuleComponent],
   exports: [LoginComponent, RegisterComponent],
   imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule, NgxPaginationModule],
 })

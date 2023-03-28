@@ -1,0 +1,73 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="ListModule()"
+                        value=""><i class="mdi mdi-playlist-check"></i> Regresar</button></h4>
+
+                <div class="table-responsive">
+                    <form (submit)="DeleteModule()" [formGroup]="modulesForm">
+
+                        <div class="row p-t-20">
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Módulo</label>
+                                    <input type="text" id="name" class="form-control" placeholder="Módulo"
+                                        formControlName="name">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Tipo Módulo</label>
+                                    <select class="form-control" id="id_type" placeholder="Tipo-Modulo"
+                                        formControlName="id_type">
+                                        <option [value]="item.id" *ngFor="let item of Type_modules">{{item.name}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Orden</label>
+                                    <select class="form-control" id="order" placeholder="Num. Orden"
+                                        formControlName="order">
+                                        <option value="1.0" selected> 1.0</option>
+                                        <option value="2.0">2.0</option>
+                                        <option value="3.0">3.0</option>
+                                        <option value="4.0">4.0</option>
+                                        <option value="5.0">5.0</option>
+                                        <option value="6.0">6.0</option>
+                                        <option value="7.0">7.0</option>
+                                        <option value="8.0">8.0</option>
+                                        <option value="9.0">9.0</option>
+                                        <option value="10.0">10.0</option>
+                                        <option value="11.0">11.0</option>
+                                        <option value="12.0">12.0</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Estatus</label>
+                                    <select class="form-control" id="status" placeholder="Estatus"
+                                        formControlName="status">
+                                        <option [value]="item.id" *ngFor="let item of Estatus">{{item.nombre}}</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-create botones">
+                            <button class="btn btn-warning" >Cancelar</button>
+
+                            <button type="submit" class="btn btn-primary">Eliminar
+                                Módulo</button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

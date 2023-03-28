@@ -24,6 +24,11 @@ import { CreatePermissComponent } from '../auth/security/permiss/create-permiss/
 import { EditPermissComponent } from '../auth/security/permiss/edit-permiss/edit-permiss.component';
 import { SeeUserComponent } from '../auth/users/see-user/see-user.component';
 import { DeleteUserComponent } from '../auth/users/delete-user/delete-user.component';
+import { CreateModuleComponent } from '../auth/security/modules/create-module/create-module.component';
+import { EditModuleComponent } from '../auth/security/modules/edit-module/edit-module.component';
+import { ListModuleComponent } from '../auth/security/modules/list-module/list-module.component';
+import { SeeModuleComponent } from '../auth/security/modules/see-module/see-module.component';
+import { DeleteModuleComponent } from '../auth/security/modules/delete-module/delete-module.component';
 
 
 
@@ -167,6 +172,39 @@ const routes: Routes = [
         data: { titulo: 'Eliminar Usuario' },
         canActivate: [AccesoGuard],
 
+      },
+
+      {
+        path: 'create-module',
+        component: CreateModuleComponent,
+        data: { titulo: 'Crear Módulo' },
+        canActivate: [AccesoGuard],
+
+      },
+      {
+        path: 'edit-module/:id',
+        component: EditModuleComponent,
+        data: { titulo: 'Editar Módulo' },
+        canActivate: [AccesoGuard],
+
+      },
+      {
+        path: 'list-module',
+        component: ListModuleComponent,
+        data: { titulo: 'Lista de Módulo' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'see-module/:id',
+        component: SeeModuleComponent,
+        data: { titulo: 'Módulo' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'delete-module/:id',
+        component: DeleteModuleComponent,
+        data: { titulo: 'Eliminar Módulo' },
+        canActivate: [AccesoGuard],
       },
 
 

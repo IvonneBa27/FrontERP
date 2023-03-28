@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="ListModule()"
+                        value=""><i class="mdi  mdi-arrow-left-bold"></i> Regresar</button></h4>
+
+                <div class="table-responsive">
+                    <form (submit)="SeeModule()" [formGroup]="modulesForm">
+                        <fieldset disabled>
+                            <div class="row p-t-20">
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Módulo</label>
+                                        <input type="text" id="name" class="form-control" placeholder="Módulo"
+                                            formControlName="name">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Tipo Módulo</label>
+                                        <select class="form-control" id="id_type" placeholder="Tipo-Modulo"
+                                            formControlName="id_type">
+                                            <option [value]="item.id" *ngFor="let item of Type_modules">{{item.name}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Orden</label>
+                                        <input type="text" id="order" class="form-control" placeholder="Orden"
+                                        formControlName="order">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Estatus</label>
+                                        <select class="form-control" id="status" placeholder="Estatus"
+                                            formControlName="status">
+                                            <option [value]="item.id" *ngFor="let item of Estatus">{{item.nombre}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

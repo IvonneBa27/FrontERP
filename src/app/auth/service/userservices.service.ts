@@ -66,4 +66,56 @@ export class UserservicesService {
   return this.http.post(URL, data, { headers }).pipe(map((res) => res));
 }
 
+
+createModule(data: { name: any; id_type: any; order: any; status: any;   }): Observable<any> {
+  const URL = this.baseUrl + 'modulo/create';
+
+  const headers = new HttpHeaders().set('Accept', 'application/json');
+  return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+}
+
+
+getModule(): Observable<any> {
+  const URL = this.baseUrl + 'modulo/get';
+  const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+
+  const headers = new HttpHeaders()
+    .set('Accept', 'application/json')
+    .set('Authorization', token);
+
+  return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+}
+
+getModulebyId(id: any): Observable<any> {
+  const URL = this.baseUrl + `modulo/id?id=${id}`;
+  const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+
+  const headers = new HttpHeaders()
+    .set('Accept', 'application/json')
+    .set('Authorization', token);
+
+  return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+
+}
+
+updateModule(data: { name: any; id_type: any; order: any; status: any;
+  id: string | null;  
+}  ): Observable<any> {
+const URL = this.baseUrl + 'modulo/update';
+
+const headers = new HttpHeaders().set('Accept', 'application/json');
+return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+}
+
+deleteModule(data: {
+  id: string | null;  
+}  ): Observable<any> {
+const URL = this.baseUrl + 'modulo/delete';
+
+const headers = new HttpHeaders().set('Accept', 'application/json');
+return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+}
+
+
+
 }
