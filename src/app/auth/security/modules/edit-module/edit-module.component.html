@@ -3,13 +3,11 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="ListModule()"
-                    value=""><i class="mdi mdi-playlist-check"></i> Listado Modulos</button></h4>
-     
-            <div class="table-responsive">
-               <form (submit)="UpdateModule()" [formGroup]="modulesForm"> 
-             
-                    <div class="row p-t-20">
-                    
+                        value=""><i class="mdi mdi-playlist-check"></i> Listado Modulos</button></h4>
+
+                <form (submit)="UpdateModule()" [formGroup]="modulesForm">
+
+                    <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Módulo</label>
@@ -26,10 +24,10 @@
                                 </select>
                             </div>
                         </div>
-                       <div class="col-md-4">
+                        <div class="col-md-4">
                             <div class="form-group">
-                                <label class="control-label">Orden</label> 
-                               <select class="form-control" id="order" placeholder="Num. Orden"
+                                <label class="control-label">Orden</label>
+                                <select class="form-control" id="order" placeholder="Num. Orden"
                                     formControlName="order">
                                     <option value="1.0" selected> 1.0</option>
                                     <option value="2.0">2.0</option>
@@ -43,14 +41,13 @@
                                     <option value="10.0">10.0</option>
                                     <option value="11.0">11.0</option>
                                     <option value="12.0">12.0</option>
-                               </select>
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Estatus</label>
-                                <select class="form-control" id="status" placeholder="Estatus"
-                                    formControlName="status">
+                                <select class="form-control" id="status" placeholder="Estatus" formControlName="status">
                                     <option [value]="item.id" *ngFor="let item of Estatus">{{item.nombre}}</option>
                                 </select>
                             </div>
@@ -63,9 +60,7 @@
 
                     </div>
                 </form>
-                </div>
             </div>
         </div>
     </div>
 </div>
-

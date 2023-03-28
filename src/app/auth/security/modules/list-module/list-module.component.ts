@@ -25,7 +25,7 @@ export class ListModuleComponent implements OnInit {
     this._servicesuser.getModule().subscribe((res) => {
       this.cat_modues = res.data;
       
-     /* console.log(this.users);*/
+   
     });
   }
 

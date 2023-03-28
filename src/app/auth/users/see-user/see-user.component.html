@@ -4,34 +4,32 @@
             <div class="card-body">
                 <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="ListUser()"
                         value=""><i class="mdi mdi-arrow-left-bold"></i> Regresar</button></h4>
+                <form (submit)="SeeUser()" [formGroup]="usersForm">
+                    <fieldset disabled>
+                        <div class="row">
 
-                <div class="table-responsive">
-                    <form (submit)="SeeUser()" [formGroup]="usersForm">
-                        <fieldset disabled>
-                            <div class="row p-t-20">
-
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">Apellido Paterno</label>
-                                        <input type="text" id="apellido_pat" class="form-control"
-                                            placeholder="Apellido Paterno" formControlName="apellido_pat" readonly>
-                                    </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Apellido Paterno</label>
+                                    <input type="text" id="apellido_pat" class="form-control"
+                                        placeholder="Apellido Paterno" formControlName="apellido_pat" readonly>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">Apellido Materno</label>
-                                        <input type="text" id="apellido_mat" class="form-control"
-                                            placeholder="Apellido Materno" formControlName="apellido_mat" readonly>
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Apellido Materno</label>
+                                    <input type="text" id="apellido_mat" class="form-control"
+                                        placeholder="Apellido Materno" formControlName="apellido_mat" readonly>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">Nombre</label>
-                                        <input type="text" id="nombre" class="form-control" placeholder="Nombre"
-                                            formControlName="nombre" readonly>
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Nombre</label>
+                                    <input type="text" id="nombre" class="form-control" placeholder="Nombre"
+                                        formControlName="nombre" readonly>
                                 </div>
-                                <!--
+                            </div>
+                            <!--
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="control-label">Nombre completo</label>
@@ -40,205 +38,204 @@
                                     </div>
                                 </div>
                                 -->
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">No. Empleado</label>
-                                        <input type="text" id="numero_empleado" class="form-control"
-                                            placeholder="Numero empleado" formControlName="numero_empleado" readonly>
-                                    </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">No. Empleado</label>
+                                    <input type="text" id="numero_empleado" class="form-control"
+                                        placeholder="Numero empleado" formControlName="numero_empleado" readonly>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">Tipo Usuario</label>
-                                        <select class="form-control" id="id_tipo_usuario" placeholder="Tipo-Usuario"
-                                            formControlName="id_tipo_usuario">
-                                            <option [value]="item.id" *ngFor="let item of TipoUsuario">{{item.nombre}}
-                                            </option>
-                                        </select>
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Tipo Usuario</label>
+                                    <select class="form-control" id="id_tipo_usuario" placeholder="Tipo-Usuario"
+                                        formControlName="id_tipo_usuario">
+                                        <option [value]="item.id" *ngFor="let item of TipoUsuario">{{item.nombre}}
+                                        </option>
+                                    </select>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">Usuario</label>
-                                        <input type="text" id="usuario" class="form-control" placeholder="Usuario"
-                                            formControlName="usuario" readonly>
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Usuario</label>
+                                    <input type="text" id="usuario" class="form-control" placeholder="Usuario"
+                                        formControlName="usuario" readonly>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">Email Personal</label>
-                                        <input type="text" id="email_personal" class="form-control" placeholder="Email"
-                                            formControlName="email_personal" readonly>
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Email Personal</label>
+                                    <input type="text" id="email_personal" class="form-control" placeholder="Email"
+                                        formControlName="email_personal" readonly>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">Email</label>
-                                        <input type="text" id="email" class="form-control" placeholder="Email"
-                                            formControlName="email" readonly>
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Email</label>
+                                    <input type="text" id="email" class="form-control" placeholder="Email"
+                                        formControlName="email" readonly>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">CURP</label>
-                                        <input type="text" id="curp" class="form-control" placeholder="Curp"
-                                            formControlName="curp" readonly>
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">CURP</label>
+                                    <input type="text" id="curp" class="form-control" placeholder="Curp"
+                                        formControlName="curp" readonly>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">RFC</label>
-                                        <input type="text" id="rfc" class="form-control" placeholder="RFC"
-                                            formControlName="rfc" readonly>
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">RFC</label>
+                                    <input type="text" id="rfc" class="form-control" placeholder="RFC"
+                                        formControlName="rfc" readonly>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">Número de Seguro Social</label>
-                                        <input type="text" id="nss" class="form-control"
-                                            placeholder="Número de Seguro Social" formControlName="nss" readonly>
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Número de Seguro Social</label>
+                                    <input type="text" id="nss" class="form-control"
+                                        placeholder="Número de Seguro Social" formControlName="nss" readonly>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">Sexo</label>
-                                        <select class="form-control" id="id_sexo" placeholder="Sexo"
-                                            formControlName="id_sexo">
-                                            <option [value]="item.id" *ngFor="let item of Sexo">{{item.nombre}}</option>
-                                        </select>
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Sexo</label>
+                                    <select class="form-control" id="id_sexo" placeholder="Sexo"
+                                        formControlName="id_sexo">
+                                        <option [value]="item.id" *ngFor="let item of Sexo">{{item.nombre}}</option>
+                                    </select>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">Fecha Nacimiento</label>
-                                        <input type="date" id="fecha_nacimiento" class="form-control"
-                                            placeholder="yy/mm/dd" formControlName="fecha_nacimiento" readonly>
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Fecha Nacimiento</label>
+                                    <input type="date" id="fecha_nacimiento" class="form-control" placeholder="yy/mm/dd"
+                                        formControlName="fecha_nacimiento" readonly>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">Estatus</label>
-                                        <select class="form-control" id="id_estatus" placeholder="Estatus"
-                                            formControlName="id_estatus">
-                                            <option [value]="item.id" *ngFor="let item of Estatus">{{item.nombre}}
-                                            </option>
-                                        </select>
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Estatus</label>
+                                    <select class="form-control" id="id_estatus" placeholder="Estatus"
+                                        formControlName="id_estatus">
+                                        <option [value]="item.id" *ngFor="let item of Estatus">{{item.nombre}}
+                                        </option>
+                                    </select>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">Ubicación</label>
-                                        <select class="form-control" id="id_ubicacion" placeholder="Ubicacion"
-                                            formControlName="id_ubicacion">
-                                            <option [value]="item.id" *ngFor="let item of Ubicacion">{{item.nombre}}
-                                            </option>
-                                        </select>
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Ubicación</label>
+                                    <select class="form-control" id="id_ubicacion" placeholder="Ubicacion"
+                                        formControlName="id_ubicacion">
+                                        <option [value]="item.id" *ngFor="let item of Ubicacion">{{item.nombre}}
+                                        </option>
+                                    </select>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">Empresa</label>
-                                        <select class="form-control" id="id_empresa_rh" placeholder="Empresa"
-                                            formControlName="id_empresa_rh">
-                                            <option [value]="item.id" *ngFor="let item of Empresa">{{item.nombre}}
-                                            </option>
-                                        </select>
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Empresa</label>
+                                    <select class="form-control" id="id_empresa_rh" placeholder="Empresa"
+                                        formControlName="id_empresa_rh">
+                                        <option [value]="item.id" *ngFor="let item of Empresa">{{item.nombre}}
+                                        </option>
+                                    </select>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">Categoria</label>
-                                        <select class="form-control" id="id_subcategoria" placeholder="SubCategoria"
-                                            formControlName="id_subcategoria">
-                                            <option [value]="item.id" *ngFor="let item of SubCategoria">{{item.nombre}}
-                                            </option>
-                                        </select>
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Categoria</label>
+                                    <select class="form-control" id="id_subcategoria" placeholder="SubCategoria"
+                                        formControlName="id_subcategoria">
+                                        <option [value]="item.id" *ngFor="let item of SubCategoria">{{item.nombre}}
+                                        </option>
+                                    </select>
                                 </div>
+                            </div>
 
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">Ejecución Administrativa</label>
-                                        <select class="form-control" id="ejecucion_administrativa"
-                                            placeholder="Ejecución Administrativa"
-                                            formControlName="ejecucion_administrativa">
-                                            <option [value]="item.id" *ngFor="let item of EjecucionAdministrativa">
-                                                {{item.nombre}}</option>
-                                        </select>
-                                    </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Ejecución Administrativa</label>
+                                    <select class="form-control" id="ejecucion_administrativa"
+                                        placeholder="Ejecución Administrativa"
+                                        formControlName="ejecucion_administrativa">
+                                        <option [value]="item.id" *ngFor="let item of EjecucionAdministrativa">
+                                            {{item.nombre}}</option>
+                                    </select>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">Departamento Empresa</label>
-                                        <select class="form-control" id="id_departamento_empresa"
-                                            placeholder="Departamento Empresa"
-                                            formControlName="id_departamento_empresa">
-                                            <option [value]="item.id" *ngFor="let item of Departamento">{{item.nombre}}
-                                            </option>
-                                        </select>
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Departamento Empresa</label>
+                                    <select class="form-control" id="id_departamento_empresa"
+                                        placeholder="Departamento Empresa" formControlName="id_departamento_empresa">
+                                        <option [value]="item.id" *ngFor="let item of Departamento">{{item.nombre}}
+                                        </option>
+                                    </select>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">Puesto</label>
-                                        <select class="form-control" id="id_puesto" placeholder="Puesto"
-                                            formControlName="id_puesto">
-                                            <option [value]="item.id" *ngFor="let item of Puesto">{{item.nombre}}
-                                            </option>
-                                        </select>
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Puesto</label>
+                                    <select class="form-control" id="id_puesto" placeholder="Puesto"
+                                        formControlName="id_puesto">
+                                        <option [value]="item.id" *ngFor="let item of Puesto">{{item.nombre}}
+                                        </option>
+                                    </select>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">Sueldo</label>
-                                        <input type="text" id="sueldo" class="form-control" placeholder="Sueldo"
-                                            formControlName="sueldo">
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Sueldo</label>
+                                    <input type="text" id="sueldo" class="form-control" placeholder="Sueldo"
+                                        formControlName="sueldo">
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">Turno</label>
-                                        <select class="form-control" id="id_turno" placeholder="Turno"
-                                            formControlName="id_turno">
-                                            <option [value]="item.id" *ngFor="let item of Turno">{{item.nombre}}
-                                            </option>
-                                        </select>
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Turno</label>
+                                    <select class="form-control" id="id_turno" placeholder="Turno"
+                                        formControlName="id_turno">
+                                        <option [value]="item.id" *ngFor="let item of Turno">{{item.nombre}}
+                                        </option>
+                                    </select>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">Banco</label>
-                                        <select class="form-control" id="id_banco" placeholder="Banco"
-                                            formControlName="id_banco">
-                                            <option [value]="item.id" *ngFor="let item of Banco">{{item.nombre}}
-                                            </option>
-                                        </select>
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Banco</label>
+                                    <select class="form-control" id="id_banco" placeholder="Banco"
+                                        formControlName="id_banco">
+                                        <option [value]="item.id" *ngFor="let item of Banco">{{item.nombre}}
+                                        </option>
+                                    </select>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">Número Cuenta Bancaria</label>
-                                        <input type="text" id="numero_cuenta_bancaria" class="form-control"
-                                            placeholder="Numero Cuenta Bancaria"
-                                            formControlName="numero_cuenta_bancaria" readonly>
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Número Cuenta Bancaria</label>
+                                    <input type="text" id="numero_cuenta_bancaria" class="form-control"
+                                        placeholder="Numero Cuenta Bancaria" formControlName="numero_cuenta_bancaria"
+                                        readonly>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">Clabe Interbancaria</label>
-                                        <input type="text" id="clabe_inter_bancaria" class="form-control"
-                                            placeholder="Clabe interbancaria" formControlName="clabe_inter_bancaria"
-                                            readonly>
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Clabe Interbancaria</label>
+                                    <input type="text" id="clabe_inter_bancaria" class="form-control"
+                                        placeholder="Clabe interbancaria" formControlName="clabe_inter_bancaria"
+                                        readonly>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label">Fecha Ingreso</label>
-                                        <input type="date" id="fecha_ingreso" class="form-control"
-                                            placeholder="dd/mm/yyyy" formControlName="fecha_ingreso" readonly>
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Fecha Ingreso</label>
+                                    <input type="date" id="fecha_ingreso" class="form-control" placeholder="dd/mm/yyyy"
+                                        formControlName="fecha_ingreso" readonly>
                                 </div>
-                                <!--
+                            </div>
+                            <!--
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="control-label">Fecha Contrato</label>
@@ -270,10 +267,9 @@
                                 </div>
                                 -->
 
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
         </div>
     </div>

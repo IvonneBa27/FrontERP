@@ -29,6 +29,11 @@ import { EditModuleComponent } from '../auth/security/modules/edit-module/edit-m
 import { ListModuleComponent } from '../auth/security/modules/list-module/list-module.component';
 import { SeeModuleComponent } from '../auth/security/modules/see-module/see-module.component';
 import { DeleteModuleComponent } from '../auth/security/modules/delete-module/delete-module.component';
+import { CreateTypemoduleComponent } from '../auth/catalogos/type_module/create-typemodule/create-typemodule.component';
+import { EditTypemoduleComponent } from '../auth/catalogos/type_module/edit-typemodule/edit-typemodule.component';
+import { ListTypemoduleComponent } from '../auth/catalogos/type_module/list-typemodule/list-typemodule.component';
+import { SeeTypemoduleComponent } from '../auth/catalogos/type_module/see-typemodule/see-typemodule.component';
+import { DeleteTypemoduleComponent } from '../auth/catalogos/type_module/delete-typemodule/delete-typemodule.component';
 
 
 
@@ -204,6 +209,36 @@ const routes: Routes = [
         path: 'delete-module/:id',
         component: DeleteModuleComponent,
         data: { titulo: 'Eliminar Módulo' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'create-typemodule',
+        component: CreateTypemoduleComponent,
+        data: { titulo: 'Crear Tipo Módulo' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'edit-typemodule/:id',
+        component: EditTypemoduleComponent,
+        data: { titulo: 'Modificiar Tipo Módulo' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'list-typemodule',
+        component:  ListTypemoduleComponent,
+        data: { titulo: 'Lista de Tipos de Módulos' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'see-typemodule/:id',
+        component: SeeTypemoduleComponent,
+        data: { titulo: 'Tipo de Módulo' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'delete-typemodule/:id',
+        component: DeleteTypemoduleComponent,
+        data: { titulo: 'Eliminar Tipo de Módulo' },
         canActivate: [AccesoGuard],
       },
 

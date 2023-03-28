@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="ListTypeModule()"
+                        value=""><i class="mdi mdi-playlist-check"></i> Lista de Tipos de Módulos</button></h4>
+
+                <form (submit)="createTypeModule()" [formGroup]="typesmodulesForm">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Módulo</label>
+                                <input type="text" id="name" class="form-control" placeholder="Módulo"
+                                    formControlName="name">
+                            </div>
+                        </div>
+                        
+                    
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Estatus</label>
+                                <select class="form-control" id="status" placeholder="Estatus" formControlName="status">
+                                    <option [value]="item.id" *ngFor="let item of Estatus">{{item.nombre}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div mat-dialog-actions class="btn-create botones">
+                        <button class="btn btn-warning" style="text-align: end;">Cancelar</button>
+
+                        <button type="submit" class="btn btn-primary" style="text-align: end;">Crear Tipo de Módulo</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

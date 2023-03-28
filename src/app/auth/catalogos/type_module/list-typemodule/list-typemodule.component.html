@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="createTypeModule()"
+                        value=""><i class="mdi mdi-plus"></i> Crear tipo de módulo</button></h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Módulo</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let type_modules of type_modules | paginate: { itemsPerPage: 50, currentPage: p }">
+                       
+                                <td>{{type_modules.name }}</td>
+                                <td class="actions">
+                                    <a [routerLink]="['/dashboard/see-typemodule', type_modules.id ]"><i class="mdi mdi-eye"></i></a>
+                                    <a [routerLink]="['/dashboard/edit-typemodule', type_modules.id ]"><i class="mdi mdi-pencil"></i></a>
+                                    <a [routerLink]="['/dashboard/delete-typemodule', type_modules.id ]"><i class="mdi mdi-delete"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <pagination-controls previousLabel="Anterior" nextLabel="Siguiente" (pageChange)="p = $event"
+                        style="text-align: center;"></pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>
