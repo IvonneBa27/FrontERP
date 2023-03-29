@@ -2,9 +2,31 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="createUser()"
-                        value=""><i class="mdi mdi-plus"></i> Crear usuario</button></h4>
-              
+               <div class="row">
+                    <div class="col-6">
+                        
+                        <form [formGroup]="usersForm">
+                         <div class="row">
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <input type="text" id="nombre_completo" class="form-control" placeholder="Nombre Completo" 
+                                   formControlName="nombre_completo">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                        <button type="submit" class="btn btn-warning" (click)="searchUser()"><i class="mdi mdi-account-search"></i> </button>
+                                </div>
+                            </div>
+                         </div>   
+                        </form>
+                    </div>
+
+                    <div class="col-6">
+                        <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="createUser()"
+                            value=""><i class="mdi mdi-plus"></i> Crear usuario</button></h4>
+                    </div>
+               </div>
                     <table class="table">
                         <thead>
                             <tr>
@@ -29,6 +51,7 @@
                             </tr>
                         </tbody>
                     </table>
+              
                     <pagination-controls previousLabel="Anterior" nextLabel="Siguiente" (pageChange)="p = $event"
                         style="text-align: center;"></pagination-controls>
             </div>
