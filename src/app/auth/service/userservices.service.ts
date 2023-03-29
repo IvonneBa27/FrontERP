@@ -169,6 +169,21 @@ return this.http.post(URL, data, { headers }).pipe(map((res) => res));
 }
 
 
+searchUsers(nombre_completo: any): Observable<any> {
+  const URL = this.baseUrl + `searchUsers/get?param=${nombre_completo}`;
+  const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+
+  const headers = new HttpHeaders()
+    .set('Accept', 'application/json')
+    .set('Authorization', token);
+
+  return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+
+}
+
+
+
+
 
 
 }

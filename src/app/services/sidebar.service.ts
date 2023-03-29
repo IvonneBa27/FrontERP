@@ -66,12 +66,12 @@ export class SidebarService {
       ],
     },
     {
-      titulo: 'ADMIISTRACIÓN',
+      titulo: 'CONFIGURACIÓN',
       icon: 'mdi mdi-gauge',
       submenu: [
         {
-          titulo: 'Configuración',
-          url: 'listado-grupos',
+          titulo: 'Usuarios',
+          url: 'create-user',
           roles: [{ name: 'Administrador' }],
         },
       ],
