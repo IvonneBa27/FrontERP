@@ -71,7 +71,7 @@ export class SidebarService {
       submenu: [
         {
           titulo: 'Usuarios',
-          url: 'create-user',
+          url: 'users-list',
           roles: [{ name: 'Administrador' }],
         },
       ],

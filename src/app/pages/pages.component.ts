@@ -9,12 +9,15 @@ declare function customInitFunctions(): void;
   styles: [],
 })
 export class PagesComponent implements OnInit {
-  
+  date: Date = new Date();
 
   constructor( private settingService: SettingsService) {}
 
   ngOnInit(): void {
    customInitFunctions();
    customInitFunctions();
+
+   //console.log("Date : " + date);
+
   }
 }

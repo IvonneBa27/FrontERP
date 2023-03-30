@@ -17,6 +17,8 @@ import { Estatus } from 'src/app/models/estatus.model';
 import { Departamento } from 'src/app/models/departamento.model';
 import { Turno } from 'src/app/models/turno.model';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { GeneralUtilities } from 'src/app/utilities/general.utilities';
 
 
 @Component({
@@ -47,6 +49,7 @@ export class CreateUserComponent {
     private formBuilder: FormBuilder,
     private router: Router,
     private _servicesgeneral: GeneralService,
+    private _serviceauth:  AuthService,
 
   ) {
     this._servicesgeneral.getTipoUsuario().subscribe(respuesta => {
@@ -235,10 +238,10 @@ export class CreateUserComponent {
       console.log(res);
       if (res.status == 'success') {
         swal.fire('Do It Right', res.message, 'success');
-
+        
+        GeneralUtilities.crearLog('Crear Usuario','CREATE');
         this.ListUser();
-      
-
+    
       }
 
       else
