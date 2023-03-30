@@ -18,11 +18,12 @@ import { CampaniaListComponent } from '../pages/campanias/campania-list/campania
 import { SeeUserComponent } from './users/see-user/see-user.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DeleteUserComponent } from './users/delete-user/delete-user.component';
+import { AddPermissionsUserComponent } from './users/add-permissions-user/add-permissions-user.component';
 
 
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, ChangePasswordComponent, UserListComponent, EditUserComponent, ListRolesComponent, CreateRolesComponent, EditRolesComponent, ListPermissComponent, CreatePermissComponent, EditPermissComponent, SeeUserComponent, DeleteUserComponent],
+  declarations: [LoginComponent, RegisterComponent, ChangePasswordComponent, UserListComponent, EditUserComponent, ListRolesComponent, CreateRolesComponent, EditRolesComponent, ListPermissComponent, CreatePermissComponent, EditPermissComponent, SeeUserComponent, DeleteUserComponent, AddPermissionsUserComponent],
   exports: [LoginComponent, RegisterComponent],
   imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule, NgxPaginationModule],
 })

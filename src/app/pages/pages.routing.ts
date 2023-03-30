@@ -24,6 +24,7 @@ import { CreatePermissComponent } from '../auth/security/permiss/create-permiss/
 import { EditPermissComponent } from '../auth/security/permiss/edit-permiss/edit-permiss.component';
 import { SeeUserComponent } from '../auth/users/see-user/see-user.component';
 import { DeleteUserComponent } from '../auth/users/delete-user/delete-user.component';
+import { AddPermissionsUserComponent } from '../auth/users/add-permissions-user/add-permissions-user.component';
 
 
 
@@ -122,7 +123,6 @@ const routes: Routes = [
         component: CreateRolesComponent,
         data: { titulo: 'Crear Roles' },
         canActivate: [AccesoGuard],
-
       },
       {
         path: 'edit-roles',
@@ -135,7 +135,6 @@ const routes: Routes = [
         component: ListPermissComponent,
         data: { titulo: 'Lista de Permisos' },
         canActivate: [AccesoGuard],
-
       },
       {
         path: 'create-permiss',
@@ -166,9 +165,13 @@ const routes: Routes = [
         component: DeleteUserComponent,
         data: { titulo: 'Eliminar Usuario' },
         canActivate: [AccesoGuard],
-
       },
-
+      {
+        path: 'add-permissions-user/:id',
+        component: AddPermissionsUserComponent,
+        data: { titulo: 'Agregar permisos Usuario' },
+        canActivate: [AccesoGuard],
+      },
 
       //   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
     ],
