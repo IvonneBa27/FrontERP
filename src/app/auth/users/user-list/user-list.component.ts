@@ -32,10 +32,11 @@ export class UserListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._servicesuser.getUser().subscribe((res) => {
+    //this._servicesuser.getUser().subscribe((res) => {
+    this._servicesuser.getUserOrderBy().subscribe((res) => {
       this.users = res.data;
       
-     /* console.log(this.users);*/
+     console.log(this.users);
     });
   }
 
@@ -49,7 +50,7 @@ export class UserListComponent implements OnInit {
   
     this._servicesuser.searchUsers(nombre_completo).subscribe((res) => {
       this.users = res.data;
-      console.log(this.users);
+      /*console.log(this.users);*/
   
       });
   

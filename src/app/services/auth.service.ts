@@ -10,11 +10,11 @@ import { StorageService } from './storage.service';
 })
 export class AuthService {
   baseUrl: string = environment.api;
-  constructor(private http: HttpClient, private _srvStorage: StorageService) {}
+  constructor(private http: HttpClient, private _srvStorage: StorageService) { }
 
   login(usuario: string, password: string): Observable<any> {
     const URL = this.baseUrl + 'login';
-    console.log (URL);
+    console.log(URL);
     // const token = 'Bearer ' + this.storageSrv.get('token');
 
     const headers = new HttpHeaders().set('Accept', 'application/json');
@@ -50,4 +50,20 @@ export class AuthService {
 
     return this.http.post(URL, body, { headers }).pipe(map((res) => res));
   }
+
+
+  createLog(message: string, event: string,): Observable<any> {
+    const URL = this.baseUrl + 'logs/create';
+
+    const body = {
+      message: message,
+      event: event,
+      id_user: 1,
+      system: 'ERP',
+    };
+
+    const headers = new HttpHeaders().set('Accept', 'application/json');
+    return this.http.post(URL, body, { headers }).pipe(map((res) => res));
+  }
+
 }

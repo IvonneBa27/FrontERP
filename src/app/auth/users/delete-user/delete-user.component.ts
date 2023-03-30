@@ -8,6 +8,8 @@ import { ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
 import { GeneralService } from 'src/app/services/general.service';
 import { Departamento } from 'src/app/models/departamento.model';
+import { AuthService } from 'src/app/services/auth.service';
+import { GeneralUtilities } from 'src/app/utilities/general.utilities';
 
 @Component({
   selector: 'app-delete-user',
@@ -27,6 +29,7 @@ export class DeleteUserComponent {
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
     private _servicesgeneral: GeneralService,
+    private _serviceauth: AuthService,
 
   ) {
 
@@ -130,6 +133,8 @@ export class DeleteUserComponent {
       console.log(res);
       if (res.status == 'success') {
         swal.fire('Do It Right', res.message, 'success');
+
+        GeneralUtilities.crearLog('Eliminar Usuario','DELETE');
         this.ListUser();
 
 
