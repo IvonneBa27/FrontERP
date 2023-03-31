@@ -239,7 +239,7 @@ export class CreateUserComponent {
       if (res.status == 'success') {
         swal.fire('Do It Right', res.message, 'success');
         
-        GeneralUtilities.crearLog('Crear Usuario','CREATE');
+        this._serviceauth.createLog('Crear Usuario', 'CREATE').subscribe(() =>{});
         this.ListUser();
     
       }

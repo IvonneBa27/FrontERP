@@ -134,7 +134,7 @@ export class DeleteUserComponent {
       if (res.status == 'success') {
         swal.fire('Do It Right', res.message, 'success');
 
-        GeneralUtilities.crearLog('Eliminar Usuario','DELETE');
+        this._serviceauth.createLog('Eliminar Usuario','DELETE').subscribe(() =>{});
         this.ListUser();
 
 

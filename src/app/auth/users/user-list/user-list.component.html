@@ -10,12 +10,12 @@
                             <div class="col-md-10">
                                 <div class="form-group">
                                     <input type="text" id="nombre_completo" class="form-control" placeholder="Nombre Completo" 
-                                   formControlName="nombre_completo">
+                                   formControlName="nombre_completo" >
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
-                                        <button type="submit" class="btn btn-primary" (click)="searchUser()"><i class="mdi mdi-account-search"></i> </button>
+                                        <button type="submit" class="btn btn-primary" (click)="searchUser()" ><i class="mdi mdi-account-search"></i> </button>
                                 </div>
                             </div>
                          </div>   
@@ -23,7 +23,7 @@
                     </div>
 
                     <div class="col-6">
-                        <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="createUser()"
+                        <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="createUser()" [disabled]="!permisse.create "
                             value=""><i class="mdi mdi-plus"></i> Crear usuario</button></h4>
                     </div>
                </div>
@@ -44,9 +44,9 @@
                                 <td>{{users.curp }}</td>
                                 <td>0</td>
                                 <td class="actions">
-                                    <a [routerLink]="['/dashboard/see-user', users.id ]"><i class="mdi mdi-eye"></i></a>
-                                    <a [routerLink]="['/dashboard/edit-user', users.id ]"><i class="mdi mdi-pencil"></i></a>
-                                    <a [routerLink]="['/dashboard/delete-user', users.id ]"><i class="mdi mdi-delete"></i></a>
+                                    <a [routerLink]="['/dashboard/see-user', users.id ]"  *ngIf="permisse.read "><i class="mdi mdi-eye"></i></a>
+                                    <a [routerLink]="['/dashboard/edit-user', users.id ]"  *ngIf="permisse.edit "><i class="mdi mdi-pencil"></i></a>
+                                    <a [routerLink]="['/dashboard/delete-user', users.id ]"  *ngIf="permisse.delete "><i class="mdi mdi-delete"></i></a>
                                 </td>
                             </tr>
                         </tbody>
