@@ -73,11 +73,53 @@ export class AuthService {
       .set('Accept', 'application/json')
       .set('Authorization', token);
 
+    const params = new HttpParams()
+      .set('id', user_id)
+      .set('id_module', id_module);
 
-       const params = new HttpParams()
-         .set('id', user_id)
-         .set('id_module', id_module);
+    return this.http
+      .get(URL, { headers: headers, params: params })
+      .pipe(map((res) => res));
+  }
 
+  getModuleUserById(id_module: number): Observable<any> {
+    const URL = this.baseUrl + 'usuario/getModuleUserById';
+    const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Authorization', token);
+
+    const params = new HttpParams().set('id', id_module);
+
+    return this.http
+      .get(URL, { headers: headers, params: params })
+      .pipe(map((res) => res));
+  }
+
+  addPermisse(
+    body: {
+      id_usuario: number;
+      id_modulo: any;
+      create: any;
+      edit: any;
+      delete: any;
+      read: any;
+    }[]
+  ): Observable<any> {
+    const URL = this.baseUrl + 'usuario/addPermisse';
+
+    const headers = new HttpHeaders().set('Accept', 'application/json');
+    return this.http.post(URL, body, { headers }).pipe(map((res) => res));
+  }
+
+  getUserById(id: string | number | boolean): Observable<any> {
+    const URL = this.baseUrl + 'usuario/id';
+    const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Authorization', token);
+
+    const params = new HttpParams().set('id', id);
 
     return this.http
       .get(URL, { headers: headers, params: params })

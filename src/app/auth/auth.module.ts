@@ -28,11 +28,12 @@ import { DeleteTypemoduleComponent } from './catalogos/type_module/delete-typemo
 import { EditTypemoduleComponent } from './catalogos/type_module/edit-typemodule/edit-typemodule.component';
 import { SeeTypemoduleComponent } from './catalogos/type_module/see-typemodule/see-typemodule.component';
 import { ListTypemoduleComponent } from './catalogos/type_module/list-typemodule/list-typemodule.component';
+import { AddPermisseUserComponent } from './users/add-permisse-user/add-permisse-user.component';
 
 
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, ChangePasswordComponent, UserListComponent, EditUserComponent, ListRolesComponent, CreateRolesComponent, EditRolesComponent, ListPermissComponent, CreatePermissComponent, EditPermissComponent, SeeUserComponent, DeleteUserComponent, CreateModuleComponent, EditModuleComponent, ListModuleComponent, DeleteModuleComponent, SeeModuleComponent, CreateTypemoduleComponent, DeleteTypemoduleComponent, EditTypemoduleComponent, SeeTypemoduleComponent, ListTypemoduleComponent],
+  declarations: [LoginComponent, RegisterComponent, ChangePasswordComponent, UserListComponent, EditUserComponent, ListRolesComponent, CreateRolesComponent, EditRolesComponent, ListPermissComponent, CreatePermissComponent, EditPermissComponent, SeeUserComponent, DeleteUserComponent, CreateModuleComponent, EditModuleComponent, ListModuleComponent, DeleteModuleComponent, SeeModuleComponent, CreateTypemoduleComponent, DeleteTypemoduleComponent, EditTypemoduleComponent, SeeTypemoduleComponent, ListTypemoduleComponent, AddPermisseUserComponent],
   exports: [LoginComponent, RegisterComponent],
   imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule, NgxPaginationModule],
 })

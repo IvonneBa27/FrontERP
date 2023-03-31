@@ -34,6 +34,7 @@ import { EditTypemoduleComponent } from '../auth/catalogos/type_module/edit-type
 import { ListTypemoduleComponent } from '../auth/catalogos/type_module/list-typemodule/list-typemodule.component';
 import { SeeTypemoduleComponent } from '../auth/catalogos/type_module/see-typemodule/see-typemodule.component';
 import { DeleteTypemoduleComponent } from '../auth/catalogos/type_module/delete-typemodule/delete-typemodule.component';
+import { AddPermisseUserComponent } from '../auth/users/add-permisse-user/add-permisse-user.component';
 
 
 
@@ -132,7 +133,6 @@ const routes: Routes = [
         component: CreateRolesComponent,
         data: { titulo: 'Crear Roles' },
         canActivate: [AccesoGuard],
-
       },
       {
         path: 'edit-roles',
@@ -145,7 +145,6 @@ const routes: Routes = [
         component: ListPermissComponent,
         data: { titulo: 'Lista de Permisos' },
         canActivate: [AccesoGuard],
-
       },
       {
         path: 'create-permiss',
@@ -176,7 +175,6 @@ const routes: Routes = [
         component: DeleteUserComponent,
         data: { titulo: 'Eliminar Usuario' },
         canActivate: [AccesoGuard],
-
       },
 
       {
@@ -184,14 +182,12 @@ const routes: Routes = [
         component: CreateModuleComponent,
         data: { titulo: 'Crear Módulo' },
         canActivate: [AccesoGuard],
-
       },
       {
         path: 'edit-module/:id',
         component: EditModuleComponent,
         data: { titulo: 'Editar Módulo' },
         canActivate: [AccesoGuard],
-
       },
       {
         path: 'list-module',
@@ -225,7 +221,7 @@ const routes: Routes = [
       },
       {
         path: 'list-typemodule',
-        component:  ListTypemoduleComponent,
+        component: ListTypemoduleComponent,
         data: { titulo: 'Lista de Tipos de Módulos' },
         canActivate: [AccesoGuard],
       },
@@ -241,7 +237,12 @@ const routes: Routes = [
         data: { titulo: 'Eliminar Tipo de Módulo' },
         canActivate: [AccesoGuard],
       },
-
+      {
+        path: 'add-permisse/:id',
+        component: AddPermisseUserComponent,
+        data: { titulo: 'Asignar permisos usuario' },
+        canActivate: [AccesoGuard],
+      },
 
       //   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
     ],

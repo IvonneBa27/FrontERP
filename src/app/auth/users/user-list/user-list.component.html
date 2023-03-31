@@ -47,6 +47,7 @@
                                     <a [routerLink]="['/dashboard/see-user', users.id ]"  *ngIf="permisse.read "><i class="mdi mdi-eye"></i></a>
                                     <a [routerLink]="['/dashboard/edit-user', users.id ]"  *ngIf="permisse.edit "><i class="mdi mdi-pencil"></i></a>
                                     <a [routerLink]="['/dashboard/delete-user', users.id ]"  *ngIf="permisse.delete "><i class="mdi mdi-delete"></i></a>
+                                    <a [routerLink]="['/dashboard/add-permisse', users.id ]" ><i class="mdi mdi-account-card-details"></i></a>
                                 </td>
                             </tr>
                         </tbody>

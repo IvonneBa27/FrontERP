@@ -1,0 +1,71 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-8">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nombre: {{ user.nombre_completo}}</th>
+                                    <th>Numero Empleado: {{ user.numero_empleado }}</th>
+                                    <th>Puesto: {{ user.puesto?.nombre }}</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="col-4">
+                        <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" value="" (click)="ListTypeModule()"><i class="mdi mdi-arrow-left-bold"></i> Regresar</button></h4>
+                    </div>
+                    <div class="col-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Modulo</th>
+                                    <th>CREAR</th>
+                                    <th>EDITAR</th>
+                                    <th>LEER</th>
+                                    <th>ELIMINAR</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let module of modulesLocal; let i = index;">
+                                    <td>{{ module.name  }}</td>
+                                    <td>
+                                        <div class="checkbox checkbox-primary p-t-0">
+                                            <input id="checkbox-create-{{i}}" type="checkbox" [(ngModel)]="_srvModules.menu[i].create" [checked]="module.create">
+                                            <label for="checkbox-create-{{i}}"></label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                         <div class="checkbox checkbox-primary p-t-0">
+                                            <input id="checkbox-edit-{{i}}" type="checkbox" [(ngModel)]="_srvModules.menu[i].edit" [checked]="module.edit">
+                                            <label for="checkbox-edit-{{i}}"></label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                         <div class="checkbox checkbox-primary p-t-0">
+                                            <input id="checkbox-read-{{i}}" type="checkbox" [(ngModel)]="_srvModules.menu[i].read" [checked]="module.read">
+                                            <label for="checkbox-read-{{i}}"></label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                         <div class="checkbox checkbox-primary p-t-0">
+                                            <input id="checkbox-delete-{{i}}" type="checkbox" [(ngModel)]="_srvModules.menu[i].delete" [checked]="module.delete">
+                                            <label for="checkbox-delete-{{i}}"></label>
+                                        </div>
+                                    </td>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-12" style="text-align: end;" >
+                        <button class="btn btn-primary" value="" (click)="savePermisse()"><i class="mdi mdi-content-save"></i>Guardar permisos </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

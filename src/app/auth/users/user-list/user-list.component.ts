@@ -35,7 +35,8 @@ export class UserListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._srvAuth.getModules(1).subscribe( res => {
+
+    this._srvAuth.getModules(10).subscribe( res => {
       if( res.data.length > 0){
         const data = res.data[0];
         console.log(data.create);
