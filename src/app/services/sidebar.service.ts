@@ -22,6 +22,11 @@ export class SidebarService {
       icon: 'mdi mdi-image-filter',
       submenu: [
         {
+          titulo: 'Empleados',
+          url: 'listado-grupos',
+          roles: [{ name: 'Administrador' }],
+        },
+        {
           titulo: 'Clientes',
           url: 'listado-grupos',
           roles: [{ name: 'Administrador' }],
@@ -36,6 +41,11 @@ export class SidebarService {
           url: 'listado-grupos',
           roles: [{ name: 'Administrador' }],
         },
+        {
+          titulo: 'Tipo de cambio',
+          url: 'listado-grupos',
+          roles: [{ name: 'Administrador' }],
+        },
       ],
     },
     {
@@ -43,15 +53,26 @@ export class SidebarService {
       icon: 'mdi mdi-view-module',
       submenu: [
         {
-          titulo: 'Almacen',
-          url: 'listado-grupos',
-          roles: [{ name: 'Administrador' }],
-        },
-        {
           titulo: 'Inventario',
           url: 'listado-grupos',
           roles: [{ name: 'Administrador' }],
         },
+        {
+          titulo: 'Almacén',
+          url: 'listado-grupos',
+          roles: [{ name: 'Administrador' }],
+        },
+        {
+          titulo: 'Requisiciones',
+          url: 'listado-grupos',
+          roles: [{ name: 'Administrador' }],
+        },
+        {
+          titulo: 'Ordenes de compras',
+          url: 'listado-grupos',
+          roles: [{ name: 'Administrador' }],
+        },
+
       ],
     },
     {
