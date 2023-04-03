@@ -3,11 +3,11 @@
         <div class="card">
             <div class="card-body">
                <div class="row">
-                    <div class="col-6">
+                    <div class="col-8">
                         
                         <form [formGroup]="usersForm">
                          <div class="row">
-                            <div class="col-md-10">
+                            <div class="col-md-8">
                                 <div class="form-group">
                                     <input type="text" id="nombre_completo" class="form-control" placeholder="Nombre Completo" 
                                    formControlName="nombre_completo" >
@@ -18,11 +18,20 @@
                                         <button type="submit" class="btn btn-primary" (click)="searchUser()" ><i class="mdi mdi-account-search"></i> </button>
                                 </div>
                             </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                   
+                                    <select class="form-control" id="id_estatus" placeholder="Estatus"
+                                    formControlName="id_estatus" (click)="searchEstatus()"  >
+                                    <option [value]="item.id" *ngFor="let item of Estatus">{{item.nombre}}</option>
+                                </select>
+                                </div>
+                            </div>
                          </div>   
                         </form>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-4">
                         <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="createUser()" [disabled]="!permisse.create "
                             value=""><i class="mdi mdi-plus"></i> Crear usuario</button></h4>
                     </div>

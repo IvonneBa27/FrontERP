@@ -6,6 +6,8 @@ import { UserservicesService } from '../../service/userservices.service';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { Module } from 'src/app/models/module.model';
+import { Estatus } from 'src/app/models/estatus.model';
+import { GeneralService } from 'src/app/services/general.service';
 
 
 @Component({
@@ -18,18 +20,24 @@ export class UserListComponent implements OnInit {
   p: number = 1;
   usersForm: FormGroup;
   permisse: Module = new Module();
+  Estatus: Estatus[] = [];
 
   constructor(
     private router: Router,
     private _servicesuser: UserservicesService,
+    private _servicesgeneral: GeneralService,
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
     private _srvAuth: AuthService
   ){
 
-
+    this._servicesgeneral.getEstatus().subscribe(respuesta =>{
+      this.Estatus = respuesta.data;
+     
+    });
     this.usersForm = this.formBuilder.group({
       nombre_completo: new FormControl(''),
+      id_estatus: new FormControl(''),
     });
  
   }
@@ -68,6 +76,18 @@ export class UserListComponent implements OnInit {
     const nombre_completo = this.usersForm.value['nombre_completo'];
   
     this._servicesuser.searchUsers(nombre_completo).subscribe((res) => {
+      this.users = res.data;
+      /*console.log(this.users);*/
+  
+      });
+  
+
+  }
+
+  searchEstatus(){
+    const id_estatus = this.usersForm.value['id_estatus'];
+  
+    this._servicesuser.searchEstatus(id_estatus).subscribe((res) => {
       this.users = res.data;
       /*console.log(this.users);*/
   
