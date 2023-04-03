@@ -3,11 +3,11 @@
         <div class="card">
             <div class="card-body">
                <div class="row">
-                    <div class="col-8">
+                    <div class="col-10">
                         
                         <form [formGroup]="usersForm">
                          <div class="row">
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <input type="text" id="nombre_completo" class="form-control" placeholder="Nombre Completo" 
                                    formControlName="nombre_completo" >
@@ -20,9 +20,15 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
+                                    <label class="control-label"> Filtro por Estatus</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
                                    
                                     <select class="form-control" id="id_estatus" placeholder="Estatus"
-                                    formControlName="id_estatus" (click)="searchEstatus()"  >
+                                    formControlName="id_estatus" (change)="searchEstatus()"  >
+                                    <option value="0">MOSTRAR TODOS</option>
                                     <option [value]="item.id" *ngFor="let item of Estatus">{{item.nombre}}</option>
                                 </select>
                                 </div>
@@ -31,7 +37,7 @@
                         </form>
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-2">
                         <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="createUser()" [disabled]="!permisse.create "
                             value=""><i class="mdi mdi-plus"></i> Crear usuario</button></h4>
                     </div>

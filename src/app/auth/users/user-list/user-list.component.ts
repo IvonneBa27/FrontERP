@@ -17,6 +17,7 @@ import { GeneralService } from 'src/app/services/general.service';
 })
 export class UserListComponent implements OnInit {
   users: Users[]=[];
+  usersRespaldo: Users[]=[];
   p: number = 1;
   usersForm: FormGroup;
   permisse: Module = new Module();
@@ -62,8 +63,9 @@ export class UserListComponent implements OnInit {
     //this._servicesuser.getUser().subscribe((res) => {
     this._servicesuser.getUserOrderBy().subscribe((res) => {
       this.users = res.data;
+      this.usersRespaldo = res.data;
       
-     console.log(this.users);
+    // console.log(this.users);
     });
   }
 
@@ -76,6 +78,7 @@ export class UserListComponent implements OnInit {
     const nombre_completo = this.usersForm.value['nombre_completo'];
   
     this._servicesuser.searchUsers(nombre_completo).subscribe((res) => {
+      this.users = [];
       this.users = res.data;
       /*console.log(this.users);*/
   
@@ -86,12 +89,18 @@ export class UserListComponent implements OnInit {
 
   searchEstatus(){
     const id_estatus = this.usersForm.value['id_estatus'];
-  
-    this._servicesuser.searchEstatus(id_estatus).subscribe((res) => {
-      this.users = res.data;
+    if (id_estatus == 0){
+      this.users = this.usersRespaldo;
+    }else{
+      this._servicesuser.searchEstatus(id_estatus).subscribe((res) => {
+        this.users = [];
+        this.users = res.data;
+    
+    
       /*console.log(this.users);*/
   
       });
+    }
   
 
   }
