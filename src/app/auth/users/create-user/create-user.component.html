@@ -3,31 +3,47 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="ListUser()"
-                    value=""><i class="mdi mdi-playlist-check"></i> Listado Usuarios</button></h4>
-    
-                <form (submit)="createUser()" [formGroup]="usersForm">
-  
+                        value=""><i class="mdi mdi-playlist-check"></i> Listado Usuarios</button></h4>
+
+                <form [formGroup]="usersForm" id="usersForm" (submit)="createUser()">
+
                     <div class="row">
-                    
+
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Apellido Paterno</label>
-                                <input type="text" id="apellido_pat" class="form-control" placeholder="Apellido Paterno"
-                                    formControlName="apellido_pat">
+                                <input type="text" id="apellido_pat" required="" class="form-control"
+                                    placeholder="Apellido Paterno" formControlName="apellido_pat"
+                                    [ngClass]="{ 'is-invalid':apellido_pat?.invalid && apellido_pat?.touched }">
+                                <div *ngIf="apellido_pat?.errors" class="invalid-feedback">
+                                    <div *ngIf="apellido_pat?.errors?.['required'] && apellido_pat?.touched">El apellido
+                                        paterno es requerido.</div>
+                                </div>
+
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Apellido Materno</label>
                                 <input type="text" id="apellido_mat" class="form-control" placeholder="Apellido Materno"
-                                    formControlName="apellido_mat">
+                                    formControlName="apellido_mat"
+                                    [ngClass]="{ 'is-invalid':apellido_mat?.invalid && apellido_mat?.touched }">
+                                <div *ngIf="apellido_mat?.errors" class="invalid-feedback">
+                                    <div *ngIf="apellido_mat?.errors?.['required'] && apellido_mat?.touched">El apellido
+                                        materno es requerido.</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label class="control-label">Nombre</label> 
+                                <label class="control-label">Nombre</label>
                                 <input type="text" id="nombre" class="form-control" placeholder="Nombre"
-                                    formControlName="nombre" >
+                                    formControlName="nombre"
+                                    [ngClass]="{ 'is-invalid':nombre?.invalid && nombre?.touched }">
+                                <div *ngIf="nombre?.errors" class="invalid-feedback">
+                                    <div *ngIf="nombre?.errors?.['required'] && nombre?.touched">El nombre es requerido.
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <!--
@@ -43,183 +59,289 @@
                             <div class="form-group">
                                 <label class="control-label">No. Empleado</label>
                                 <input type="text" id="numero_empleado" class="form-control"
-                                    placeholder="Numero empleado" formControlName="numero_empleado">
+                                    placeholder="Numero empleado" formControlName="numero_empleado"
+                                    [ngClass]="{ 'is-invalid':numero_empleado?.invalid && numero_empleado?.touched }">
+                                <div *ngIf="numero_empleado?.errors" class="invalid-feedback">
+                                    <div *ngIf="numero_empleado?.errors?.['required'] && nombre?.touched">El No.
+                                        empleado es requerido.</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Tipo Usuario</label>
                                 <select class="form-control" id="id_tipo_usuario" placeholder="Tipo-Usuario"
-                                    formControlName="id_tipo_usuario">
+                                    formControlName="id_tipo_usuario"
+                                    [ngClass]="{ 'is-invalid':id_tipo_usuario?.invalid && id_tipo_usuario?.touched }">
                                     <option [value]="item.id" *ngFor="let item of TipoUsuario">{{item.nombre}}</option>
                                 </select>
+                                <div *ngIf="id_tipo_usuario?.errors" class="invalid-feedback">
+                                    <div *ngIf="id_tipo_usuario?.errors?.['required'] && id_tipo_usuario?.touched">
+                                        Seleccionar el tipo de usuario, es requerido.</div>
+                                </div>
+
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Usuario</label>
                                 <input type="text" id="usuario" class="form-control" placeholder="Usuario"
-                                    formControlName="usuario">
+                                    formControlName="usuario"
+                                    [ngClass]="{ 'is-invalid':usuario?.invalid && usuario?.touched }">
+                                <div *ngIf="usuario?.errors" class="invalid-feedback">
+                                    <div *ngIf="usuario?.errors?.['required'] && usuario?.touched">
+                                        El usuario es requerido.</div>
+                                </div>
                             </div>
-                        </div>                    
+                        </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Email Personal</label>
                                 <input type="text" id="email_personal" class="form-control" placeholder="Email"
-                                    formControlName="email_personal">
+                                    formControlName="email_personal"
+                                    [ngClass]="{ 'is-invalid':email_personal?.invalid && email_personal?.touched }">
+                                <div *ngIf="email_personal?.errors" class="invalid-feedback">
+                                    <div *ngIf="email_personal?.errors?.['required'] && email_personal?.touched">
+                                        El email personal es requerido.</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Email</label>
                                 <input type="text" id="email" class="form-control" placeholder="Email"
-                                    formControlName="email">
+                                    formControlName="email"
+                                    [ngClass]="{ 'is-invalid':email?.invalid && email?.touched }">
+                                <div *ngIf="email?.errors" class="invalid-feedback">
+                                    <div *ngIf="email?.errors?.['required'] && email?.touched">
+                                        El email es requerido.</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">CURP</label>
                                 <input type="text" id="curp" class="form-control" placeholder="Curp"
-                                    formControlName="curp">
+                                    formControlName="curp" [ngClass]="{ 'is-invalid':curp?.invalid && curp?.touched }">
+                                <div *ngIf="curp?.errors" class="invalid-feedback">
+                                    <div *ngIf="curp?.errors?.['required'] && curp?.touched">
+                                        El CURP es requerido.</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">RFC</label>
-                                <input type="text" id="rfc" class="form-control" placeholder="RFC"
-                                    formControlName="rfc">
+                                <input type="text" id="rfc" class="form-control" placeholder="RFC" formControlName="rfc"
+                                    [ngClass]="{ 'is-invalid':rfc?.invalid && rfc?.touched }">
+                                <div *ngIf="rfc?.errors" class="invalid-feedback">
+                                    <div *ngIf="rfc?.errors?.['required'] && rfc?.touched">
+                                        El RFC es requerido.</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Número de Seguro Social</label>
                                 <input type="text" id="nss" class="form-control" placeholder="Número de Seguro Social"
-                                    formControlName="nss">
+                                    formControlName="nss" [ngClass]="{ 'is-invalid':nss?.invalid && nss?.touched }">
+                                <div *ngIf="nss?.errors" class="invalid-feedback">
+                                    <div *ngIf="nss?.errors?.['required'] && nss?.touched">
+                                        El NSS es requerido.</div>
+                                </div>
                             </div>
-                        </div>                  
+                        </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Sexo</label>
-                                <select class="form-control" id="id_sexo" placeholder="Sexo" formControlName="id_sexo">
+                                <select class="form-control" id="id_sexo" placeholder="Sexo" formControlName="id_sexo"
+                                    [ngClass]="{ 'is-invalid':id_sexo?.invalid && id_sexo?.touched }">
                                     <option [value]="item.id" *ngFor="let item of Sexo">{{item.nombre}}</option>
                                 </select>
+                                <div *ngIf="id_sexo?.errors" class="invalid-feedback">
+                                    <div *ngIf="id_sexo?.errors?.['required'] && id_sexo?.touched">
+                                        Seleccionar el tipo de sexo, es requerido.</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Fecha Nacimiento</label>
                                 <input type="date" id="fecha_nacimiento" class="form-control" placeholder="yy/mm/dd"
-                                    formControlName="fecha_nacimiento">
+                                    formControlName="fecha_nacimiento" [ngClass]="{ 'is-invalid':fecha_nacimiento?.invalid && fecha_nacimiento?.touched }">
+                                    <div *ngIf="fecha_nacimiento?.errors" class="invalid-feedback">
+                                        <div *ngIf="fecha_nacimiento?.errors?.['required'] && fecha_nacimiento?.touched">
+                                           La fecha de nacimiento es requerido.</div>
+                                    </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Estatus</label>
                                 <select class="form-control" id="id_estatus" placeholder="Estatus"
-                                    formControlName="id_estatus">
+                                    formControlName="id_estatus" [ngClass]="{ 'is-invalid':id_estatus?.invalid && id_estatus?.touched }">
                                     <option [value]="item.id" *ngFor="let item of Estatus">{{item.nombre}}</option>
                                 </select>
+                                <div *ngIf="id_estatus?.errors" class="invalid-feedback">
+                                    <div *ngIf="id_estatus?.errors?.['required'] && id_estatus?.touched">
+                                       Seleccionar el tipo de estatus, es requerido.</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Ubicación</label>
                                 <select class="form-control" id="id_ubicacion" placeholder="Ubicacion"
-                                    formControlName="id_ubicacion">
+                                    formControlName="id_ubicacion" [ngClass]="{ 'is-invalid':id_ubicacion?.invalid && id_ubicacion?.touched }">
                                     <option [value]="item.id" *ngFor="let item of Ubicacion">{{item.nombre}}</option>
                                 </select>
+                                <div *ngIf="id_ubicacion?.errors" class="invalid-feedback">
+                                    <div *ngIf="id_ubicacion?.errors?.['required'] && id_ubicacion?.touched">
+                                       Seleccionar el tipo de ubicación, es requerido.</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Empresa</label>
                                 <select class="form-control" id="id_empresa_rh" placeholder="Empresa"
-                                    formControlName="id_empresa_rh">
+                                    formControlName="id_empresa_rh" [ngClass]="{ 'is-invalid':id_empresa_rh?.invalid && id_empresa_rh?.touched }">
                                     <option [value]="item.id" *ngFor="let item of Empresa">{{item.nombre}}</option>
                                 </select>
+                                <div *ngIf="id_empresa_rh?.errors" class="invalid-feedback">
+                                    <div *ngIf="id_empresa_rh?.errors?.['required'] && id_empresa_rh?.touched">
+                                       Seleccionar el tipo de empresa, es requerido.</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Categoria</label>
                                 <select class="form-control" id="id_subcategoria" placeholder="SubCategoria"
-                                    formControlName="id_subcategoria">
+                                    formControlName="id_subcategoria" [ngClass]="{ 'is-invalid':id_subcategoria?.invalid && id_subcategoria?.touched }">
                                     <option [value]="item.id" *ngFor="let item of SubCategoria">{{item.nombre}}</option>
                                 </select>
+                                <div *ngIf="id_subcategoria?.errors" class="invalid-feedback">
+                                    <div *ngIf="id_subcategoria?.errors?.['required'] && id_subcategoria?.touched">
+                                       Seleccionar el tipo de categoria, es requerido.</div>
+                                </div>
                             </div>
                         </div>
-              
+
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Ejecución Administrativa</label>
                                 <select class="form-control" id="ejecucion_administrativa"
-                                    placeholder="Ejecución Administrativa" formControlName="ejecucion_administrativa">
-                                    <option [value]="item.id" *ngFor="let item of EjecucionAdministrativa">{{item.nombre}}</option>
+                                    placeholder="Ejecución Administrativa" formControlName="ejecucion_administrativa" 
+                                    [ngClass]="{ 'is-invalid':ejecucion_administrativa?.invalid && ejecucion_administrativa?.touched }">
+                                    <option [value]="item.id" *ngFor="let item of EjecucionAdministrativa">
+                                        {{item.nombre}}</option>
                                 </select>
+                                <div *ngIf="ejecucion_administrativa?.errors" class="invalid-feedback">
+                                    <div *ngIf="ejecucion_administrativa?.errors?.['required'] && id_subcategoria?.touched">
+                                       Seleccionar el tipo de administración, es requerido.</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Departamento Empresa</label>
                                 <select class="form-control" id="id_departamento_empresa"
-                                    placeholder="Departamento Empresa" formControlName="id_departamento_empresa">
+                                    placeholder="Departamento Empresa" formControlName="id_departamento_empresa"
+                                    [ngClass]="{ 'is-invalid':id_departamento_empresa?.invalid && id_departamento_empresa?.touched }">
                                     <option [value]="item.id" *ngFor="let item of Departamento">{{item.nombre}}</option>
                                 </select>
+                                <div *ngIf="id_departamento_empresa?.errors" class="invalid-feedback">
+                                    <div *ngIf="id_departamento_empresa?.errors?.['required'] && id_departamento_empresa?.touched">
+                                       Seleccionar el tipo de departamento, es requerido.</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Puesto</label>
                                 <select class="form-control" id="id_puesto" placeholder="Puesto"
-                                    formControlName="id_puesto">
+                                    formControlName="id_puesto"
+                                    [ngClass]="{ 'is-invalid':id_puesto?.invalid && id_puesto?.touched }">
                                     <option [value]="item.id" *ngFor="let item of Puesto">{{item.nombre}}</option>
                                 </select>
+                                <div *ngIf="id_puesto?.errors" class="invalid-feedback">
+                                    <div *ngIf="id_puesto?.errors?.['required'] && id_puesto?.touched">
+                                       Seleccionar el tipo de puesto, es requerido.</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Sueldo</label>
                                 <input type="text" id="sueldo" class="form-control" placeholder="Sueldo"
-                                    formControlName="sueldo">
+                                    formControlName="sueldo"  [ngClass]="{ 'is-invalid':sueldo?.invalid && sueldo?.touched }">
+                                    <div *ngIf="sueldo?.errors" class="invalid-feedback">
+                                        <div *ngIf="sueldo?.errors?.['required'] && sueldo?.touched">
+                                          El sueldo es requerido.</div>
+                                    </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Turno</label>
                                 <select class="form-control" id="id_turno" placeholder="Turno"
-                                    formControlName="id_turno">
-                                  <option [value]="item.id" *ngFor="let item of Turno">{{item.nombre}}</option>
+                                    formControlName="id_turno" [ngClass]="{ 'is-invalid':id_turno?.invalid && id_turno?.touched }">
+                                    <option [value]="item.id" *ngFor="let item of Turno">{{item.nombre}}</option>
                                 </select>
+                                <div *ngIf="id_turno?.errors" class="invalid-feedback">
+                                    <div *ngIf="id_turno?.errors?.['required'] && id_turno?.touched">
+                                      Seleccionar el tipo de turno, es requerido.</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Banco</label>
                                 <select class="form-control" id="id_banco" placeholder="Banco"
-                                    formControlName="id_banco">
+                                    formControlName="id_banco" [ngClass]="{ 'is-invalid':id_banco?.invalid && id_banco?.touched }">
                                     <option [value]="item.id" *ngFor="let item of Banco">{{item.nombre}}</option>
                                 </select>
+                                <div *ngIf="id_banco?.errors" class="invalid-feedback">
+                                    <div *ngIf="id_banco?.errors?.['required'] && id_banco?.touched">
+                                      Seleccionar el tipo de banco, es requerido.</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Número Cuenta Bancaria</label>
                                 <input type="text" id="numero_cuenta_bancaria" class="form-control"
-                                    placeholder="Numero Cuenta Bancaria" formControlName="numero_cuenta_bancaria">
+                                    placeholder="Numero Cuenta Bancaria" formControlName="numero_cuenta_bancaria" 
+                                    [ngClass]="{ 'is-invalid':numero_cuenta_bancaria?.invalid && numero_cuenta_bancaria?.touched }">
+                                    <div *ngIf="numero_cuenta_bancaria?.errors" class="invalid-feedback">
+                                        <div *ngIf="numero_cuenta_bancaria?.errors?.['required'] && numero_cuenta_bancaria?.touched">
+                                          El número de cuenta bancaria, es requerido.</div>
+                                    </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Clabe Interbancaria</label>
                                 <input type="text" id="clabe_inter_bancaria" class="form-control"
-                                    placeholder="Clabe interbancaria" formControlName="clabe_inter_bancaria">
+                                    placeholder="Clabe interbancaria" formControlName="clabe_inter_bancaria"
+                                    [ngClass]="{ 'is-invalid':clabe_inter_bancaria?.invalid && clabe_inter_bancaria?.touched }">
+                                    <div *ngIf="clabe_inter_bancaria?.errors" class="invalid-feedback">
+                                        <div *ngIf="clabe_inter_bancaria?.errors?.['required'] && clabe_inter_bancaria?.touched">
+                                          La clabe interbancaria, es requerido.</div>
+                                    </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Fecha Ingreso</label>
                                 <input type="date" id="fecha_ingreso" class="form-control" placeholder="dd/mm/yyyy"
-                                    formControlName="fecha_ingreso">
+                                    formControlName="fecha_ingreso"
+                                    [ngClass]="{ 'is-invalid':fecha_ingreso?.invalid && fecha_ingreso?.touched }">
+                                    <div *ngIf="fecha_ingreso?.errors" class="invalid-feedback">
+                                        <div *ngIf="fecha_ingreso?.errors?.['required'] && fecha_ingreso?.touched">
+                                          La fecha de ingreso es requerido.</div>
+                                    </div>
                             </div>
                         </div>
                         <!--
@@ -252,14 +374,14 @@
                             </div>
                         </div>
                         -->
-               
+
                     </div>
-                  
-                    
+
+
                     <div mat-dialog-actions class="btn-create botones">
                         <button class="btn btn-warning" style="text-align: end;">Cancelar</button>
 
-                        <button type="submit" class="btn btn-primary" style="text-align: end;">Crear Usuario</button>
+                        <button type="submit" class="btn btn-primary" style="text-align: end;" [disabled]="usersForm.invalid">Crear Usuario</button>
 
                     </div>
                 </form>

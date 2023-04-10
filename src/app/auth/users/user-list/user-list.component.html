@@ -50,7 +50,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let users of users | paginate: { itemsPerPage: 50, currentPage: p }">
+                            <tr *ngFor="let users of users | paginate: { itemsPerPage: numPag, currentPage: p, totalItems: totalReg }">
                                 <td>{{users.numero_empleado }}</td>
                                 <td>{{users.nombre_completo }}</td>
                                 <td>{{users.curp }}</td>
@@ -65,8 +65,11 @@
                         </tbody>
                     </table>
               
-                    <pagination-controls previousLabel="Anterior" nextLabel="Siguiente" (pageChange)="p = $event"
+                    <pagination-controls  [maxSize]="maxSize"   [directionLinks]="directionLinks" [autoHide]="autoHide"  [responsive]="responsive"  previousLabel="Anterior"  nextLabel="Siguiente" (pageChange)="p = $event"
                         style="text-align: center;"></pagination-controls>
+
+            
+     
             </div>
         </div>
     </div>
