@@ -35,6 +35,7 @@ import { ListTypemoduleComponent } from '../auth/catalogos/type_module/list-type
 import { SeeTypemoduleComponent } from '../auth/catalogos/type_module/see-typemodule/see-typemodule.component';
 import { DeleteTypemoduleComponent } from '../auth/catalogos/type_module/delete-typemodule/delete-typemodule.component';
 import { AddPermisseUserComponent } from '../auth/users/add-permisse-user/add-permisse-user.component';
+import { CreateClientComponent } from '../auth/client/create-client/create-client.component';
 
 
 
@@ -241,6 +242,12 @@ const routes: Routes = [
         path: 'add-permisse/:id',
         component: AddPermisseUserComponent,
         data: { titulo: 'Asignar permisos usuario' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'create-client',
+        component: CreateClientComponent,
+        data: { titulo: 'Crear Cliente' },
         canActivate: [AccesoGuard],
       },
 

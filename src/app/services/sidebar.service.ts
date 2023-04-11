@@ -28,7 +28,7 @@ export class SidebarService {
         },
         {
           titulo: 'Clientes',
-          url: 'listado-grupos',
+          url: 'create-client',
           roles: [{ name: 'Administrador' }],
         },
         {

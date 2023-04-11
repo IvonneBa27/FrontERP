@@ -1,0 +1,283 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" 
+                value=""><i class="mdi mdi-playlist-check"></i> Listado Clientes</button></h4>
+             
+            <form>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <h4 class="card-title"> Datos Generales</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">No. Cliente</label>
+                            <input type="text" id="id" class="form-control" placeholder="id"
+                                formControlName="id">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Razón Social *</label>
+                            <input type="text" id="razon_social" class="form-control" placeholder="Razón Social"
+                                formControlName="razon_social">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">RFC *</label>
+                            <input type="text" id="rfc" class="form-control" placeholder="RFC"
+                                formControlName="rfc">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">País *</label>
+                            <select class="form-control" id="id_pais" placeholder="País"
+                                formControlName="id_pais">
+                                <option>País</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Ciudad *</label>
+                            <select class="form-control" id="id_ciudad" placeholder="Ciudad"
+                                formControlName="id_ciudad">
+                                <option>Ciudad</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Municipio/Alcadía *</label>
+                            <select class="form-control" id="id_alcadia" placeholder="Municipio / Alcadia"
+                                formControlName="id_alcadia">
+                                <option>Municipio/Alcadía</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Calle *</label>
+                            <input type="text" id="calle" class="form-control" placeholder="Calle"
+                                formControlName="calle">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">No. Ext *</label>
+                            <input type="text" id="numext" class="form-control" placeholder="No. Ext"
+                                formControlName="numext">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">No. Int *</label>
+                            <input type="text" id="numint" class="form-control" placeholder="No. Int"
+                                formControlName="numint">
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label class="control-label">URL Google Maps</label>
+                            <input type="text" id="urlmaps" class="form-control" placeholder="URL Google Maps"
+                                formControlName="urlmaps">
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label class="control-label">Observaciones</label>
+                            <input type="text" id="observaciones" class="form-control" placeholder="Observaciones"
+                                formControlName="observaciones">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <h4 class="card-title"> Datos de Facturación</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Codigo Postal Fiscal</label>
+                            <input type="text" id="codpost_fiscal" class="form-control" placeholder="Codigo Postal Fiscal"
+                                formControlName="codpost_fiscal">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Uso de CFDI</label>
+                            <select class="form-control" id="id_cfdi" placeholder="CFDI"
+                                formControlName="id_cfdi">
+                                <option>CFDI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Régimen Fiscal</label>
+                            <select class="form-control" id="id_regFiscal" placeholder="Régimen Fiscal"
+                                formControlName="id_regFiscal">
+                                <option>Régimen Fiscal</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <h4 class="card-title">Contacto Principal</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Nombre completo</label>
+                            <input type="text" id="nombre_completo_principal" class="form-control" placeholder="Nombre Completo"
+                                formControlName="nombre_completo_principal">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Email</label>
+                            <input type="text" id="email_principal" class="form-control" placeholder="Email"
+                                formControlName="email_principal">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Tel. Móvil</label>
+                            <input type="text" id="tel_movil_principal" class="form-control" placeholder="Tel. Móvil"
+                                formControlName="tel_movil_principal">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Tel. Trabajo</label>
+                            <input type="text" id="tel_trabajo_principal" class="form-control" placeholder="Tel. Trabajo"
+                                formControlName="tel_trabajo_principal">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Ext </label>
+                            <input type="text" id="numext_principal" class="form-control" placeholder="Ext"
+                                formControlName="numext_principal">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Puesto</label>
+                            <input type="text" id="puesto_principal" class="form-control" placeholder="Puesto"
+                                formControlName="puesto_principal">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <h4 class="card-title">Contacto Técnico</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Nombre completo</label>
+                            <input type="text" id="nombre_completo_tecnico" class="form-control" placeholder="Nombre Completo"
+                                formControlName="nombre_completo_tecnico">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Email</label>
+                            <input type="text" id="email_tecnico" class="form-control" placeholder="Email"
+                                formControlName="email_tecnico">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Tel. Móvil</label>
+                            <input type="text" id="tel_movil_tecnico" class="form-control" placeholder="Tel. Móvil"
+                                formControlName="tel_movil_tecnico">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Tel. Trabajo</label>
+                            <input type="text" id="tel_trabajo_tecnico" class="form-control" placeholder="Tel. Trabajo"
+                                formControlName="tel_trabajo_tecnico">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Ext </label>
+                            <input type="text" id="numext_tecnico" class="form-control" placeholder="Ext"
+                                formControlName="numext_tecnico">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Puesto</label>
+                            <input type="text" id="puesto_principal" class="form-control" placeholder="Puesto"
+                                formControlName="puesto_principal">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <h4 class="card-title">Contacto de Pago</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Nombre completo</label>
+                            <input type="text" id="nombre_completo_pago" class="form-control" placeholder="Nombre Completo"
+                                formControlName="nombre_completo_pago">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Email</label>
+                            <input type="text" id="email_pago" class="form-control" placeholder="Email"
+                                formControlName="email_pago">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Tel. Móvil</label>
+                            <input type="text" id="tel_movil_pago" class="form-control" placeholder="Tel. Móvil"
+                                formControlName="tel_movil_pago">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Tel. Trabajo</label>
+                            <input type="text" id="tel_trabajo_pago" class="form-control" placeholder="Tel. Trabajo"
+                                formControlName="tel_trabajo_pago">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Ext </label>
+                            <input type="text" id="numext_pago" class="form-control" placeholder="Ext"
+                                formControlName="numext_pago">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Puesto</label>
+                            <input type="text" id="puesto_pago" class="form-control" placeholder="Puesto"
+                                formControlName="puesto_pago">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div mat-dialog-actions class="btn-create botones">
+                    <button class="btn btn-warning" style="text-align: end;">Cancelar</button>
+
+                    <button type="submit" class="btn btn-primary" style="text-align: end;">Crear  Cliente</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
