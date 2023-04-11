@@ -10,15 +10,27 @@ import { Estatus } from 'src/app/models/estatus.model';
 import { GeneralService } from 'src/app/services/general.service';
 
 
+
+
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css']
+  styleUrls: ['./user-list.component.css'],
 })
 export class UserListComponent implements OnInit {
   users: Users[]=[];
   usersRespaldo: Users[]=[];
   p: number = 1;
+  numPag: number = 50;
+  totalReg: number = 0;
+  config: any;
+  configCustomPagination: any;
+  public maxSize: number = 7;
+  public directionLinks: boolean = true;
+  public autoHide: boolean = false;
+  public responsive: boolean = true;
+
+
   usersForm: FormGroup;
   permisse: Module = new Module();
   Estatus: Estatus[] = [];
@@ -29,7 +41,8 @@ export class UserListComponent implements OnInit {
     private _servicesgeneral: GeneralService,
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private _srvAuth: AuthService
+    private _srvAuth: AuthService,
+    
   ){
 
     this._servicesgeneral.getEstatus().subscribe(respuesta =>{
@@ -40,7 +53,9 @@ export class UserListComponent implements OnInit {
       nombre_completo: new FormControl(''),
       id_estatus: new FormControl(''),
     });
- 
+
+  
+
   }
 
   ngOnInit(): void {
@@ -64,10 +79,23 @@ export class UserListComponent implements OnInit {
     this._servicesuser.getUserOrderBy().subscribe((res) => {
       this.users = res.data;
       this.usersRespaldo = res.data;
+      this.totalReg =(this.usersRespaldo.length);
+
+    
       
+      console.log(this.totalReg);
     // console.log(this.users);
     });
+
+    this.configCustomPagination = {
+      id: 'customPaginate',
+      itemsPerPage: 5,
+      currentPage: 1,
+      totalItems: this.totalReg
+    };
   }
+
+   
 
 
   createUser() {
@@ -80,9 +108,21 @@ export class UserListComponent implements OnInit {
     this._servicesuser.searchUsers(nombre_completo).subscribe((res) => {
       this.users = [];
       this.users = res.data;
+      this.totalReg =(this.users.length);
+      //console.log(this.users.length);
       /*console.log(this.users);*/
+
+      this.usersForm.controls['nombre_completo'].setValue('');
   
       });
+
+    
+      this.configCustomPagination = {
+        id: 'customPaginate',
+        itemsPerPage: 5,
+        currentPage: 1,
+        totalItems: this.totalReg
+      };
   
 
   }
@@ -95,14 +135,36 @@ export class UserListComponent implements OnInit {
       this._servicesuser.searchEstatus(id_estatus).subscribe((res) => {
         this.users = [];
         this.users = res.data;
+        this.totalReg =(this.users.length);
+        //console.log(this.users.length);
+
+       
+
+        this.configCustomPagination = {
+          id: 'customPaginate',
+          itemsPerPage: 5,
+          currentPage: 1,
+          totalItems: this.totalReg
+        };
     
     
-      /*console.log(this.users);*/
   
       });
     }
   
 
+  }
+
+
+
+
+
+  pageChanged(event: any) {
+    this.config.currentPage = event;
+  }
+
+  onPageChange(event: any) {
+    this.configCustomPagination.currentPage = event;
   }
 
 
