@@ -36,6 +36,15 @@ import { SeeTypemoduleComponent } from '../auth/catalogos/type_module/see-typemo
 import { DeleteTypemoduleComponent } from '../auth/catalogos/type_module/delete-typemodule/delete-typemodule.component';
 import { AddPermisseUserComponent } from '../auth/users/add-permisse-user/add-permisse-user.component';
 import { CreateClientComponent } from '../auth/client/create-client/create-client.component';
+import { ListClientComponent } from '../auth/client/list-client/list-client.component';
+import { SeeClientComponent } from '../auth/client/see-client/see-client.component';
+import { EditClientComponent } from '../auth/client/edit-client/edit-client.component';
+import { DeleteClientComponent } from '../auth/client/delete-client/delete-client.component';
+import { CreateSupplierComponent } from '../auth/supplier/create-supplier/create-supplier.component';
+import { ListSuppliersComponent } from '../auth/supplier/list-suppliers/list-suppliers.component';
+import { SeeSupplierComponent } from '../auth/supplier/see-supplier/see-supplier.component';
+import { UpdateSupplierComponent } from '../auth/supplier/update-supplier/update-supplier.component';
+import { DeleteSupplierComponent } from '../auth/supplier/delete-supplier/delete-supplier.component';
 
 
 
@@ -250,6 +259,62 @@ const routes: Routes = [
         data: { titulo: 'Crear Cliente' },
         canActivate: [AccesoGuard],
       },
+      {
+        path: 'list-client',
+        component: ListClientComponent,
+        data: { titulo: 'Lista de Clientes' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'see-client/:id',
+        component: SeeClientComponent,
+        data: { titulo: 'Clientes' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'edit-client/:id',
+        component: EditClientComponent,
+        data: { titulo: 'Editar Cliente' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'delete-client/:id',
+        component: DeleteClientComponent,
+        data: { titulo: 'Eliminar Cliente' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'create-supplier',
+        component: CreateSupplierComponent,
+        data: { titulo: 'Crear Proveedor' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'list-suppliers',
+        component: ListSuppliersComponent,
+        data: { titulo: 'Lista de Proveedores' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'see-supplier/:id',
+        component: SeeSupplierComponent,
+        data: { titulo: 'Proveedores' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'update-supplier/:id',
+        component: UpdateSupplierComponent,
+        data: { titulo: 'Editar Proveedor' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'delete-supplier/:id',
+        component: DeleteSupplierComponent,
+        data: { titulo: 'Eliminar Proveedor' },
+        canActivate: [AccesoGuard],
+      },
+
+
 
       //   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
     ],

@@ -194,6 +194,91 @@ export class GeneralService {
     return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
   }
 
+  getPais(): Observable<any> {
+    const URL = this.baseUrl + 'paises/get';
+    const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Authorization', token);
+
+    return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  }
+
+  getSATCFDI(): Observable<any> {
+    const URL = this.baseUrl + 'regimencdfi/get';
+    const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+  
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Authorization', token);
+  
+    return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  
+  }
+  getSATRegimenfiscal(): Observable<any> {
+    const URL = this.baseUrl + 'regimenfiscal/get';
+    const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+  
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Authorization', token);
+  
+    return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  
+  }
+  
+
+  getCiudad(idPais: any): Observable<any> {
+    const URL = this.baseUrl + `ciudades/get?param=${idPais}`;
+    const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+  
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Authorization', token);
+  
+    return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  
+  }
+  getMunicipio(idPais: any, idCiudad: any): Observable<any> {
+    const URL = this.baseUrl + `delegaciones/get?param=${idPais}&param1=${idCiudad}`;
+    const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+  
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Authorization', token);
+  
+    return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  
+  }
+
+  getCiudadT(): Observable<any> {
+    const URL = this.baseUrl + 'ciudadesT/get';
+    const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Authorization', token);
+
+    return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  }
+
+
+  getMunicipioT(): Observable<any> {
+    const URL = this.baseUrl + 'delegacionesT/get';
+    const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Authorization', token);
+
+    return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  }
+
+
+
+
+
   public requestCatalogos(): Observable<any[]> {
   
     let response1 = this.getTipoUsuario(); 
@@ -208,9 +293,12 @@ export class GeneralService {
     let response10 = this.getTurno();
     let response11 = this.getBanco();
     let response12 = this.getTypeModule();
-    
-
-    return forkJoin([response1, response2, response3, response4, response5, response6, response7, response8, response9, response10, response11, response12]);
+    let response13 = this.getPais();
+    let response14 = this.getSATCFDI();
+    let response15 = this.getSATRegimenfiscal();
+    let response16 = this.getCiudadT();
+    let response17 = this.getMunicipioT();
+    return forkJoin([response1, response2, response3, response4, response5, response6, response7, response8, response9, response10, response11, response12, response13, response14, response15, response16, response17]);
 
   }
 

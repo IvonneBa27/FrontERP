@@ -1,0 +1,281 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="ListSupplier()"
+                        value=""><i class="mdi mdi-playlist-check"></i> Regresar</button></h4>
+
+                <form id="clientForm" [formGroup]="supplierForm" (submit)="seeSupplier()">
+                    <fieldset class="scheduler-border">
+                        <fieldset disabled>
+                            <div class="row">
+
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <legend class="scheduler-border">
+                                            <h4 class="card-title;  font-weight-bold"> Datos Generales</h4>
+                                        </legend>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">No. Proveedor</label>
+                                        <fieldset disabled><input type="text" id="no_proveedor" required=""
+                                                class="form-control" placeholder="{{noproveedor}}"
+                                                formControlName="no_proveedor" value="{{noproveedor}}"></fieldset>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Razón Social *</label>
+                                        <input type="text" id="razon_social" class="form-control"
+                                            placeholder="Razón Social" formControlName="razon_social">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">RFC *</label>
+                                        <input type="text" id="rfc" class="form-control" placeholder="RFC"
+                                            formControlName="rfc">
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">País *</label>
+                                        <select class="form-control" id="idPais" placeholder="País"
+                                            formControlName="idPais" [(ngModel)]="idPais">
+                                            <option [value]="item.idpais" *ngFor="let item of Paises">{{item.pais}}
+                                            </option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Ciudad *</label>
+                                        <select class="form-control" id="idCiudad" placeholder="Ciudad"
+                                            [(ngModel)]="idCiudad">
+                                            <option [value]="item.idciudad" *ngFor="let item of Ciudades">
+                                                {{item.ciudad}}</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Municipio/Alcadía *</label>
+                                        <select class="form-control" id="idMunicipio" placeholder="Municipio / Alcadia"
+                                            formControlName="idMunicipio" [(ngModel)]="idMunicipio">
+                                            <option [value]="item.iddelegacion" *ngFor="let item of Delegaciones">
+                                                {{item.delegacion}}</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Calle *</label>
+                                        <input type="text" id="calle" class="form-control" placeholder="Calle"
+                                            formControlName="calle">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">No. Ext *</label>
+                                        <input type="text" id="no_ext" class="form-control" placeholder="No. Ext"
+                                            formControlName="no_ext">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">No. Int </label>
+                                        <input type="text" id="no_int" class="form-control" placeholder="No. Int"
+                                            formControlName="no_int">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Colonia *</label>
+                                        <input type="text" id="colonia" class="form-control" placeholder="Colonia"
+                                            formControlName="colonia">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Código Postal *</label>
+                                        <input type="text" id="cp" class="form-control" placeholder="Codigo Postal"
+                                            formControlName="cp">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Sitio Web</label>
+                                        <input type="text" id="sitio_web" class="form-control" placeholder="Sitio Web"
+                                            formControlName="sitio_web">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label class="control-label">URL Google Maps</label>
+                                        <input type="text" id="url_map" class="form-control"
+                                            placeholder="URL Google Maps" formControlName="url_map">
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label class="control-label">Observaciones</label>
+                                        <textarea class="form-control" id="observaciones" rows="3"
+                                            placeholder="Observaciones" formControlName="observaciones"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </fieldset>
+
+
+                    <fieldset class="scheduler-border">
+                        <fieldset disabled>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <legend class="scheduler-border">
+                                            <h4 class="card-title;  font-weight-bold"> Datos de Pago</h4>
+                                        </legend>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Días de Credito</label>
+                                        <input type="text" id="dias_credito" class="form-control"
+                                            placeholder="Días de Credito" formControlName="dias_credito">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Banco</label>
+                                        <select class="form-control" id="idBanco" placeholder="Banco"
+                                            formControlName="idBanco">
+                                            <option [value]="item.id" *ngFor="let item of Banco">{{item.nombre}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">No. de Cuenta</label>
+                                        <input type="text" id="no_cuenta" class="form-control"
+                                            placeholder="No. de Cuenta" formControlName="no_cuenta">
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label class="control-label">CLABE interbancaria</label>
+                                        <input type="text" id="clabe_intenbancaria" class="form-control"
+                                            placeholder="CLABE Interbancaria" formControlName="clabe_intenbancaria">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </fieldset>
+                    </fieldset>
+
+                    <fieldset class="scheduler-border">
+                        <fieldset disabled>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <legend class="scheduler-border">
+                                            <h4 class="card-title;  font-weight-bold"> Contacto Principal</h4>
+                                        </legend>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Nombre Completo</label>
+                                        <input type="text" id="nombre_completo" class="form-control"
+                                            placeholder="Nombre Completo" formControlName="nombre_completo">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Email</label>
+                                        <input type="text" id="email" class="form-control" placeholder="Email"
+                                            formControlName="email">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Tel Móvil</label>
+                                        <input type="text" id="tel_movil" class="form-control" placeholder="Tel.Movil"
+                                            formControlName="tel_movil">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Tel Trabajo</label>
+                                        <input type="text" id="tel_trabajo" class="form-control"
+                                            placeholder="Tel. Trabajo" formControlName="tel_trabajo">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Ext</label>
+                                        <input type="text" id="ext" class="form-control" placeholder="Ext"
+                                            formControlName="ext">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Puesto</label>
+                                        <input type="text" id="puesto" class="form-control" placeholder="Puesto"
+                                            formControlName="puesto">
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </fieldset>
+
+                    <fieldset class="scheduler-border">
+                        <fieldset disabled>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <legend class="scheduler-border">
+                                        <h4 class="card-title;  font-weight-bold"> Estatus</h4>
+                                    </legend>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Estatus</label>
+                                    <select class="form-control" id="idestatus" placeholder="Estatus"
+                                        formControlName="idestatus">
+                                        <option [value]="item.id" *ngFor="let item of Estatus">{{item.nombre}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </fieldset>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

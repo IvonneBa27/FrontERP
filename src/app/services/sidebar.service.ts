@@ -28,12 +28,12 @@ export class SidebarService {
         },
         {
           titulo: 'Clientes',
-          url: 'create-client',
+          url: 'list-client',
           roles: [{ name: 'Administrador' }],
         },
         {
           titulo: 'Proveedores',
-          url: 'listado-grupos',
+          url: 'list-suppliers',
           roles: [{ name: 'Administrador' }],
         },
         {

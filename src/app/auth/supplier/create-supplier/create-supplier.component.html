@@ -2,10 +2,10 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary"  (click)="ListClient()" value=""><i
-                            class="mdi mdi-playlist-check"></i> Listado Clientes</button></h4>
+                <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="ListSupplier()" value=""><i
+                            class="mdi mdi-playlist-check"></i> Listado Proveedores</button></h4>
 
-                <form id="clientForm" [formGroup]="clientForm"  (submit)="createClient()" >
+                <form id="clientForm" [formGroup]="supplierForm"  (submit)="createSupplier()" >
                     <fieldset class="scheduler-border">
                     <div class="row">
                        
@@ -18,9 +18,9 @@
     
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label class="control-label">No. Cliente</label>
-                                <fieldset disabled><input type="text" id="no_cliente" required="" class="form-control"
-                                    placeholder="{{nocliente}}" formControlName="no_cliente" value="{{nocliente}}"></fieldset>
+                                <label class="control-label">No. Proveedor</label>
+                                <fieldset disabled><input type="text" id="no_proveedor" required="" class="form-control"
+                                    placeholder="{{noproveedor}}" formControlName="no_proveedor" value="{{noproveedor}}"></fieldset>
                             </div>
                         </div>
 
@@ -118,7 +118,6 @@
                                     formControlName="no_int">
                             </div>
                         </div>
-            
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Colonia *</label>
@@ -148,7 +147,7 @@
                                     formControlName="sitio_web">
                             </div>
                         </div>
-          
+                    
 
                         <div class="col-md-8">
                             <div class="form-group">
@@ -171,35 +170,41 @@
                     <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <legend class="scheduler-border"><h4 class="card-title;  font-weight-bold" > Datos de Facturación</h4></legend>
+                                    <legend class="scheduler-border"><h4 class="card-title;  font-weight-bold" > Datos de Pago</h4></legend>
                                 </div>
                             </div>
     
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label">Codigo Postal Fiscal</label>
-                                    <input type="text" id="cp_fiscal" class="form-control" placeholder="Codigo Postal Fiscal"
-                                        formControlName="cp_fiscal">
+                                    <label class="control-label">Días de Credito</label>
+                                    <input type="text" id="dias_credito" class="form-control" placeholder="Días de Credito"
+                                        formControlName="dias_credito">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label">Uso de CFDI</label>
-                                    <select class="form-control" id="idUsoCfdi" placeholder="CFDI"
-                                        formControlName="idUsoCfdi">
-                                        <option [value]="item.id" *ngFor="let item of  CatalagoSatCFDI">{{item.nombre}}</option>
-                                    </select>
+                                    <label class="control-label">Banco</label>
+                                    <select class="form-control" id="idBanco" placeholder="Banco"
+                                    formControlName="idBanco">
+                                    <option [value]="item.id" *ngFor="let item of Banco">{{item.nombre}}</option>
+                                </select>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label">Régimen Fiscal</label>
-                                    <select class="form-control" id="idRegimenFiscal" placeholder="Régimen Fiscal"
-                                        formControlName="idRegimenFiscal">
-                                        <option [value]="item.id" *ngFor="let item of  CatalogoSatRegimenFiscal">{{item.nombre}}</option>
-                                    </select>
+                                    <label class="control-label">No. de Cuenta</label>
+                                    <input type="text" id="no_cuenta" class="form-control" placeholder="No. de Cuenta"
+                                        formControlName="no_cuenta">
                                 </div>
                             </div>
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label class="control-label">CLABE interbancaria</label>
+                                    <input type="text" id="clabe_intenbancaria" class="form-control" placeholder="CLABE Interbancaria"
+                                        formControlName="clabe_intenbancaria">
+                                </div>
+                            </div>
+                       
                     </div>
                 </fieldset>
 
@@ -228,8 +233,8 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Tel Móvil</label>
-                                    <input type="text" id="movil" class="form-control" placeholder="Movil"
-                                    formControlName="movil">
+                                    <input type="text" id="tel_movil" class="form-control" placeholder="Tel.Movil"
+                                    formControlName="tel_movil">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -260,110 +265,6 @@
                     <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <legend class="scheduler-border"><h4 class="card-title;  font-weight-bold" > Contacto Técnico</h4></legend>
-                                </div>
-                            </div>
-    
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label">Nombre Completo</label>
-                                    <input type="text" id="nombre_completo_tecnico" class="form-control" placeholder="Nombre Completo"
-                                        formControlName="nombre_completo_tecnico">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label">Email</label>
-                                    <input type="text" id="email_tecnico" class="form-control" placeholder="Email"
-                                        formControlName="email_tecnico">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label">Tel Móvil</label>
-                                    <input type="text" id="movil_tecnico" class="form-control" placeholder="Movil"
-                                    formControlName="movil_tecnico">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label">Tel Trabajo</label>
-                                    <input type="text" id="tel_trabajo_tecnico" class="form-control" placeholder="Tel. Trabajo"
-                                    formControlName="tel_trabajo_tecnico">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label">Ext</label>
-                                    <input type="text" id="ext_tecnico" class="form-control" placeholder="Ext"
-                                    formControlName="ext_tecnico">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label">Puesto</label>
-                                    <input type="text" id="puesto_tecnico" class="form-control" placeholder="Puesto"
-                                    formControlName="puesto_tecnico">
-                                </div>
-                            </div>
-                    </div>
-                </fieldset>
-                <fieldset class="scheduler-border">
-                    <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <legend class="scheduler-border"><h4 class="card-title;  font-weight-bold" > Contacto de Pago</h4></legend>
-                                </div>
-                            </div>
-    
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label">Nombre Completo</label>
-                                    <input type="text" id="nombre_completo_pago" class="form-control" placeholder="Nombre Completo"
-                                        formControlName="nombre_completo_pago">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label">Email</label>
-                                    <input type="text" id="email_pago" class="form-control" placeholder="Email"
-                                        formControlName="email_pago">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label">Tel Móvil</label>
-                                    <input type="text" id="movil_pago" class="form-control" placeholder="Movil"
-                                    formControlName="movil_pago">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label">Tel Trabajo</label>
-                                    <input type="text" id="tel_trabajo_pago" class="form-control" placeholder="Tel. Trabajo"
-                                    formControlName="tel_trabajo_pago">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label">Ext</label>
-                                    <input type="text" id="ext_pago" class="form-control" placeholder="Ext"
-                                    formControlName="ext_pago">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label">Puesto</label>
-                                    <input type="text" id="puesto_pago" class="form-control" placeholder="Puesto"
-                                    formControlName="puesto_pago">
-                                </div>
-                            </div>
-                    </div>
-                </fieldset>
-                <fieldset class="scheduler-border">
-                    <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
                                     <legend class="scheduler-border"><h4 class="card-title;  font-weight-bold" > Estatus</h4></legend>
                                 </div>
                             </div>
@@ -382,7 +283,7 @@
 
                     <div mat-dialog-actions class="btn-create botones">
                         <button class="btn btn-warning" style="text-align: end;">Cancelar</button>
-                        <button type="submit" class="btn btn-primary" style="text-align: end;">Crear Cliente</button>
+                        <button type="submit" class="btn btn-primary" style="text-align: end;">Crear Proveedor</button>
                     </div>
                 </form>
             </div>

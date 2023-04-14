@@ -30,11 +30,20 @@ import { SeeTypemoduleComponent } from './catalogos/type_module/see-typemodule/s
 import { ListTypemoduleComponent } from './catalogos/type_module/list-typemodule/list-typemodule.component';
 import { AddPermisseUserComponent } from './users/add-permisse-user/add-permisse-user.component';
 import { CreateClientComponent } from './client/create-client/create-client.component';
+import { SeeClientComponent } from './client/see-client/see-client.component';
+import { DeleteClientComponent } from './client/delete-client/delete-client.component';
+import { EditClientComponent } from './client/edit-client/edit-client.component';
+import { ListClientComponent } from './client/list-client/list-client.component';
+import { CreateSupplierComponent } from './supplier/create-supplier/create-supplier.component';
+import { ListSuppliersComponent } from './supplier/list-suppliers/list-suppliers.component';
+import { SeeSupplierComponent } from './supplier/see-supplier/see-supplier.component';
+import { DeleteSupplierComponent } from './supplier/delete-supplier/delete-supplier.component';
+import { UpdateSupplierComponent } from './supplier/update-supplier/update-supplier.component';
 
 
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, ChangePasswordComponent, UserListComponent, EditUserComponent, ListRolesComponent, CreateRolesComponent, EditRolesComponent, ListPermissComponent, CreatePermissComponent, EditPermissComponent, SeeUserComponent, DeleteUserComponent, CreateModuleComponent, EditModuleComponent, ListModuleComponent, DeleteModuleComponent, SeeModuleComponent, CreateTypemoduleComponent, DeleteTypemoduleComponent, EditTypemoduleComponent, SeeTypemoduleComponent, ListTypemoduleComponent, AddPermisseUserComponent, CreateClientComponent],
+  declarations: [LoginComponent, RegisterComponent, ChangePasswordComponent, UserListComponent, EditUserComponent, ListRolesComponent, CreateRolesComponent, EditRolesComponent, ListPermissComponent, CreatePermissComponent, EditPermissComponent, SeeUserComponent, DeleteUserComponent, CreateModuleComponent, EditModuleComponent, ListModuleComponent, DeleteModuleComponent, SeeModuleComponent, CreateTypemoduleComponent, DeleteTypemoduleComponent, EditTypemoduleComponent, SeeTypemoduleComponent, ListTypemoduleComponent, AddPermisseUserComponent, CreateClientComponent, SeeClientComponent, DeleteClientComponent, EditClientComponent, ListClientComponent, CreateSupplierComponent, ListSuppliersComponent, SeeSupplierComponent, DeleteSupplierComponent, UpdateSupplierComponent],
   exports: [LoginComponent, RegisterComponent],
   imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule, NgxPaginationModule],
 })
