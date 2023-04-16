@@ -1,0 +1,391 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary"  (click)="ListClient()" value=""><i
+                            class="mdi mdi-playlist-check"></i> Listado Clientes</button></h4>
+
+                <form id="clientForm" [formGroup]="clientForm"  (submit)="createClient()" >
+                    <fieldset class="scheduler-border">
+                    <div class="row">
+                       
+                    
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <legend class="scheduler-border"><h4 class="card-title;  font-weight-bold" > Datos Generales</h4></legend>
+                                </div>
+                            </div>
+    
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">No. Cliente</label>
+                                <fieldset disabled><input type="text" id="no_cliente" required="" class="form-control"
+                                    placeholder="{{nocliente}}" formControlName="no_cliente" value="{{nocliente}}"></fieldset>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Razón Social *</label>
+                                <input type="text" id="razon_social" class="form-control" placeholder="Razón Social"
+                                    formControlName="razon_social"   [ngClass]="{ 'is-invalid':razon_social?.invalid && razon_social?.touched }">
+                                    <div *ngIf="razon_social?.errors" class="invalid-feedback">
+                                        <div *ngIf="razon_social?.errors?.['required'] && razon_social?.touched">La razón social es requerida.</div>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">RFC *</label>
+                                <input type="text" id="rfc" class="form-control" placeholder="RFC"
+                                    formControlName="rfc" 
+                                    [ngClass]="{ 'is-invalid':rfc?.invalid && rfc?.touched }">
+                                    <div *ngIf="rfc?.errors" class="invalid-feedback">
+                                        <div *ngIf="rfc?.errors?.['required'] && rfc?.touched">El RFC es requerido.</div>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">País *</label>
+                                <select class="form-control" id="idPais" placeholder="País"
+                                    formControlName="idPais" (change)="obtIdPais()" [(ngModel)]="idPais" 
+                                    [ngClass]="{ 'is-invalid':idpais?.invalid && idpais?.touched }">
+                                    <option [value]="item.idpais" *ngFor="let item of Paises">{{item.pais}}</option>
+                                </select>
+                                <div *ngIf="idpais?.errors" class="invalid-feedback">
+                                    <div *ngIf="idpais?.errors?.['required'] && idpais?.touched">
+                                        Seleccionar el PaÍs, es requerido.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Ciudad *</label>
+                                <select class="form-control" id="idCiudad" placeholder="Ciudad"
+                                    formControlName="idCiudad" (change)="obtIdCiudad()" [(ngModel)]="idCiudad" 
+                                    [ngClass]="{ 'is-invalid':idciudad?.invalid && idciudad?.touched }">
+                                    <option [value]="item.idciudad" *ngFor="let item of Ciudades">{{item.ciudad}}</option>
+                                </select>
+                                <div *ngIf="idciudad?.errors" class="invalid-feedback">
+                                    <div *ngIf="idciudad?.errors?.['required'] && idciudad?.touched">
+                                        Seleccionar la Ciudad es requerida.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Municipio/Alcadía *</label>
+                                <select class="form-control" id="idMunicipio" placeholder="Municipio / Alcadia"
+                                    formControlName="idMunicipio"(change)="obtIdMunicipio()" [(ngModel)]="idMunicipio" 
+                                    [ngClass]="{ 'is-invalid':idmunicipio?.invalid && idmunicipio?.touched }">
+                                    <option [value]="item.iddelegacion" *ngFor="let item of Delegaciones">{{item.delegacion}}</option>
+                                </select>
+                                <div *ngIf="idmunicipio?.errors" class="invalid-feedback">
+                                    <div *ngIf="idmunicipio?.errors?.['required'] && idmunicipio?.touched">
+                                        Seleccionar el Municipio / Alcadía es requerida.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Calle *</label>
+                                <input type="text" id="calle" class="form-control" placeholder="Calle"
+                                    formControlName="calle"
+                                    [ngClass]="{ 'is-invalid':calle?.invalid && calle?.touched }">
+                                    <div *ngIf="calle?.errors" class="invalid-feedback">
+                                        <div *ngIf="calle?.errors?.['required'] && calle?.touched">La calle es requerida.</div>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">No. Ext *</label>
+                                <input type="text" id="no_ext" class="form-control" placeholder="No. Ext"
+                                    formControlName="no_ext"
+                                    [ngClass]="{ 'is-invalid':no_ext?.invalid && no_ext?.touched }">
+                                    <div *ngIf="no_ext?.errors" class="invalid-feedback">
+                                        <div *ngIf="no_ext?.errors?.['required'] && no_ext?.touched">El No. Ext es requerido.</div>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">No. Int </label>
+                                <input type="text" id="no_int" class="form-control" placeholder="No. Int"
+                                    formControlName="no_int">
+                            </div>
+                        </div>
+            
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Colonia *</label>
+                                <input type="text" id="colonia" class="form-control" placeholder="Colonia"
+                                    formControlName="colonia"
+                                    [ngClass]="{ 'is-invalid':colonia?.invalid && colonia?.touched }">
+                                    <div *ngIf="colonia?.errors" class="invalid-feedback">
+                                        <div *ngIf="colonia?.errors?.['required'] && colonia?.touched">La calle es requerida.</div>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Código Postal *</label>
+                                <input type="text" id="cp" class="form-control" placeholder="Codigo Postal"
+                                    formControlName="cp"
+                                    [ngClass]="{ 'is-invalid':cp?.invalid && cp?.touched }">
+                                    <div *ngIf="cp?.errors" class="invalid-feedback">
+                                        <div *ngIf="cp?.errors?.['required'] && cp?.touched">El codigo postal es requerido.</div>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Sitio Web</label>
+                                <input type="text" id="sitio_web" class="form-control" placeholder="Sitio Web"
+                                    formControlName="sitio_web">
+                            </div>
+                        </div>
+          
+
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label class="control-label">URL Google Maps</label>
+                                <input type="text" id="url_map" class="form-control" placeholder="URL Google Maps"
+                                    formControlName="url_map">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label class="control-label">Observaciones</label>
+                            <textarea class="form-control" id="observaciones" rows="3"placeholder="Observaciones" formControlName="observaciones"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                
+
+                <fieldset class="scheduler-border">
+                    <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <legend class="scheduler-border"><h4 class="card-title;  font-weight-bold" > Datos de Facturación</h4></legend>
+                                </div>
+                            </div>
+    
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Codigo Postal Fiscal</label>
+                                    <input type="text" id="cp_fiscal" class="form-control" placeholder="Codigo Postal Fiscal"
+                                        formControlName="cp_fiscal">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Uso de CFDI</label>
+                                    <select class="form-control" id="idUsoCfdi" placeholder="CFDI"
+                                        formControlName="idUsoCfdi">
+                                        <option [value]="item.id" *ngFor="let item of  CatalagoSatCFDI">{{item.nombre}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Régimen Fiscal</label>
+                                    <select class="form-control" id="idRegimenFiscal" placeholder="Régimen Fiscal"
+                                        formControlName="idRegimenFiscal">
+                                        <option [value]="item.id" *ngFor="let item of  CatalogoSatRegimenFiscal">{{item.nombre}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="scheduler-border">
+                    <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <legend class="scheduler-border"><h4 class="card-title;  font-weight-bold" > Contacto Principal</h4></legend>
+                                </div>
+                            </div>
+    
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Nombre Completo</label>
+                                    <input type="text" id="nombre_completo" class="form-control" placeholder="Nombre Completo"
+                                        formControlName="nombre_completo">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Email</label>
+                                    <input type="text" id="email" class="form-control" placeholder="Email"
+                                        formControlName="email">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Tel Móvil</label>
+                                    <input type="text" id="movil" class="form-control" placeholder="Movil"
+                                    formControlName="movil">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Tel Trabajo</label>
+                                    <input type="text" id="tel_trabajo" class="form-control" placeholder="Tel. Trabajo"
+                                    formControlName="tel_trabajo">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Ext</label>
+                                    <input type="text" id="ext" class="form-control" placeholder="Ext"
+                                    formControlName="ext">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Puesto</label>
+                                    <input type="text" id="puesto" class="form-control" placeholder="Puesto"
+                                    formControlName="puesto">
+                                </div>
+                            </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="scheduler-border">
+                    <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <legend class="scheduler-border"><h4 class="card-title;  font-weight-bold" > Contacto Técnico</h4></legend>
+                                </div>
+                            </div>
+    
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Nombre Completo</label>
+                                    <input type="text" id="nombre_completo_tecnico" class="form-control" placeholder="Nombre Completo"
+                                        formControlName="nombre_completo_tecnico">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Email</label>
+                                    <input type="text" id="email_tecnico" class="form-control" placeholder="Email"
+                                        formControlName="email_tecnico">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Tel Móvil</label>
+                                    <input type="text" id="movil_tecnico" class="form-control" placeholder="Movil"
+                                    formControlName="movil_tecnico">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Tel Trabajo</label>
+                                    <input type="text" id="tel_trabajo_tecnico" class="form-control" placeholder="Tel. Trabajo"
+                                    formControlName="tel_trabajo_tecnico">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Ext</label>
+                                    <input type="text" id="ext_tecnico" class="form-control" placeholder="Ext"
+                                    formControlName="ext_tecnico">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Puesto</label>
+                                    <input type="text" id="puesto_tecnico" class="form-control" placeholder="Puesto"
+                                    formControlName="puesto_tecnico">
+                                </div>
+                            </div>
+                    </div>
+                </fieldset>
+                <fieldset class="scheduler-border">
+                    <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <legend class="scheduler-border"><h4 class="card-title;  font-weight-bold" > Contacto de Pago</h4></legend>
+                                </div>
+                            </div>
+    
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Nombre Completo</label>
+                                    <input type="text" id="nombre_completo_pago" class="form-control" placeholder="Nombre Completo"
+                                        formControlName="nombre_completo_pago">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Email</label>
+                                    <input type="text" id="email_pago" class="form-control" placeholder="Email"
+                                        formControlName="email_pago">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Tel Móvil</label>
+                                    <input type="text" id="movil_pago" class="form-control" placeholder="Movil"
+                                    formControlName="movil_pago">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Tel Trabajo</label>
+                                    <input type="text" id="tel_trabajo_pago" class="form-control" placeholder="Tel. Trabajo"
+                                    formControlName="tel_trabajo_pago">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Ext</label>
+                                    <input type="text" id="ext_pago" class="form-control" placeholder="Ext"
+                                    formControlName="ext_pago">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Puesto</label>
+                                    <input type="text" id="puesto_pago" class="form-control" placeholder="Puesto"
+                                    formControlName="puesto_pago">
+                                </div>
+                            </div>
+                    </div>
+                </fieldset>
+                <fieldset class="scheduler-border">
+                    <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <legend class="scheduler-border"><h4 class="card-title;  font-weight-bold" > Estatus</h4></legend>
+                                </div>
+                            </div>
+    
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Estatus</label>
+                                    <select class="form-control" id="idestatus" placeholder="Estatus"
+                                    formControlName="idestatus">
+                                    <option [value]="item.id" *ngFor="let item of Estatus">{{item.nombre}}</option>
+                                </select>
+                                </div>
+                            </div>
+                </div>
+                </fieldset>
+
+                    <div mat-dialog-actions class="btn-create botones">
+                        <button class="btn btn-warning" style="text-align: end;">Cancelar</button>
+                        <button type="submit" class="btn btn-primary" style="text-align: end;">Crear Cliente</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+               <div class="row">
+                    <div class="col-10">
+                        
+                        <form [formGroup]="supplierForm">
+                         <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="nombre_completo"> Filtro por Razón Social</label>
+                                    <input type="text" id="razon_social" class="form-control" placeholder="Razón Social, No. de Proveedor" 
+                                   formControlName="razon_social" >
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group" style="margin-top: 34px;">
+                                        <button type="submit" class="btn btn-primary"   (click)="searchSuppliers()"><i class="mdi mdi-account-search"></i> </button>
+                                </div>
+                            </div>
+                         
+            
+                         </div>   
+                        </form>
+                    </div>
+
+                    <div class="col-2">
+                        <h4 class="card-title" style="text-align: end; margin-top: 34px;"><button class="btn btn-primary"  (click)="CreateSupplier()" 
+                            value=""><i class="mdi mdi-plus"></i> Crear Proveedor</button></h4>
+                    </div>
+               </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>No. Proveedor</th>
+                                <th>Razón Social</th>
+                                <th>RFC</th>
+                                <th>Código Postal</th>
+                                <th>Contacto Principal</th>
+                                <th>Estatus</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let suppliers of suppliers | paginate: { itemsPerPage: numPag, currentPage: p, totalItems: totalReg }">
+                                <td>{{suppliers.no_proveedor }}</td>
+                                <td>{{suppliers.razon_social }}</td>
+                                <td>{{suppliers.rfc }}</td>
+                                <td>{{suppliers.cp }}</td>
+                                <td>{{suppliers.nombre_completo }}</td>
+                                <td>{{suppliers.idestatus }}</td>
+                                <td class="actions">
+                                    <a [routerLink]="['/dashboard/see-supplier', suppliers.id ]"  ><i class="mdi mdi-eye"></i></a>
+                                    <a [routerLink]="['/dashboard/update-supplier', suppliers.id ]"  ><i class="mdi mdi-pencil"></i></a>
+                                 <a [routerLink]="['/dashboard/delete-supplier', suppliers.id ]" ><i class="mdi mdi-delete"></i></a>
+                        
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+              
+                    <pagination-controls   previousLabel="Anterior"  nextLabel="Siguiente" (pageChange)="p = $event"
+                        style="text-align: center;"></pagination-controls>
+
+            
+     
+            </div>
+        </div>
+    </div>
+</div>

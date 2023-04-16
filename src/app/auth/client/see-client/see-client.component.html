@@ -1,0 +1,388 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="ListClient()"
+                        value=""><i class="mdi mdi-arrow-left-bold"></i> Regresar</button></h4>
+
+                <form id="clientForm" [formGroup]="clientForm" (submit)="seeClient()">
+                    <fieldset class="scheduler-border">
+                        <fieldset disabled>
+                            <div class="row">
+
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <legend class="scheduler-border">
+                                            <h4 class="card-title;  font-weight-bold"> Datos Generales</h4>
+                                        </legend>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">No. Cliente</label>
+                                        <fieldset disabled><input type="text" id="no_cliente" required=""
+                                                class="form-control" formControlName="no_cliente"></fieldset>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Razón Social *</label>
+                                        <input type="text" id="razon_social" class="form-control"
+                                            placeholder="Razón Social" formControlName="razon_social">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">RFC *</label>
+                                        <input type="text" id="rfc" class="form-control" placeholder="RFC"
+                                            formControlName="rfc">
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">País *</label>
+                                        <select class="form-control" id="idPais" placeholder="País"
+                                            formControlName="idPais" [(ngModel)]="idPais">
+                                            <option [value]="item.idpais" *ngFor="let item of Paises">{{item.pais}}
+                                            </option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Ciudad *</label>
+                                        <select class="form-control" id="idCiudad" placeholder="Ciudad"
+                                            formControlName="idCiudad" [(ngModel)]="idCiudad">
+                                            <option [value]="item.idciudad" *ngFor="let item of Ciudades">
+                                                {{item.ciudad}}</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Municipio/Alcadía *</label>
+                                        <select class="form-control" id="idMunicipio" placeholder="Municipio / Alcadia"
+                                            formControlName="idMunicipio" [(ngModel)]="idMunicipio">
+                                            <option [value]="item.iddelegacion" *ngFor="let item of Delegaciones">
+                                                {{item.delegacion}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Calle *</label>
+                                        <input type="text" id="calle" class="form-control" placeholder="Calle"
+                                            formControlName="calle">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">No. Ext *</label>
+                                        <input type="text" id="no_ext" class="form-control" placeholder="No. Ext"
+                                            formControlName="no_ext">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">No. Int </label>
+                                        <input type="text" id="no_int" class="form-control" placeholder="No. Int"
+                                            formControlName="no_int">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Colonia *</label>
+                                        <input type="text" id="colonia" class="form-control" placeholder="Colonia"
+                                            formControlName="colonia">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Código Postal *</label>
+                                        <input type="text" id="cp" class="form-control" placeholder="Codigo Postal"
+                                            formControlName="cp">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Sitio Web</label>
+                                        <input type="text" id="sitio_web" class="form-control" placeholder="Sitio Web"
+                                            formControlName="sitio_web">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label class="control-label">URL Google Maps</label>
+                                        <input type="text" id="url_map" class="form-control"
+                                            placeholder="URL Google Maps" formControlName="url_map">
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label class="control-label">Observaciones</label>
+                                        <textarea class="form-control" id="observaciones" rows="3"
+                                            placeholder="Observaciones" formControlName="observaciones"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </fieldset>
+
+                    <fieldset class="scheduler-border">
+                        <fieldset disabled>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <legend class="scheduler-border">
+                                            <h4 class="card-title;  font-weight-bold"> Datos de Facturación</h4>
+                                        </legend>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Codigo Postal Fiscal</label>
+                                        <input type="text" id="cp_fiscal" class="form-control"
+                                            placeholder="Codigo Postal Fiscal" formControlName="cp_fiscal">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Uso de CFDI</label>
+                                        <select class="form-control" id="idUsoCfdi" placeholder="CFDI"
+                                            formControlName="idUsoCfdi">
+                                            <option [value]="item.id" *ngFor="let item of  CatalagoSatCFDI">
+                                                {{item.nombre}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Régimen Fiscal</label>
+                                        <select class="form-control" id="idRegimenFiscal" placeholder="Régimen Fiscal"
+                                            formControlName="idRegimenFiscal">
+                                            <option [value]="item.id" *ngFor="let item of  CatalogoSatRegimenFiscal">
+                                                {{item.nombre}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </fieldset>
+
+                    <fieldset class="scheduler-border">
+                        <fieldset disabled>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <legend class="scheduler-border">
+                                            <h4 class="card-title;  font-weight-bold"> Contacto Principal</h4>
+                                        </legend>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Nombre Completo</label>
+                                        <input type="text" id="nombre_completo" class="form-control"
+                                            placeholder="Nombre Completo" formControlName="nombre_completo">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Email</label>
+                                        <input type="text" id="email" class="form-control" placeholder="Email"
+                                            formControlName="email">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Tel Móvil</label>
+                                        <input type="text" id="movil" class="form-control" placeholder="Movil"
+                                            formControlName="movil">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Tel Trabajo</label>
+                                        <input type="text" id="tel_trabajo" class="form-control"
+                                            placeholder="Tel. Trabajo" formControlName="tel_trabajo">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Ext</label>
+                                        <input type="text" id="ext" class="form-control" placeholder="Ext"
+                                            formControlName="ext">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Puesto</label>
+                                        <input type="text" id="puesto" class="form-control" placeholder="Puesto"
+                                            formControlName="puesto">
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </fieldset>
+
+                    <fieldset class="scheduler-border">
+                        <fieldset disabled>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <legend class="scheduler-border">
+                                            <h4 class="card-title;  font-weight-bold"> Contacto Técnico</h4>
+                                        </legend>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Nombre Completo</label>
+                                        <input type="text" id="nombre_completo_tecnico" class="form-control"
+                                            placeholder="Nombre Completo" formControlName="nombre_completo_tecnico">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Email</label>
+                                        <input type="text" id="email_tecnico" class="form-control" placeholder="Email"
+                                            formControlName="email_tecnico">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Tel Móvil</label>
+                                        <input type="text" id="movil_tecnico" class="form-control" placeholder="Movil"
+                                            formControlName="movil_tecnico">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Tel Trabajo</label>
+                                        <input type="text" id="tel_trabajo_tecnico" class="form-control"
+                                            placeholder="Tel. Trabajo" formControlName="tel_trabajo_tecnico">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Ext</label>
+                                        <input type="text" id="ext_tecnico" class="form-control" placeholder="Ext"
+                                            formControlName="ext_tecnico">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Puesto</label>
+                                        <input type="text" id="puesto_tecnico" class="form-control" placeholder="Puesto"
+                                            formControlName="puesto_tecnico">
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </fieldset>
+                    <fieldset class="scheduler-border">
+                        <fieldset disabled>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <legend class="scheduler-border">
+                                            <h4 class="card-title;  font-weight-bold"> Contacto de Pago</h4>
+                                        </legend>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Nombre Completo</label>
+                                        <input type="text" id="nombre_completo_pago" class="form-control"
+                                            placeholder="Nombre Completo" formControlName="nombre_completo_pago">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Email</label>
+                                        <input type="text" id="email_pago" class="form-control" placeholder="Email"
+                                            formControlName="email_pago">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Tel Móvil</label>
+                                        <input type="text" id="movil_pago" class="form-control" placeholder="Movil"
+                                            formControlName="movil_pago">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Tel Trabajo</label>
+                                        <input type="text" id="tel_trabajo_pago" class="form-control"
+                                            placeholder="Tel. Trabajo" formControlName="tel_trabajo_pago">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Ext</label>
+                                        <input type="text" id="ext_pago" class="form-control" placeholder="Ext"
+                                            formControlName="ext_pago">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Puesto</label>
+                                        <input type="text" id="puesto_pago" class="form-control" placeholder="Puesto"
+                                            formControlName="puesto_pago">
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                    </fieldset>
+                    <fieldset class="scheduler-border">
+                        <fieldset disabled>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <legend class="scheduler-border">
+                                            <h4 class="card-title;  font-weight-bold"> Estatus</h4>
+                                        </legend>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Estatus</label>
+                                        <select class="form-control" id="idestatus" placeholder="Estatus"
+                                            formControlName="idestatus">
+                                            <option [value]="item.id" *ngFor="let item of Estatus">{{item.nombre}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </fieldset>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
