@@ -45,6 +45,16 @@ import { ListSuppliersComponent } from '../auth/supplier/list-suppliers/list-sup
 import { SeeSupplierComponent } from '../auth/supplier/see-supplier/see-supplier.component';
 import { UpdateSupplierComponent } from '../auth/supplier/update-supplier/update-supplier.component';
 import { DeleteSupplierComponent } from '../auth/supplier/delete-supplier/delete-supplier.component';
+import { CreateCategoriesComponent } from '../auth/catalogos/categories/create-categories/create-categories.component';
+import { ListCategoriesComponent } from '../auth/catalogos/categories/list-categories/list-categories.component';
+import { SeeCategoriesComponent } from '../auth/catalogos/categories/see-categories/see-categories.component';
+import { EditCategoriesComponent } from '../auth/catalogos/categories/edit-categories/edit-categories.component';
+import { DeleteCategoriesComponent } from '../auth/catalogos/categories/delete-categories/delete-categories.component';
+import { CreateSubcategoriesComponent } from '../auth/catalogos/subcategories/create-subcategories/create-subcategories.component';
+import { ListSubcategoriesComponent } from '../auth/catalogos/subcategories/list-subcategories/list-subcategories.component';
+import { SeeSubcategoriesComponent } from '../auth/catalogos/subcategories/see-subcategories/see-subcategories.component';
+import { EditSubcategoriesComponent } from '../auth/catalogos/subcategories/edit-subcategories/edit-subcategories.component';
+import { DeleteSubcategoriesComponent } from '../auth/catalogos/subcategories/delete-subcategories/delete-subcategories.component';
 
 
 
@@ -313,6 +323,73 @@ const routes: Routes = [
         data: { titulo: 'Eliminar Proveedor' },
         canActivate: [AccesoGuard],
       },
+      {
+        path: 'create-categories',
+        component: CreateCategoriesComponent,
+        data: { titulo: 'Crear Categoria' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'list-categories',
+        component: ListCategoriesComponent,
+        data: { titulo: 'Lista de Categorias' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'see-categories/:id',
+        component: SeeCategoriesComponent,
+        data: { titulo: 'Categoria' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'edit-categories/:id',
+        component: EditCategoriesComponent,
+        data: { titulo: 'Editar categoria' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'delete-categories/:id',
+        component: DeleteCategoriesComponent,
+        data: { titulo: 'Eliminar Categoria' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'create-subcategories/:id',
+        component: CreateSubcategoriesComponent,
+        data: { titulo: 'Crear SubCategoria' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'list-subcategories',
+        component: ListSubcategoriesComponent,
+        data: { titulo: 'Lista de SubCategorias' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'see-subcategories/:id',
+        component: SeeSubcategoriesComponent,
+        data: { titulo: 'SubCategoria' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'edit-subcategories/:id',
+        component: EditSubcategoriesComponent,
+        data: { titulo: 'Editar Subcategoria' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'delete-subcategories/:id',
+        component: DeleteSubcategoriesComponent,
+        data: { titulo: 'Eliminar SubCategoria' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'campania-create',
+        component: CampaniaCreateComponent,
+        data: { titulo: 'Eliminar SubCategoria' },
+        canActivate: [AccesoGuard],
+      },
+
 
 
 

@@ -39,11 +39,20 @@ import { ListSuppliersComponent } from './supplier/list-suppliers/list-suppliers
 import { SeeSupplierComponent } from './supplier/see-supplier/see-supplier.component';
 import { DeleteSupplierComponent } from './supplier/delete-supplier/delete-supplier.component';
 import { UpdateSupplierComponent } from './supplier/update-supplier/update-supplier.component';
-
+import { EditCategoriesComponent } from './catalogos/categories/edit-categories/edit-categories.component';
+import { ListCategoriesComponent } from './catalogos/categories/list-categories/list-categories.component';
+import { SeeCategoriesComponent } from './catalogos/categories/see-categories/see-categories.component';
+import { DeleteCategoriesComponent } from './catalogos/categories/delete-categories/delete-categories.component';
+import { CreateCategoriesComponent } from './catalogos/categories/create-categories/create-categories.component';
+import { CreateSubcategoriesComponent } from './catalogos/subcategories/create-subcategories/create-subcategories.component';
+import { ListSubcategoriesComponent } from './catalogos/subcategories/list-subcategories/list-subcategories.component';
+import { SeeSubcategoriesComponent } from './catalogos/subcategories/see-subcategories/see-subcategories.component';
+import { EditSubcategoriesComponent } from './catalogos/subcategories/edit-subcategories/edit-subcategories.component';
+import { DeleteSubcategoriesComponent } from './catalogos/subcategories/delete-subcategories/delete-subcategories.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, ChangePasswordComponent, UserListComponent, EditUserComponent, ListRolesComponent, CreateRolesComponent, EditRolesComponent, ListPermissComponent, CreatePermissComponent, EditPermissComponent, SeeUserComponent, DeleteUserComponent, CreateModuleComponent, EditModuleComponent, ListModuleComponent, DeleteModuleComponent, SeeModuleComponent, CreateTypemoduleComponent, DeleteTypemoduleComponent, EditTypemoduleComponent, SeeTypemoduleComponent, ListTypemoduleComponent, AddPermisseUserComponent, CreateClientComponent, SeeClientComponent, DeleteClientComponent, EditClientComponent, ListClientComponent, CreateSupplierComponent, ListSuppliersComponent, SeeSupplierComponent, DeleteSupplierComponent, UpdateSupplierComponent],
+  declarations: [LoginComponent, RegisterComponent, ChangePasswordComponent, UserListComponent, EditUserComponent, ListRolesComponent, CreateRolesComponent, EditRolesComponent, ListPermissComponent, CreatePermissComponent, EditPermissComponent, SeeUserComponent, DeleteUserComponent, CreateModuleComponent, EditModuleComponent, ListModuleComponent, DeleteModuleComponent, SeeModuleComponent, CreateTypemoduleComponent, DeleteTypemoduleComponent, EditTypemoduleComponent, SeeTypemoduleComponent, ListTypemoduleComponent, AddPermisseUserComponent, CreateClientComponent, SeeClientComponent, DeleteClientComponent, EditClientComponent, ListClientComponent, CreateSupplierComponent, ListSuppliersComponent, SeeSupplierComponent, DeleteSupplierComponent, UpdateSupplierComponent,EditCategoriesComponent, ListCategoriesComponent, SeeCategoriesComponent, DeleteCategoriesComponent,CreateCategoriesComponent, CreateSubcategoriesComponent, ListSubcategoriesComponent, SeeSubcategoriesComponent, EditSubcategoriesComponent, DeleteSubcategoriesComponent],
   exports: [LoginComponent, RegisterComponent],
   imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule, NgxPaginationModule],
 })

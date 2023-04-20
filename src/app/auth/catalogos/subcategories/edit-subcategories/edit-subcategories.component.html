@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary"
+                        (click)="ListSubCategories()" value=""><i class="mdi mdi-playlist-check"></i> Lista de
+                        Categorias</button></h4>
+
+                <form (submit)="updateSubCategories()" [formGroup]="subcategoriesForm ">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">SubCategoria</label>
+                                <input type="text" id="name" class="form-control" placeholder="SubCategoria"
+                                    formControlName="name">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Categoria</label>
+                                <select class="form-control" id="id_category" placeholder="Categoria"
+                                    formControlName="id_category">
+                                    <option [value]="item.id" *ngFor="let item of Categorie">{{item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Sku Indispensable </label>
+                                <div class="form-check">
+                                    <label class="custom-control custom-radio">
+                                        <input value="1" name="sku_indispensable" type="radio"
+                                            class="custom-control-input" formControlName="sku_indispensable"
+                                            [(ngModel)]='sku_indispensable'>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">SI</span>
+                                    </label>
+                                    <label class="custom-control custom-radio">
+                                        <input value="0" name="sku_indispensable" type="radio"
+                                            class="custom-control-input" formControlName="sku_indispensable"
+                                            [(ngModel)]='sku_indispensable'>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">NO</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div mat-dialog-actions class="btn-create botones">
+                        <button class="btn btn-warning" style="text-align: end;">Cancelar</button>
+
+                        <button type="submit" class="btn btn-primary" style="text-align: end;">Editar
+                            SubCategoria</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

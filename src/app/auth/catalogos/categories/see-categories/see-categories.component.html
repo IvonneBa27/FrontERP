@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="ListCategories()"
+                        value=""><i class="mdi mdi-playlist-check"></i> Regresar</button></h4>
+               
+                <form (submit)="SeeCategories()" [formGroup]="categoriesForm">
+                    <fieldset disabled>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Nombre de Categoria</label>
+                                <input type="text" id="name" class="form-control" placeholder="Nombre de Categoria"
+                                    formControlName="name">
+                            </div>
+                        </div>
+                        
+                    
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Estatus</label>
+                                <select class="form-control" id="id_status" placeholder="Estatus" formControlName="id_status">
+                                    <option [value]="item.id" *ngFor="let item of Estatus">{{item.nombre}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

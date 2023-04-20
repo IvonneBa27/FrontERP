@@ -95,7 +95,13 @@ export class SidebarService {
           url: 'users-list',
           roles: [{ name: 'Administrador' }],
         },
+        {
+          titulo: 'Categoria',
+          url: 'list-categories',
+          roles: [{ name: 'Administrador' }],
+        },
       ],
+      
     },
   ];
   constructor() {}

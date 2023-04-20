@@ -335,4 +335,112 @@ export class UserservicesService {
     }
 
 
+
+    //Categories
+
+    createCategorie(data: { name: any; id_status: any; }): Observable<any> {
+      const URL = this.baseUrl + 'categories/create';
+  
+      const headers = new HttpHeaders().set('Accept', 'application/json');
+      return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+    }
+  
+  
+    getCategorie(): Observable<any> {
+      const URL = this.baseUrl + 'categories/get';
+      const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+  
+      const headers = new HttpHeaders()
+        .set('Accept', 'application/json')
+        .set('Authorization', token);
+  
+      return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+    }
+  
+    getCategoriebyId(id: any): Observable<any> {
+      const URL = this.baseUrl + `categories/id?id=${id}`;
+      const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+  
+      const headers = new HttpHeaders()
+        .set('Accept', 'application/json')
+        .set('Authorization', token);
+  
+      return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  
+    }
+  
+    updateCategorie(data: {
+      name: any; 
+      id: string | null;
+    }): Observable<any> {
+      const URL = this.baseUrl + 'categories/update';
+  
+      const headers = new HttpHeaders().set('Accept', 'application/json');
+      return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+    }
+  
+    deleteCategorie(data: {
+      id: string | null;
+    }): Observable<any> {
+      const URL = this.baseUrl + 'categories/delete';
+  
+      const headers = new HttpHeaders().set('Accept', 'application/json');
+      return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+    }
+
+      //SubCategories
+
+    createSubCategorie(data: { name: any; id_category: any; id_status: any; sku_indispensable: any; }): Observable<any> {
+      const URL = this.baseUrl + 'subcategories/create';
+  
+      const headers = new HttpHeaders().set('Accept', 'application/json');
+      return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+    }
+  
+  
+    getSubCategorie(): Observable<any> {
+      const URL = this.baseUrl + 'subcategories/get';
+      const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+  
+      const headers = new HttpHeaders()
+        .set('Accept', 'application/json')
+        .set('Authorization', token);
+  
+      return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+    }
+  
+    getSubCategoriebyId(id: any): Observable<any> {
+      const URL = this.baseUrl + `subcategories/id?id=${id}`;
+      const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+  
+      const headers = new HttpHeaders()
+        .set('Accept', 'application/json')
+        .set('Authorization', token);
+  
+      return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  
+    }
+  
+    updateSubCategorie(data: {
+      name: any;  id_category: any; sku_indispensable: any;
+      id: string | null;
+    }): Observable<any> {
+      const URL = this.baseUrl + 'subcategories/update';
+  
+      const headers = new HttpHeaders().set('Accept', 'application/json');
+      return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+    }
+  
+    deleteSubCategorie(data: {
+      id: string | null;
+    }): Observable<any> {
+      const URL = this.baseUrl + 'subcategories/delete';
+  
+      const headers = new HttpHeaders().set('Accept', 'application/json');
+      return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+    }
+  
+  
+
+
 }
