@@ -55,6 +55,10 @@ import { ListSubcategoriesComponent } from '../auth/catalogos/subcategories/list
 import { SeeSubcategoriesComponent } from '../auth/catalogos/subcategories/see-subcategories/see-subcategories.component';
 import { EditSubcategoriesComponent } from '../auth/catalogos/subcategories/edit-subcategories/edit-subcategories.component';
 import { DeleteSubcategoriesComponent } from '../auth/catalogos/subcategories/delete-subcategories/delete-subcategories.component';
+import { CreateProductsComponent } from '../auth/catalogos/products/create-products/create-products.component';
+import { ListProductsComponent } from '../auth/catalogos/products/list-products/list-products.component';
+import { SeeProductsComponent } from '../auth/catalogos/products/see-products/see-products.component';
+import { DeleteProductsComponent } from '../auth/catalogos/products/delete-products/delete-products.component';
 
 
 
@@ -360,7 +364,7 @@ const routes: Routes = [
         canActivate: [AccesoGuard],
       },
       {
-        path: 'list-subcategories',
+        path: 'list-subcategories/:id',
         component: ListSubcategoriesComponent,
         data: { titulo: 'Lista de SubCategorias' },
         canActivate: [AccesoGuard],
@@ -384,11 +388,38 @@ const routes: Routes = [
         canActivate: [AccesoGuard],
       },
       {
-        path: 'campania-create',
-        component: CampaniaCreateComponent,
-        data: { titulo: 'Eliminar SubCategoria' },
+        path: 'create-products',
+        component: CreateProductsComponent,
+        data: { titulo: 'Crear Producto' },
         canActivate: [AccesoGuard],
       },
+      {
+        path: 'list-products',
+        component: ListProductsComponent,
+        data: { titulo: 'Lista de Producto' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'see-products/:id',
+        component: SeeProductsComponent,
+        data: { titulo: 'Producto' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'edit-products/:id',
+        component: EditCategoriesComponent,
+        data: { titulo: 'Editar Producto' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'delete-products/:id',
+        component: DeleteProductsComponent,
+        data: { titulo: 'Eliminar Producto' },
+        canActivate: [AccesoGuard],
+      },
+
+
+
 
 
 

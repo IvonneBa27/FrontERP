@@ -62,7 +62,7 @@ export class EditSubcategoriesComponent {
 }
 
 ListSubCategories() {
-  this.router.navigateByUrl('/dashboard/list-subcategories')
+  this.router.navigateByUrl('/dashboard/list-categories')
 
 }
 

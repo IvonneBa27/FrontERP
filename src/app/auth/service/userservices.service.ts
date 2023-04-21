@@ -356,6 +356,17 @@ export class UserservicesService {
   
       return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
     }
+
+    getCatCategorie(id:any): Observable<any> {
+      const URL = this.baseUrl + `categories/catid?id=${id}`;
+      const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+  
+      const headers = new HttpHeaders()
+        .set('Accept', 'application/json')
+        .set('Authorization', token);
+  
+      return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+    }
   
     getCategoriebyId(id: any): Observable<any> {
       const URL = this.baseUrl + `categories/id?id=${id}`;
@@ -408,6 +419,17 @@ export class UserservicesService {
   
       return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
     }
+
+    getCatSubCategorie(id:any): Observable<any> {
+      const URL = this.baseUrl + `subcategories/catid?id=${id}`;
+      const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+  
+      const headers = new HttpHeaders()
+        .set('Accept', 'application/json')
+        .set('Authorization', token);
+  
+      return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+    }
   
     getSubCategoriebyId(id: any): Observable<any> {
       const URL = this.baseUrl + `subcategories/id?id=${id}`;
@@ -439,8 +461,15 @@ export class UserservicesService {
       const headers = new HttpHeaders().set('Accept', 'application/json');
       return this.http.post(URL, data, { headers }).pipe(map((res) => res));
     }
+
+    // Producto
   
+    createProduct(data: { id_category:any; id_subcategory: any; sku: any; serial_number: any; id_brand: any; model: any; description: any; inventory: any; photo: any; id_status: any; id_unitmeasure: any; }): Observable<any> {
+      const URL = this.baseUrl + 'products/create';
   
+      const headers = new HttpHeaders().set('Accept', 'application/json');
+      return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+    }
 
 
 }

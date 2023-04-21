@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="ListSubCategories()"
-                        value=""><i class="mdi mdi-playlist-check"></i> Lista de Categorias</button></h4>
+                        value=""><i class="mdi mdi-playlist-check"></i> Lista de SubCategorias</button></h4>
 
                 <form (submit)="createSubCategories()" [formGroup]="subcategoriesForm ">
                     <div class="row">
@@ -15,6 +15,7 @@
                               <select class="form-control" id="id_category" placeholder="Nombre de Categoria" formControlName="id_category ">
                                     <option [value]="item.id" *ngFor="let item of Categorie">{{item.name}}</option>
                                 </select>
+                    
                             </fieldset>
                             </div>
                         </div>
@@ -23,7 +24,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Nombre de SubCategoria</label>
-                                <input type="text" id="name" class="form-control" placeholder="Nombre de SubCategoria"
+                               <input type="text" id="name" class="form-control" placeholder="Nombre de SubCategoria"
                                     formControlName="name">
                             </div>
                         </div>

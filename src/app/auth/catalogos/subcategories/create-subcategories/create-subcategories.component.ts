@@ -46,7 +46,7 @@ export class CreateSubcategoriesComponent  {
     });
 
 
-    this._servicesuser.getSubCategoriebyId(this.id_categorie).subscribe((res) => {
+    this._servicesuser.getCatCategorie(this.id_categorie).subscribe((res) => {
       this.Categorie = res.data;
   
         this._servicesgeneral.requestCatalogos().subscribe(respuesta => {
@@ -74,7 +74,7 @@ export class CreateSubcategoriesComponent  {
   }
   
   ListSubCategories() {
-    this.router.navigateByUrl('/dashboard/list-subcategories')
+    this.router.navigate([`/dashboard/list-subcategories/${this.id_categorie}`]);
   }
 
   createSubCategories() {

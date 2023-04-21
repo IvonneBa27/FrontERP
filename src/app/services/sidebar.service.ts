@@ -38,7 +38,7 @@ export class SidebarService {
         },
         {
           titulo: 'Productos',
-          url: 'listado-grupos',
+          url: 'create-products',
           roles: [{ name: 'Administrador' }],
         },
         {

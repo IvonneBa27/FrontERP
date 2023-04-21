@@ -14,6 +14,7 @@ import { GeneralService } from 'src/app/services/general.service';
 })
 export class SeeSubcategoriesComponent {
   id_subcategorie;
+  id_category: any;
   sku_indispensable:any;
   subcategoriesForm: FormGroup;
   Estatus: Estatus[]=[];
@@ -45,7 +46,6 @@ export class SeeSubcategoriesComponent {
       this.Estatus = respuesta[2].data;
       this.Categorie = respuesta[17].data;
 
-
         this.setForm();
       });
 
@@ -61,10 +61,7 @@ export class SeeSubcategoriesComponent {
   this.subcategoriesForm.controls['sku_indispensable'].setValue(this.subcategories.sku_indispensable);
 }
 
-ListSubCategories() {
-  this.router.navigateByUrl('/dashboard/list-subcategories')
 
-}
 
 seeSubCategories() {
 
@@ -73,6 +70,12 @@ seeSubCategories() {
   const status = this.subcategoriesForm.value['id_status'];
   const sku_indispensable = this.subcategoriesForm.value['sku_indispensable'];
 
+
+}
+
+ListSubCategories() {
+
+  this.router.navigateByUrl('/dashboard/list-categories')
 
 }
 
