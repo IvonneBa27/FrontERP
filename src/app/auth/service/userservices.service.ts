@@ -464,8 +464,74 @@ export class UserservicesService {
 
     // Producto
   
-    createProduct(data: { id_category:any; id_subcategory: any; sku: any; serial_number: any; id_brand: any; model: any; description: any; inventory: any; photo: any; id_status: any; id_unitmeasure: any; }): Observable<any> {
+    createProduct(data: { name:any; id_categoty:any; id_subcategory: any; sku: any; serial_number: any; id_brand: any; model: any; description: any; inventory: any; photo: any; id_status: any; id_unitmeasure: any; }): Observable<any> {
       const URL = this.baseUrl + 'products/create';
+  
+      const headers = new HttpHeaders().set('Accept', 'application/json');
+      return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+    }
+
+    getProducts(): Observable<any> {
+      const URL = this.baseUrl + 'products/get';
+      const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+  
+      const headers = new HttpHeaders()
+        .set('Accept', 'application/json')
+        .set('Authorization', token);
+  
+      return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+    }
+
+    searchName(name: any): Observable<any> {
+      const URL = this.baseUrl + `searchProducts/get?param=${name}`;
+      const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+  
+      const headers = new HttpHeaders()
+        .set('Accept', 'application/json')
+        .set('Authorization', token);
+  
+      return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  
+    }
+
+    searchCategory(id_categoty: any): Observable<any> {
+      const URL = this.baseUrl + `products/getCategory?param=${id_categoty}`;
+      const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+  
+      const headers = new HttpHeaders()
+        .set('Accept', 'application/json')
+        .set('Authorization', token);
+  
+      return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  
+    }
+
+    getProductsbyId(id: any): Observable<any> {
+      const URL = this.baseUrl + `products/id?id=${id}`;
+      const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+  
+      const headers = new HttpHeaders()
+        .set('Accept', 'application/json')
+        .set('Authorization', token);
+  
+      return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  
+    }
+
+    updateProducts(data: {
+      name:any; id_categoty:any; id_subcategory: any; sku: any; serial_number: any; id_brand: any; model: any; description: any; inventory: any; photo: any; id_unitmeasure: any; 
+      id: string | null;
+    }): Observable<any> {
+      const URL = this.baseUrl + 'products/update';
+  
+      const headers = new HttpHeaders().set('Accept', 'application/json');
+      return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+    }
+
+    deleteProducts(data: {
+      id: string | null;
+    }): Observable<any> {
+      const URL = this.baseUrl + 'products/delete';
   
       const headers = new HttpHeaders().set('Accept', 'application/json');
       return this.http.post(URL, data, { headers }).pipe(map((res) => res));

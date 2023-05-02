@@ -1,1 +1,131 @@
-<p>see-products works!</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="ListProducts()"
+                        value=""><i class="mdi mdi-playlist-check"></i> Lista de Productos</button></h4>
+
+                <form (submit)="seeProducts()" [formGroup]="productsForm ">
+                    <fieldset disabled>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Nombre del producto</label>
+                                <input type="text" id="name" class="form-control" placeholder="Nombre del Producto"
+                                    formControlName="name">
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Categoria</label>
+                                <select class="form-control" id="id_categoty" placeholder="Categoria"
+                                    formControlName="id_categoty" [(ngModel)]="id_categoty">
+                                    <option [value]="item.id" *ngFor="let item of Categorie">{{item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">SubCategoria</label>
+                                <select class="form-control" id="id_subcategory" placeholder="SubCategoria"
+                                    formControlName="id_subcategory" [(ngModel)]="id_subcategory">
+                                    <option [value]="item.id" *ngFor="let item of SubCategorie">{{item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">No. SKU</label>
+                                <input type="text" id="sku" class="form-control" placeholder="No. SKU"
+                                    formControlName="sku">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">No. Serial</label>
+                                <input type="text" id="serial_number" class="form-control" placeholder="No. Serial"
+                                    formControlName="serial_number">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Marca</label>
+                                <select class="form-control" id="id_brand" placeholder="Marca"
+                                    formControlName="id_brand">
+                                    <option [value]="item.id" *ngFor="let item of Brand">{{item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Modelo</label>
+                                <input type="text" id="model" class="form-control" placeholder="Modelo"
+                                    formControlName="model">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Descripcion</label>
+                                <textarea class="form-control" id="description" rows="3" placeholder="Descripcion"
+                                    formControlName="description"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Inventariable </label>
+                                <div class="form-check">
+                                    <label class="custom-control custom-radio">
+                                        <input value="1" name="inventory" type="radio" class="custom-control-input"
+                                            formControlName="inventory" [(ngModel)]='inventory'>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">SI</span>
+                                    </label>
+                                    <label class="custom-control custom-radio">
+                                        <input value="0" name="inventory" type="radio" class="custom-control-input"
+                                            formControlName="inventory" [(ngModel)]='inventory'>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">NO</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Unidad de medidad</label>
+                                <input type="text" id="id_unitmeasure" class="form-control" placeholder="Imagen"
+                                    formControlName="id_unitmeasure">
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Estatus</label>
+                                <select class="form-control" id="id_status" placeholder="Estatus"
+                                    formControlName="id_status">
+                                    <option [value]="item.id" *ngFor="let item of Estatus">{{item.nombre}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!--<div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Imagen</label>
+                                <input type="text" id="photo" class="form-control" placeholder="Imagen"
+                                    formControlName="photo">
+                                    <button type="submit" class="btn btn-primary">Examinar</button>
+                            </div>
+                        </div>-->
+           
+
+
+                    </div>
+                   </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

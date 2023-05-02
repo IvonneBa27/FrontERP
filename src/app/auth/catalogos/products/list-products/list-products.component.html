@@ -1,1 +1,76 @@
-<p>list-products works!</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-10">
+                        
+                        <form [formGroup]="productsForm">
+                         <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="nombre_completo"> Filtro por Nombre o ID</label>
+                                    <input type="text" id="name" class="form-control" placeholder="Nombre o ID" 
+                                   formControlName="name" >
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group" style="margin-top: 34px;">
+                                        <button type="submit" class="btn btn-primary"   (click)="searchProducts()"><i class="mdi mdi-account-search"></i> </button>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="id_categoty"> Filtro por Categoria</label>
+                                    <select class="form-control" id="id_categoty" placeholder="Categoria"
+                                    formControlName="id_categoty" (change)="searchCategory()"  >
+                                    <option [value]="item.id" *ngFor="let item of Category">{{item.name}}</option>
+                                </select>
+                                </div>
+                            </div>
+            
+                         </div>   
+                        </form>
+                    </div>
+
+                    <div class="col-2">
+                        <h4 class="card-title" style="text-align: end; margin-top: 34px;"><button class="btn btn-primary" (click)="createProducts()"
+                            value=""><i class="mdi mdi-plus"></i> Crear Producto</button></h4>
+                    </div>
+               </div>
+
+       
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Categoria</th>
+                                <th>SubCategoria</th>
+                                <th>Marca</th>
+                                <th>Estatus</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let Product of Products| paginate: { itemsPerPage: 50, currentPage: p }">
+                                <td>{{Product.id }}</td>
+                                <td>{{Product.name }}</td>
+                                <td>{{Product.categories.name}}</td>
+                                <td>{{Product.subcategories.name}}</td>
+                                <td>{{Product.marca.name}}</td>
+                                <td>{{Product.estatus.nombre}}</td>
+                                <td class="actions">
+                                    <a [routerLink]="['/dashboard/see-products', Product.id ]"><i class="mdi mdi-eye"></i></a>
+                                    <a [routerLink]="['/dashboard/edit-products', Product.id ]"><i class="mdi mdi-pencil"></i></a>
+                                    <a [routerLink]="['/dashboard/delete-products', Product.id ]"><i class="mdi mdi-delete"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <pagination-controls previousLabel="Anterior" nextLabel="Siguiente" (pageChange)="p = $event"
+                        style="text-align: center;"></pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>

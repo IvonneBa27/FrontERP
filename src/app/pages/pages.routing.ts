@@ -59,6 +59,7 @@ import { CreateProductsComponent } from '../auth/catalogos/products/create-produ
 import { ListProductsComponent } from '../auth/catalogos/products/list-products/list-products.component';
 import { SeeProductsComponent } from '../auth/catalogos/products/see-products/see-products.component';
 import { DeleteProductsComponent } from '../auth/catalogos/products/delete-products/delete-products.component';
+import { EditProductsComponent } from '../auth/catalogos/products/edit-products/edit-products.component';
 
 
 
@@ -407,7 +408,7 @@ const routes: Routes = [
       },
       {
         path: 'edit-products/:id',
-        component: EditCategoriesComponent,
+        component: EditProductsComponent,
         data: { titulo: 'Editar Producto' },
         canActivate: [AccesoGuard],
       },

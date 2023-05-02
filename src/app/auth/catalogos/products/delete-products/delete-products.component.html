@@ -1,3 +1,114 @@
-<p>Hola mundo
-    
-</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                
+                <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="ListProducts()"
+                        value=""><i class="mdi mdi-playlist-check"></i> Lista de Productos</button></h4>
+
+                <form (submit)="deleteProducts()" [formGroup]="productsForm ">
+           
+                    <div class="row">
+                     
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                <label class="control-label">Nombre del producto</label>
+                                <input type="text" id="name" class="form-control" placeholder="Nombre del Producto"
+                                    formControlName="name">
+                                </fieldset>
+                            </div>
+                        </div>
+                       
+                       
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                <label class="control-label">Categoria</label>
+                                <select class="form-control" id="id_categoty" placeholder="Categoria"
+                                    formControlName="id_categoty" [(ngModel)]="id_categoty">
+                                    <option [value]="item.id" *ngFor="let item of Categorie">{{item.name}}</option>
+                                </select>
+                            </fieldset>
+                            </div>
+                        </div>
+              
+
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                <label class="control-label">SubCategoria</label>
+                                <select class="form-control" id="id_subcategory" placeholder="SubCategoria"
+                                    formControlName="id_subcategory" [(ngModel)]="id_subcategory">
+                                    <option [value]="item.id" *ngFor="let item of SubCategorie">{{item.name}}</option>
+                                </select>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                <label class="control-label">No. SKU</label>
+                                <input type="text" id="sku" class="form-control" placeholder="No. SKU"
+                                    formControlName="sku">
+                                    </fieldset>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                <label class="control-label">No. Serial</label>
+                                <input type="text" id="serial_number" class="form-control" placeholder="No. Serial"
+                                    formControlName="serial_number">
+                                    </fieldset>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                <label class="control-label">Marca</label>
+                                <select class="form-control" id="id_brand" placeholder="Marca"
+                                    formControlName="id_brand">
+                                    <option [value]="item.id" *ngFor="let item of Brand">{{item.name}}</option>
+                                </select>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                <label class="control-label">Modelo</label>
+                                <input type="text" id="model" class="form-control" placeholder="Modelo"
+                                    formControlName="model">
+                                    </fieldset>
+                            </div>
+                        </div>
+  
+                   
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Estatus</label>
+                                <select class="form-control" id="id_status" placeholder="Estatus"
+                                    formControlName="id_status">
+                                    <option [value]="item.id" *ngFor="let item of Estatus">{{item.nombre}}</option>
+                                </select>
+                            </div>
+                        </div>
+                
+           
+
+
+                    </div>
+                    <div mat-dialog-actions class="btn-create botones">
+                        <button class="btn btn-warning" style="text-align: end;">Cancelar</button>
+
+                        <button type="submit" class="btn btn-primary" style="text-align: end;">Eliminar Producto</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
