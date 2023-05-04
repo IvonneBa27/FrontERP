@@ -13,7 +13,7 @@ import { GeneralService } from 'src/app/services/general.service';
   styleUrls: ['./list-products.component.css']
 })
 export class ListProductsComponent implements OnInit {
-  p:number=1;
+  p: number = 1;
   Products: producs[] = [];
   Category: cat_categories[] = [];
   

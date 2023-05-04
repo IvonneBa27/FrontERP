@@ -538,4 +538,120 @@ export class UserservicesService {
     }
 
 
+       // Almacen
+  
+       createStore(data: { name:any; url_maps: any; description: any; id_status: any; id_user: any;  essential_section:any }): Observable<any> {
+        const URL = this.baseUrl + 'stores/create';
+    
+        const headers = new HttpHeaders().set('Accept', 'application/json');
+        return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+      }
+
+      getStores(): Observable<any> {
+        const URL = this.baseUrl + 'stores/get';
+        const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+    
+        const headers = new HttpHeaders()
+          .set('Accept', 'application/json')
+          .set('Authorization', token);
+    
+        return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+      }
+
+      getStoresbyId(id: any): Observable<any> {
+        const URL = this.baseUrl + `stores/id?id=${id}`;
+        const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+    
+        const headers = new HttpHeaders()
+          .set('Accept', 'application/json')
+          .set('Authorization', token);
+    
+        return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+    
+      }
+
+      updateStores(data: {
+        name:any; url_maps: any; description: any; id_user: any;  essential_section:any
+        id: string | null;
+      }): Observable<any> {
+        const URL = this.baseUrl + 'stores/update';
+    
+        const headers = new HttpHeaders().set('Accept', 'application/json');
+        return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+      }
+
+      deleteStores(data: {
+        id: string | null;
+      }): Observable<any> {
+        const URL = this.baseUrl + 'stores/delete';
+    
+        const headers = new HttpHeaders().set('Accept', 'application/json');
+        return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+      }
+
+        // Seccion
+  
+        createSecction(data: { name:any; id_status: any; id_store: any;  nomenclature:any }): Observable<any> {
+          const URL = this.baseUrl + 'secctions/create';
+      
+          const headers = new HttpHeaders().set('Accept', 'application/json');
+          return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+        }
+
+        getStoreSecction(id:any): Observable<any> {
+          const URL = this.baseUrl + `secctions/stoid?id=${id}`;
+          const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+      
+          const headers = new HttpHeaders()
+            .set('Accept', 'application/json')
+            .set('Authorization', token);
+      
+          return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+        }
+
+        getSecction(): Observable<any> {
+          const URL = this.baseUrl + 'secctions/get';
+          const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+      
+          const headers = new HttpHeaders()
+            .set('Accept', 'application/json')
+            .set('Authorization', token);
+      
+          return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+        }
+
+        getSecctionbyId(id: any): Observable<any> {
+          const URL = this.baseUrl + `secctions/id?id=${id}`;
+          const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+      
+          const headers = new HttpHeaders()
+            .set('Accept', 'application/json')
+            .set('Authorization', token);
+      
+          return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+      
+        }
+  
+        updateSecction(data: {
+          name:any; id_store: any;  nomenclature:any 
+          id: string | null;
+        }): Observable<any> {
+          const URL = this.baseUrl + 'secctions/update';
+      
+          const headers = new HttpHeaders().set('Accept', 'application/json');
+          return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+        }
+  
+        deleteSecction(data: {
+          id: string | null;
+        }): Observable<any> {
+          const URL = this.baseUrl + 'secctions/delete';
+      
+          const headers = new HttpHeaders().set('Accept', 'application/json');
+          return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+        }
+
+    
+
+
 }

@@ -59,7 +59,7 @@ export class SidebarService {
         },
         {
           titulo: 'Almacén',
-          url: 'listado-grupos',
+          url: 'list-store',
           roles: [{ name: 'Administrador' }],
         },
         {

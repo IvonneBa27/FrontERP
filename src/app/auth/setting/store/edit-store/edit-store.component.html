@@ -1,0 +1,83 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                
+                <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="ListStores()"
+                        value=""><i class="mdi mdi-playlist-check"></i> Lista de Almacenes</button></h4>
+
+                <form (submit)="updateStore()" [formGroup]="storesForm ">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Nombre del Almacén</label>
+                                <input type="text" id="name" class="form-control" placeholder="Nombre del Almacen"
+                                    formControlName="name">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Responsable</label>
+                                <select class="form-control" id="id_user" placeholder="Responsable"
+                                    formControlName="id_user">
+                                    <option [value]="item.id" *ngFor="let item of Users">{{item.nombre_completo}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Descripción</label>
+                                <textarea class="form-control" id="description" rows="3" placeholder="Descripcion"
+                                    formControlName="description"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Seccion Indispensable </label>
+                                <div class="form-check">
+                                    <label class="custom-control custom-radio">
+                                        <input value="1" name="essential_section" type="radio" class="custom-control-input"
+                                            formControlName="essential_section" [(ngModel)]='essential_section'>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">SI</span>
+                                    </label>
+                                    <label class="custom-control custom-radio">
+                                        <input value="0" name="essential_section" type="radio" class="custom-control-input"
+                                            formControlName="essential_section" [(ngModel)]='essential_section'>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">NO</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+          
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Ubicación google maps</label>
+                                <input type="text" id="url_maps" class="form-control" placeholder="Google Maps"
+                                    formControlName="url_maps">
+                            </div>
+                        </div>
+
+
+            
+           
+
+
+                    </div>
+                    <div mat-dialog-actions class="btn-create botones">
+                        <button class="btn btn-warning" style="text-align: end;">Cancelar</button>
+
+                        <button type="submit" class="btn btn-primary" style="text-align: end;">Editar Almacén</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

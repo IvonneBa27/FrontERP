@@ -308,6 +308,29 @@ export class GeneralService {
     return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
   }
 
+  getUsers(): Observable<any> {
+    const URL = this.baseUrl + 'User/get';
+    const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Authorization', token);
+
+    return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  }
+
+  getSecction(): Observable<any> {
+    const URL = this.baseUrl + 'secctions/get';
+    const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Authorization', token);
+
+    return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  }
+
+
 
 
 
@@ -335,8 +358,10 @@ export class GeneralService {
     let response18 = this.getCategorie();
     let response19 = this.getBrands();
     let response20 = this.getSubCategorie();
+    let response21 = this.getUsers();
+    let response22 = this.getSecction();
     
-    return forkJoin([response1, response2, response3, response4, response5, response6, response7, response8, response9, response10, response11, response12, response13, response14, response15, response16, response17, response18, response19, response20]);
+    return forkJoin([response1, response2, response3, response4, response5, response6, response7, response8, response9, response10, response11, response12, response13, response14, response15, response16, response17, response18, response19, response20, response21, response22]);
 
   }
 

@@ -1,0 +1,71 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                
+                <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="ListStores()"
+                        value=""><i class="mdi mdi-playlist-check"></i> Lista de Almacenes</button></h4>
+
+                <form (submit)="deleteStore()" [formGroup]="storesForm ">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                <label class="control-label">Nombre del Almacén</label>
+                                <input type="text" id="name" class="form-control" placeholder="Nombre del Almacen"
+                                    formControlName="name">
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                <label class="control-label">Responsable</label>
+                                <select class="form-control" id="id_user" placeholder="Responsable"
+                                    formControlName="id_user">
+                                    <option [value]="item.id" *ngFor="let item of Users">{{item.nombre_completo}}</option>
+                                </select>
+                            </fieldset>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                <label class="control-label">Descripción</label>
+                                <textarea class="form-control" id="description" rows="3" placeholder="Descripcion"
+                                    formControlName="description"></textarea>
+                                </fieldset>
+                            </div>
+                        </div>
+
+               
+
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Estatus</label>
+                                <select class="form-control" id="id_status" placeholder="Estatus"
+                                    formControlName="id_status">
+                                    <option [value]="item.id" *ngFor="let item of Estatus">{{item.nombre}}</option>
+                                </select>
+                            </div>
+                        </div>
+              
+           
+
+
+                    </div>
+                    <div mat-dialog-actions class="btn-create botones">
+                        <button class="btn btn-warning" style="text-align: end;">Cancelar</button>
+
+                        <button type="submit" class="btn btn-primary" style="text-align: end;">Eliminar Almacén</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

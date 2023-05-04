@@ -60,6 +60,16 @@ import { ListProductsComponent } from '../auth/catalogos/products/list-products/
 import { SeeProductsComponent } from '../auth/catalogos/products/see-products/see-products.component';
 import { DeleteProductsComponent } from '../auth/catalogos/products/delete-products/delete-products.component';
 import { EditProductsComponent } from '../auth/catalogos/products/edit-products/edit-products.component';
+import { CreateStoreComponent } from '../auth/setting/store/create-store/create-store.component';
+import { ListStoreComponent } from '../auth/setting/store/list-store/list-store.component';
+import { SeeStoreComponent } from '../auth/setting/store/see-store/see-store.component';
+import { EditStoreComponent } from '../auth/setting/store/edit-store/edit-store.component';
+import { DeleteStoreComponent } from '../auth/setting/store/delete-store/delete-store.component';
+import { CreateSecctionComponent } from '../auth/setting/Secctions/create-secction/create-secction.component';
+import { ListSecctionComponent } from '../auth/setting/Secctions/list-secction/list-secction.component';
+import { SeeSecctionComponent } from '../auth/setting/Secctions/see-secction/see-secction.component';
+import { EditSecctionComponent } from '../auth/setting/Secctions/edit-secction/edit-secction.component';
+import { DeleteSecctionComponent } from '../auth/setting/Secctions/delete-secction/delete-secction.component';
 
 
 
@@ -416,6 +426,67 @@ const routes: Routes = [
         path: 'delete-products/:id',
         component: DeleteProductsComponent,
         data: { titulo: 'Eliminar Producto' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'create-store',
+        component: CreateStoreComponent,
+        data: { titulo: 'Crear Almacén' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'list-store',
+        component: ListStoreComponent,
+        data: { titulo: 'Lista de Almacenes' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'see-store/:id',
+        component: SeeStoreComponent,
+        data: { titulo: 'Almacén' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'edit-store/:id',
+        component: EditStoreComponent,
+        data: { titulo: 'Editar Almacén' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'delete-store/:id',
+        component: DeleteStoreComponent,
+        data: { titulo: 'Eliminar Almacén' },
+        canActivate: [AccesoGuard],
+      },
+
+      {
+        path: 'create-secction',
+        component: CreateSecctionComponent,
+        data: { titulo: 'Crear Sección' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'list-secction',
+        component: ListSecctionComponent,
+        data: { titulo: 'Lista de Sección' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'see-secction/:id',
+        component: SeeSecctionComponent,
+        data: { titulo: 'Seccion' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'edit-secction/:id',
+        component: EditSecctionComponent,
+        data: { titulo: 'Editar Sección' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'delete-secction/:id',
+        component: DeleteSecctionComponent,
+        data: { titulo: 'Eliminar Sección' },
         canActivate: [AccesoGuard],
       },
 
