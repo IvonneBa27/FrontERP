@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Secctions } from 'src/app/models/secctions.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { GeneralService } from 'src/app/services/general.service';
@@ -12,6 +12,7 @@ import { UserservicesService } from '../../../service/userservices.service';
   styleUrls: ['./list-secction.component.css']
 })
 export class ListSecctionComponent implements OnInit {
+  id_store: any;
   p: number = 1;
   Secctions: Secctions[] = [];
 
@@ -21,12 +22,13 @@ export class ListSecctionComponent implements OnInit {
     private _serviceauth: AuthService,
     private formBuilder: FormBuilder,
     private _servicesgeneral: GeneralService,
+    private activatedRoute: ActivatedRoute,
   ) {
 
    }
 
   ngOnInit(): void {
-
+    this.id_store = this.activatedRoute.snapshot.paramMap.get('id');
     this._servicesuser.getSecction().subscribe((res) => {
       this.Secctions = res.data;
        console.log(this.Secctions);
@@ -35,7 +37,8 @@ export class ListSecctionComponent implements OnInit {
   }
 
   createSecction(){
-    this.router.navigateByUrl('/dashboard/create-secction')
+
+    this.router.navigate([`/dashboard/create-secction/${this.id_store}`]);
   }
 
 }

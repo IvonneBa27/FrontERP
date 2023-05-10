@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Stores } from 'src/app/models/stores.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { GeneralService } from 'src/app/services/general.service';
@@ -12,9 +12,10 @@ import { UserservicesService } from '../../../service/userservices.service';
   styleUrls: ['./list-store.component.css']
 })
 export class ListStoreComponent {
+
   p: number = 1;
   stores: Stores[] = [];
-  productsForm: FormGroup;
+  storesForm: FormGroup;
 
   constructor(
     private router: Router,
@@ -22,14 +23,16 @@ export class ListStoreComponent {
     private _serviceauth: AuthService,
     private formBuilder: FormBuilder,
     private _servicesgeneral: GeneralService,
+    private activatedRoute: ActivatedRoute,
   ) {
 
-    this.productsForm = this.formBuilder.group({
+    this.storesForm = this.formBuilder.group({
       name: new FormControl(''),
     });
   }
 
   ngOnInit(): void {
+
     this._servicesuser.getStores().subscribe((res) => {
       this.stores = res.data;
        console.log(this.stores);
@@ -38,11 +41,26 @@ export class ListStoreComponent {
   }
 
   createStores(){
+
     this.router.navigateByUrl('/dashboard/create-store')
+    
   }
 
   searchStores()
   {
+    const name = this.storesForm.value['name'];
+    this._servicesuser.searchStores(name).subscribe((res) => {
+
+      this.stores = res.data;
+      console.log(this.stores);
+      this._serviceauth.createLog('Lista de Almacens', 'SELECT').subscribe(() => { });
+   
+
+      this.storesForm.controls['name'].setValue('');
+  
+      });
+
+
     
   }
 

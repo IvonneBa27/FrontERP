@@ -56,10 +56,10 @@
                             <tr *ngFor="let Product of Products| paginate: { itemsPerPage: 50, currentPage: p }">
                                 <td>{{Product.id }}</td>
                                 <td>{{Product.name }}</td>
-                                <td>{{Product.categories.name}}</td>
-                                <td>{{Product.subcategories.name}}</td>
-                                <td>{{Product.marca.name}}</td>
-                                <td>{{Product.estatus.nombre}}</td>
+                                <td>{{Product.namecat}}</td>
+                                <td>{{Product.namesubcat}}</td>
+                                <td>{{Product.namebrand}}</td>
+                                <td>{{Product.namestatus}}</td>
                                 <td class="actions">
                                     <a [routerLink]="['/dashboard/see-products', Product.id ]"><i class="mdi mdi-eye"></i></a>
                                     <a [routerLink]="['/dashboard/edit-products', Product.id ]"><i class="mdi mdi-pencil"></i></a>

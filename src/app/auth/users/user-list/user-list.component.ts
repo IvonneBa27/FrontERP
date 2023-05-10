@@ -109,20 +109,14 @@ export class UserListComponent implements OnInit {
       this.users = [];
       this.users = res.data;
       this.totalReg =(this.users.length);
-      //console.log(this.users.length);
-      /*console.log(this.users);*/
+
 
       this.usersForm.controls['nombre_completo'].setValue('');
   
       });
 
     
-      this.configCustomPagination = {
-        id: 'customPaginate',
-        itemsPerPage: 5,
-        currentPage: 1,
-        totalItems: this.totalReg
-      };
+     
   
 
   }
@@ -136,16 +130,7 @@ export class UserListComponent implements OnInit {
         this.users = [];
         this.users = res.data;
         this.totalReg =(this.users.length);
-        //console.log(this.users.length);
-
-       
-
-        this.configCustomPagination = {
-          id: 'customPaginate',
-          itemsPerPage: 5,
-          currentPage: 1,
-          totalItems: this.totalReg
-        };
+    
     
     
   

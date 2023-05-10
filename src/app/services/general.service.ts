@@ -330,6 +330,18 @@ export class GeneralService {
     return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
   }
 
+  getStores(): Observable<any> {
+    const URL = this.baseUrl + 'stores/get';
+    const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Authorization', token);
+
+    return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  }
+
+
 
 
 
@@ -360,8 +372,9 @@ export class GeneralService {
     let response20 = this.getSubCategorie();
     let response21 = this.getUsers();
     let response22 = this.getSecction();
+    let response23 = this.getStores();
     
-    return forkJoin([response1, response2, response3, response4, response5, response6, response7, response8, response9, response10, response11, response12, response13, response14, response15, response16, response17, response18, response19, response20, response21, response22]);
+    return forkJoin([response1, response2, response3, response4, response5, response6, response7, response8, response9, response10, response11, response12, response13, response14, response15, response16, response17, response18, response19, response20, response21, response22, response23]);
 
   }
 

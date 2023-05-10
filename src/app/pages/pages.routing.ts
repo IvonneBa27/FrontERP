@@ -460,13 +460,13 @@ const routes: Routes = [
       },
 
       {
-        path: 'create-secction',
+        path: 'create-secction/:id',
         component: CreateSecctionComponent,
         data: { titulo: 'Crear Sección' },
         canActivate: [AccesoGuard],
       },
       {
-        path: 'list-secction',
+        path: 'list-secction/:id',
         component: ListSecctionComponent,
         data: { titulo: 'Lista de Sección' },
         canActivate: [AccesoGuard],

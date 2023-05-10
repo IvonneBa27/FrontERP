@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { GeneralService } from 'src/app/services/general.service';
 import { UserservicesService } from '../../../service/userservices.service';
 import swal from 'sweetalert2';
+
 @Component({
   selector: 'app-edit-secction',
   templateUrl: './edit-secction.component.html',
@@ -65,9 +66,10 @@ export class EditSecctionComponent {
   }
 
 
-   ListStores(){
-    this.router.navigateByUrl('/dashboard/list-secction')
+  ListStores(){
+    this.router.navigate([`/dashboard/list-secction/${this.id_secction}`]);
   }
+
 
   updateSecction(){
     const name = this.secctionForm.value['name'];

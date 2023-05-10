@@ -651,6 +651,19 @@ export class UserservicesService {
           return this.http.post(URL, data, { headers }).pipe(map((res) => res));
         }
 
+
+        searchStores(name: any): Observable<any> {
+          const URL = this.baseUrl + `searchStores/get?param=${name}`;
+          const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+      
+          const headers = new HttpHeaders()
+            .set('Accept', 'application/json')
+            .set('Authorization', token);
+      
+          return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+      
+        }
+
     
 
 

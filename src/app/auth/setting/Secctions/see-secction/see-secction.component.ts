@@ -68,7 +68,7 @@ export class SeeSecctionComponent{
 
 
    ListStores(){
-    this.router.navigateByUrl('/dashboard/list-secction')
+    this.router.navigate([`/dashboard/list-secction/${this.id_secction}`]);
   }
 
   seeSecction(){

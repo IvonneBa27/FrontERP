@@ -15,7 +15,7 @@ import swal from 'sweetalert2';
   styleUrls: ['./create-secction.component.css']
 })
 export class CreateSecctionComponent  {
-id_store = 1;
+id_store;
 secctionForm: FormGroup;
 Estatus: Estatus[] = [];
 Stores: Stores[] = [];
@@ -32,17 +32,24 @@ secction: Secctions = new Secctions;
     private activatedRoute: ActivatedRoute,
      ) {
 
-      //this.id_store = this.activatedRoute.snapshot.paramMap.get('id');
+      this.id_store = this.activatedRoute.snapshot.paramMap.get('id');
 
       this._servicesgeneral.getEstatus().subscribe(respuesta => {
         this.Estatus = respuesta.data;
       });
 
+      this._servicesgeneral.getStores().subscribe(respuesta => {
+        this.Stores = respuesta.data;
+      });
+
+
+
       this._servicesuser.getStoreSecction(this.id_store).subscribe((res) => {
         this.Stores = res.data;
     
           this._servicesgeneral.requestCatalogos().subscribe(respuesta => {
-          this.Stores = respuesta[21].data;
+          this.Stores = respuesta[22].data;
+          console.log(this.Stores);
   
           this.setForm();
           });
@@ -66,7 +73,8 @@ secction: Secctions = new Secctions;
 
 
      ListStores(){
-      this.router.navigateByUrl('/dashboard/list-secction')
+
+      this.router.navigate([`/dashboard/list-secction/${this.id_store}`]);
     }
 
     

@@ -3,17 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AppComponent } from './app.component';
-
-
-
-
 import { NopagefoundComponent } from './nopagefound/nopagefound.component';
-
-// MODULOS
 import { AppRoutingModule } from './app-routing.module';
 import { PagesModule } from './pages/pages.module';
 import { AuthModule } from './auth/auth.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   declarations: [AppComponent, NopagefoundComponent],
@@ -25,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     BrowserAnimationsModule,
     NgxPaginationModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

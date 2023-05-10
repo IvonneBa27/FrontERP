@@ -14,15 +14,19 @@ export class producs {
     id_unitmeasure!:      number;
     created_at!:          null;
     updated_at!:          null;
-    categories!:          Categories;
-    subcategories!:       Subcategories;
-    marca!:               Marca;
-    estatus!:             Estatus;
+    namecat!:             string;
+    namesubcat!:          string;
+    namebrand!:           string;
+    namestatus!:          string;
+    //categories!:          Categories;
+    //subcategories!:       Subcategories;
+    //marca!:               Marca;
+    //estatus!:             Estatus;
 
    
   }
 
-   export class Categories {
+  /* export class Categories {
     id!:                number;
     name!:              string;
     id_status!:         number;
@@ -53,7 +57,7 @@ export class Estatus {
   nombre!:            string;
   estatus!:           string;
 
-}
+}*/
 
 
   

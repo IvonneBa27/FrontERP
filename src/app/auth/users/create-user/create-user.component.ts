@@ -21,6 +21,9 @@ import { AuthService } from 'src/app/services/auth.service';
 import { GeneralUtilities } from 'src/app/utilities/general.utilities';
 
 
+
+
+
 @Component({
   selector: 'app-create-user',
   templateUrl: './create-user.component.html',
@@ -50,6 +53,7 @@ export class CreateUserComponent {
     private router: Router,
     private _servicesgeneral: GeneralService,
     private _serviceauth: AuthService,
+
 
   ) {
     this._servicesgeneral.getTipoUsuario().subscribe(respuesta => {
@@ -142,6 +146,8 @@ export class CreateUserComponent {
 
     });
   }
+
+
 
 
   ListUser() {

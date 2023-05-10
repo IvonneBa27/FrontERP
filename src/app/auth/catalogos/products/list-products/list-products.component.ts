@@ -61,7 +61,7 @@ export class ListProductsComponent implements OnInit {
       this.Products = [];
       this.Products = res.data;
    
-
+      console.log(this.Products);
       this.productsForm.controls['name'].setValue('');
   
       });

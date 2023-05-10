@@ -1,1 +1,61 @@
-<p>delete-secction works!</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                
+                <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="ListStores()"
+                        value=""><i class="mdi mdi-playlist-check"></i> Lista de Secciones</button></h4>
+
+                <form (submit)="deleteSecction()" [formGroup]="secctionForm ">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                <label class="control-label">Nombre de Sección</label>
+                                <input type="text" id="name" class="form-control" placeholder="Nombre del Almacen"
+                                    formControlName="name">
+                                </fieldset>
+                            </div>
+                        </div>
+
+
+
+                  
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                <label class="control-label">Nomenclatura</label>
+                                <input type="text" id="nomenclature" class="form-control" placeholder="Nomenclatura"
+                                    formControlName="nomenclature">
+                                    </fieldset>
+                            </div>
+                        </div>
+
+                
+
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Estatus</label>
+                                <select class="form-control" id="id_status" placeholder="Estatus"
+                                    formControlName="id_status">
+                                    <option [value]="item.id" *ngFor="let item of Estatus">{{item.nombre}}</option>
+                                </select>
+                            </div>
+                        </div>
+              
+           
+
+
+                    </div>
+                    <div mat-dialog-actions class="btn-create botones">
+                        <button class="btn btn-warning" style="text-align: end;">Cancelar</button>
+
+                        <button type="submit" class="btn btn-primary" style="text-align: end;">Eliminar Sección</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
