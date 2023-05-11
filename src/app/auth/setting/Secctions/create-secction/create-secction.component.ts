@@ -20,6 +20,7 @@ secctionForm: FormGroup;
 Estatus: Estatus[] = [];
 Stores: Stores[] = [];
 secction: Secctions = new Secctions;
+isLoading = false;
 
 
 
@@ -79,6 +80,7 @@ secction: Secctions = new Secctions;
 
     
   createSecction(){
+    this.isLoading = true;
     const name = this.secctionForm.value['name'];
     const id_status = this.secctionForm.value['id_status'];
     const id_store = this.secctionForm.value['id_store'];
@@ -108,6 +110,7 @@ secction: Secctions = new Secctions;
       }
 
     });
+    this.isLoading = false;
 
 
 

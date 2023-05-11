@@ -20,6 +20,7 @@ export class DeleteSubcategoriesComponent{
   Estatus: Estatus[]=[];
   Categorie: cat_categories[]=[];
   subcategories: cat_subcategories = new cat_subcategories;
+  isLoading = false;
 
   constructor(
     private router: Router,
@@ -67,6 +68,7 @@ ListSubCategories() {
 }
 
 deleteSubCategories() {
+  this.isLoading = true;
 
   const name = this.subcategoriesForm.value['name'];
   const id_category = this.subcategoriesForm.value['id_category'];
@@ -93,6 +95,7 @@ deleteSubCategories() {
     }
 
   });
+  this.isLoading = false;
 
 }
 

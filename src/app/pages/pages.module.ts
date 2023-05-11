@@ -27,6 +27,7 @@ import { CampaniaAddMonthComponent } from './campanias/campania-add-month/campan
 import { AgentsListComponent } from './agents/agents-list/agents-list.component';
 import { LoadFileComponent } from './agents/load-file/load-file.component';
 import { CreateUserComponent } from '../auth/users/create-user/create-user.component';
+import { AuthModule } from '../auth/auth.module';
 
 const materialModules = [
   MatButtonModule,
@@ -71,6 +72,7 @@ const materialModules = [
     materialModules,
     ReactiveFormsModule,
     FileUploadModule,
+    AuthModule,
   ],
   entryComponents: [CreateGroupComponent],
 })

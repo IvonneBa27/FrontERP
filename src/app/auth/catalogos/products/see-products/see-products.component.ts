@@ -26,6 +26,7 @@ export class SeeProductsComponent {
   id_categoty: any;
   id_subcategory: any;
   products: producs = new producs();
+  isLoading = false;
 
 
   constructor(
@@ -99,6 +100,7 @@ export class SeeProductsComponent {
 
 
   seeProducts() {
+    this.isLoading = true;
     const name = this.productsForm.value['name'];
     const id_categoty = this.productsForm.value['id_categoty'];
     const id_subcategory = this.productsForm.value['id_subcategory'];
@@ -111,6 +113,7 @@ export class SeeProductsComponent {
     const photo = this.productsForm.value['photo'];
     const id_status = this.productsForm.value['id_status'];
     const id_unitmeasure = this.productsForm.value['id_unitmeasure'];
+    this.isLoading = false;
 
   }
 

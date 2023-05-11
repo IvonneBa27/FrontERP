@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
+
 @NgModule({
   declarations: [AppComponent, NopagefoundComponent],
   imports: [
@@ -22,8 +23,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     NgxPaginationModule,
 
+
   ],
   providers: [],
   bootstrap: [AppComponent],
+ 
 })
 export class AppModule {}

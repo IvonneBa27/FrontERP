@@ -21,6 +21,7 @@ export class EditSecctionComponent {
   Estatus: Estatus[] = [];
   Stores: Stores[] = [];
   secction: Secctions = new Secctions;
+  isLoading = false;
 
   constructor(
     private _servicesuser: UserservicesService,
@@ -72,6 +73,7 @@ export class EditSecctionComponent {
 
 
   updateSecction(){
+    this.isLoading = true;
     const name = this.secctionForm.value['name'];
     const id_store = this.secctionForm.value['id_store'];
     const nomenclature = this.secctionForm.value['nomenclature'];
@@ -100,6 +102,7 @@ export class EditSecctionComponent {
     }
 
   });
+  this.isLoading = false;
 
 
 

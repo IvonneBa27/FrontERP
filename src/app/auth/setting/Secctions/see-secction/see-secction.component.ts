@@ -20,6 +20,7 @@ export class SeeSecctionComponent{
   Estatus: Estatus[] = [];
   Stores: Stores[] = [];
   secction: Secctions = new Secctions;
+  isLoading = false;
 
   constructor(
     private _servicesuser: UserservicesService,
@@ -72,10 +73,12 @@ export class SeeSecctionComponent{
   }
 
   seeSecction(){
+    this.isLoading = true;
     const name = this.secctionForm.value['name'];
     const id_status = this.secctionForm.value['id_status'];
     const id_store = this.secctionForm.value['id_store'];
     const nomenclature = this.secctionForm.value['nomenclature'];
+    this.isLoading = false;
 
 
 

@@ -15,6 +15,8 @@ export class AddPermisseUserComponent implements OnInit {
   modules: Module[] = [];
   modulesLocal;
   user: Users = new Users();
+  isLoading = false;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private _srvAuth: AuthService,
@@ -34,6 +36,7 @@ export class AddPermisseUserComponent implements OnInit {
   ngOnInit(): void {}
 
   getModules(id_usuario: number) {
+  
     this._srvAuth.getModuleUserById(id_usuario).subscribe((res) => {
       this.modules = res.data;
       const m = this.modulesLocal;
@@ -47,9 +50,11 @@ export class AddPermisseUserComponent implements OnInit {
         }
       }
     });
+
   }
 
   savePermisse() {
+ 
     const data = [];
 
     for (let m of this.modulesLocal) {

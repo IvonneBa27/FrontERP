@@ -18,6 +18,7 @@ export class ListSuppliersComponent implements OnInit {
   totalReg: number = 0;
 
   supplierForm: FormGroup;
+  isLoading = false;
 
   constructor(
     private router: Router,
@@ -34,9 +35,10 @@ export class ListSuppliersComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this._servicesuser.getSupplier().subscribe((res) => {
       this.suppliers = res.data;
-
+      this.isLoading = false;
 
     });
   }
@@ -48,6 +50,8 @@ export class ListSuppliersComponent implements OnInit {
   }
 
   searchSuppliers(){
+    
+    this.isLoading = true;
     const razon_social = this.supplierForm.value['razon_social'];
     
     
@@ -59,6 +63,8 @@ export class ListSuppliersComponent implements OnInit {
       this.supplierForm.controls['razon_social'].setValue('');
   
       });
+      
+    this.isLoading = false;
   
  
     }

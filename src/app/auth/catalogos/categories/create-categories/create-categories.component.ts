@@ -17,6 +17,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class CreateCategoriesComponent {
   categoriesForm: FormGroup;
   Estatus: Estatus[] = [];
+  isLoading = false;
 
   constructor(
     private _servicesuser: UserservicesService,
@@ -40,6 +41,7 @@ export class CreateCategoriesComponent {
   }
 
   createCategories() {
+    this.isLoading = true;
     const name = this.categoriesForm.value['name'];
     const id_status = this.categoriesForm.value['id_status'];
 
@@ -66,6 +68,7 @@ export class CreateCategoriesComponent {
       }
 
     });
+    this.isLoading = false;
   }
 
 

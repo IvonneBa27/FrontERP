@@ -16,6 +16,7 @@ export class ListProductsComponent implements OnInit {
   p: number = 1;
   Products: producs[] = [];
   Category: cat_categories[] = [];
+  isLoading = false;
   
 
   productsForm: FormGroup;
@@ -42,11 +43,13 @@ export class ListProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this._servicesuser.getProducts().subscribe((res) => {
       this.Products = res.data;
        console.log(this.Products);
        this._serviceauth.createLog('Lista de Productos', 'SELECT').subscribe(() => { });
     });
+    this.isLoading = false;
   }
 
   createProducts(){
@@ -54,6 +57,7 @@ export class ListProductsComponent implements OnInit {
   }
 
   searchProducts(){
+    this.isLoading = true;
     const name = this.productsForm.value['name'];
     
     
@@ -65,11 +69,13 @@ export class ListProductsComponent implements OnInit {
       this.productsForm.controls['name'].setValue('');
   
       });
+      this.isLoading = false;
   
  
     }
 
     searchCategory(){
+      this.isLoading = true;
       const id_categoty = this.productsForm.value['id_categoty'];
  
       this._servicesuser.searchCategory(id_categoty).subscribe((res) => {
@@ -80,6 +86,7 @@ export class ListProductsComponent implements OnInit {
         this.productsForm.controls['idcategoty'].setValue('');
     
         });
+        this.isLoading = false;
     
   
     }

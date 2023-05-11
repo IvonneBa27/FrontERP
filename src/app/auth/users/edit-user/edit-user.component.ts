@@ -44,6 +44,7 @@ export class EditUserComponent {
   Departamento: Departamento[] = [];
   Turno: Turno[] = [];
   user: Users = new Users();
+  isLoading = false;
 
   constructor(
     private router: Router,
@@ -186,7 +187,7 @@ export class EditUserComponent {
   }
 
   UpdateUser() {
-
+    this.isLoading = true;
     const id_tipo_usuario = this.usersForm.value['id_tipo_usuario'];
     const usuario = this.usersForm.value['usuario'];
     const nombre = this.usersForm.value['nombre'];
@@ -271,6 +272,7 @@ export class EditUserComponent {
       }
 
     });
+    this.isLoading = false;
   }
 
 }

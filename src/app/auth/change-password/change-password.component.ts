@@ -17,6 +17,8 @@ import swal from 'sweetalert2';
 })
 export class ChangePasswordComponent implements OnInit {
   changeForm: FormGroup;
+  isLoading = false;
+
 
   constructor(
     private _srvAuth: AuthService,
@@ -31,6 +33,7 @@ export class ChangePasswordComponent implements OnInit {
   ngOnInit(): void {}
 
   sendEmail() {
+    this.isLoading = true;
     const email = this.changeForm.value['email'];
     this._srvAuth.sendEmail(email).subscribe((respuesta) => {
       if (respuesta.status === 'success') {
@@ -40,6 +43,7 @@ export class ChangePasswordComponent implements OnInit {
         swal.fire('Alerta', respuesta.msg, 'error');
       }
     });
+    this.isLoading = false;
   }
 
   get email() {

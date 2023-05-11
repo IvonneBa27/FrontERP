@@ -34,6 +34,7 @@ export class UserListComponent implements OnInit {
   usersForm: FormGroup;
   permisse: Module = new Module();
   Estatus: Estatus[] = [];
+  isLoading = false;
 
   constructor(
     private router: Router,
@@ -59,7 +60,7 @@ export class UserListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.isLoading = true;
     this._srvAuth.getModules(10).subscribe( res => {
       if( res.data.length > 0){
         const data = res.data[0];
@@ -85,14 +86,9 @@ export class UserListComponent implements OnInit {
       
       console.log(this.totalReg);
     // console.log(this.users);
-    });
 
-    this.configCustomPagination = {
-      id: 'customPaginate',
-      itemsPerPage: 5,
-      currentPage: 1,
-      totalItems: this.totalReg
-    };
+    this.isLoading = false;
+    });
   }
 
    
@@ -103,6 +99,7 @@ export class UserListComponent implements OnInit {
   }
 
   searchUser(){
+    this.isLoading = true;
     const nombre_completo = this.usersForm.value['nombre_completo'];
   
     this._servicesuser.searchUsers(nombre_completo).subscribe((res) => {
@@ -112,6 +109,7 @@ export class UserListComponent implements OnInit {
 
 
       this.usersForm.controls['nombre_completo'].setValue('');
+      this.isLoading = false;
   
       });
 
@@ -122,6 +120,7 @@ export class UserListComponent implements OnInit {
   }
 
   searchEstatus(){
+    this.isLoading = true;
     const id_estatus = this.usersForm.value['id_estatus'];
     if (id_estatus == 0){
       this.users = this.usersRespaldo;
@@ -132,7 +131,7 @@ export class UserListComponent implements OnInit {
         this.totalReg =(this.users.length);
     
     
-    
+        this.isLoading = false;
   
       });
     }

@@ -1,4 +1,4 @@
-import { NgModule} from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
@@ -64,13 +64,14 @@ import { DeleteSecctionComponent } from './setting/Secctions/delete-secction/del
 import { EditSecctionComponent } from './setting/Secctions/edit-secction/edit-secction.component';
 import { ListSecctionComponent } from './setting/Secctions/list-secction/list-secction.component';
 import { SeeSecctionComponent } from './setting/Secctions/see-secction/see-secction.component';
+import { LoadingComponent } from '../loading';
 
 
 
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, ChangePasswordComponent, UserListComponent, EditUserComponent, ListRolesComponent, CreateRolesComponent, EditRolesComponent, ListPermissComponent, CreatePermissComponent, EditPermissComponent, SeeUserComponent, DeleteUserComponent, CreateModuleComponent, EditModuleComponent, ListModuleComponent, DeleteModuleComponent, SeeModuleComponent, CreateTypemoduleComponent, DeleteTypemoduleComponent, EditTypemoduleComponent, SeeTypemoduleComponent, ListTypemoduleComponent, AddPermisseUserComponent, CreateClientComponent, SeeClientComponent, DeleteClientComponent, EditClientComponent, ListClientComponent, CreateSupplierComponent, ListSuppliersComponent, SeeSupplierComponent, DeleteSupplierComponent, UpdateSupplierComponent,EditCategoriesComponent, ListCategoriesComponent, SeeCategoriesComponent, DeleteCategoriesComponent,CreateCategoriesComponent, CreateSubcategoriesComponent, ListSubcategoriesComponent, SeeSubcategoriesComponent, EditSubcategoriesComponent, DeleteSubcategoriesComponent, CreateProductsComponent, DeleteProductsComponent, EditProductsComponent, ListProductsComponent, SeeProductsComponent, CreateStoreComponent, EditStoreComponent, DeleteStoreComponent, ListStoreComponent, SeeStoreComponent, CreateSecctionComponent, DeleteSecctionComponent, EditSecctionComponent, ListSecctionComponent, SeeSecctionComponent],
-  exports: [LoginComponent, RegisterComponent],
+  declarations: [LoginComponent, RegisterComponent, ChangePasswordComponent, UserListComponent, EditUserComponent, ListRolesComponent, CreateRolesComponent, EditRolesComponent, ListPermissComponent, CreatePermissComponent, EditPermissComponent, SeeUserComponent, DeleteUserComponent, CreateModuleComponent, EditModuleComponent, ListModuleComponent, DeleteModuleComponent, SeeModuleComponent, CreateTypemoduleComponent, DeleteTypemoduleComponent, EditTypemoduleComponent, SeeTypemoduleComponent, ListTypemoduleComponent, AddPermisseUserComponent, CreateClientComponent, SeeClientComponent, DeleteClientComponent, EditClientComponent, ListClientComponent, CreateSupplierComponent, ListSuppliersComponent, SeeSupplierComponent, DeleteSupplierComponent, UpdateSupplierComponent,EditCategoriesComponent, ListCategoriesComponent, SeeCategoriesComponent, DeleteCategoriesComponent,CreateCategoriesComponent, CreateSubcategoriesComponent, ListSubcategoriesComponent, SeeSubcategoriesComponent, EditSubcategoriesComponent, DeleteSubcategoriesComponent, CreateProductsComponent, DeleteProductsComponent, EditProductsComponent, ListProductsComponent, SeeProductsComponent, CreateStoreComponent, EditStoreComponent, DeleteStoreComponent, ListStoreComponent, SeeStoreComponent, CreateSecctionComponent, DeleteSecctionComponent, EditSecctionComponent, ListSecctionComponent, SeeSecctionComponent, LoadingComponent],
+  exports: [LoginComponent, RegisterComponent, LoadingComponent],
   imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule, NgxPaginationModule],
 
 })

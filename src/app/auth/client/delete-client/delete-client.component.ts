@@ -35,6 +35,7 @@ export class DeleteClientComponent {
   client: Customers = new Customers();
   Estatus: Estatus[] = [];
   private _serviceauth: any;
+  isLoading = false;
 
   constructor(
     private router: Router,
@@ -117,7 +118,7 @@ export class DeleteClientComponent {
   DeleteClient() {
 
  
-
+    this.isLoading = true;
 
     const body = {
       id: this.id_cliente,
@@ -144,6 +145,7 @@ export class DeleteClientComponent {
       }
 
     });
+    this.isLoading = false;
   }
 
  

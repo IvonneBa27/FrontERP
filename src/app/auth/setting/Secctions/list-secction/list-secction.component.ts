@@ -15,6 +15,7 @@ export class ListSecctionComponent implements OnInit {
   id_store: any;
   p: number = 1;
   Secctions: Secctions[] = [];
+  isLoading = false;
 
   constructor(
     private router: Router,
@@ -28,12 +29,15 @@ export class ListSecctionComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.id_store = this.activatedRoute.snapshot.paramMap.get('id');
     this._servicesuser.getSecction().subscribe((res) => {
       this.Secctions = res.data;
        console.log(this.Secctions);
        this._serviceauth.createLog('Lista de Secciones', 'SELECT').subscribe(() => { });
+
     });
+    this.isLoading = false;
   }
 
   createSecction(){

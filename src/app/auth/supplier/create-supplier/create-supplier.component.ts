@@ -29,6 +29,7 @@ export class CreateSupplierComponent  {
   Delegaciones: Delegaciones[] = [];
   Banco: Banco[] = [];
   Estatus: Estatus[] = [];
+  isLoading = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -89,6 +90,7 @@ export class CreateSupplierComponent  {
   }
 
   createSupplier() {
+    this.isLoading = true;
     const no_proveedor = this.supplierForm.value['no_proveedor'];
     const razon_social = this.supplierForm.value['razon_social'];
     const rfc = this.supplierForm.value['rfc'];
@@ -162,6 +164,7 @@ export class CreateSupplierComponent  {
       }
 
     });
+    this.isLoading = false;
 
 
   }

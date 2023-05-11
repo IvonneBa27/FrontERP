@@ -18,6 +18,7 @@ import swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  isLoading = false;
 
   constructor(
     private router: Router,
@@ -35,6 +36,7 @@ export class LoginComponent implements OnInit {
 
 
   login() {
+    this.isLoading = true;
     const usuario = this.loginForm.value['usuario'];
     const password = this.loginForm.value['password'];
 
@@ -49,6 +51,7 @@ export class LoginComponent implements OnInit {
         swal.fire('Alerta', respuesta.message, 'error');
       }
     });
+    this.isLoading = false;
   }
 
   get usuario() {

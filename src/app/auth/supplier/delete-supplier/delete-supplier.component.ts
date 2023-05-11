@@ -29,6 +29,7 @@ export class DeleteSupplierComponent {
   Delegaciones: Delegaciones[] = [];
   supplier: Suppliers = new Suppliers();
   Estatus: Estatus[] = [];
+  isLoading = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -111,6 +112,7 @@ export class DeleteSupplierComponent {
   }
 
 DeleteSupplier() {
+  this.isLoading = true;
   
     const body = {
       id: this.id_proveedor,
@@ -134,6 +136,7 @@ DeleteSupplier() {
       }
 
     });
+    this.isLoading = false;
 
 
   }

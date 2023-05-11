@@ -16,6 +16,7 @@ export class ListStoreComponent {
   p: number = 1;
   stores: Stores[] = [];
   storesForm: FormGroup;
+  isLoading = false;
 
   constructor(
     private router: Router,
@@ -32,12 +33,15 @@ export class ListStoreComponent {
   }
 
   ngOnInit(): void {
+    this.isLoading = true;
 
     this._servicesuser.getStores().subscribe((res) => {
       this.stores = res.data;
        console.log(this.stores);
        this._serviceauth.createLog('Lista de Almacenes', 'SELECT').subscribe(() => { });
+
     });
+    this.isLoading = false;
   }
 
   createStores(){
@@ -48,6 +52,7 @@ export class ListStoreComponent {
 
   searchStores()
   {
+    this.isLoading = true;
     const name = this.storesForm.value['name'];
     this._servicesuser.searchStores(name).subscribe((res) => {
 
@@ -59,6 +64,7 @@ export class ListStoreComponent {
       this.storesForm.controls['name'].setValue('');
   
       });
+      this.isLoading = false;
 
 
     

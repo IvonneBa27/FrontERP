@@ -45,6 +45,8 @@ export class CreateUserComponent {
   Estatus: Estatus[] = [];
   Departamento: Departamento[] = [];
   Turno: Turno[] = [];
+  isLoading = false;
+
 
 
   constructor(
@@ -158,6 +160,7 @@ export class CreateUserComponent {
 
 
   createUser() {
+    this.isLoading = true;
     const id_tipo_usuario = this.usersForm.value['id_tipo_usuario'];
     const usuario = this.usersForm.value['usuario'];
     const nombre = this.usersForm.value['nombre'];
@@ -254,6 +257,8 @@ export class CreateUserComponent {
       }
 
     });
+
+    this.isLoading = false;
 
   }
 

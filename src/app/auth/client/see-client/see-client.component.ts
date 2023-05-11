@@ -34,6 +34,7 @@ export class SeeClientComponent  {
   CatalagoSatCFDI: Catalogo_SAT_CFDI[] = [];
   client: Customers = new Customers();
   Estatus: Estatus[] = [];
+  isLoading = false;
 
 
   constructor(
@@ -157,6 +158,7 @@ export class SeeClientComponent  {
   }
 
   seeClient() {
+    this.isLoading = true;
     const no_cliente = this.clientForm.value['no_cliente'];
     const razon_social = this.clientForm.value['razon_social'];
     const rfc = this.clientForm.value['rfc'];
@@ -193,6 +195,7 @@ export class SeeClientComponent  {
     const ext_pago = this.clientForm.value['ext_pago'];
     const puesto_pago = this.clientForm.value['puesto_pago'];
     const idestatus = this.clientForm.value['idestatus'];
+    this.isLoading = false;
   }
 
  

@@ -28,6 +28,7 @@ export class EditProductsComponent {
   id_categoty: any;
   id_subcategory: any;
   products: producs = new producs();
+  isLoading = false;
 
   constructor(
     private _servicesuser: UserservicesService,
@@ -96,6 +97,7 @@ export class EditProductsComponent {
 
 
   updateProducts() {
+    this.isLoading = true;
     const name = this.productsForm.value['name'];
     const id_categoty = this.productsForm.value['id_categoty'];
     const id_subcategory = this.productsForm.value['id_subcategory'];
@@ -142,6 +144,7 @@ export class EditProductsComponent {
     }
 
   });
+  this.isLoading = false;
   }
 
 

@@ -12,6 +12,7 @@ import { type_modules } from 'src/app/models/type_modules.model';
 export class ListTypemoduleComponent implements OnInit {
  type_modules: type_modules[]=[];
   p:number=1;
+  isLoading = false;
 
   constructor(
     private router: Router,
@@ -19,10 +20,12 @@ export class ListTypemoduleComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this._servicesuser.getTypeModule().subscribe((res) => {
       this.type_modules = res.data;
        console.log(this.type_modules);
     });
+    this.isLoading = false;
   }
 
   createTypeModule(){

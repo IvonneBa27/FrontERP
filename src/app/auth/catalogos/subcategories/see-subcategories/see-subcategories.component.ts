@@ -20,6 +20,7 @@ export class SeeSubcategoriesComponent {
   Estatus: Estatus[]=[];
   Categorie: cat_categories[]=[];
   subcategories: cat_subcategories = new cat_subcategories;
+  isLoading = false;
 
   constructor(
     private router: Router,
@@ -65,10 +66,14 @@ export class SeeSubcategoriesComponent {
 
 seeSubCategories() {
 
+  this.isLoading = true;
+
   const name = this.subcategoriesForm.value['name'];
   const id_category = this.subcategoriesForm.value['id_category'];
   const status = this.subcategoriesForm.value['id_status'];
   const sku_indispensable = this.subcategoriesForm.value['sku_indispensable'];
+
+  this.isLoading = false;
 
 
 }

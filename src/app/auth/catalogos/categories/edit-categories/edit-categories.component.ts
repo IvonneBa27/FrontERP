@@ -17,6 +17,7 @@ export class EditCategoriesComponent {
   categoriesForm: FormGroup;
   Estatus: Estatus[] = [];
   categories: cat_categories = new cat_categories();
+  isLoading = false;
 
   constructor(
     private router: Router,
@@ -59,7 +60,7 @@ export class EditCategoriesComponent {
   }
 
   UpdateCategories() {
-
+    this.isLoading = true;
     const name = this.categoriesForm.value['name'];
     const id_status = this.categoriesForm.value['id_status'];
 
@@ -85,6 +86,7 @@ export class EditCategoriesComponent {
     }
 
   });
+  this.isLoading = false;
 
  
   }

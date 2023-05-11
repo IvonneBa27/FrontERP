@@ -16,6 +16,7 @@ export class SeeCategoriesComponent {
   categoriesForm: FormGroup;
   Estatus: Estatus[]=[];
   categories: cat_categories = new cat_categories;
+  isLoading = false;
 
   constructor(
     private router: Router,
@@ -58,11 +59,12 @@ export class SeeCategoriesComponent {
   }
 
   SeeCategories() {
+    this.isLoading = true;
 
     const name = this.categoriesForm.value['name'];
     const status = this.categoriesForm.value['id_status'];
 
-
+    this.isLoading = false;
 
   }
 

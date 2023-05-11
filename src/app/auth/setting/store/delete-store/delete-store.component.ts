@@ -21,6 +21,7 @@ export class DeleteStoreComponent  {
   Users : Users[] = [];
   essential_section: any;
   storesForm: FormGroup;
+  isLoading = false;
 
   constructor(
     private _servicesuser: UserservicesService,
@@ -74,6 +75,7 @@ export class DeleteStoreComponent  {
  
   deleteStore()
   {
+    this.isLoading = true;
     const name = this.storesForm.value['name'];
     const url_maps = this.storesForm.value['url_maps'];
     const description = this.storesForm.value['description'];
@@ -101,6 +103,7 @@ export class DeleteStoreComponent  {
    }
  
  });
+ this.isLoading = false;
  
   }
 

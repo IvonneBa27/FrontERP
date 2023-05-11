@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class ListCategoriesComponent implements OnInit {
   p:number=1;
   categories: cat_categories[] = [];
+  isLoading = false;
 
   constructor(
     private router: Router,
@@ -20,11 +21,13 @@ export class ListCategoriesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this._servicesuser.getCategorie().subscribe((res) => {
       this.categories = res.data;
        console.log(this.categories);
        this._serviceauth.createLog('Lista Categoria', 'SELECT').subscribe(() => { });
     });
+    this.isLoading = false;
   }
 
   createCategories(){

@@ -22,6 +22,7 @@ export class DeleteUserComponent {
   usersForm: FormGroup;
   Departamento: Departamento[] = [];
   user: Users = new Users();
+  isLoading = false;
 
   constructor(
     private router: Router,
@@ -30,6 +31,7 @@ export class DeleteUserComponent {
     private formBuilder: FormBuilder,
     private _servicesgeneral: GeneralService,
     private _serviceauth: AuthService,
+ 
 
   ) {
 
@@ -111,7 +113,7 @@ export class DeleteUserComponent {
   }
 
   DeleteUser() {
-
+    this.isLoading = true;
     const fecha_baja = this.usersForm.value['fecha_baja'];
     const motivo_baja = this.usersForm.value['motivo_baja'];
     const mes_baja = this.usersForm.value['mes_baja'];
@@ -145,6 +147,7 @@ export class DeleteUserComponent {
       }
 
     });
+    this.isLoading = false;
   }
 
 }

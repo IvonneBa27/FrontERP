@@ -18,6 +18,7 @@ export class ListClientComponent implements OnInit {
   totalReg: number = 0;
 
   clientForm: FormGroup;
+  isLoading = false;
 
   constructor(
     private router: Router,
@@ -53,6 +54,7 @@ export class ListClientComponent implements OnInit {
 
   
   searchClients(){
+    this.isLoading = true;
     const razon_social = this.clientForm.value['razon_social'];
     
     
@@ -64,7 +66,7 @@ export class ListClientComponent implements OnInit {
       this.clientForm.controls['razon_social'].setValue('');
   
       });
-  
+      this.isLoading = false;
  
     }
   

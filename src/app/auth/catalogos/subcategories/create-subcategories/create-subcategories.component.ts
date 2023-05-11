@@ -24,6 +24,7 @@ export class CreateSubcategoriesComponent  {
   Categorie: cat_categories[] = [];
   sku_indispensable: any;
   subcategories: cat_subcategories = new cat_subcategories;
+  isLoading = false;
   
 
   constructor(
@@ -78,6 +79,7 @@ export class CreateSubcategoriesComponent  {
   }
 
   createSubCategories() {
+    this.isLoading = true;
     const name = this.subcategoriesForm.value['name'];
     const id_category = this.subcategoriesForm.value['id_category'];
     const id_status = this.subcategoriesForm.value['id_status'];
@@ -108,6 +110,7 @@ export class CreateSubcategoriesComponent  {
       }
 
     });
+    this.isLoading = true;
   }
 
 

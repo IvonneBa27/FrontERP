@@ -31,6 +31,7 @@ export class CreateClientComponent {
   CatalogoSatRegimenFiscal: Catalogo_SAT_RegimenFiscal[] = [];
   CatalagoSatCFDI: Catalogo_SAT_CFDI[] = [];
   Estatus: Estatus[] = [];
+  isLoading = false;
 
 
 
@@ -113,6 +114,7 @@ export class CreateClientComponent {
   }
 
   createClient() {
+    this.isLoading = true;
     const no_cliente = this.clientForm.value['no_cliente'];
     const razon_social = this.clientForm.value['razon_social'];
     const rfc = this.clientForm.value['rfc'];
@@ -206,6 +208,7 @@ export class CreateClientComponent {
       }
 
     });
+    this.isLoading = false;
 
 
   }

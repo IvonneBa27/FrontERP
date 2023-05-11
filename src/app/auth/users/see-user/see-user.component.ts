@@ -41,7 +41,7 @@ export class SeeUserComponent {
   Departamento: Departamento[] = [];
   Turno: Turno[] = [];
   user: Users = new Users();
-
+  isLoading = false;
 
   
 
@@ -137,7 +137,7 @@ export class SeeUserComponent {
 
 
     // Catalogos - Campos
-
+ 
     this.usersForm.controls['nombre'].setValue(this.user.nombre);
     this.usersForm.controls['apellido_pat'].setValue(this.user.apellido_pat);
     this.usersForm.controls['apellido_mat'].setValue(this.user.apellido_mat);
@@ -169,6 +169,7 @@ export class SeeUserComponent {
     this.usersForm.controls['ola'].setValue(this.user.ola);
     this.usersForm.controls['fecha_inicio_capacitacion'].setValue(this.ObtenerFecha(this.user.fecha_inicio_capacitacion));
     this.usersForm.controls['fecha_fin_capacitacion'].setValue(this.ObtenerFecha(this.user.fecha_fin_capacitacion));
+
   }
 
 
@@ -181,7 +182,7 @@ export class SeeUserComponent {
   }
 
   SeeUser() {
-
+    this.isLoading = true;
     const id_tipo_usuario = this.usersForm.value['id_tipo_usuario'];
     const usuario = this.usersForm.value['usuario'];
     const nombre = this.usersForm.value['nombre'];
@@ -218,6 +219,7 @@ export class SeeUserComponent {
     const mes_baja = this.usersForm.value['mes_baja'];
     const fecha_inicio_capacitacion = this.usersForm.value['fecha_inicio_capacitacion'];
     const fecha_fin_capacitacion = this.usersForm.value['fecha_fin_capacitacion'];
+    this.isLoading = false;
 
   }
 

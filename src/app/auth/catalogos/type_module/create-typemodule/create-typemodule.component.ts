@@ -16,6 +16,7 @@ import { GeneralService } from 'src/app/services/general.service';
 export class CreateTypemoduleComponent {
   typesmodulesForm: FormGroup;
   Estatus: Estatus[] = [];
+  isLoading = false;
 
 
   constructor(
@@ -43,7 +44,8 @@ export class CreateTypemoduleComponent {
 
  createTypeModule()
  {
-   const name = this.typesmodulesForm.value['name'];
+  this.isLoading = true; 
+  const name = this.typesmodulesForm.value['name'];
    const status = this.typesmodulesForm.value['status'];
 
 
@@ -69,6 +71,7 @@ export class CreateTypemoduleComponent {
     }
 
   });
+  this.isLoading = false;
  }
 
 }

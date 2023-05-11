@@ -24,6 +24,7 @@ export class CreateProductsComponent {
   inventory: any;
   id_categoty: any;
   id_subcategory: any;
+  isLoading = false;
 
 
   constructor(
@@ -71,6 +72,7 @@ export class CreateProductsComponent {
    }
 
    createProducts(){
+    this.isLoading = true;
     const name = this.productsForm.value['name'];
     const id_categoty = this.productsForm.value['id_categoty'];
     const id_subcategory = this.productsForm.value['id_subcategory'];
@@ -115,6 +117,8 @@ export class CreateProductsComponent {
       }
 
     });
+
+    this.isLoading = false;
 
 
 

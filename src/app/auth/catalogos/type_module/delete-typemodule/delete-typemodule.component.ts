@@ -19,6 +19,7 @@ export class DeleteTypemoduleComponent  {
   typesmodulesForm: FormGroup;
   Estatus: Estatus[] = [];
   Type_modules: type_modules = new type_modules();
+  isLoading = false;
 
   constructor(
     private router: Router,
@@ -62,6 +63,7 @@ export class DeleteTypemoduleComponent  {
 
 
   DeleteTypeModule() {
+    this.isLoading = true;
 
     const name = this.typesmodulesForm.value['name'];
     const status = this.typesmodulesForm.value['status'];
@@ -88,6 +90,7 @@ export class DeleteTypemoduleComponent  {
     }
 
   });
+  this.isLoading = false;
 
  
   }

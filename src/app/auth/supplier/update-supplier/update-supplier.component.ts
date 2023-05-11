@@ -30,6 +30,7 @@ export class UpdateSupplierComponent {
   Banco: Banco[] = [];
   supplier: Suppliers = new Suppliers();
   Estatus: Estatus[] = [];
+  isLoading = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -133,6 +134,7 @@ export class UpdateSupplierComponent {
   }
 
   updateSupplier() {
+    this.isLoading = true;
     const no_proveedor = this.supplierForm.value['no_proveedor'];
     const razon_social = this.supplierForm.value['razon_social'];
     const rfc = this.supplierForm.value['rfc'];
@@ -204,6 +206,7 @@ export class UpdateSupplierComponent {
       }
 
     });
+    this.isLoading = false;
 
 
   }

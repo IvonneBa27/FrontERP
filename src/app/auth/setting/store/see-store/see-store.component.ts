@@ -20,6 +20,7 @@ export class SeeStoreComponent {
   Users : Users[] = [];
   essential_section: any;
   storesForm: FormGroup;
+  isLoading = false;
 
 
   constructor(
@@ -78,12 +79,14 @@ export class SeeStoreComponent {
 
   seeStore()
   {
+    this.isLoading = true;
     const name = this.storesForm.value['name'];
     const url_maps = this.storesForm.value['url_maps'];
     const description = this.storesForm.value['description'];
     const id_status = this.storesForm.value['id_status'];
     const id_user = this.storesForm.value['id_user'];
     const essential_section = this.storesForm.value['essential_section'];
+    this.isLoading = false;
 
   }
 

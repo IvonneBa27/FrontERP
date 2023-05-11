@@ -33,6 +33,7 @@ export class EditClientComponent  {
   CatalagoSatCFDI: Catalogo_SAT_CFDI[] = [];
   client: Customers = new Customers();
   Estatus: Estatus[] = [];
+  isLoading = false;
 
   constructor(
     private router: Router,
@@ -154,6 +155,7 @@ export class EditClientComponent  {
   }
 
   updateClient() {
+    this.isLoading = true;
     const no_cliente = this.clientForm.value['no_cliente'];
     const razon_social = this.clientForm.value['razon_social'];
     const rfc = this.clientForm.value['rfc'];
@@ -247,6 +249,7 @@ export class EditClientComponent  {
       }
 
     });
+    this.isLoading = false;
   }
 
     obtIdPais() {

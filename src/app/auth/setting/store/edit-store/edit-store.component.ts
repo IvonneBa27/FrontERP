@@ -22,6 +22,7 @@ export class EditStoreComponent {
   Users : Users[] = [];
   essential_section: any;
   storesForm: FormGroup;
+  isLoading = false;
 
   constructor(
     private _servicesuser: UserservicesService,
@@ -77,6 +78,7 @@ export class EditStoreComponent {
 
  updateStore()
  {
+  this.isLoading = true;
    const name = this.storesForm.value['name'];
    const url_maps = this.storesForm.value['url_maps'];
    const description = this.storesForm.value['description'];
@@ -108,6 +110,7 @@ this._servicesuser.updateStores(body).subscribe(res => {
   }
 
 });
+this.isLoading = false;
 
  }
 
