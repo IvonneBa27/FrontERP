@@ -4,6 +4,7 @@ export class Secctions{
     id_status!:                     number;
     id_store!:                      number;
     nomenclature!:                  string;
+    image!:                         string;
     created_at!:                    null;
     updated_at!:                    null;
 }

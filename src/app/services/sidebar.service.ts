@@ -58,7 +58,7 @@ export class SidebarService {
           roles: [{ name: 'Administrador' }],
         },
         {
-          titulo: 'Almacén',
+          titulo: 'Almacenes',
           url: 'list-store',
           roles: [{ name: 'Administrador' }],
         },

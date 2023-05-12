@@ -591,7 +591,7 @@ export class UserservicesService {
 
         // Seccion
   
-        createSecction(data: { name:any; id_status: any; id_store: any;  nomenclature:any }): Observable<any> {
+        createSecction(data: { name:any; id_status: any; id_store: any;  nomenclature:any; image: any}): Observable<any> {
           const URL = this.baseUrl + 'secctions/create';
       
           const headers = new HttpHeaders().set('Accept', 'application/json');
@@ -633,7 +633,7 @@ export class UserservicesService {
         }
   
         updateSecction(data: {
-          name:any; id_store: any;  nomenclature:any 
+          name:any; id_store: any;  nomenclature:any; image:any
           id: string | null;
         }): Observable<any> {
           const URL = this.baseUrl + 'secctions/update';

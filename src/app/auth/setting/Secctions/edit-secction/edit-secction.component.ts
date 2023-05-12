@@ -55,6 +55,7 @@ export class EditSecctionComponent {
       id_status: new FormControl(''),
       id_store: new FormControl(''),
       nomenclature: new FormControl(''),
+      image: new FormControl(''),
     });
   }
 
@@ -63,6 +64,7 @@ export class EditSecctionComponent {
     this.secctionForm.controls['id_store'].setValue(this.secction.id_store);
     this.secctionForm.controls['id_status'].setValue(this.secction.id_status);
     this.secctionForm.controls['nomenclature'].setValue(this.secction.nomenclature);
+    this.secctionForm.controls['image'].setValue(this.secction.image);
    
   }
 
@@ -77,6 +79,7 @@ export class EditSecctionComponent {
     const name = this.secctionForm.value['name'];
     const id_store = this.secctionForm.value['id_store'];
     const nomenclature = this.secctionForm.value['nomenclature'];
+    const image = this.secctionForm.value['image'];
 
 
     const body = {
@@ -84,6 +87,7 @@ export class EditSecctionComponent {
       name: name,
       id_store: id_store,
       nomenclature: nomenclature,
+      image: image,
     
 
   };

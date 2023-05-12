@@ -62,6 +62,7 @@ isLoading = false;
         id_status: new FormControl(''),
         id_store: new FormControl(''),
         nomenclature: new FormControl(''),
+        image: new FormControl(''),
       });
 
      }
@@ -85,6 +86,7 @@ isLoading = false;
     const id_status = this.secctionForm.value['id_status'];
     const id_store = this.secctionForm.value['id_store'];
     const nomenclature = this.secctionForm.value['nomenclature'];
+    const image = this.secctionForm.value['image'];
 
 
     const body = {
@@ -92,6 +94,7 @@ isLoading = false;
         id_status: id_status,
         id_store: this.id_store,
         nomenclature: nomenclature,
+        image: image,
       
 
     };

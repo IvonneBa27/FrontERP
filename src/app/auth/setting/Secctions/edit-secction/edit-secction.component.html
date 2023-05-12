@@ -29,13 +29,22 @@
                         </div>
 
                 
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <div class="form-group">
                                 <label class="control-label">Nombre del Almacén</label>
                                 <select class="form-control" id="id_store" placeholder="Almacén"
                                 formControlName="id_store">
                                 <option [value]="item.id" *ngFor="let item of Stores">{{item.name}}</option>
                             </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Imagen</label>
+                                <input type="text" id="image" class="form-control" placeholder="Imagen"
+                                    formControlName="image">
+                                    <button type="submit" class="btn btn-primary">Examinar</button>
                             </div>
                         </div>
 

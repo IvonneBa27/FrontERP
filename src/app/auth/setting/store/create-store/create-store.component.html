@@ -12,7 +12,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Nombre del Almacén</label>
-                                <input type="text" id="name" class="form-control" placeholder="Nombre del Almacen"
+                                <input type="text" id="name" class="form-control" placeholder=" "
                                     formControlName="name">
                             </div>
                         </div>
@@ -20,7 +20,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Responsable</label>
-                                <select class="form-control" id="id_user" placeholder="Responsable"
+                                <select class="form-control" id="id_user" placeholder=" "
                                     formControlName="id_user">
                                     <option [value]="item.id" *ngFor="let item of Users">{{item.nombre_completo}}</option>
                                 </select>
@@ -30,14 +30,14 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label class="control-label">Descripción</label>
-                                <textarea class="form-control" id="description" rows="3" placeholder="Descripcion"
+                                <textarea class="form-control" id="description" rows="3" placeholder=" "
                                     formControlName="description"></textarea>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="control-label">Seccion Indispensable </label>
+                                <label class="control-label">¿Necesita secciones el almacén? </label>
                                 <div class="form-check">
                                     <label class="custom-control custom-radio">
                                         <input value="1" name="essential_section" type="radio" class="custom-control-input"

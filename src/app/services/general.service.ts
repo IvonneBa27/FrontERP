@@ -309,7 +309,7 @@ export class GeneralService {
   }
 
   getUsers(): Observable<any> {
-    const URL = this.baseUrl + 'User/get';
+    const URL = this.baseUrl + 'usuario/getOrderBy';
     const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
 
     const headers = new HttpHeaders()
