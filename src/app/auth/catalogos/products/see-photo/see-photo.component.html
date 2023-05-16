@@ -1,0 +1,37 @@
+<!--<loading *ngIf="isLoading">{{ isLoading }}</loading>-->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                
+                <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="seeProducts()"
+                        value=""><i class="mdi mdi-playlist-check"></i> Regresar</button></h4>
+
+                <form >
+                  
+
+                    <div  class="col-md-20" style="text-align: center;">
+                        <h4 class="card-title" > {{products.name }}</h4> 
+                    </div>
+                  
+                        
+
+                
+                       
+
+                    <div class="col-md-20" style="text-align: center;">
+                      
+                    <img  [src]="products.photo" alt="Imagen convertida a Base64" height="360" width="740" style="text-align: center;">
+                    </div>
+                     
+                    
+
+
+           
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
