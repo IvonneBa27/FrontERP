@@ -10,7 +10,14 @@ import { StorageService } from './storage.service';
 })
 export class GeneralService {
   baseUrl: string = environment.api;
-  constructor(private http: HttpClient, private _srvStorage: StorageService) {}
+
+  constructor(
+    private http: HttpClient, 
+    private _srvStorage: StorageService
+    ) {
+
+    }
+  
 
   getAgents(id: number): Observable<any> {
     const URL = this.baseUrl + 'agents';
