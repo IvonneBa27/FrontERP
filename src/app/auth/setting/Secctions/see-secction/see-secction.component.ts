@@ -32,6 +32,7 @@ export class SeeSecctionComponent{
   ) { 
 
     this.id_secction = this.activatedRoute.snapshot.paramMap.get('id');
+    this.isLoading = true;
     this._servicesuser.getSecctionbyId(this.id_secction).subscribe((res) => {
 
       this.secction = res.data;
@@ -57,6 +58,7 @@ export class SeeSecctionComponent{
     });
 
 
+
   }
 
   setForm() {
@@ -64,7 +66,7 @@ export class SeeSecctionComponent{
     this.secctionForm.controls['id_store'].setValue(this.secction.id_store);
     this.secctionForm.controls['id_status'].setValue(this.secction.id_status);
     this.secctionForm.controls['nomenclature'].setValue(this.secction.nomenclature);
-   
+    this.isLoading = false;
   }
 
 
@@ -72,20 +74,12 @@ export class SeeSecctionComponent{
     this.router.navigate([`/dashboard/list-secction/${this.id_secction}`]);
   }
 
-  seeSecction(){
-    this.isLoading = true;
+ /* seeSecction(){
     const name = this.secctionForm.value['name'];
     const id_status = this.secctionForm.value['id_status'];
     const id_store = this.secctionForm.value['id_store'];
     const nomenclature = this.secctionForm.value['nomenclature'];
-    this.isLoading = false;
-
-
-
-
-
-
-   }
+   }*/
 
   
 

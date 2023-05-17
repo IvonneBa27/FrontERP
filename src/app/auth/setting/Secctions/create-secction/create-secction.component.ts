@@ -21,6 +21,8 @@ Estatus: Estatus[] = [];
 Stores: Stores[] = [];
 secction: Secctions = new Secctions;
 isLoading = false;
+selectedFile: File | null = null;
+base64String: string | null = null;
 
 
 
@@ -41,6 +43,7 @@ isLoading = false;
 
       this._servicesgeneral.getStores().subscribe(respuesta => {
         this.Stores = respuesta.data;
+        console.log(this.Stores);
       });
 
 
@@ -79,6 +82,17 @@ isLoading = false;
       this.router.navigate([`/dashboard/list-secction/${this.id_store}`]);
     }
 
+    onFileSelected(event: any) {
+      this.selectedFile = <File>event.target.files[0];
+      
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.base64String = <string>reader.result;
+      };
+      reader.readAsDataURL(this.selectedFile);
+      }
+  
+
     
   createSecction(){
     this.isLoading = true;
@@ -94,7 +108,7 @@ isLoading = false;
         id_status: id_status,
         id_store: this.id_store,
         nomenclature: nomenclature,
-        image: image,
+        image: this.base64String,
       
 
     };

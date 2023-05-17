@@ -41,6 +41,7 @@ export class SeeProductsComponent {
    
 
     this.id_products = this.activatedRoute.snapshot.paramMap.get('id');
+    this.isLoading = true;
     this._servicesuser.getProductsbyId(this.id_products).subscribe((res) => {
 
       this.products = res.data;
@@ -75,6 +76,7 @@ export class SeeProductsComponent {
       id_unitmeasure: new FormControl(''),
     });
 
+
   }
 
   setForm() {
@@ -91,7 +93,7 @@ export class SeeProductsComponent {
     this.productsForm.controls['photo'].setValue(this.products.photo);
     this.productsForm.controls['id_status'].setValue(this.products.id_status);
     this.productsForm.controls['id_unitmeasure'].setValue(this.products.id_unitmeasure);
-
+    this.isLoading = false;
   }
 
   ListProducts() {
@@ -99,7 +101,7 @@ export class SeeProductsComponent {
   }
 
 
-  seeProducts() {
+/* seeProducts() {
     this.isLoading = true;
     const name = this.productsForm.value['name'];
     const id_categoty = this.productsForm.value['id_categoty'];
@@ -115,7 +117,7 @@ export class SeeProductsComponent {
     const id_unitmeasure = this.productsForm.value['id_unitmeasure'];
     this.isLoading = false;
 
-  }
+  }*/
 
 
 

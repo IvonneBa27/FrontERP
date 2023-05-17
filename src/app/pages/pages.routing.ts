@@ -70,6 +70,8 @@ import { ListSecctionComponent } from '../auth/setting/Secctions/list-secction/l
 import { SeeSecctionComponent } from '../auth/setting/Secctions/see-secction/see-secction.component';
 import { EditSecctionComponent } from '../auth/setting/Secctions/edit-secction/edit-secction.component';
 import { DeleteSecctionComponent } from '../auth/setting/Secctions/delete-secction/delete-secction.component';
+import { SeeImageComponent } from '../auth/setting/Secctions/see-image/see-image.component';
+import { SeePhotoComponent } from '../auth/catalogos/products/see-photo/see-photo.component';
 
 
 
@@ -489,6 +491,20 @@ const routes: Routes = [
         data: { titulo: 'Eliminar Sección' },
         canActivate: [AccesoGuard],
       },
+      {
+        path: 'see-image/:id',
+        component: SeeImageComponent,
+        data: { titulo: 'Imagén Sección' },
+        canActivate: [AccesoGuard],
+      },
+
+      {
+        path: 'see-photo/:id',
+        component: SeePhotoComponent,
+        data: { titulo: 'Imagén Producto' },
+        canActivate: [AccesoGuard],
+      },
+
 
 
 

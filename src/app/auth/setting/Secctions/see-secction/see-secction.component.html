@@ -7,7 +7,7 @@
                 <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="ListStores()"
                         value=""><i class="mdi mdi-playlist-check"></i> Lista de Secciones</button></h4>
 
-                <form (submit)="seeSecction()" [formGroup]="secctionForm ">
+                <form [formGroup]="secctionForm ">
                     <fieldset disabled>
                     <div class="row">
                         <div class="col-md-6">
@@ -49,6 +49,12 @@
                                     <option [value]="item.id" *ngFor="let item of Estatus">{{item.nombre}}</option>
                                 </select>
                             </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                           <img  [src]="secction.image" alt="Imagen convertida a Base64" height="45" width="70"><a [routerLink]="['/dashboard/see-image', secction.id ]" target="_blank">  Ver Imagen  </a>
+                        </div>
                         </div>
               
            

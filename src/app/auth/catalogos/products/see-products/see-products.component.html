@@ -6,7 +6,7 @@
                 <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="ListProducts()"
                         value=""><i class="mdi mdi-playlist-check"></i> Lista de Productos</button></h4>
 
-                <form (submit)="seeProducts()" [formGroup]="productsForm ">
+                <form  [formGroup]="productsForm ">
                     <fieldset disabled>
                     <div class="row">
                         <div class="col-md-4">
@@ -112,14 +112,11 @@
                                 </select>
                             </div>
                         </div>
-                        <!--<div class="col-md-6">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label class="control-label">Imagen</label>
-                                <input type="text" id="photo" class="form-control" placeholder="Imagen"
-                                    formControlName="photo">
-                                    <button type="submit" class="btn btn-primary">Examinar</button>
+                                <img  [src]="products.photo" alt="Imagen convertida a Base64" height="45" width="70"><a [routerLink]="['/dashboard/see-photo', products.id ]" target="_blank">  Ver Imagen  </a>
                             </div>
-                        </div>-->
+                        </div>
            
 
 

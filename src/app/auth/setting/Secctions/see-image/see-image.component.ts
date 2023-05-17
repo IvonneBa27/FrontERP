@@ -26,6 +26,7 @@ export class SeeImageComponent{
     private activatedRoute: ActivatedRoute,
   ) { 
     this.id_secction = this.activatedRoute.snapshot.paramMap.get('id');
+    this.isLoading = true;
     this._servicesuser.getSecctionbyId(this.id_secction).subscribe((res) => {
 
       this.secction = res.data;
@@ -42,6 +43,7 @@ export class SeeImageComponent{
       image: new FormControl(''),
       
     });
+    this.isLoading = false;
 
 
   }

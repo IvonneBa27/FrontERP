@@ -25,6 +25,8 @@ export class CreateProductsComponent {
   id_categoty: any;
   id_subcategory: any;
   isLoading = false;
+  selectedFile: File | null = null;
+  base64String: string | null = null;
 
 
   constructor(
@@ -71,6 +73,16 @@ export class CreateProductsComponent {
     this.router.navigateByUrl('/dashboard/list-products')
    }
 
+   onFileSelected(event: any) {
+    this.selectedFile = <File>event.target.files[0];
+    
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.base64String = <string>reader.result;
+    };
+    reader.readAsDataURL(this.selectedFile);
+  }
+
    createProducts(){
     this.isLoading = true;
     const name = this.productsForm.value['name'];
@@ -97,7 +109,7 @@ export class CreateProductsComponent {
         model: model,
         description: description,
         inventory: inventory,
-        photo: photo,
+        photo: this.base64String,
         id_status: id_status,
         id_unitmeasure: id_unitmeasure,
 

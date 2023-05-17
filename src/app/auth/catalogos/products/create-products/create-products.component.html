@@ -114,10 +114,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="control-label">Imagen</label>
-                                <input type="text" id="photo" class="form-control" placeholder="Imagen"
-                                    formControlName="photo">
-                                    <button type="submit" class="btn btn-primary">Examinar</button>
+                                <input type="file" (change)="onFileSelected($event)">
                             </div>
                         </div>
            

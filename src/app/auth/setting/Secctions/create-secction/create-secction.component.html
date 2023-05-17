@@ -53,14 +53,15 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="control-label">Imagen</label>
-                                <input type="text" id="image" class="form-control" placeholder="Imagen"
-                                    formControlName="image">
-                                    <button type="submit" class="btn btn-primary">Examinar</button>
+                                <input type="file" (change)="onFileSelected($event)">
+                               
                             </div>
                         </div>
               
-           
+                        <div class="col-md-12" style="text-align: center;">
+                      
+                        
+                       </div>
 
 
                     </div>
@@ -70,6 +71,9 @@
                         <button type="submit" class="btn btn-primary" style="text-align: end;">Crear Sección</button>
 
                     </div>
+
+                    
+                    
                 </form>
             </div>
         </div>
