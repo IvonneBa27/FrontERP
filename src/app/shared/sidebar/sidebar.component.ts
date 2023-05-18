@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Users } from 'src/app/models/users.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { SidebarService } from 'src/app/services/sidebar.service';
 import { StorageService } from 'src/app/services/storage.service';
@@ -11,6 +12,7 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[] | undefined;
+  user: Users = new Users();
   role: string;
 
   constructor(

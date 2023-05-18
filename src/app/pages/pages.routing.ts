@@ -72,6 +72,11 @@ import { EditSecctionComponent } from '../auth/setting/Secctions/edit-secction/e
 import { DeleteSecctionComponent } from '../auth/setting/Secctions/delete-secction/delete-secction.component';
 import { SeeImageComponent } from '../auth/setting/Secctions/see-image/see-image.component';
 import { SeePhotoComponent } from '../auth/catalogos/products/see-photo/see-photo.component';
+import { CreateBrandComponent } from '../auth/catalogos/brand/create-brand/create-brand.component';
+import { ListBrandComponent } from '../auth/catalogos/brand/list-brand/list-brand.component';
+import { EditBrandComponent } from '../auth/catalogos/brand/edit-brand/edit-brand.component';
+import { DeleteBrandComponent } from '../auth/catalogos/brand/delete-brand/delete-brand.component';
+import { SeeBrandComponent } from '../auth/catalogos/brand/see-brand/see-brand.component';
 
 
 
@@ -502,6 +507,37 @@ const routes: Routes = [
         path: 'see-photo/:id',
         component: SeePhotoComponent,
         data: { titulo: 'Imagén Producto' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'create-brand/:id',
+        component: CreateBrandComponent,
+        data: { titulo: 'Crear Marca' },
+        canActivate: [AccesoGuard],
+      },
+
+      {
+        path: 'list-brand/:id',
+        component: ListBrandComponent,
+        data: { titulo: 'Lista de Marcas' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'edit-brand/:id',
+        component: EditBrandComponent,
+        data: { titulo: 'Editar Marca' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'delete-brand/:id',
+        component: DeleteBrandComponent,
+        data: { titulo: 'Eliminar Marca' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'see-brand/:id',
+        component: SeeBrandComponent,
+        data: { titulo: 'Marca' },
         canActivate: [AccesoGuard],
       },
 

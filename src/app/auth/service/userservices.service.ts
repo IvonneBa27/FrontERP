@@ -421,7 +421,7 @@ export class UserservicesService {
     }
 
     getCatSubCategorie(id:any): Observable<any> {
-      const URL = this.baseUrl + `subcategories/catid?id=${id}`;
+      const URL = this.baseUrl + `subcategories/catid?id_category=${id}`;
       const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
   
       const headers = new HttpHeaders()
@@ -663,6 +663,72 @@ export class UserservicesService {
           return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
       
         }
+
+        //marca
+
+        createBrand(data: { name:any; id_status: any; id_subcategory: any;}): Observable<any> {
+          const URL = this.baseUrl + 'brands/create';
+      
+          const headers = new HttpHeaders().set('Accept', 'application/json');
+          return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+        
+        
+        }
+
+        getBrand(id: any): Observable<any> {
+          const URL = this.baseUrl + `brands/get?id_subcategory=${id}`;
+          const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+      
+          const headers = new HttpHeaders()
+            .set('Accept', 'application/json')
+            .set('Authorization', token);
+      
+          return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+        }
+
+        getBrandbyId(id: any): Observable<any> {
+          const URL = this.baseUrl + `brands/id?id=${id}`;
+          const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+      
+          const headers = new HttpHeaders()
+            .set('Accept', 'application/json')
+            .set('Authorization', token);
+      
+          return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+      
+        }
+
+        updateBrand(data: {
+          name:any;  id_subcategory: any;
+          id: string | null;
+        }): Observable<any> {
+          const URL = this.baseUrl + 'brands/update';
+      
+          const headers = new HttpHeaders().set('Accept', 'application/json');
+          return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+        }
+
+        deleteBrand(data: {
+          id: string | null;
+        }): Observable<any> {
+          const URL = this.baseUrl + 'brands/delete';
+      
+          const headers = new HttpHeaders().set('Accept', 'application/json');
+          return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+        }
+
+
+        getCatSubCateg(id:any): Observable<any> {
+          const URL = this.baseUrl + `subcategories/subid?id=${id}`;
+          const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+      
+          const headers = new HttpHeaders()
+            .set('Accept', 'application/json')
+            .set('Authorization', token);
+      
+          return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+        }
+  
 
     
 
