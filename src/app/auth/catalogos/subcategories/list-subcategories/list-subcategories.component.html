@@ -19,8 +19,8 @@
                             <tr *ngFor="let subcategories of subcategories | paginate: { itemsPerPage: 50, currentPage: p }">
                                 <td>{{subcategories.id }}</td>
                                 <td>{{subcategories.registro | date: 'dd/MM/yyyy' }}</td>
-                                <td>{{subcategories.name }}</td>
-                                <td><a [routerLink]="['/dashboard/list-brand',subcategories.id]">{{subcategories.totbrand }}</a></td>
+                                <td>{{subcategories.nameSub }}</td>
+                                <td><a [routerLink]="['/dashboard/list-brand',subcategories.id]">{{subcategories.totbrand}}</a></td>
                                 <td class="actions">
                                     <a [routerLink]="['/dashboard/see-subcategories', subcategories.id ]"><i class="mdi mdi-eye"></i></a>
                                     <a [routerLink]="['/dashboard/edit-subcategories', subcategories.id ]"><i class="mdi mdi-pencil"></i></a>

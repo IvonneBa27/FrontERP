@@ -14,6 +14,7 @@ export class SidebarComponent implements OnInit {
   menuItems: any[] | undefined;
   user: Users = new Users();
   role: string;
+  nombrecompleto: any;
 
   constructor(
     private sidebarService: SidebarService,
@@ -23,6 +24,7 @@ export class SidebarComponent implements OnInit {
   ) {
     this.role = JSON.parse(this._srvStorage.get('role'));
     this.menuItems = sidebarService.menu;
+    this.nombrecompleto =this._srvStorage.get('nombre_completo');
     console.log('hola');
   }
 

@@ -6,6 +6,7 @@ export class cat_subcategories {
     registro!:            null;
     totbrand!:            number;
     sku_indispensable!:   number;
+    nameSub!:             string;
     created_at!:          null;
     updated_at!:          null;
 }

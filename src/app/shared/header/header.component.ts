@@ -12,12 +12,16 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class HeaderComponent implements OnInit {
   user: Users = new Users();
-  
+  nombrecompleto: any;
+  email: any;
   constructor(
     private _srvStorage: StorageService,
     private router: Router,
     private _srvAuth: AuthService
+   
   ) {
+    this.nombrecompleto =this._srvStorage.get('nombre_completo');
+    this.email = this._srvStorage.get('email');
     
   }
 
