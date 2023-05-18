@@ -54,11 +54,11 @@ export class CreateBrandComponent {
       /*this._servicesgeneral.requestCatalogos().subscribe(respuesta => {
         this.Estatus = respuesta[2].data;
         this.SubCategorie = respuesta[19].data;
-
+*/
         this.setForm();
 
     
-      });*/
+     // });
 
 
     });
@@ -72,12 +72,12 @@ export class CreateBrandComponent {
 
   }
 
-  /*setForm(){
+  setForm(){
     this.brandsForm.controls['name'].setValue(this.brand.name);
     this.brandsForm.controls['id_subcategory'].setValue(this.brand.id_subcategory);
     this.brandsForm.controls['id_status'].setValue(this.brand.id_status);
    
-  }*/
+  }
 
   ListBrands() {
 
@@ -97,7 +97,7 @@ export class CreateBrandComponent {
     const body = {
       name: name,
       id_status: id_status,
-      id_subcategory: id_subcategory,
+      id_subcategory: this.id_subcategory,
 
 
     };
@@ -106,7 +106,7 @@ export class CreateBrandComponent {
       if (res.status == 'success') {
         swal.fire('Do It Right', res.message, 'success');
 
-        this._serviceauth.createLog('Crear Sección', 'CREATE').subscribe(() => { });
+        this._serviceauth.createLog('Crear Marca', 'CREATE').subscribe(() => { });
         this.ListBrands();
 
       }

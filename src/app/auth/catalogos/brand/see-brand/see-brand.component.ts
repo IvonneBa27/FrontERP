@@ -18,7 +18,7 @@ import swal from 'sweetalert2';
 export class SeeBrandComponent {
 
   id_brand;
-  id_subcategory;
+  //id_subcategory;
   brandsForm: FormGroup;
   Estatus: Estatus[] = [];
   SubCategorie: cat_subcategories[] = [];
@@ -36,8 +36,10 @@ export class SeeBrandComponent {
     private activatedRoute: ActivatedRoute,
     ) {
       this.id_brand= this.activatedRoute.snapshot.paramMap.get('id');
-      this.id_subcategory = this.activatedRoute.snapshot.paramMap.get('id');
+     // this.id_subcategory = this.activatedRoute.snapshot.paramMap.get('id_subcategory');
 
+      console.log(this.id_brand)
+      //console.log(this.id_subcategory)
       this._servicesgeneral.getEstatus().subscribe(respuesta => {
         this.Estatus = respuesta.data;
       });
@@ -75,10 +77,10 @@ export class SeeBrandComponent {
 
      ListBrands() {
 
-      // this.router.navigate([`/dashboard/list-brand/${this.id_subcategory}`]);
+       this.router.navigate([`/dashboard/list-brand/${this.brand.id_subcategory}`]);
   
-      //this.router.navigateByUrl('/dashboard/list-brand')
-      this.router.navigate([`/dashboard/list-brand/${this.id_subcategory}`]);
+     // this.router.navigateByUrl('/dashboard/list-categories')
+     
     }
 
     setForm(){

@@ -71,9 +71,10 @@ export class DeleteBrandComponent  {
 
      ListBrands() {
 
-      // this.router.navigate([`/dashboard/list-brand/${this.id_subcategory}`]);
+      this.router.navigate([`/dashboard/list-brand/${this.brand.id_subcategory}`]);
   
-      this.router.navigateByUrl('/dashboard/list-brand')
+  
+      //this.router.navigateByUrl('/dashboard/list-brand')
     }
   
     setForm(){
