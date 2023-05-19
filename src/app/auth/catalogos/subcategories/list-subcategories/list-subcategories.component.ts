@@ -29,12 +29,17 @@ export class ListSubcategoriesComponent  {
       this.subcategories = res.data;
        console.log(this.subcategories);
        this._serviceauth.createLog('Lista SubCategoria', 'SELECT').subscribe(() => { });
+       this.isLoading = false;
     });
-    this.isLoading = false;
+  
   }
 
   createSubCategories(){
     this.router.navigate([`/dashboard/create-subcategories/${this.id_categorie}`]);
+  }
+
+  listCategories(){
+    this.router.navigate(['/dashboard/list-categories']);
   }
 
 }

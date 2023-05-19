@@ -46,6 +46,7 @@ export class CreateBrandComponent {
  
 
     this.id_subcategory = this.activatedRoute.snapshot.paramMap.get('id');
+    this.isLoading = true;
     this._servicesuser.getCatSubCateg(this.id_subcategory).subscribe((res) => {
 
       this.SubCategorie = res.data;
@@ -87,7 +88,7 @@ export class CreateBrandComponent {
   }
 
   createBrand() {
-    this.isLoading = true;
+ 
     const name = this.brandsForm.value['name'];
     const id_status = this.brandsForm.value['id_status'];
     const id_subcategory = this.brandsForm.value['id_subcategory'];
@@ -114,9 +115,9 @@ export class CreateBrandComponent {
       else {
         swal.fire('Do It Right', res.msg, 'error');
       }
-
+      this.isLoading = false;
     });
-    this.isLoading = false;
+  
 
 
 

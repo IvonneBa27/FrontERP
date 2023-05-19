@@ -26,8 +26,9 @@ export class ListCategoriesComponent implements OnInit {
       this.categories = res.data;
        console.log(this.categories);
        this._serviceauth.createLog('Lista Categoria', 'SELECT').subscribe(() => { });
+       this.isLoading = false;
     });
-    this.isLoading = false;
+
   }
 
   createCategories(){

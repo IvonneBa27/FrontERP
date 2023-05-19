@@ -1,0 +1,7 @@
+.botones {
+    display: flex;
+    gap: 25px;
+    text-align: end;
+    margin: 4px;
+    
+}

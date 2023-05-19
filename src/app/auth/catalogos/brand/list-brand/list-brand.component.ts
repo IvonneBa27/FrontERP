@@ -34,13 +34,17 @@ export class ListBrandComponent {
       this.Brand = res.data;
        console.log(this.Brand);
        this._serviceauth.createLog('Lista de Marcas', 'SELECT').subscribe(() => { });
-
+       this.isLoading = false;
     });
-    this.isLoading = false;
+ 
   }
 
   createBrand(){
     this.router.navigateByUrl(`/dashboard/create-brand/${this.id_subcategory}`)
+  }
+
+  listSubCategories(){
+    this.router.navigateByUrl(`/dashboard/list-subcategories/${this.id_subcategory}`)
   }
 
 }
