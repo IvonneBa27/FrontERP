@@ -77,6 +77,7 @@ import { ListBrandComponent } from '../auth/catalogos/brand/list-brand/list-bran
 import { EditBrandComponent } from '../auth/catalogos/brand/edit-brand/edit-brand.component';
 import { DeleteBrandComponent } from '../auth/catalogos/brand/delete-brand/delete-brand.component';
 import { SeeBrandComponent } from '../auth/catalogos/brand/see-brand/see-brand.component';
+import { HomeInventoryComponent } from '../auth/inventory/home-inventory/home-inventory.component';
 
 
 
@@ -538,6 +539,12 @@ const routes: Routes = [
         path: 'see-brand/:id',
         component: SeeBrandComponent,
         data: { titulo: 'Marca' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'home-inventory',
+        component: HomeInventoryComponent,
+        data: { titulo: 'Inventario' },
         canActivate: [AccesoGuard],
       },
 

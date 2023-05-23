@@ -54,7 +54,7 @@ export class SidebarService {
       submenu: [
         {
           titulo: 'Inventario',
-          url: 'listado-grupos',
+          url: 'home-inventory',
           roles: [{ name: 'Administrador' }],
         },
         {

@@ -31,18 +31,24 @@ export class ListSecctionComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading = true;
     this.id_store = this.activatedRoute.snapshot.paramMap.get('id');
-    this._servicesuser.getSecction().subscribe((res) => {
+    this._servicesuser.getSecction(this.id_store).subscribe((res) => {
       this.Secctions = res.data;
        console.log(this.Secctions);
        this._serviceauth.createLog('Lista de Secciones', 'SELECT').subscribe(() => { });
+       this.isLoading = false;
 
     });
-    this.isLoading = false;
+ 
   }
 
   createSecction(){
 
     this.router.navigate([`/dashboard/create-secction/${this.id_store}`]);
   }
+
+  listStores(){
+    this.router.navigate(['/dashboard/list-store']);
+  }
+
 
 }

@@ -609,8 +609,8 @@ export class UserservicesService {
           return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
         }
 
-        getSecction(): Observable<any> {
-          const URL = this.baseUrl + 'secctions/get';
+        getSecction(id: any): Observable<any> {
+          const URL = this.baseUrl + `secctions/get?id=${id}`;
           const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
       
           const headers = new HttpHeaders()

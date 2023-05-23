@@ -1,0 +1,86 @@
+<!--<loading *ngIf="isLoading">{{ isLoading }}</loading>-->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+                <div class="card-body">
+                    <div  class="card-title"  style="text-align: end;" >
+                    <h4>
+                        <button class="btn btn-primary"  value=""><i class="mdi mdi-database-plus"></i> Ingreso de Almacén </button>
+                        &nbsp; 
+                        <button class="btn btn-primary" value=""><i class="mdi mdi-database"></i> Traspaso de Almacén</button>
+                        &nbsp; 
+                        <button class="btn btn-primary" value=""><i class="mdi mdi-database-minus"></i> Salida de Almacén</button>
+                    </h4>
+                    </div>
+                    <br>
+                    <br>
+   
+                    <form>
+                        <div class="row">
+                            <div class="col-md-3">
+                                    <div class="form-group" style="text-align: end;">
+                                        <label class="control-label">Tipo Inventario</label>  
+                                    </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <div>
+                                        <input type="radio" id="" name=""  value="" checked>
+                                        <label for=""> Todos</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="" name=""  value="" checked>
+                                        <label for=""> Activos  Do It Right</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="" name=""  value="" checked>
+                                        <label for=""> Activos Externos</label>
+                                    </div>
+                                
+                                </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label" for="nombre_completo"> KARDEX</label>
+                                <input type="text" id="razon_social" class="form-control" placeholder="No. de serie de producto" 
+                               formControlName="razon_social" >
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group" style="margin-top: 34px;">
+                                    <button type="submit" class="btn btn-primary"  ><i class="mdi mdi-account-search"></i> Buscar </button>
+                            </div>
+                        </div>
+                        </div>
+                    </form>
+
+       
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Almacen</th>
+                                <th>Responsable</th>
+                                <th>Productos</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Almacen</td>
+                                <td>Responsable</td>
+                                <td># Productos</td>
+                    
+                                <td class="actions">
+                                    <a [routerLink]="['/dashboard/list-store']"><i class="mdi mdi-eye"></i></a>
+                                   
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                
+                        
+             </div>
+        </div>
+    </div>
+</div>

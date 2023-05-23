@@ -39,9 +39,10 @@ export class ListStoreComponent {
       this.stores = res.data;
        console.log(this.stores);
        this._serviceauth.createLog('Lista de Almacenes', 'SELECT').subscribe(() => { });
+       this.isLoading = false;
 
     });
-    this.isLoading = false;
+
   }
 
   createStores(){
