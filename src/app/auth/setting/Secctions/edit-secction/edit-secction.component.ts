@@ -22,6 +22,8 @@ export class EditSecctionComponent {
   Stores: Stores[] = [];
   secction: Secctions = new Secctions;
   isLoading = false;
+  selectedFile: File | null = null;
+  base64String: string | null = null;
 
   constructor(
     private _servicesuser: UserservicesService,
@@ -33,6 +35,7 @@ export class EditSecctionComponent {
   ) { 
 
     this.id_secction = this.activatedRoute.snapshot.paramMap.get('id');
+    this.isLoading = true;
     this._servicesuser.getSecctionbyId(this.id_secction).subscribe((res) => {
 
       this.secction = res.data;
@@ -41,9 +44,8 @@ export class EditSecctionComponent {
 
       this._servicesgeneral.requestCatalogos().subscribe(respuesta => {
         this.Estatus = respuesta[2].data;
-        this.Stores = respuesta[21].data;
+        this.Stores = respuesta[22].data;
         
-
         this.setForm();
 
     
@@ -65,6 +67,7 @@ export class EditSecctionComponent {
     this.secctionForm.controls['id_status'].setValue(this.secction.id_status);
     this.secctionForm.controls['nomenclature'].setValue(this.secction.nomenclature);
     this.secctionForm.controls['image'].setValue(this.secction.image);
+    this.isLoading = false;
    
   }
 
@@ -73,9 +76,20 @@ export class EditSecctionComponent {
     this.router.navigate([`/dashboard/list-secction/${this.id_secction}`]);
   }
 
+  onFileSelected(event: any) {
+    this.selectedFile = <File>event.target.files[0];
+    
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.base64String = <string>reader.result;
+    };
+    reader.readAsDataURL(this.selectedFile);
+    }
+
+
 
   updateSecction(){
-    this.isLoading = true;
+
     const name = this.secctionForm.value['name'];
     const id_store = this.secctionForm.value['id_store'];
     const nomenclature = this.secctionForm.value['nomenclature'];
@@ -87,7 +101,7 @@ export class EditSecctionComponent {
       name: name,
       id_store: id_store,
       nomenclature: nomenclature,
-      image: image,
+      image: this.base64String,
     
 
   };
@@ -106,7 +120,7 @@ export class EditSecctionComponent {
     }
 
   });
-  this.isLoading = false;
+
 
 
 

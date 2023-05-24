@@ -41,7 +41,7 @@ export class SeeSecctionComponent{
 
       this._servicesgeneral.requestCatalogos().subscribe(respuesta => {
         this.Estatus = respuesta[2].data;
-        this.Stores = respuesta[21].data;
+        this.Stores = respuesta[22].data;
         
 
         this.setForm();

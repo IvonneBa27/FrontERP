@@ -31,23 +31,29 @@
                 
                         <div class="col-md-8">
                             <div class="form-group">
-                                <label class="control-label">Nombre del Almacén</label>
+                                <fieldset disabled>
+                                    <label class="control-label">Nombre del Almacén</label>
                                 <select class="form-control" id="id_store" placeholder="Almacén"
-                                formControlName="id_store">
+                                     formControlName="id_store">
                                 <option [value]="item.id" *ngFor="let item of Stores">{{item.name}}</option>
-                            </select>
+                                </select>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <img  [src]="secction.image" alt="Imagen convertida a Base64" height="45" width="70"><a [routerLink]="['/dashboard/see-image', secction.id ]" target="_blank">  Ver Imagen  </a>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="control-label">Imagen</label>
-                                <input type="text" id="image" class="form-control" placeholder="Imagen"
-                                    formControlName="image">
-                                    <button type="submit" class="btn btn-primary">Examinar</button>
+                                <input type="file" (change)="onFileSelected($event)">
+                               
                             </div>
                         </div>
-
+              
+                      
 
                 
               
