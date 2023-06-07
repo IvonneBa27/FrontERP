@@ -1,15 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-inventory',
   templateUrl: './home-inventory.component.html',
   styleUrls: ['./home-inventory.component.css']
 })
-export class HomeInventoryComponent implements OnInit {
+export class HomeInventoryComponent {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) 
+  { }
 
-  ngOnInit(): void {
+
+  IncomeStore() {
+    this.router.navigateByUrl('/dashboard/income-store')
   }
+
 
 }

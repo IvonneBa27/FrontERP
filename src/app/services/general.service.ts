@@ -327,7 +327,7 @@ export class GeneralService {
   }
 
   getSecction(): Observable<any> {
-    const URL = this.baseUrl + 'secctions/get';
+    const URL = this.baseUrl + 'secctions/getV1';
     const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
 
     const headers = new HttpHeaders()
@@ -339,6 +339,28 @@ export class GeneralService {
 
   getStores(): Observable<any> {
     const URL = this.baseUrl + 'stores/getAnt';
+    const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Authorization', token);
+
+    return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  }
+
+  getTypeIncome(): Observable<any> {
+    const URL = this.baseUrl + 'incomeTypeStores/get';
+    const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Authorization', token);
+
+    return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  }
+
+  getSupplier(): Observable<any> {
+    const URL = this.baseUrl + 'suppliers/get';
     const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
 
     const headers = new HttpHeaders()
@@ -380,8 +402,10 @@ export class GeneralService {
     let response21 = this.getUsers();
     let response22 = this.getSecction();
     let response23 = this.getStores();
+    let response24 = this.getTypeIncome();
+    let response25 = this.getSupplier();
     
-    return forkJoin([response1, response2, response3, response4, response5, response6, response7, response8, response9, response10, response11, response12, response13, response14, response15, response16, response17, response18, response19, response20, response21, response22, response23]);
+    return forkJoin([response1, response2, response3, response4, response5, response6, response7, response8, response9, response10, response11, response12, response13, response14, response15, response16, response17, response18, response19, response20, response21, response22, response23, response24, response25]);
 
   }
 

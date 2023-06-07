@@ -421,7 +421,7 @@ export class UserservicesService {
     }
 
     getCatSubCategorie(id:any): Observable<any> {
-      const URL = this.baseUrl + `subcategories/catid?id_category=${id}`;
+      const URL = this.baseUrl + `subcategories/subcatid?id_category=${id}`;
       const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
   
       const headers = new HttpHeaders()
@@ -727,6 +727,90 @@ export class UserservicesService {
             .set('Authorization', token);
       
           return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+        }
+        createIncomeStore(data: { warehouse_id:any; section_id: any; warehouse_entry_type_id: any;  purchase_order_number: any; invoice: any; invoice_date: any; provider_id: any;}): Observable<any> {
+          const URL = this.baseUrl + 'incomeStores/create';
+      
+          const headers = new HttpHeaders().set('Accept', 'application/json');
+          return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+        
+        
+        }
+
+        getIncomeStorybyId(id: any): Observable<any> {
+          const URL = this.baseUrl + `incomeStores/id?id=${id}`;
+          const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+      
+          const headers = new HttpHeaders()
+            .set('Accept', 'application/json')
+            .set('Authorization', token);
+      
+          return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+      
+        }
+
+        getCatSubProducto(id_category:any, id_subcategory: any): Observable<any> {
+          const URL = this.baseUrl + `products/getCatSubCategory?id_category=${id_category}&id_subcategory=${id_subcategory}`;
+          const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+      
+          const headers = new HttpHeaders()
+            .set('Accept', 'application/json')
+            .set('Authorization', token);
+      
+          return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+        }
+
+        getCatSubProductoDet(id: any): Observable<any> {
+          const URL = this.baseUrl + `products/getCatSubCategoryDet?id=${id}`;
+          const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+      
+          const headers = new HttpHeaders()
+            .set('Accept', 'application/json')
+            .set('Authorization', token);
+      
+          return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+      
+        }
+
+        createIncomeDetailStore(data: { warehouse_entry_id:any; category_id: any; subcategory_id: any;  brand_id: any; product_id: any; amount: any; total_received: any;}): Observable<any> {
+          const URL = this.baseUrl + 'incomeStoresDetail/create';
+      
+          const headers = new HttpHeaders().set('Accept', 'application/json');
+          return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+        
+        
+        }
+
+        createIncomeDetailSerialStore(data: { warehouse_entry_detail_id:any; product_id: any; product_name:any; brand_name: any; sku: any;}): Observable<any> {
+          const URL = this.baseUrl + 'incomeStoresDetailProduct/create';
+      
+          const headers = new HttpHeaders().set('Accept', 'application/json');
+          return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+        
+        
+        }
+
+        getIncomeStoryDetailbyId(id: any): Observable<any> {
+          const URL = this.baseUrl + `incomeStoresDetailProduct/id?warehouse_entry_detail_id=${id}`;
+          const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+      
+          const headers = new HttpHeaders()
+            .set('Accept', 'application/json')
+            .set('Authorization', token);
+      
+          return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+      
+        }
+
+        updateIncomeStorySerial(data: {
+          serial_number:any;  
+          id: string | null;
+        }): Observable<any> {
+          const URL = this.baseUrl + 'incomeStoresDetailProduct/update';
+      
+          const headers = new HttpHeaders().set('Accept', 'application/json');
+          return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+
         }
   
 

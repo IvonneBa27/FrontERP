@@ -78,6 +78,8 @@ import { EditBrandComponent } from '../auth/catalogos/brand/edit-brand/edit-bran
 import { DeleteBrandComponent } from '../auth/catalogos/brand/delete-brand/delete-brand.component';
 import { SeeBrandComponent } from '../auth/catalogos/brand/see-brand/see-brand.component';
 import { HomeInventoryComponent } from '../auth/inventory/home-inventory/home-inventory.component';
+import { IncomeStoreComponent } from '../auth/inventory/income/income-store/income-store.component';
+import { IncomeStoreDetailComponent } from '../auth/inventory/income/income-store-detail/income-store-detail.component';
 
 
 
@@ -547,6 +549,20 @@ const routes: Routes = [
         data: { titulo: 'Inventario' },
         canActivate: [AccesoGuard],
       },
+      {
+        path: 'income-store',
+        component: IncomeStoreComponent,
+        data: { titulo: 'Ingreso de Almacén' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'income-store-detail/:id',
+        component: IncomeStoreDetailComponent,
+        data: { titulo: 'Detalle de Ingreso de Almacén' },
+        canActivate: [AccesoGuard],
+      },
+
+
 
 
 

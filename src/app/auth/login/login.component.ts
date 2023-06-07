@@ -53,8 +53,9 @@ export class LoginComponent implements OnInit {
         swal.fire('Alerta', respuesta.message, 'error');
       }
       console.log(respuesta)
+      this.isLoading = false;
     });
-    this.isLoading = false;
+  
   }
 
   get usuario() {

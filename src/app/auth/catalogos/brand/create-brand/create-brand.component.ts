@@ -77,6 +77,7 @@ export class CreateBrandComponent {
     this.brandsForm.controls['name'].setValue(this.brand.name);
     this.brandsForm.controls['id_subcategory'].setValue(this.brand.id_subcategory);
     this.brandsForm.controls['id_status'].setValue(this.brand.id_status);
+    this.isLoading = false;
    
   }
 
@@ -115,7 +116,7 @@ export class CreateBrandComponent {
       else {
         swal.fire('Do It Right', res.msg, 'error');
       }
-      this.isLoading = false;
+      
     });
   
 
