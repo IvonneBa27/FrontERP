@@ -7,6 +7,7 @@ export class warehouse_entry {
     invoice!:                     string;
     invoice_date!:                string;
     provider_id!:                 number;
+    observations!:                string;
     created_at!:                  null;
     updated_at!:                  null;
 }

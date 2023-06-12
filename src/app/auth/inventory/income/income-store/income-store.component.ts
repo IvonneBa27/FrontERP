@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserservicesService } from 'src/app/auth/service/userservices.service';
 import { Secctions } from 'src/app/models/secctions.model';
@@ -24,10 +24,17 @@ export class IncomeStoreComponent  {
   warehouse_entry: warehouse_entry = new warehouse_entry();
   supplier: Suppliers [] = [];
   incomeStoreForm: FormGroup;
-  IdStore: any;
-  IdSecction: any;
+  warehouse_id: any;
+  section_id: any;
+  warehouse_entry_type_id: any;
+  provider_id: any;
+  purchase_order_number: any;
+  invoice: any;
+  invoice_date: any;
+
   isLoading = false;
   id: any;
+
   
   constructor(
     private _servicesuser: UserservicesService,
@@ -40,27 +47,35 @@ export class IncomeStoreComponent  {
   ) { 
 
     this._servicesgeneral.getStores().subscribe(respuesta => {
-        this.Stores = respuesta.data;
+        this.isLoading = true;
+          this.Stores = respuesta.data;
+        this.isLoading = false;
     });
 
     this._servicesgeneral.getSecction().subscribe(respuesta => {
-      this.Secction = respuesta.data;
+        this.isLoading = true;
+          this.Secction = respuesta.data;
+        this.isLoading = false;
     });
 
     this._servicesgeneral.getTypeIncome().subscribe(respuesta => {
-      this.Warehouse_Income_Type = respuesta.data;
+        this.isLoading = true;
+          this.Warehouse_Income_Type = respuesta.data;
+        this.isLoading = false;
     });
 
 
     this._servicesgeneral.getSupplier().subscribe(respuesta => {
-      this.supplier = respuesta.data;
+        this.isLoading = true;
+          this.supplier = respuesta.data;
+        this.isLoading = false;
     });
 
    
     this.incomeStoreForm = this.formBuilder.group({
-      warehouse_id: new FormControl(''),
-      section_id: new FormControl(''),
-      warehouse_entry_type_id: new FormControl(''),
+      warehouse_id: new FormControl('', [Validators.required]),
+      section_id: new FormControl('', [Validators.required]),
+      warehouse_entry_type_id: new FormControl('', [Validators.required]),
       purchase_order_number: new FormControl(''),
       invoice: new FormControl(''),
       invoice_date: new FormControl(''),
@@ -81,9 +96,12 @@ export class IncomeStoreComponent  {
     const invoice_date = this.incomeStoreForm.value['invoice_date'];
     const provider_id = this.incomeStoreForm.value['provider_id'];
 
+
+   
+
     const body = {
       warehouse_id: warehouse_id,
-      section_id: this.IdSecction,
+      section_id: section_id,
       warehouse_entry_type_id:  warehouse_entry_type_id,
       purchase_order_number: purchase_order_number,
       invoice: invoice,
@@ -91,7 +109,7 @@ export class IncomeStoreComponent  {
       provider_id: provider_id,
     }
 
-
+    this.isLoading = true;
     this._servicesuser.createIncomeStore(body).subscribe(res => {
      
     
@@ -112,7 +130,7 @@ export class IncomeStoreComponent  {
       else {
         swal.fire('Do It Right', res.msg, 'error');
       }
-
+      this.isLoading = false;
     });
 
 
@@ -120,17 +138,19 @@ export class IncomeStoreComponent  {
   }
 
   obtIdStores(){
-    
-    const IdStore = this.incomeStoreForm.value['warehouse_id'];
-    this._servicesuser.getStoreSecction(IdStore).subscribe(respuesta => {
-      this.Secction = respuesta.data;
-
-      console.log(this.Secction)
+    this.isLoading = true;
+      const warehouse_id = this.incomeStoreForm.value['warehouse_id'];
+      this._servicesuser.getStoreSecction(warehouse_id).subscribe(respuesta => {
+          this.Secction = respuesta.data;
+          console.log(this.Secction)
+    this.isLoading = false;
     });
 
   }
+  obtIdSecction(){
+    console.log(this.section_id);
+  }
 
- 
   
   homeInventory(){
     this.router.navigateByUrl('/dashboard/home-inventory')
@@ -145,7 +165,18 @@ export class IncomeStoreComponent  {
     return this.incomeStoreForm.get('idStore');
 
   }
-
- 
+  
+  get warehouseid() {
+    return this.incomeStoreForm.get('warehouse_id');
+  }
+  get sectionid() {
+    return this.incomeStoreForm.get('section_id');
+  }
+  get warehouseentrytypeid() {
+    return this.incomeStoreForm.get('warehouse_entry_type_id');
+  }
+  get providerid() {
+    return this.incomeStoreForm.get('provider_id');
+  }
 
 }

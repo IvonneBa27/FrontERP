@@ -1,11 +1,10 @@
-
+<loading *ngIf="isLoading">{{ isLoading }}</loading>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
               <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="homeInventory()"
                         value=""><i class="mdi mdi-keyboard-backspace"></i> Regresar</button></h4>
-
               <form (submit)="incomeStore()" [formGroup]="incomeStoreForm ">
                     <fieldset class="scheduler-border">
                     <div class="row">
@@ -16,103 +15,191 @@
                         </div>
                         <div class="col-md-2">
                             <div class="form-group">
-                                <label class="control-label">Almacén</label> 
+                                <label class="control-label">Almacén *:</label> 
                             </div>              
                         </div>
                         <div class="col-md-5">
                             <div class="form-group">
-                                <select class="form-control" id="warehouse_id" placeholder="Almacén" formControlName="warehouse_id" (change)="obtIdStores()" [(ngModel)]="IdStore">
+                                <select class="form-control" id="warehouse_id" placeholder="Almacén" formControlName="warehouse_id" (change)="obtIdStores()" [(ngModel)]="warehouse_id" [ngClass]="{ 'is-invalid':warehouse_id?.invalid && warehouse_id?.touched }">
+                                    <option value="0">Seleccionar un Almacén</option>
                                     <option [value]="item.id" *ngFor="let item of Stores">{{item.name}}</option>
                                 </select>
+                                <div *ngIf="warehouse_id?.errors" class="invalid-feedback">
+                                    <div *ngIf="warehouse_id?.errors?.['required'] && warehouse_id?.touched">
+                                        Seleccionar un Almacén</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-5">
                         </div>
                         <div class="col-md-2">
                             <div class="form-group">
-                                <label class="control-label">Sección:</label> 
+                                <label class="control-label">Sección *:</label> 
                             </div>              
                         </div>
                         <div class="col-md-5">
                             <div class="form-group">
-                                <select class="form-control" id="section_id" placeholder="Sección" formControlName="section_id"  >
+                                <select class="form-control" id="section_id" placeholder="Sección" formControlName="section_id"  (change)="obtIdSecction()" [(ngModel)]="section_id" [ngClass]="{ 'is-invalid':section_id?.invalid && section_id?.touched }" >
+                                    <option value="0">Seleccionar una Sección</option>
                                     <option [value]="item.id" *ngFor="let item of Secction">{{item.name}}</option>
                                 </select>
+                                <div *ngIf="section_id?.errors" class="invalid-feedback">
+                                    <div *ngIf="section_id?.errors?.['required'] &&section_id?.touched">
+                                        Seleccionar una Sección</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-5">
                         </div>
                         <div class="col-md-2">
                             <div class="form-group">
-                                <label class="control-label">Tipo de Ingreso:</label> 
+                                <label class="control-label">Tipo de Ingreso *:</label> 
                             </div>              
                         </div>
                         <div class="col-md-5">
                             <div class="form-group">
-                                <select class="form-control" id="warehouse_entry_type_id" placeholder="Tipo de Ingreso" formControlName="warehouse_entry_type_id">
-                                    <option [value]="item.id" *ngFor="let item of Warehouse_Income_Type">{{item.name}}</option>
+                                <select class="form-control" id="warehouse_entry_type_id" placeholder="Tipo de Ingreso" formControlName="warehouse_entry_type_id" [(ngModel)]="warehouse_entry_type_id"  [ngClass]="{ 'is-invalid':warehouse_entry_type_id?.invalid && warehouse_entry_type_id?.touched }">
+                                        <option value="0">Seleccionar un Tipo de Ingreso</option>
+                                        <option [value]="item.id" *ngFor="let item of Warehouse_Income_Type">{{item.name}}</option>
                                 </select>
+                                <div *ngIf="warehouse_entry_type_id?.errors" class="invalid-feedback">
+                                    <div *ngIf="warehouse_entry_type_id?.errors?.['required'] &&warehouse_entry_type_id?.touched">
+                                        Seleccionar un Tipo de Ingreso</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-5">
                         </div>
-                        <div class="col-md-2">
-                            <div class="form-group">
-                                <label class="control-label">N. Orden de Compra:</label> 
-                            </div>              
-                        </div>
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <input type="text" id="purchase_order_number" class="form-control" placeholder=" " formControlName="purchase_order_number">
+                        <div class="row" *ngIf="warehouse_entry_type_id!=3" >
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">N. Orden de Compra:</label> 
+                                </div>              
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <input type="text" id="purchase_order_number" class="form-control" placeholder=" " formControlName="purchase_order_number">
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Factura:</label> 
+                                </div>              
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <input type="text" id="invoice" class="form-control" placeholder=" " formControlName="invoice">
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Fecha de la factura:</label> 
+                                </div>              
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <input type="date" id="invoice_date" class="form-control" placeholder=" " formControlName="invoice_date">
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Proveedor:</label> 
+                                </div>              
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <select class="form-control" id="provider_id" placeholder=" " formControlName="provider_id" [(ngModel)]="provider_id"  [ngClass]="{ 'is-invalid':provider_id?.invalid && provider_id?.touched }" >
+                                        <option value="0">Seleccionar un Proveedor</option>
+                                        <option [value]="item.id" *ngFor="let item of supplier">{{item.razon_social}}</option>
+                                    </select>
+                                    <div *ngIf="provider_id?.errors" class="invalid-feedback">
+                                        <div *ngIf="provider_id?.errors?.['required'] &&provider_id?.touched">
+                                            Seleccionar un Proveedor</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
                             </div>
                         </div>
-                        <div class="col-md-5">
-                        </div>
-                        <div class="col-md-2">
-                            <div class="form-group">
-                                <label class="control-label">Factura:</label> 
-                            </div>              
-                        </div>
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <input type="text" id="invoice" class="form-control" placeholder=" " formControlName="invoice">
+                        <div class="row" *ngIf="warehouse_entry_type_id==3" >
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <fieldset disabled>
+                                    <label class="control-label">N. Orden de Compra:</label> 
+                                    </fieldset>
+                                </div>              
                             </div>
-                        </div>
-                        <div class="col-md-5">
-                        </div>
-                        <div class="col-md-2">
-                            <div class="form-group">
-                                <label class="control-label">Fecha de la factura:</label> 
-                            </div>              
-                        </div>
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <input type="date" id="invoice_date" class="form-control" placeholder=" " formControlName="invoice_date">
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <fieldset disabled>
+                                        <input type="text" id="purchase_order_number" class="form-control" placeholder=" " formControlName="purchase_order_number">
+                                    </fieldset>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-5">
-                        </div>
-                        <div class="col-md-2">
-                            <div class="form-group">
-                                <label class="control-label">Proveedor:</label> 
-                            </div>              
-                        </div>
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <select class="form-control" id="provider_id" placeholder=" " formControlName="provider_id" >
-                                    <option [value]="item.id" *ngFor="let item of supplier">{{item.razon_social}}</option>
-                                </select>
+                            <div class="col-md-5">
                             </div>
-                        </div>
-                        <div class="col-md-5">
-                        </div>
-
-
-
-
-                  
-
-
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <fieldset disabled>
+                                        <label class="control-label">Factura:</label> 
+                                    </fieldset>
+                                </div>              
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <fieldset disabled>
+                                        <input type="text" id="invoice" class="form-control" placeholder=" " formControlName="invoice">
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <fieldset disabled>
+                                        <label class="control-label">Fecha de la factura:</label> 
+                                    </fieldset>
+                                </div>              
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <fieldset disabled>
+                                        <input type="date" id="invoice_date" class="form-control" placeholder=" " formControlName="invoice_date">
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <fieldset disabled>
+                                        <label class="control-label">Proveedor:</label>
+                                    </fieldset> 
+                                </div>              
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <fieldset disabled>
+                                        <select class="form-control" id="provider_id" placeholder=" " formControlName="provider_id" [(ngModel)]="provider_id"  [ngClass]="{ 'is-invalid':provider_id?.invalid && provider_id?.touched }" >
+                                            <option value="0">Seleccionar un Proveedor</option>
+                                            <option [value]="item.id" *ngFor="let item of supplier">{{item.razon_social}}</option>
+                                        </select>
+                                        <div *ngIf="provider_id?.errors" class="invalid-feedback">
+                                            <div *ngIf="provider_id?.errors?.['required'] &&provider_id?.touched">
+                                                Seleccionar un Proveedor</div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                            </div>
+                            </div>
                     </div>
                 </fieldset>  
                     <div mat-dialog-actions class="btn-create botones">

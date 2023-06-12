@@ -6,7 +6,7 @@
               <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="homeInventory()"
                         value=""><i class="mdi mdi-keyboard-backspace"></i> Regresar</button></h4>
                 <!-- Inicio de Formulario de Datos principales de Ingreso Almacen-->
-                <form [formGroup]="incomeStoreForm ">
+               
                     <fieldset class="scheduler-border">
                         <div class="row">
                             <div class="col-md-12">
@@ -24,7 +24,8 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <fieldset disabled>
-                                    <input type="text" id="id" class="form-control" placeholder=" " formControlName="id">
+                                    <label class="control-label">{{warehouse_entry.id}}</label> 
+                                
                                     </fieldset>
                                 </div>
                             </div>
@@ -38,7 +39,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <fieldset disabled>
-                                    <input type="text" id="purchase_order_number" class="form-control" placeholder=" " formControlName="purchase_order_number">
+                                        <label class="control-label">{{warehouse_entry.purchase_order_number}}</label> 
                                      </fieldset>
                                 </div>
                             </div>
@@ -52,9 +53,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <fieldset disabled>
-                                    <select class="form-control" id="warehouse_id" placeholder="Almacén" formControlName="warehouse_id"  [(ngModel)]="IdStore" >
-                                        <option [value]="item.id" *ngFor="let item of Stores">{{item.name}}</option>
-                                    </select>
+                                        <label class="control-label">{{storeDetail.name}}</label> 
                                     </fieldset>
                                 </div>
                             </div>
@@ -68,7 +67,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <fieldset disabled>
-                                    <input type="text" id="invoice" class="form-control" placeholder=" " formControlName="invoice">
+                                    <label class="control-label">{{warehouse_entry.invoice}}</label> 
                                     </fieldset>
                                 </div>
                             </div>
@@ -82,9 +81,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <fieldset disabled>
-                                    <select class="form-control" id="section_id" placeholder="Sección" formControlName="section_id" >
-                                        <option [value]="item.id" *ngFor="let item of Secction">{{item.name}}</option>
-                                    </select>
+                                        <label class="control-label">{{secctionDetail.name}}</label> 
                                     </fieldset>
                                 </div>
                             </div>
@@ -98,7 +95,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <fieldset disabled>
-                                         <input type="date" id="invoice_date" class="form-control" placeholder=" " formControlName="invoice_date">
+                                         <label class="control-label">{{warehouse_entry.invoice_date}}</label> 
                                     </fieldset>
                                 </div>
                             </div>
@@ -112,9 +109,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <fieldset disabled>
-                                    <select class="form-control" id="warehouse_entry_type_id" placeholder="Tipo de Ingreso" formControlName="warehouse_entry_type_id">
-                                        <option [value]="item.id" *ngFor="let item of Warehouse_Income_Type">{{item.name}}</option>
-                                    </select>
+                                        <label class="control-label">{{typeIncomeDetail.name}}</label> 
                                     </fieldset>
                                 </div>
                             </div>
@@ -128,9 +123,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <fieldset disabled>
-                                    <select class="form-control" id="provider_id" placeholder=" " formControlName="provider_id" >
-                                        <option [value]="item.id" *ngFor="let item of supplier">{{item.razon_social}}</option>
-                                    </select>
+                                        <label class="control-label">{{supplierDetail.razon_social}}</label> 
                                     </fieldset>
                                 </div>
                             </div>
@@ -145,7 +138,7 @@
 
 
                 <!-- Inicio de Formulario de Datos principales de Detalle de Ingreso Almacen-->
-             
+                <form [formGroup]="incomeStoreForm ">
                     <fieldset class="scheduler-border">
                         <div class="row">
                             <div class="col-md-12">
@@ -162,7 +155,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <select class="form-control" id="category_id" placeholder="Categoria" formControlName="category_id" (change)="obtIdCategorie()" [(ngModel)]="IdCategorie" >
+                                    <select class="form-control" id="category_id" placeholder="Categoria"  (change)="obtIdCategorie()" [(ngModel)]="IdCategorie" [ngModelOptions]="{standalone:true}" >
                                         <option [value]="item.id" *ngFor="let item of  Catcategorie">{{item.name}}</option>
                                     </select>    
                                 </div>
@@ -178,7 +171,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <select class="form-control" id="subcategory_id" placeholder="SubCategoria" formControlName="category_id" (change)="obtIdSubcategorie()" [(ngModel)]="IdSubCategorie"  >
+                                    <select class="form-control" id="subcategory_id" placeholder="SubCategoria"  (change)="obtIdSubcategorie()" [(ngModel)]="IdSubCategorie" [ngModelOptions]="{standalone:true}" >
                                         <option [value]="item.id" *ngFor="let item of  SubCategorie">{{item.name}}</option>
                                     </select>    
                                 </div>
@@ -194,7 +187,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <select class="form-control" id="product_id" placeholder="SubCategoria" formControlName="product_id"  [(ngModel)]="IdProducto"  >
+                                    <select class="form-control" id="product_id" placeholder="SubCategoria"   [(ngModel)]="IdProducto"  [ngModelOptions]="{standalone:true}" >
                                         <option [value]="item.id" *ngFor="let item of  Producto">{{item.name}}</option>
                                     </select>    
                                 </div>
@@ -226,8 +219,8 @@
                                             <td>{{ProductoDet.namebrand}}</td>
                                             <td>{{ProductoDet.model}}</td>
                                             <td>Pieza</td>
-                                            <td><input type="text" id="amount" class="form-control" placeholder=" " formControlName="amount"   [(ngModel)]="amount"></td>
-                                            <td><input type="text" id="total_received" class="form-control" placeholder=" " formControlName="total_received"  [(ngModel)]="totalreceived"></td>
+                                            <td><input type="text" id="amount" class="form-control" placeholder=" "    [(ngModel)]="amount" [ngModelOptions]="{standalone:true}"></td>
+                                            <td><input type="text" id="total_received" class="form-control" placeholder=" "   [(ngModel)]="totalreceived" [ngModelOptions]="{standalone:true}"></td>
                                             <td class="actions" *ngIf="amount<totalreceived">
                                                 <label class="control-label">El total recicibido no debe de ser menor a la cantidad a recibir</label>
                                             </td>
@@ -276,9 +269,9 @@
                                             <td>{{ProductDetSerial.brand_name}}</td>
                                             <td>MODELO</td>
                                             <td>Pieza</td>
-                                            <td><input type="text" id="serial_number" class="form-control" placeholder=" " formControlName="serial_number" [(ngModel)]="serial_number" ></td>
+                                            <td><input type="text" id="serial_number" class="form-control" placeholder=" "  [(ngModel)]="ProductDetSerial.serial_number" [ngModelOptions]="{standalone:true}" ></td>
                                             <td class="actions">
-                                                <button type="submit" class="btn btn-info" style="text-align: end;" (click)="UpdateSerialProduct()">Actualizar</button>
+                                                <button type="submit" class="btn btn-info" style="text-align: end;" (click)="UpdateSerialProduct(ProductDetSerial)">Actualizar</button>
                                             </td>
                                              
                                 
@@ -287,7 +280,31 @@
                                     </tbody>
                                 </table> 
                                 <!-- Fin Tabla de productos  Detalle de Ingreso Almacen Serial-->
-
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <fieldset disabled>
+                                        <label class="control-label">Observaciones</label> 
+                                        </fieldset>
+                                    </div>              
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <textarea class="form-control" id="observations" rows="3"placeholder=" "[(ngModel)]="observations" [ngModelOptions]="{standalone:true}"></textarea>  
+                                    </div>
+                                </div>
+                                <div class="col-md-4">  
+                                </div>
+                            </div>
+                            <div mat-dialog-actions class="btn-create botones">
+                                <button class="btn btn-warning" style="text-align: end;">Cancelar</button>
+        
+                                <button type="submit" class="btn btn-primary" style="text-align: end;" (click)="UpdateobservationsIncome()">Agregar</button>
+        
+                            </div> 
+                            &nbsp;
+                            <div>
+                                	
+                                <button class="btn btn-dark" style="text-align: end;"(click)="createPDF()">Crear PDF</button>
                             </div>
                     </fieldset>
                 <!-- Fin de Formulario de Datos principales de Detalle de Ingreso Almacen-->

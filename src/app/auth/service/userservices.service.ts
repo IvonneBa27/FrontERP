@@ -772,7 +772,7 @@ export class UserservicesService {
       
         }
 
-        createIncomeDetailStore(data: { warehouse_entry_id:any; category_id: any; subcategory_id: any;  brand_id: any; product_id: any; amount: any; total_received: any;}): Observable<any> {
+        createIncomeDetailStore(data: { warehouse_entry_id: any; category_id: any; subcategory_id: any;  brand_id: any; product_id: any; amount: any; total_received: any;}): Observable<any> {
           const URL = this.baseUrl + 'incomeStoresDetail/create';
       
           const headers = new HttpHeaders().set('Accept', 'application/json');
@@ -781,7 +781,7 @@ export class UserservicesService {
         
         }
 
-        createIncomeDetailSerialStore(data: { warehouse_entry_detail_id:any; product_id: any; product_name:any; brand_name: any; sku: any;}): Observable<any> {
+        createIncomeDetailSerialStore(data: { warehouse_entry_detail_id: any; product_id: any; product_name:any; brand_name: any; sku: any;}): Observable<any> {
           const URL = this.baseUrl + 'incomeStoresDetailProduct/create';
       
           const headers = new HttpHeaders().set('Accept', 'application/json');
@@ -807,6 +807,17 @@ export class UserservicesService {
           id: string | null;
         }): Observable<any> {
           const URL = this.baseUrl + 'incomeStoresDetailProduct/update';
+      
+          const headers = new HttpHeaders().set('Accept', 'application/json');
+          return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+
+        }
+
+        updateIncomeStore(data: {
+          observations:any;  
+          id: string | null;
+        }): Observable<any> {
+          const URL = this.baseUrl + 'incomeStores/update';
       
           const headers = new HttpHeaders().set('Accept', 'application/json');
           return this.http.post(URL, data, { headers }).pipe(map((res) => res));

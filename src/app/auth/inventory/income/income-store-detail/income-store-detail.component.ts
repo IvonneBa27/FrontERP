@@ -15,8 +15,12 @@ import { warehouse_income_type } from 'src/app/models/warehouse_income_type.mode
 import { AuthService } from 'src/app/services/auth.service';
 import { GeneralService } from 'src/app/services/general.service';
 import { StorageService } from 'src/app/services/storage.service';
-
 import swal from 'sweetalert2';
+import * as pdfMake from "pdfmake/build/pdfmake";
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+
+(<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
+
 
 @Component({
   selector: 'app-income-store-detail',
@@ -56,6 +60,12 @@ export class IncomeStoreDetailComponent  {
   Treceived: any;
   serial_number:any;
   idserial: any;
+  storeDetail: Stores = new Stores();
+  secctionDetail: Secctions = new Secctions();
+  typeIncomeDetail: warehouse_income_type = new warehouse_income_type();
+  supplierDetail:Suppliers = new Suppliers();
+  observations: any;
+  productDetail: product_detail_warehouse_entry = new product_detail_warehouse_entry();
 
 
   constructor(
@@ -80,10 +90,19 @@ export class IncomeStoreDetailComponent  {
 
       this._servicesgeneral.requestCatalogos().subscribe(respuesta=> {
         this.Stores = respuesta[22].data;
+        this.storeDetail = this.Stores.filter(x => x.id == this.warehouse_entry.warehouse_id)[0];
+   
         this.Secction = respuesta[21].data;
-        this.Warehouse_Income_Type = respuesta[23].data;
-        this.supplier = respuesta[24].data;
+        this.secctionDetail = this.Secction.filter(x => x.id == this.warehouse_entry.section_id)[0];
+        
 
+        this.Warehouse_Income_Type = respuesta[23].data;
+        this.typeIncomeDetail = this.Warehouse_Income_Type.filter(x => x.id == this.warehouse_entry.warehouse_entry_type_id)[0];
+       
+        this.supplier = respuesta[24].data;
+        this.supplierDetail = this.supplier.filter(x => x.id == this.warehouse_entry.provider_id)[0];
+    
+        
         this.setForm();
       });
     });
@@ -105,6 +124,7 @@ export class IncomeStoreDetailComponent  {
       amount: new FormControl(''),
       total_received: new FormControl(''),
       serial_number: new FormControl(''),
+      observations: new FormControl(''),
 
   
     });
@@ -144,20 +164,22 @@ export class IncomeStoreDetailComponent  {
   obtIdCategorie(){
   
     
-    const IdCategorie = this.incomeStoreForm.value['category_id'];
+
     this.isLoading = true;
-    this._servicesuser.getCatSubCategorie(IdCategorie).subscribe(respuesta => {
+    
+    this._servicesuser.getCatSubCategorie(this.IdCategorie).subscribe(respuesta => {
       this.SubCategorie = respuesta.data;
+      console.log(this.IdCategorie);
+      console.log(this.SubCategorie);
       this.isLoading = false;
     });
 
   }
 
   obtIdSubcategorie(){
-    const IdCategorie = this.incomeStoreForm.value['category_id'];
-    const IdSubCategorie = this.incomeStoreForm.value['subcategory_id'];
+
     this.isLoading = true;
-    this._servicesuser.getCatSubProducto(IdCategorie, IdSubCategorie).subscribe(respuesta => {
+    this._servicesuser.getCatSubProducto(this.IdCategorie, this.IdSubCategorie).subscribe(respuesta => {
       
       this.Producto = respuesta.data;
       this.isLoading = false;
@@ -167,12 +189,11 @@ export class IncomeStoreDetailComponent  {
   }
 
   ListProduct(){
-    const IdProducto = this.incomeStoreForm.value['product_id'];
+   
     this.isLoading = true;
-    this._servicesuser.getCatSubProductoDet(IdProducto).subscribe(respuesta => {
+    this._servicesuser.getCatSubProductoDet(this.IdProducto).subscribe(respuesta => {
       this.ProductoDet = respuesta.data;
 
-        console.log(this.ProductoDet[0])
 
         this._srvStorage.set('id_producto', this.ProductoDet[0].id);
         this._srvStorage.set('id_brand', this.ProductoDet[0].id_brand);
@@ -200,16 +221,16 @@ export class IncomeStoreDetailComponent  {
 
   createDetailProduct(){
     
-    const warehouse_entry_detail = this.id;
-    const category_id = this.incomeStoreForm.value['category_id'];
-    const subcategory_id = this.incomeStoreForm.value['subcategory_id'];
-    const amount = this.incomeStoreForm.value['amount'];
-    const total_received = this.incomeStoreForm.value['total_received'];
+    const warehouse_entry_id  = this.warehouse_entry.id;
+    const category_id = this.IdCategorie;
+    const subcategory_id = this.IdSubCategorie;
+    const amount = this.amount;
+    const total_received = this.totalreceived;
 
-    console.log(this.id)
+
 
     const body ={
-      warehouse_entry_id: this.id,
+      warehouse_entry_id:  this.warehouse_entry.id, 
       category_id: this.IdCategorie,
       subcategory_id: this.IdSubCategorie,
       brand_id: this.idbrand,
@@ -217,6 +238,7 @@ export class IncomeStoreDetailComponent  {
       amount: amount,
       total_received:total_received,
     };
+
 
     
     this._servicesuser.createIncomeDetailStore(body).subscribe(res => {
@@ -228,13 +250,10 @@ export class IncomeStoreDetailComponent  {
         this._srvStorage.set('amount', res['data']['amount']);
         this._srvStorage.set('total_received', res['data']['total_received']);
 
-        this.iddetproducto = this._srvStorage.get('iddetproducto');
 
         for(let i=0; i<total_received; i++){
           this.createDetailSerialProduct()
         }
-
-      
 
       }
 
@@ -248,7 +267,7 @@ export class IncomeStoreDetailComponent  {
   createDetailSerialProduct(){
    
       const body ={
-        warehouse_entry_detail_id: this.iddetproducto,
+        warehouse_entry_detail_id: this.warehouse_entry.id, 
         product_id: this.id_producto,
         product_name: this.name,
         brand_name: this.namebrand,
@@ -257,7 +276,6 @@ export class IncomeStoreDetailComponent  {
   
     
       this._servicesuser.createIncomeDetailSerialStore(body).subscribe(res => {
-        console.log(res);
 
       });
       
@@ -271,24 +289,192 @@ export class IncomeStoreDetailComponent  {
 
 IncomeStoreDetailProduct(){
     this.isLoading = true;
-    console.log(this.iddetserial)
-    this._servicesuser.getIncomeStoryDetailbyId(this.iddetproducto).subscribe(respuesta => {
+ 
+    this._servicesuser.getIncomeStoryDetailbyId(this.warehouse_entry.id).subscribe(respuesta => {
       this.ProductDetSerial = respuesta.data;
 
-       console.log(this.ProductDetSerial)
 
-  
+      this.productDetail = this.ProductDetSerial.filter(x => x.warehouse_entry_detail_id == this.warehouse_entry.id)[0];
+
+      console.log(this.productDetail);
+      
       this.isLoading = false;
     });
 
       
   }
 
- UpdateSerialProduct(){
+ UpdateSerialProduct(ProductDetSerial: any){
 
-   
 
+  this.idserial = ProductDetSerial.id;
+  this.serial_number = ProductDetSerial.serial_number;
+
+  console.log(this.idserial);
+  console.log(this.serial_number);
+
+  const body ={
+    id: this.idserial,
+    serial_number: this.serial_number,
+  };
+  this.isLoading = true;
+  this._servicesuser.updateIncomeStorySerial(body).subscribe(res => {
+    console.log(res);
+    if (res.status == 'success') {
+      swal.fire('Do It Right', res.message, 'success');
+
+      this._serviceauth.createLog('Actualizar Serial de Detalle de Producto', 'UPDATE').subscribe(() => { });
+    
+
+    }
+
+    else {
+      swal.fire('Do It Right', res.msg, 'error');
+    }
+
+  });
+  this.isLoading = false;
+}
+
+UpdateobservationsIncome(){
+
+  const body={
+    id: this.id,
+    observations: this.observations,
+  };
+  this.isLoading = true;
+  this._servicesuser. updateIncomeStore(body).subscribe(res => {
+    console.log(res);
+    if (res.status == 'success') {
+      swal.fire('Do It Right', res.message, 'success');
+
+      this._serviceauth.createLog('Actualizar Observaciones de Ingreso d Almacen', 'UPDATE').subscribe(() => { });
+    
+      
+
+    }
+
+    else {
+      swal.fire('Do It Right', res.msg, 'error');
+    }
+
+  });
+  this.isLoading = false;
+  
+}
+
+createPDF(){
+ 
+
+
+  const pdfDefinition: any = {
+    content: [
+      {
+        text: 'ORDEN DE ENTRADA',
+        bold: true,
+        fontSize: 20,
+        alignment: 'center',
+        margin: [0, 0, 0, 20]
+      },
+      {
+        columns: [
+          [{
+            text: 'Fecha: ' + this.warehouse_entry.created_at,
+          },
+          {
+            text:  'Almacén de Ingreso: ' + this.storeDetail.name,
+          },
+          {
+            text: 'Tipo de Ingreso: ' + this.typeIncomeDetail.name,
+          },
+          {
+            text: 'N. Orden de Compra: ' + this.warehouse_entry.purchase_order_number,
+          },
+          {
+            text: 'Factura: ' + this.warehouse_entry.invoice,
+          },
+          {
+            text: 'Fecha de la Factura: ' + this.warehouse_entry.invoice_date,
+          },
+          {
+            text: 'Proveedor: ' + this.supplierDetail.razon_social,
+          },
+
+          {
+            text: 'Creado por:  ' + ' ',
+          },
+          {
+            text: ' ',
+          },
+          {
+            text: ' ',
+          },
+          {
+            text: ' ',
+          },
+          {
+            text: ' ',
+          },
+          {
+            text: 'LISTA DE PRODUCTOS',
+            bold: true,
+            fontSize: 16,
+          },
+          ]
+        ]
+      },
+      {
+        table: {
+          _minwidth: 
+          ['*', 200, 'auto'],
+          body:[
+            [
+              'Item',
+              'SubCategoria',
+              'SKU',
+              'Marca',
+              'Modelo',
+              'Unidad de medida',
+              'N. Serie',
+            ],
+            [
+              '' + this.productDetail.id,
+              'Subcategoria',
+              '' + this.productDetail.sku,
+              '' + this.productDetail.brand_name,
+              'Modelo',
+              'Pieza',
+              '' + this.productDetail.serial_number,
+
+            ],
+          ]
+        }
+        
+      },
+      {
+        columns: [
+          [
+          {
+            text: 'Observaciones',
+            bold: true,
+            fontSize: 12,
+          },
+          {
+            text: '' +  this.warehouse_entry.observations,
+          },
+          ]
+        ]
+      }
+    ]
+  
   }
+
+  const pdf = pdfMake.createPdf(pdfDefinition);
+  pdf.open();
+
+}
+
+  
 
 
   
