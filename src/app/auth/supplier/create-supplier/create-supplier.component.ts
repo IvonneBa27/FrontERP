@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, FormControl, FormGroup, Validators, } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Banco } from 'src/app/models/banco.model';
+import { Banco } from 'src/app/models/Banco.model';
 import { Ciudades } from 'src/app/models/ciudades.model';
 import { Delegaciones } from 'src/app/models/delegaciones.model';
 import { Estatus } from 'src/app/models/estatus.model';

@@ -12,7 +12,7 @@ import { SubCategoria } from 'src/app/models/subCategoria.model';
 import { Domicilio } from 'src/app/models/domicilio.model';
 import { EjecucionAdministrativa } from 'src/app/models/ejecucionAdministrativa.model';
 import { Puesto } from 'src/app/models/puesto.model';
-import { Banco } from 'src/app/models/banco.model';
+import { Banco } from 'src/app/models/Banco.model';
 import { Estatus } from 'src/app/models/estatus.model';
 import { Departamento } from 'src/app/models/departamento.model';
 import { Turno } from 'src/app/models/turno.model';

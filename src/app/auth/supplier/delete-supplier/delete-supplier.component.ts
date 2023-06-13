@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Banco } from 'src/app/models/banco.model';
+import { Banco } from 'src/app/models/Banco.model';
 import { Ciudades } from 'src/app/models/ciudades.model';
 import { Delegaciones } from 'src/app/models/delegaciones.model';
 import { Paises } from 'src/app/models/paises.model';
