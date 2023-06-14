@@ -36,7 +36,7 @@ export class ListSuppliersComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoading = true;
-    this._servicesuser.getSupplier().subscribe((res) => {
+    this._servicesuser.getListSupplier().subscribe((res) => {
       this.suppliers = res.data;
       this.isLoading = false;
 

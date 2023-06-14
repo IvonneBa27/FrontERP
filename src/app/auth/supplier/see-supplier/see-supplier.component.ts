@@ -74,6 +74,7 @@ export class SeeSupplierComponent  {
     });
 
     this.id_proveedor = this.activatedRoute.snapshot.paramMap.get('id');
+    this.isLoading = true;
     this._servicesuser.getSupplierbyId(this.id_proveedor).subscribe((res) => {
 
       this.supplier = res.data[0];
@@ -95,7 +96,7 @@ export class SeeSupplierComponent  {
 
   setForm(){
 
-    this.supplierForm.controls['no_proveedor'].setValue(this.supplier.no_proveedor);
+    this.supplierForm.controls['no_proveedor'].setValue(this.id_proveedor);
     this.supplierForm.controls['razon_social'].setValue(this.supplier.razon_social);
     this.supplierForm.controls['rfc'].setValue(this.supplier.rfc);
     this.supplierForm.controls['idPais'].setValue(this.supplier.idPais);
@@ -122,7 +123,7 @@ export class SeeSupplierComponent  {
     this.supplierForm.controls['idestatus'].setValue(this.supplier.idestatus);
 
 
-
+    this.isLoading = false;
 
   }
 
@@ -130,42 +131,5 @@ export class SeeSupplierComponent  {
     this.router.navigateByUrl('/dashboard/list-suppliers')
 
   }
-
-  seeSupplier() {
-    this.isLoading = true;
-    const no_proveedor = this.supplierForm.value['no_proveedor'];
-    const razon_social = this.supplierForm.value['razon_social'];
-    const rfc = this.supplierForm.value['rfc'];
-    const idPais = this.supplierForm.value['idPais'];
-    const idCiudad = this.supplierForm.value['idCiudad'];
-    const idMunicipio = this.supplierForm.value['idMunicipio'];
-    const calle = this.supplierForm.value['calle'];
-    const no_ext = this.supplierForm.value['no_ext'];
-    const no_int = this.supplierForm.value['no_int'];
-    const colonia = this.supplierForm.value['colonia'];
-    const cp = this.supplierForm.value['cp'];
-    const sitio_web = this.supplierForm.value['sitio_web'];
-    const url_map = this.supplierForm.value['url_map'];
-    const observaciones = this.supplierForm.value['observaciones'];
-    const dias_credito = this.supplierForm.value['dias_credito'];
-    const idBanco = this.supplierForm.value['idBanco'];
-    const no_cuenta = this.supplierForm.value['no_cuenta'];
-    const clabe_intenbancaria = this.supplierForm.value['clabe_intenbancaria'];
-    const nombre_completo = this.supplierForm.value['nombre_completo'];
-    const email = this.supplierForm.value['email'];
-    const tel_movil = this.supplierForm.value['tel_movil'];
-    const tel_trabajo = this.supplierForm.value['tel_trabajo'];
-    const ext = this.supplierForm.value['ext'];
-    const puesto = this.supplierForm.value['puesto'];
-    const idestatus = this.supplierForm.value['idestatus'];
-    
-    this.isLoading = false;
-
-  }
-
- 
-
-  
-
 
 }

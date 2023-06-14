@@ -25,6 +25,8 @@ export class Suppliers{
     ext!:                           string;
     puesto!:                        string; 
     idestatus!:                     number; 
+    estatus!:                       string;
+    nombre!:                        string;
     created_at!:                    null;
     updated_at!:                    null;
 }

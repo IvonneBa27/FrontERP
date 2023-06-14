@@ -273,12 +273,23 @@ export class UserservicesService {
 
     //Proveedor
     createSupplier(data: {
-      no_proveedor: any; razon_social: any; rfc: any; idPais: any; idCiudad: any; idMunicipio: any; calle: any; no_ext: any; no_int: any; colonia: any; cp: any;  sitio_web:any; url_map: any; observaciones: any; dias_credito: any; idBanco: any; no_cuenta: any; clabe_intenbancaria: any; nombre_completo: any; email: any; tel_movil: any; tel_trabajo: any; ext: any; puesto: any; idestatus:any;
+     razon_social: any; rfc: any; idPais: any; idCiudad: any; idMunicipio: any; calle: any; no_ext: any; no_int: any; colonia: any; cp: any;  sitio_web:any; url_map: any; observaciones: any; dias_credito: any; idBanco: any; no_cuenta: any; clabe_intenbancaria: any; nombre_completo: any; email: any; tel_movil: any; tel_trabajo: any; ext: any; puesto: any; idestatus:any;
     }): Observable<any> {
       const URL = this.baseUrl + 'suppliers/create';
   
       const headers = new HttpHeaders().set('Accept', 'application/json');
       return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+    }
+
+    getListSupplier(): Observable<any> {
+      const URL = this.baseUrl + 'suppliers/getListSuplier';
+      const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+  
+      const headers = new HttpHeaders()
+        .set('Accept', 'application/json')
+        .set('Authorization', token);
+  
+      return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
     }
 
     getSupplier(): Observable<any> {

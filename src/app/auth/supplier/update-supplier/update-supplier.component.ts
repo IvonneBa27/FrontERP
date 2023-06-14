@@ -76,6 +76,7 @@ export class UpdateSupplierComponent {
     });
 
     this.id_proveedor = this.activatedRoute.snapshot.paramMap.get('id');
+    this.isLoading = true;
     this._servicesuser.getSupplierbyId(this.id_proveedor).subscribe((res) => {
 
       this.supplier = res.data[0];
@@ -84,7 +85,7 @@ export class UpdateSupplierComponent {
       this._servicesgeneral.requestCatalogos().subscribe(respuesta=> {
         this.Estatus = respuesta[2].data;
         this.Banco = respuesta[10].data;
-        this.Paises = respuesta[12].data;
+        //this.Paises = respuesta[12].data;
         this.Ciudades = respuesta[15].data;
         this.Delegaciones = respuesta[16].data;
 
@@ -98,7 +99,7 @@ export class UpdateSupplierComponent {
 
   setForm(){
 
-    this.supplierForm.controls['no_proveedor'].setValue(this.supplier.no_proveedor);
+    this.supplierForm.controls['no_proveedor'].setValue(this.id_proveedor);
     this.supplierForm.controls['razon_social'].setValue(this.supplier.razon_social);
     this.supplierForm.controls['rfc'].setValue(this.supplier.rfc);
     this.supplierForm.controls['idPais'].setValue(this.supplier.idPais);
@@ -123,7 +124,7 @@ export class UpdateSupplierComponent {
     this.supplierForm.controls['ext'].setValue(this.supplier.ext);
     this.supplierForm.controls['puesto'].setValue(this.supplier.puesto);
 
-
+    this.isLoading = false;
 
 
   }
@@ -134,7 +135,7 @@ export class UpdateSupplierComponent {
   }
 
   updateSupplier() {
-    this.isLoading = true;
+   
     const no_proveedor = this.supplierForm.value['no_proveedor'];
     const razon_social = this.supplierForm.value['razon_social'];
     const rfc = this.supplierForm.value['rfc'];
@@ -163,7 +164,7 @@ export class UpdateSupplierComponent {
 
     const body = {
       id: this.id_proveedor,
-     // no_proveedor: this.noproveedor + 1,
+      no_proveedor: this.id_proveedor,
       razon_social: razon_social,
       rfc: rfc,
       idPais: idPais,
@@ -206,7 +207,7 @@ export class UpdateSupplierComponent {
       }
 
     });
-    this.isLoading = false;
+   
 
 
   }

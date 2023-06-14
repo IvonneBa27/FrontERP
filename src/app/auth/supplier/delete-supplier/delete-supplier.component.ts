@@ -40,10 +40,7 @@ export class DeleteSupplierComponent {
     private _serviceauth: AuthService,
 
   ) { 
-    this._servicesgeneral.getPais().subscribe(respuesta => {
-      this.Paises = respuesta.data;
-
-    });
+   
 
     this.supplierForm = this.formBuilder.group({
       no_proveedor: new FormControl(''),
@@ -65,6 +62,7 @@ export class DeleteSupplierComponent {
     });
 
     this.id_proveedor = this.activatedRoute.snapshot.paramMap.get('id');
+    this.isLoading = true;
     this._servicesuser.getSupplierbyId(this.id_proveedor).subscribe((res) => {
 
       this.supplier = res.data[0];
@@ -102,7 +100,7 @@ export class DeleteSupplierComponent {
     this.supplierForm.controls['idestatus'].setValue(this.supplier.idestatus);
 
 
-
+    this.isLoading = false;
 
   }
 
@@ -112,7 +110,7 @@ export class DeleteSupplierComponent {
   }
 
 DeleteSupplier() {
-  this.isLoading = true;
+
   
     const body = {
       id: this.id_proveedor,
@@ -136,7 +134,7 @@ DeleteSupplier() {
       }
 
     });
-    this.isLoading = false;
+
 
 
   }

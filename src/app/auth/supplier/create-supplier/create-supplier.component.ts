@@ -71,7 +71,7 @@ export class CreateSupplierComponent  {
       dias_credito: new FormControl(''),
       idBanco: new FormControl(''),
       no_cuenta:new FormControl(''),
-      clabe_intenbancaria: new FormControl(''),
+      clabe_intenbancaria: new FormControl('', [Validators.required, Validators.maxLength(18)]),
       nombre_completo: new FormControl(''),
       email: new FormControl(''),
       tel_movil: new FormControl(''),
@@ -120,7 +120,7 @@ export class CreateSupplierComponent  {
 
 
     const body = {
-      no_proveedor: this.noproveedor + 1,
+     // no_proveedor: this.noproveedor + 1,
       razon_social: razon_social,
       rfc: rfc,
       idPais: idPais,
@@ -228,6 +228,9 @@ export class CreateSupplierComponent  {
 
   get cp() {
     return this.supplierForm.get('cp');
+  }
+  get clabe_intenbancaria() {
+    return this.supplierForm.get('clabe_intenbancaria');
   }
 
 

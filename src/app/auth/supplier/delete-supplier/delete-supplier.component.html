@@ -20,28 +20,25 @@
                                     </div>
                                 </div>
 
+                               
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="control-label">No. Proveedor</label>
-                                        <fieldset disabled><input type="text" id="no_proveedor" required=""
-                                                class="form-control" placeholder="{{noproveedor}}"
-                                                formControlName="no_proveedor" value="{{noproveedor}}"></fieldset>
+                                        <fieldset disabled><input type="text" id="id" class="form-control" formControlName="no_proveedor" ></fieldset>
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="control-label">Razón Social *</label>
-                                        <input type="text" id="razon_social" class="form-control"
-                                            placeholder="Razón Social" formControlName="razon_social">
+                                        <input type="text" id="razon_social" class="form-control" formControlName="razon_social">
 
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="control-label">RFC *</label>
-                                        <input type="text" id="rfc" class="form-control" placeholder="RFC"
-                                            formControlName="rfc">
+                                        <input type="text" id="rfc" class="form-control" formControlName="rfc">
 
                                     </div>
                                 </div>
@@ -49,8 +46,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="control-label">País *</label>
-                                        <select class="form-control" id="idPais" placeholder="País"
-                                            formControlName="idPais" [(ngModel)]="idPais">
+                                        <select class="form-control" id="idPais"  formControlName="idPais" >
                                             <option [value]="item.idpais" *ngFor="let item of Paises">{{item.pais}}
                                             </option>
                                         </select>
@@ -60,8 +56,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="control-label">Ciudad *</label>
-                                        <select class="form-control" id="idCiudad" placeholder="Ciudad"
-                                            [(ngModel)]="idCiudad">
+                                        <select class="form-control" id="idCiudad" formControlName="idCiudad">
                                             <option [value]="item.idciudad" *ngFor="let item of Ciudades">
                                                 {{item.ciudad}}</option>
                                         </select>
@@ -71,8 +66,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="control-label">Municipio/Alcadía *</label>
-                                        <select class="form-control" id="idMunicipio" placeholder="Municipio / Alcadia"
-                                            formControlName="idMunicipio" [(ngModel)]="idMunicipio">
+                                        <select class="form-control" id="idMunicipio" formControlName="idMunicipio">
                                             <option [value]="item.iddelegacion" *ngFor="let item of Delegaciones">
                                                 {{item.delegacion}}</option>
                                         </select>
@@ -83,47 +77,41 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="control-label">Calle *</label>
-                                        <input type="text" id="calle" class="form-control" placeholder="Calle"
-                                            formControlName="calle">
+                                        <input type="text" id="calle" class="form-control"  formControlName="calle">
 
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="control-label">No. Ext *</label>
-                                        <input type="text" id="no_ext" class="form-control" placeholder="No. Ext"
-                                            formControlName="no_ext">
+                                        <input type="text" id="no_ext" class="form-control" formControlName="no_ext">
 
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="control-label">No. Int </label>
-                                        <input type="text" id="no_int" class="form-control" placeholder="No. Int"
-                                            formControlName="no_int">
+                                        <input type="text" id="no_int" class="form-control" formControlName="no_int">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="control-label">Colonia *</label>
-                                        <input type="text" id="colonia" class="form-control" placeholder="Colonia"
-                                            formControlName="colonia">
+                                        <input type="text" id="colonia" class="form-control"  formControlName="colonia">
 
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="control-label">Código Postal *</label>
-                                        <input type="text" id="cp" class="form-control" placeholder="Codigo Postal"
-                                            formControlName="cp">
+                                        <input type="text" id="cp" class="form-control"  formControlName="cp">
 
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="control-label">Sitio Web</label>
-                                        <input type="text" id="sitio_web" class="form-control" placeholder="Sitio Web"
-                                            formControlName="sitio_web">
+                                        <input type="text" id="sitio_web" class="form-control"  formControlName="sitio_web">
                                     </div>
                                 </div>
 
@@ -131,15 +119,13 @@
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <label class="control-label">URL Google Maps</label>
-                                        <input type="text" id="url_map" class="form-control"
-                                            placeholder="URL Google Maps" formControlName="url_map">
+                                        <input type="text" id="url_map" class="form-control" formControlName="url_map">
                                     </div>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <label class="control-label">Observaciones</label>
-                                        <textarea class="form-control" id="observaciones" rows="3"
-                                            placeholder="Observaciones" formControlName="observaciones"></textarea>
+                                        <textarea class="form-control" id="observaciones" rows="3" formControlName="observaciones"></textarea>
                                     </div>
                                 </div>
                             </div>

@@ -20,24 +20,21 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">No. Proveedor</label>
-                                <fieldset disabled><input type="text" id="no_proveedor" required="" class="form-control"
-                                    placeholder="{{noproveedor}}" formControlName="no_proveedor" value="{{noproveedor}}"></fieldset>
+                                <fieldset disabled><input type="text" id="no_proveedor" required="" class="form-control" formControlName="no_proveedor" ></fieldset>
                             </div>
                         </div>
 
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Razón Social *</label>
-                                <input type="text" id="razon_social" class="form-control" placeholder="Razón Social"
-                                    formControlName="razon_social" >
+                                <input type="text" style="text-transform:uppercase;" maxlength="12" id="razon_social" class="form-control" formControlName="razon_social" >
                                 
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">RFC *</label>
-                                <input type="text" id="rfc" class="form-control" placeholder="RFC"
-                                    formControlName="rfc" >
+                                <input type="text"  style="text-transform:uppercase;" id="rfc" class="form-control" formControlName="rfc" >
                                     
                             </div>
                         </div>
@@ -45,8 +42,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">País *</label>
-                                <select class="form-control" id="idPais" placeholder="País"
-                                    formControlName="idPais" (change)="obtIdPais()" [(ngModel)]="idPais" >
+                                <select class="form-control" id="idPais"  formControlName="idPais" (change)="obtIdPais()" [(ngModel)]="idPais" >
                                     <option [value]="item.idpais" *ngFor="let item of Paises">{{item.pais}}</option>
                                 </select>
                                
@@ -55,8 +51,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Ciudad *</label>
-                                <select class="form-control" id="idCiudad" placeholder="Ciudad"
-                                    formControlName="idCiudad" (change)="obtIdCiudad()" [(ngModel)]="idCiudad">
+                                <select class="form-control" id="idCiudad" formControlName="idCiudad" (change)="obtIdCiudad()" [(ngModel)]="idCiudad">
                                     <option [value]="item.idciudad" *ngFor="let item of Ciudades">{{item.ciudad}}</option>
                                 </select>
                           
@@ -65,8 +60,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Municipio/Alcadía *</label>
-                                <select class="form-control" id="idMunicipio" placeholder="Municipio / Alcadia"
-                                    formControlName="idMunicipio"(change)="obtIdMunicipio()" [(ngModel)]="idMunicipio" >
+                                <select class="form-control" id="idMunicipio" formControlName="idMunicipio"(change)="obtIdMunicipio()" [(ngModel)]="idMunicipio" >
                                     <option [value]="item.iddelegacion" *ngFor="let item of Delegaciones">{{item.delegacion}}</option>
                                 </select>
                               
@@ -76,47 +70,41 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Calle *</label>
-                                <input type="text" id="calle" class="form-control" placeholder="Calle"
-                                    formControlName="calle">
+                                <input type="text" style="text-transform:uppercase;" id="calle" class="form-control" formControlName="calle">
                                    
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">No. Ext *</label>
-                                <input type="text" id="no_ext" class="form-control" placeholder="No. Ext"
-                                    formControlName="no_ext">
+                                <input type="text" style="text-transform:uppercase;" id="no_ext" class="form-control"  formControlName="no_ext">
                                 
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">No. Int </label>
-                                <input type="text" id="no_int" class="form-control" placeholder="No. Int"
-                                    formControlName="no_int">
+                                <input type="text" style="text-transform:uppercase;" id="no_int" class="form-control"   formControlName="no_int">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Colonia *</label>
-                                <input type="text" id="colonia" class="form-control" placeholder="Colonia"
-                                    formControlName="colonia">
+                                <input type="text" style="text-transform:uppercase;" id="colonia" class="form-control"   formControlName="colonia">
                                  
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Código Postal *</label>
-                                <input type="text" id="cp" class="form-control" placeholder="Codigo Postal"
-                                    formControlName="cp">
+                                <input type="text" style="text-transform:uppercase;" id="cp" class="form-control" formControlName="cp">
                                    
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Sitio Web</label>
-                                <input type="text" id="sitio_web" class="form-control" placeholder="Sitio Web"
-                                    formControlName="sitio_web">
+                                <input type="text" id="sitio_web" class="form-control"  formControlName="sitio_web">
                             </div>
                         </div>
                     
@@ -124,14 +112,13 @@
                         <div class="col-md-8">
                             <div class="form-group">
                                 <label class="control-label">URL Google Maps</label>
-                                <input type="text" id="url_map" class="form-control" placeholder="URL Google Maps"
-                                    formControlName="url_map">
+                                <input type="text" id="url_map" class="form-control" formControlName="url_map">
                             </div>
                         </div>
                         <div class="col-md-8">
                             <div class="form-group">
                                 <label class="control-label">Observaciones</label>
-                            <textarea class="form-control" id="observaciones" rows="3"placeholder="Observaciones" formControlName="observaciones"></textarea>
+                            <textarea class="form-control"  style="text-transform:uppercase;" id="observaciones" rows="3" formControlName="observaciones"></textarea>
                             </div>
                         </div>
                     </div>
@@ -149,15 +136,13 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Días de Credito</label>
-                                    <input type="text" id="dias_credito" class="form-control" placeholder="Días de Credito"
-                                        formControlName="dias_credito">
+                                    <input type="text" id="dias_credito" class="form-control" formControlName="dias_credito">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Banco</label>
-                                    <select class="form-control" id="idBanco" placeholder="Banco"
-                                    formControlName="idBanco">
+                                    <select class="form-control" id="idBanco"  formControlName="idBanco">
                                     <option [value]="item.id" *ngFor="let item of Banco">{{item.nombre}}</option>
                                 </select>
                                 </div>
@@ -165,15 +150,13 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">No. de Cuenta</label>
-                                    <input type="text" id="no_cuenta" class="form-control" placeholder="No. de Cuenta"
-                                        formControlName="no_cuenta">
+                                    <input type="text" id="no_cuenta" class="form-control"  formControlName="no_cuenta">
                                 </div>
                             </div>
                             <div class="col-md-8">
                                 <div class="form-group">
                                     <label class="control-label">CLABE interbancaria</label>
-                                    <input type="text" id="clabe_intenbancaria" class="form-control" placeholder="CLABE Interbancaria"
-                                        formControlName="clabe_intenbancaria">
+                                    <input type="number" id="clabe_intenbancaria" maxlength="18" class="form-control"  formControlName="clabe_intenbancaria">
                                 </div>
                             </div>
                        
@@ -191,43 +174,37 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Nombre Completo</label>
-                                    <input type="text" id="nombre_completo" class="form-control" placeholder="Nombre Completo"
-                                        formControlName="nombre_completo">
+                                    <input type="text" style="text-transform:uppercase;" id="nombre_completo" class="form-control"  formControlName="nombre_completo">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Email</label>
-                                    <input type="text" id="email" class="form-control" placeholder="Email"
-                                        formControlName="email">
+                                    <input type="text" id="email" class="form-control"  formControlName="email">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Tel Móvil</label>
-                                    <input type="text" id="tel_movil" class="form-control" placeholder="Tel.Movil"
-                                    formControlName="tel_movil">
+                                    <input type="number" maxlength="10" id="tel_movil" class="form-control"  formControlName="tel_movil">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Tel Trabajo</label>
-                                    <input type="text" id="tel_trabajo" class="form-control" placeholder="Tel. Trabajo"
-                                    formControlName="tel_trabajo">
+                                    <input type="number" maxlength="18" id="tel_trabajo" class="form-control" formControlName="tel_trabajo">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Ext</label>
-                                    <input type="text" id="ext" class="form-control" placeholder="Ext"
-                                    formControlName="ext">
+                                    <input type="text" id="ext" class="form-control"  formControlName="ext">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Puesto</label>
-                                    <input type="text" id="puesto" class="form-control" placeholder="Puesto"
-                                    formControlName="puesto">
+                                    <input type="text" style="text-transform:uppercase;" id="puesto" class="form-control"  formControlName="puesto">
                                 </div>
                             </div>
                     </div>
