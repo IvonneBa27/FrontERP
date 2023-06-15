@@ -28,7 +28,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Razón Social *</label>
-                                <input type="text" style="text-transform:uppercase;" maxlength="12" id="razon_social" class="form-control" 
+                                <input type="text" style="text-transform:uppercase;"  id="razon_social" class="form-control" 
                                     formControlName="razon_social" [ngClass]="{ 'is-invalid':razon_social?.invalid && razon_social?.touched }" required>
                                     <div *ngIf="razon_social?.errors" class="invalid-feedback" >
                                         <div *ngIf="razon_social?.errors?.['required'] && razon_social?.touched">La razón social es requerida.</div>
@@ -38,7 +38,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">RFC *</label>
-                                <input type="text" style="text-transform:uppercase;" id="rfc" class="form-control" 
+                                <input type="text" style="text-transform:uppercase;" maxlength="12" id="rfc" class="form-control" 
                                     formControlName="rfc" 
                                     [ngClass]="{ 'is-invalid':rfc?.invalid && rfc?.touched }">
                                     <div *ngIf="rfc?.errors" class="invalid-feedback">
