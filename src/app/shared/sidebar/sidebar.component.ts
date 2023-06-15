@@ -25,15 +25,19 @@ export class SidebarComponent implements OnInit {
     private _srvAuth: AuthService
   ) {
 
+    console.log('SIDEBAR');
+    
     this.role = JSON.parse(this._srvStorage.get('role'));
     this.nombrecompleto = JSON.parse(this._srvStorage.get('nombre_completo'));
-    
-    
+    this.permissions = JSON.parse(this._srvStorage.get('permission'));
+    this.menuItems = this.sidebarService.menu;
+        console.log(this.permissions);
+    console.log(this.menuItems);
+
   }
 
   ngOnInit(): void {
-    this.permissions = JSON.parse(this._srvStorage.get('permission'));
-    this.menuItems = this.sidebarService.menu;
+    
 
     
   }
@@ -56,8 +60,13 @@ export class SidebarComponent implements OnInit {
   }
 
   elementoExiste(elemento: string): boolean {
+    
     const result = this.permissions.filter((x: { name: string; }) => x.name === elemento);
-    if(result.length == 0) return false;
-    return (result[0].show == 0 ) ? false : true;
+    if(result.length == 0) {
+      return false;
+    }else {    
+
+        return (result[0].show == 0 ) ? false : true;
+      }
   }
 }
