@@ -13,8 +13,8 @@ export class SidebarService {
           titulo: 'Dashboard',
           url: 'listado-grupos',
           roles: [{ name: 'Administrador' }],
+          
         },
-     
       ],
     },
     {
@@ -23,7 +23,7 @@ export class SidebarService {
       submenu: [
         {
           titulo: 'Empleados',
-          url: 'listado-grupos',
+          url: 'list',
           roles: [{ name: 'Administrador' }],
         },
         {
@@ -72,7 +72,6 @@ export class SidebarService {
           url: 'listado-grupos',
           roles: [{ name: 'Administrador' }],
         },
-
       ],
     },
     {
@@ -101,7 +100,6 @@ export class SidebarService {
           roles: [{ name: 'Administrador' }],
         },
       ],
-      
     },
   ];
   constructor() {}

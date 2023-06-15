@@ -4,6 +4,7 @@ import { Module } from 'src/app/models/module.model';
 import { Users } from 'src/app/models/users.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { ModulesService } from 'src/app/services/modules.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-permisse-user',
@@ -47,6 +48,7 @@ export class AddPermisseUserComponent implements OnInit {
           m[result].create = module.create;
           m[result].delete = module.delete;
           m[result].read = module.read;
+          m[result].show = module.show;
         }
       }
     });
@@ -61,6 +63,7 @@ export class AddPermisseUserComponent implements OnInit {
       data.push({
         id_usuario: this.id_usuario,
         id_modulo: m.id,
+        show: m.show,
         create: m.create,
         edit: m.edit,
         delete: m.delete,
@@ -70,6 +73,12 @@ export class AddPermisseUserComponent implements OnInit {
 
     this._srvAuth.addPermisse(data).subscribe((res) => {
       console.log(res);
+      if (res.status == 'success') {
+        swal.fire('Do It Right', res.msg, 'success');
+      } else {
+        swal.fire('Do It Right', res.msg, 'error');
+      }
+
     });
   }
 

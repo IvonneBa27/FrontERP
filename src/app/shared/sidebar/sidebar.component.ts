@@ -4,6 +4,7 @@ import { Users } from 'src/app/models/users.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { SidebarService } from 'src/app/services/sidebar.service';
 import { StorageService } from 'src/app/services/storage.service';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
@@ -15,6 +16,7 @@ export class SidebarComponent implements OnInit {
   user: Users = new Users();
   role: string;
   nombrecompleto: any;
+  permissions: any;
 
   constructor(
     private sidebarService: SidebarService,
@@ -22,13 +24,19 @@ export class SidebarComponent implements OnInit {
     private router: Router,
     private _srvAuth: AuthService
   ) {
+
     this.role = JSON.parse(this._srvStorage.get('role'));
-    this.menuItems = sidebarService.menu;
-    this.nombrecompleto =this._srvStorage.get('nombre_completo');
-    console.log('hola');
+    this.nombrecompleto = JSON.parse(this._srvStorage.get('nombre_completo'));
+    
+    
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.permissions = JSON.parse(this._srvStorage.get('permission'));
+    this.menuItems = this.sidebarService.menu;
+
+    
+  }
 
   logout() {
     this._srvAuth.logout().subscribe((respuesta) => {
@@ -39,14 +47,17 @@ export class SidebarComponent implements OnInit {
   }
 
   validateRole(data: any[]) {
-
- 
     const result = data.filter((obj) => {
-
       return obj.name === this.role;
     });
 
     const valid = result.length > 0 ? true : false;
     return valid;
+  }
+
+  elementoExiste(elemento: string): boolean {
+    const result = this.permissions.filter((x: { name: string; }) => x.name === elemento);
+    if(result.length == 0) return false;
+    return (result[0].show == 0 ) ? false : true;
   }
 }
