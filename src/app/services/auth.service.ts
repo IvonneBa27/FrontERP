@@ -100,6 +100,7 @@ export class AuthService {
     body: {
       id_usuario: number;
       id_modulo: any;
+      show: any;
       create: any;
       edit: any;
       delete: any;
@@ -120,6 +121,22 @@ export class AuthService {
       .set('Authorization', token);
 
     const params = new HttpParams().set('id', id);
+
+    return this.http
+      .get(URL, { headers: headers, params: params })
+      .pipe(map((res) => res));
+  }
+
+  getPermissionModules(): Observable<any> {
+    const URL = this.baseUrl + 'usuario/getPermissionModules';
+    const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+    const user_id = JSON.parse(this._srvStorage.get('user_id'));
+
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Authorization', token);
+
+    const params = new HttpParams().set('id_usuario', user_id);
 
     return this.http
       .get(URL, { headers: headers, params: params })

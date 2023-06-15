@@ -20,7 +20,8 @@
                 <li class="nav-devider"></li>
                 <li class="nav-small-cap">PERSONAL</li>
                 <li *ngFor="let item of menuItems"> 
-                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                    <!-- *ngIf="elementoExiste(item.titulo)" -->
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false" *ngIf="elementoExiste(item.titulo)">
                         <i  class="mdi mdi-gauge"></i>
                         <span class="hide-menu">
                             {{ item.titulo }} 
@@ -29,9 +30,11 @@
                     </a>
                     <ul aria-expanded="false" class="collapse">
                         <li *ngFor="let subMenuItem of item.submenu"> 
-                            <a [routerLink]="subMenuItem.url"
+                            <!-- -->
+                            <a [routerLink]="[subMenuItem.url]"
                             routerLinkActive="active"
-                            [routerLinkActiveOptions]="{ exact: true}" >{{ subMenuItem.titulo }} </a>
+                            [routerLinkActiveOptions]="{ exact: true}" 
+                             *ngIf="elementoExiste(subMenuItem.titulo)">{{ subMenuItem.titulo }} </a>
                         </li>
 
                     </ul>

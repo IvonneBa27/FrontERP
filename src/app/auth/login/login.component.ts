@@ -19,6 +19,7 @@ import swal from 'sweetalert2';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isLoading = false;
+  id_usuario: any;
 
   constructor(
     private router: Router,
@@ -34,7 +35,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-
   login() {
     this.isLoading = true;
     const usuario = this.loginForm.value['usuario'];
@@ -42,20 +42,31 @@ export class LoginComponent implements OnInit {
 
     this._srvAuth.login(usuario, password).subscribe((respuesta) => {
       if (respuesta.status === 'success') {
+        this.setPermission(respuesta['data']['id']);
         this._srvStorage.set('token', respuesta['access_token']);
-         this._srvStorage.set('user_id', respuesta['data']['id']);
-         this._srvStorage.set('nombre_completo',respuesta['data']['nombre_completo']);
-         this._srvStorage.set('email', respuesta['data']['email']);
-       //this._srvStorage.set('role', respuesta['data']['role']['nombre']);
-     
+        this._srvStorage.set('user_id', respuesta['data']['id']);
+        this._srvStorage.set(
+          'nombre_completo',
+          respuesta['data']['nombre_completo']
+        );
+        this._srvStorage.set('email', respuesta['data']['email']);
+        //this._srvStorage.set('role', respuesta['data']['role']['nombre']);
+
         this.router.navigateByUrl('/dashboard/listado-grupos');
       } else {
         swal.fire('Alerta', respuesta.message, 'error');
       }
-      console.log(respuesta)
+      console.log(respuesta);
       this.isLoading = false;
     });
-  
+  }
+  setPermission(id_usuario: number) {
+    console.log('SET PERMISOS');
+    
+    this._srvAuth.getModuleUserById(id_usuario).subscribe((res) => {
+       console.log(res.data);
+      this._srvStorage.set('permission', res.data);
+    });
   }
 
   get usuario() {

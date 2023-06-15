@@ -24,6 +24,7 @@
                             <thead>
                                 <tr>
                                     <th>Modulo</th>
+                                    <th>VER MODULO</th>
                                     <th>CREAR</th>
                                     <th>EDITAR</th>
                                     <th>LEER</th>
@@ -33,6 +34,13 @@
                             <tbody>
                                 <tr *ngFor="let module of modulesLocal; let i = index;">
                                     <td>{{ module.name  }}</td>
+                                    <td>
+                                        <div class="checkbox checkbox-primary p-t-0">
+                                            <input id="checkbox-show-{{i}}" type="checkbox" [(ngModel)]="_srvModules.menu[i].show"
+                                                [checked]="module.show">
+                                            <label for="checkbox-show-{{i}}"></label>
+                                        </div>
+                                    </td>
                                     <td>
                                         <div class="checkbox checkbox-primary p-t-0">
                                             <input id="checkbox-create-{{i}}" type="checkbox" [(ngModel)]="_srvModules.menu[i].create" [checked]="module.create">

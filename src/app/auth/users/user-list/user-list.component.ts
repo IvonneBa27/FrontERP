@@ -62,6 +62,8 @@ export class UserListComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading = true;
     this._srvAuth.getModules(10).subscribe( res => {
+      console.log(res);
+      
       if( res.data.length > 0){
         const data = res.data[0];
         console.log(data.create);
@@ -71,6 +73,7 @@ export class UserListComponent implements OnInit {
         this.permisse.delete = (data.delete == 0) ? false : true;
         this.permisse.edit = (data.edit == 0) ? false : true;
         this.permisse.read = (data.read == 0) ? false : true;
+        this.permisse.show = (data.show == 0) ? false : true;
         
         console.log(this.permisse);
       }

@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { PagesModule } from './pages/pages.module';
 import { AuthModule } from './auth/auth.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EmployeesModule } from './employees/employees.module';
 
 
 
@@ -22,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     BrowserAnimationsModule,
     NgxPaginationModule,
+    EmployeesModule
 
 
   ],
