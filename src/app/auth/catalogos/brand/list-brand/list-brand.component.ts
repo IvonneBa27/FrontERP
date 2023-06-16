@@ -33,7 +33,7 @@ export class ListBrandComponent {
     this._servicesuser.getBrand(this.id_subcategory).subscribe((res) => {
       this.Brand = res.data;
        console.log(this.Brand);
-       this._serviceauth.createLog('Lista de Marcas', 'SELECT').subscribe(() => { });
+      // this._serviceauth.createLog('Lista de Marcas', 'SELECT').subscribe(() => { });
        this.isLoading = false;
     });
  

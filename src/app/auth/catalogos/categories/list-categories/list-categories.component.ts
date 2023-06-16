@@ -22,10 +22,10 @@ export class ListCategoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoading = true;
-    this._servicesuser.getCategorie().subscribe((res) => {
+    this._servicesuser. getListCategorie().subscribe((res) => {
       this.categories = res.data;
        console.log(this.categories);
-       this._serviceauth.createLog('Lista Categoria', 'SELECT').subscribe(() => { });
+      // this._serviceauth.createLog('Lista Categoria', 'SELECT').subscribe(() => { });
        this.isLoading = false;
     });
 

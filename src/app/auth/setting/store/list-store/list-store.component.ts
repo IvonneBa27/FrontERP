@@ -38,7 +38,7 @@ export class ListStoreComponent {
     this._servicesuser.getStores().subscribe((res) => {
       this.stores = res.data;
        console.log(this.stores);
-       this._serviceauth.createLog('Lista de Almacenes', 'SELECT').subscribe(() => { });
+      // this._serviceauth.createLog('Lista de Almacenes', 'SELECT').subscribe(() => { });
        this.isLoading = false;
 
     });
