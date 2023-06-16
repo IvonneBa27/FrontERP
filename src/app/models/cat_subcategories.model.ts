@@ -3,10 +3,11 @@ export class cat_subcategories {
     name!:                string;
     id_category!:         number;
     id_status!:           number;
-    registro!:            null;
-    totbrand!:            number;
+   // registro!:            null;
+    //totbrand!:            number;
     sku_indispensable!:   number;
-    nameSub!:             string;
+    //nameSub!:             string;
     created_at!:          null;
     updated_at!:          null;
+    CountBrand!:          number;
 }

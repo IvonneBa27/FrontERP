@@ -25,10 +25,10 @@ export class ListSubcategoriesComponent  {
   ngOnInit(): void {
     this.isLoading = true;
     this.id_categorie = this.activatedRoute.snapshot.paramMap.get('id');
-    this._servicesuser.getCatSubCategorie(this.id_categorie).subscribe((res) => {
+    this._servicesuser.getListSubCategorie(this.id_categorie).subscribe((res) => {
       this.subcategories = res.data;
        console.log(this.subcategories);
-       this._serviceauth.createLog('Lista SubCategoria', 'SELECT').subscribe(() => { });
+       //this._serviceauth.createLog('Lista SubCategoria', 'SELECT').subscribe(() => { });
        this.isLoading = false;
     });
   

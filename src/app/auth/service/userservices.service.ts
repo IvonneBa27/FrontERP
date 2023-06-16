@@ -355,6 +355,21 @@ export class UserservicesService {
       const headers = new HttpHeaders().set('Accept', 'application/json');
       return this.http.post(URL, data, { headers }).pipe(map((res) => res));
     }
+
+    //Lista de Categoria Stored
+    getListCategorie(): Observable<any> {
+      const URL = this.baseUrl + 'categories/getList';
+      const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+  
+      const headers = new HttpHeaders()
+        .set('Accept', 'application/json')
+        .set('Authorization', token);
+  
+      return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+
+    }
+
+
   
   
     getCategorie(): Observable<any> {
@@ -430,6 +445,19 @@ export class UserservicesService {
   
       return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
     }
+
+      //Lista de SubCategoria Stored
+      getListSubCategorie(id:any): Observable<any> {
+        const URL = this.baseUrl + `subcategories/getList?id_category=${id}`;
+        const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+    
+        const headers = new HttpHeaders()
+          .set('Accept', 'application/json')
+          .set('Authorization', token);
+    
+        return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  
+      }
 
     getCatSubCategorie(id:any): Observable<any> {
       const URL = this.baseUrl + `subcategories/subcatid?id_category=${id}`;
@@ -622,6 +650,18 @@ export class UserservicesService {
 
         getSecction(id: any): Observable<any> {
           const URL = this.baseUrl + `secctions/get?id=${id}`;
+          const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+      
+          const headers = new HttpHeaders()
+            .set('Accept', 'application/json')
+            .set('Authorization', token);
+      
+          return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+        }
+
+        
+        getListSecction(id: any): Observable<any> {
+          const URL = this.baseUrl + `secctions/getList?id_store=${id}`;
           const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
       
           const headers = new HttpHeaders()

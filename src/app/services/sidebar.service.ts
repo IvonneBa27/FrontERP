@@ -95,7 +95,7 @@ export class SidebarService {
           roles: [{ name: 'Administrador' }],
         },
         {
-          titulo: 'Categoria',
+          titulo: 'Categoria - Productos',
           url: 'list-categories',
           roles: [{ name: 'Administrador' }],
         },

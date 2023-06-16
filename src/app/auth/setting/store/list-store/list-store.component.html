@@ -10,13 +10,13 @@
                          <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="control-label" for="nombre_completo"> Buscador por Almacén o Nombre del Responsable</label>
-                                    <input type="text" id="name" class="form-control" placeholder="Escriba el nombre" 
+
+                                    <input type="text" id="name" class="form-control" placeholder="Nombre del Almacen o Responsable" 
                                    formControlName="name" >
                                 </div>
                             </div>
                             <div class="col-md-2">
-                                <div class="form-group" style="margin-top: 34px;">
+                                <div class="form-group">
                                         <button type="submit" class="btn btn-primary"   (click)="searchStores()"><i class="mdi mdi-account-search"></i> </button>
                                 </div>
                             </div>
@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="col-2">
-                        <h4 class="card-title" style="text-align: end; margin-top: 34px;"><button class="btn btn-primary" (click)="createStores()"
+                        <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="createStores()"
                             value=""><i class="mdi mdi-plus"></i> Crear Almacén</button></h4>
                     </div>
                </div>
