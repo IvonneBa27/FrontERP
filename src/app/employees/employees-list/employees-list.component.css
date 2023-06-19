@@ -1,0 +1,8 @@
+.search-employees {
+  height: 37px !important;
+  margin-left: 10px !important;
+}
+
+.search-div{
+    display: flex;
+}

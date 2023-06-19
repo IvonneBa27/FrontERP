@@ -4,11 +4,27 @@ import { EmployeesComponent } from './employees/employees.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { EmployeesListComponent } from './employees-list/employees-list.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EmployeeCreateComponent } from './employee-create/employee-create.component';
+import { AuthModule } from '../auth/auth.module';
 
 
 
 @NgModule({
-  declarations: [EmployeesComponent, EmployeesListComponent],
-  imports: [CommonModule, SharedModule, RouterModule],
+  declarations: [
+    EmployeesComponent,
+    EmployeesListComponent,
+    EmployeeCreateComponent,
+  ],
+  imports: [
+    CommonModule,
+    SharedModule,
+    RouterModule,
+    NgxPaginationModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AuthModule,
+  ],
 })
 export class EmployeesModule {}

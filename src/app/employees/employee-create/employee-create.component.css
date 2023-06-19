@@ -1,0 +1,10 @@
+.btn-create {
+    display: flex;
+    gap: 10px;
+}
+
+.card-header {
+  background-color: #b4b4b4;
+  color: black;
+  font-weight: 700;
+}
