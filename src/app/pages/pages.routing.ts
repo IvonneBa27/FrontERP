@@ -546,7 +546,7 @@ const routes: Routes = [
       {
         path: 'home-inventory',
         component: HomeInventoryComponent,
-        data: { titulo: 'Inventario' },
+        data: { titulo: 'Inventario de Almacenes' },
         canActivate: [AccesoGuard],
       },
       {
