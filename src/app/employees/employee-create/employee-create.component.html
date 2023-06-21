@@ -1,173 +1,437 @@
 <div class="row">
-    <!-- <form action=""> -->
-    <div class="col-12">
-        <div class="card">
-            <h5 class="card-header primary">Datos personales</h5>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-4">
-                        <div class="form-group">
-                            <label class="control-label">Apellido Paterno *</label>
-                            <input type="text" id="firstName" class="form-control" placeholder=""
-                                formControlName="nombre">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="form-group">
-                            <label class="control-label">Apellido materno</label>
-                            <input type="text" id="firstName" class="form-control" placeholder=""
-                                formControlName="nombre">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="form-group">
-                            <label class="control-label">Nombre(s) *</label>
-                            <input type="text" id="firstName" class="form-control" placeholder=""
-                                formControlName="nombre">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="form-group">
-                            <label class="control-label">Fecha de nacimiento *</label>
-                            <input type="date" id="firstName" class="form-control" placeholder="" formControlName="nombre">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="form-group">
-                            <label class="control-label">RFC *</label>
-                            <input type="text" id="firstName" class="form-control" placeholder="" formControlName="nombre">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="form-group">
-                            <label class="control-label">CURP *</label>
-                            <input type="text" id="firstName" class="form-control" placeholder="" formControlName="nombre">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="form-group">
-                            <label class="control-label">Género *</label>
-                           <select name="" class="form-control" id=""></select>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="form-group">
-                            <label class="control-label">Estado civil *</label>
-                           <select name="" class="form-control" id=""></select>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="form-group">
-                            <label class="control-label">Nacionalidad *</label>
-                            <select name="" class="form-control" id=""></select>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="form-group">
-                            <label class="control-label">NSS *</label>
-                            <input type="text" id="firstName" class="form-control" placeholder="" formControlName="nombre">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-12">
-        <div class="card">
-            <h5 class="card-header">Domicilio</h5>
-            <div class="card-body">
-                
-            </div>
-        </div>
-    </div>
-    <div class="col-12">
-        <div class="card">
-            <h5 class="card-header">Datos de contacto</h5>
-            <div class="card-body">
-                
-            </div>
-        </div>
-    </div>
-    <div class="col-12">
-        <div class="card">
-            <h5 class="card-header">Conracto de emergencia</h5>
-            <div class="card-body">
-               
-            </div>
-        </div>
-    </div>
-    <div class="col-12">
-        <div class="card">
-            <h5 class="card-header">Datos laborales</h5>
-            <div class="card-body">
-                
-            </div>
-        </div>
-    </div>
-    <div class="col-12">
-        <div class="card">
-            <h5 class="card-header">Datos de nómina</h5>
-            <div class="card-body">
-                
-            </div>
-        </div>
-    </div>
-    <div class="col-12">
-        <div class="card">
-            <h5 class="card-header">Datos cuenta bancaria</h5>
-            <div class="card-body">
-                
-            </div>
-        </div>
-    </div>
-    <div class="col-12">
-        <div class="card">
-            <h5 class="card-header">Datos de acceso</h5>
-            <div class="card-body">
-               
-            </div>
-        </div>
-    </div>
-    <!-- <div class="card">
+    <form action="" [formGroup]="employeeForm" id="usersForm" (submit)="createEmployee()">
+        <div class="col-12">
+            <div class="card">
+                <h5 class="card-header primary">Datos personales</h5>
                 <div class="card-body">
-                    <h4 class="card-title" style="text-align: end;">
-                        <a routerLink="/dashboard/list" class="btn btn-primary"><i class="mdi mdi-arrow-left-bold"></i>
-                            Regresar</a>
-                    </h4>
-
-                    <form [formGroup]="employeeForm">
-                        <div class="card">
-                            <h5 class="card-header">Destacado</h5>
-                            <div class="card-body">
-                                <div class="row p-t-20">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="control-label">Nombre de la campaña</label>
-                                            <input type="text" id="firstName" class="form-control"
-                                                placeholder="Nombre de la campaña" formControlName="nombre">
-                                        </div>
-
-                                    </div>
-
-                                </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Apellido Paterno *</label>
+                                <input type="text" id="firstName" class="form-control" placeholder=""
+                                    formControlName="apellido_pat">
                             </div>
                         </div>
-                        <div class="card">
-                            <h5 class="card-header">Destacado</h5>
-                            <div class="card-body">
-                                <h5 class="card-title">Tratamiento especial del título</h5>
-                                <p class="card-text">Con texto de apoyo a continuación como introducción natural a contenido adicional.</p>
-                                <a href="#" class="btn btn-primary">Ir a algún lugar</a>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Apellido materno</label>
+                                <input type="text" id="firstName" class="form-control" placeholder=""
+                                    formControlName="apellido_mat">
                             </div>
                         </div>
-                        <div mat-dialog-actions class="btn-create">
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                            <button class="btn btn-warning">Cancelar</button>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Nombre(s) *</label>
+                                <input type="text" id="firstName" class="form-control" placeholder=""
+                                    formControlName="nombre">
+                            </div>
                         </div>
-                    </form>
-
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Fecha de nacimiento *</label>
+                                <input type="date" id="firstName" class="form-control" placeholder=""
+                                    formControlName="fecha_nacimiento">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">RFC *</label>
+                                <input type="text" id="firstName" class="form-control" placeholder=""
+                                    formControlName="rfc">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">CURP *</label>
+                                <input type="text" id="firstName" class="form-control" placeholder=""
+                                    formControlName="curp">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Género *</label>
+                                <select name="" class="form-control" id="" formControlName="id_sexo">
+                                    <option value=""></option>
+                                    <option [value]="gender.id" *ngFor="let gender of genders">{{ gender.nombre }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Estado civil *</label>
+                                <select name="" class="form-control" id="" formControlName="id_estado_civil">
+                                    <option value=""></option>
+                                    <option [value]="civilstatus.id" *ngFor="let civilstatus of civilstatuses">{{
+                                        civilstatus.nombre }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Nacionalidad *</label>
+                                <select name="" class="form-control" id="" formControlName="nacionalidad">
+                                    <option value=""></option>
+                                    <option [value]="country.idpais" *ngFor="let country of countrys">{{ country.pais }}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">NSS *</label>
+                                <input type="text" id="firstName" class="form-control" placeholder=""
+                                    formControlName="nss">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div> -->
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <h5 class="card-header">Domicilio</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">País *</label>
+                                <select name="" class="form-control" id="" [(ngModel)]="country" formControlName="id_pais">
+                                    <option value=""></option>
+                                    <option [value]="country.idpais" *ngFor="let country of countrys">{{ country.pais }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Entidad *</label>
+                                <select name="" class="form-control" id="" [(ngModel)]="city" formControlName="id_estado">
+                                    <option value=""></option>
+                                    <option [value]="city.idciudad" *ngFor="let city of citys">{{ city.ciudad }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Municipio / Alcaldía *</label>
+                                <select name="" class="form-control" id="" formControlName="id_municipio">
+                                    <option value=""></option>
+                                    <option [value]="state.iddelegacion" *ngFor="let state of states">{{
+                                        state.delegacion }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Colonia </label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" formControlName="colonia">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Calle *</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" formControlName="calle">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">No. Exterior *</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" formControlName="no_ext">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">No. Interior </label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" formControlName="no_int">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Código postal *</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" formControlName="cp">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Referencia</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" formControlName="referencia">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <h5 class="card-header">Datos de contacto</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Tel. movil personal *</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Email personal *</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <h5 class="card-header">Contacto de emergencia</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Nombre completo</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Parentesco</label>
+                                <select name="" class="form-control" id="">
+                                    <option value=""></option>
+                                    <option [value]="relationship.id" *ngFor="let relationship of relationships">{{
+                                        relationship.nombre }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Tel. fijo del contacto</label>
+                                <input type="text" id="firstName" class="form-control" maxlength="10" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Tipo de sangre</label>
+                                <select name="" class="form-control" id="">
+                                    <option value=""></option>
+                                    <option [value]="typeBlood.id" *ngFor="let typeBlood of typeBloods">{{
+                                        typeBlood.nombre
+                                        }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Padecimiento preexistentes</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Tel movil del contactp</label>
+                                <input type="text" id="firstName" class="form-control" maxlength="10" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <h5 class="card-header">Datos laborales</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Puesto</label>
+                                <select name="" class="form-control" id="">
+                                    <option value=""></option>
+                                    <option [value]="stall.id" *ngFor="let stall of stalls">{{ stall.nombre }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Ejecución administrativa</label>
+                                <select name="" class="form-control" id="">
+                                    <option value=""></option>
+                                    <option [value]="administrative_execution.id"
+                                        *ngFor="let administrative_execution of administrative_executions">{{
+                                        administrative_execution.nombre }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Departamento</label>
+                                <select name="" class="form-control" id="">
+                                    <option value=""></option>
+                                    <option [value]="department.id" *ngFor="let department of departments">{{
+                                        department.nombre }}</option>
 
-    <!-- </form> -->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Categoría</label>
+                                <select name="" class="form-control" id="">
+                                    <option value=""></option>
+                                    <option [value]="categorye.id" *ngFor="let categorye of categoryes">{{
+                                        categorye.nombre }}</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Turno</label>
+                                <select name="" class="form-control" id="">
+                                    <option value=""></option>
+                                    <option [value]="shift.id" *ngFor="let shift of shifts">{{
+                                        shift.nombre }}</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Ubicación de trabajo</label>
+                                <select name="" class="form-control" id="">
+
+                                    <option value=""></option>
+                                    <option [value]="location.id" *ngFor="let location of locations">{{
+                                        location.nombre }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Fecha de ingreso</label>
+                                <input type="date" id="firstName" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Tel. movil laboral</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Email laboral</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <h5 class="card-header">Datos de nómina</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Empresa pago</label>
+                                <select name="" class="form-control" id="">
+                                    <option value=""></option>
+                                    <option [value]="company.id" *ngFor="let company of companys">{{ company.nombre }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Sueldo</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Fecha de pago</label>
+                                <select name="" class="form-control" id="">
+                                    <option value=""></option>
+                                    <option value="7-22">7 - 22</option>
+                                    <option value="15-30">15 - 30</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <h5 class="card-header">Datos cuenta bancaria</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Banco</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">No. cuenta</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">CLABE interbancaria</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <h5 class="card-header">Datos de acceso</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Usuario *</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Contraseña *</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Estatus *</label>
+                                <select name="" class="form-control" id="">
+                                    <option value=""></option>
+                                    <option [value]="statu.id" *ngFor="let statu of status">{{ statu.nombre }}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div mat-dialog-actions class="btn-create">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button class="btn btn-warning">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>

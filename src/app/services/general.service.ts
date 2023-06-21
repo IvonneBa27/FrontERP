@@ -11,13 +11,7 @@ import { StorageService } from './storage.service';
 export class GeneralService {
   baseUrl: string = environment.api;
 
-  constructor(
-    private http: HttpClient, 
-    private _srvStorage: StorageService
-    ) {
-
-    }
-  
+  constructor(private http: HttpClient, private _srvStorage: StorageService) {}
 
   getAgents(id: number): Observable<any> {
     const URL = this.baseUrl + 'agents';
@@ -66,7 +60,7 @@ export class GeneralService {
 
     return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
   }
-  
+
   getUbicaciones(): Observable<any> {
     const URL = this.baseUrl + 'Ubicaciones/get';
     const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
@@ -77,7 +71,6 @@ export class GeneralService {
 
     return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
   }
-  
 
   getEmpresa(): Observable<any> {
     const URL = this.baseUrl + 'Empresa/get';
@@ -133,7 +126,6 @@ export class GeneralService {
 
     return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
   }
-
 
   getPuesto(): Observable<any> {
     const URL = this.baseUrl + 'Puesto/get';
@@ -215,48 +207,44 @@ export class GeneralService {
   getSATCFDI(): Observable<any> {
     const URL = this.baseUrl + 'regimencdfi/get';
     const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
-  
+
     const headers = new HttpHeaders()
       .set('Accept', 'application/json')
       .set('Authorization', token);
-  
+
     return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
-  
   }
   getSATRegimenfiscal(): Observable<any> {
     const URL = this.baseUrl + 'regimenfiscal/get';
     const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
-  
+
     const headers = new HttpHeaders()
       .set('Accept', 'application/json')
       .set('Authorization', token);
-  
+
     return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
-  
   }
-  
 
   getCiudad(idPais: any): Observable<any> {
     const URL = this.baseUrl + `ciudades/get?param=${idPais}`;
     const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
-  
+
     const headers = new HttpHeaders()
       .set('Accept', 'application/json')
       .set('Authorization', token);
-  
+
     return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
-  
   }
   getMunicipio(idPais: any, idCiudad: any): Observable<any> {
-    const URL = this.baseUrl + `delegaciones/get?param=${idPais}&param1=${idCiudad}`;
+    const URL =
+      this.baseUrl + `delegaciones/get?param=${idPais}&param1=${idCiudad}`;
     const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
-  
+
     const headers = new HttpHeaders()
       .set('Accept', 'application/json')
       .set('Authorization', token);
-  
+
     return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
-  
   }
 
   getCiudadT(): Observable<any> {
@@ -269,7 +257,6 @@ export class GeneralService {
 
     return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
   }
-
 
   getMunicipioT(): Observable<any> {
     const URL = this.baseUrl + 'delegacionesT/get';
@@ -370,19 +357,43 @@ export class GeneralService {
     return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
   }
 
+  getMaritalStatus(): Observable<any> {
+    const URL = this.baseUrl + 'getMaritalStatus';
+    const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
 
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Authorization', token);
 
+    return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  }
 
+  getTypeBloods(): Observable<any> {
+    const URL = this.baseUrl + 'getTypeBloods';
+    const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
 
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Authorization', token);
 
+    return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  }
+  getRelationship(): Observable<any> {
+    const URL = this.baseUrl + 'getRelationship';
+    const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
 
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Authorization', token);
+
+    return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  }
 
   public requestCatalogos(): Observable<any[]> {
-  
-    let response1 = this.getTipoUsuario(); 
+    let response1 = this.getTipoUsuario();
     let response2 = this.getSexo();
     let response3 = this.getEstatus();
-    let response4 = this.getUbicaciones(); 
+    let response4 = this.getUbicaciones();
     let response5 = this.getEmpresa();
     let response6 = this.getSubCategoria();
     let response7 = this.getEjecucionAdministrativa();
@@ -404,10 +415,77 @@ export class GeneralService {
     let response23 = this.getStores();
     let response24 = this.getTypeIncome();
     let response25 = this.getSupplier();
-    
-    return forkJoin([response1, response2, response3, response4, response5, response6, response7, response8, response9, response10, response11, response12, response13, response14, response15, response16, response17, response18, response19, response20, response21, response22, response23, response24, response25]);
 
+    return forkJoin([
+      response1,
+      response2,
+      response3,
+      response4,
+      response5,
+      response6,
+      response7,
+      response8,
+      response9,
+      response10,
+      response11,
+      response12,
+      response13,
+      response14,
+      response15,
+      response16,
+      response17,
+      response18,
+      response19,
+      response20,
+      response21,
+      response22,
+      response23,
+      response24,
+      response25,
+    ]);
   }
 
+  public catalogsEmployees(): Observable<any[]> {
+    let response1 = this.getEstatus();
+    let response2 = this.getEmpresa();
+    let response3 = this.getUbicaciones();
+    let response4 = this.getTurno();
+    let response5 = this.getCategorie();
+    let response6 = this.getDepartamento();
+    let response7 = this.getEjecucionAdministrativa();
+    let response8 = this.getPuesto();
+    // parentesco
+    // fecha pago
+    // tipo de sangre
+    let response9 = this.getPais();
+    let response10 = this.getCiudadT();
+    let response11 = this.getMunicipioT();
+    // nacionalidad
+    let response12 = this.getSexo();
+    let response13 = this.getMaritalStatus();
+    let response14 = this.getTypeBloods();
+    let response15 = this.getRelationship();
+    let response16 = this.getSubCategoria();
 
+    // estado civil
+
+    return forkJoin([
+      response1,
+      response2,
+      response3,
+      response4,
+      response5,
+      response6,
+      response7,
+      response8,
+      response9,
+      response10,
+      response11,
+      response12,
+      response13,
+      response14,
+      response15,
+      response16,
+    ]);
+  }
 }
