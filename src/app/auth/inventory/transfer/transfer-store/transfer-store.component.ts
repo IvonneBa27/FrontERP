@@ -1,4 +1,4 @@
-/*import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserservicesService } from 'src/app/auth/service/userservices.service';
@@ -178,4 +178,4 @@ export class TransferStoreComponent {
 
 
 
-}*/
+}
