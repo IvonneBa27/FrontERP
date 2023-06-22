@@ -222,7 +222,7 @@
                                             <td><input type="text" id="amount" class="form-control" placeholder=" "    [(ngModel)]="amount" [ngModelOptions]="{standalone:true}"></td>
                                             <td><input type="text" id="total_received" class="form-control" placeholder=" "   [(ngModel)]="totalreceived" [ngModelOptions]="{standalone:true}"></td>
                                             <td class="actions" *ngIf="amount<totalreceived">
-                                                <label class="control-label">El total recicibido no debe de ser menor a la cantidad a recibir</label>
+                                                <label class="control-label">"El total recibido no debe de ser mayor a la cantidad a recibir"</label>
                                             </td>
                                             <td class="actions" *ngIf="amount>=totalreceived">
                                                 <button type="submit" class="btn btn-primary" style="text-align: end;" (click)="createDetailProduct()">Continuar</button>

@@ -80,6 +80,7 @@ import { SeeBrandComponent } from '../auth/catalogos/brand/see-brand/see-brand.c
 import { HomeInventoryComponent } from '../auth/inventory/home-inventory/home-inventory.component';
 import { IncomeStoreComponent } from '../auth/inventory/income/income-store/income-store.component';
 import { IncomeStoreDetailComponent } from '../auth/inventory/income/income-store-detail/income-store-detail.component';
+import { TransferStoreComponent } from '../auth/inventory/transfer/transfer-store/transfer-store.component';
 
 
 
@@ -559,6 +560,12 @@ const routes: Routes = [
         path: 'income-store-detail/:id',
         component: IncomeStoreDetailComponent,
         data: { titulo: 'Detalle de Ingreso de Almacén' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'transfer-store',
+        component: TransferStoreComponent,
+        data: { titulo: 'Traspaso de Almacén' },
         canActivate: [AccesoGuard],
       },
 

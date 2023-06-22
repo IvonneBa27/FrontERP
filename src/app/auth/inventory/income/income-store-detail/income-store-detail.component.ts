@@ -131,6 +131,7 @@ export class IncomeStoreDetailComponent  {
 
     this._servicesgeneral.getCategorie().subscribe(respuesta => {
       this.Catcategorie = respuesta.data;
+     
   });
 
 
@@ -167,9 +168,9 @@ export class IncomeStoreDetailComponent  {
 
     this.isLoading = true;
     
-    this._servicesuser.getCatSubCategorie(this.IdCategorie).subscribe(respuesta => {
+    this._servicesuser.getCatalog_SubCategorie(this.IdCategorie).subscribe(respuesta => {
       this.SubCategorie = respuesta.data;
-      console.log(this.IdCategorie);
+
       console.log(this.SubCategorie);
       this.isLoading = false;
     });
@@ -179,7 +180,7 @@ export class IncomeStoreDetailComponent  {
   obtIdSubcategorie(){
 
     this.isLoading = true;
-    this._servicesuser.getCatSubProducto(this.IdCategorie, this.IdSubCategorie).subscribe(respuesta => {
+    this._servicesuser.getCatalog_productCategorie(this.IdCategorie, this.IdSubCategorie).subscribe(respuesta => {
       
       this.Producto = respuesta.data;
       this.isLoading = false;
@@ -191,8 +192,12 @@ export class IncomeStoreDetailComponent  {
   ListProduct(){
    
     this.isLoading = true;
-    this._servicesuser.getCatSubProductoDet(this.IdProducto).subscribe(respuesta => {
+    console.log(this.IdProducto);
+    console.log(this.IdCategorie);
+    console.log(this.IdSubCategorie);
+    this._servicesuser.getList_productCateogie(this.IdProducto, this.IdCategorie, this.IdSubCategorie).subscribe(respuesta => {
       this.ProductoDet = respuesta.data;
+      console.log(this.ProductoDet);
 
 
         this._srvStorage.set('id_producto', this.ProductoDet[0].id);
@@ -240,7 +245,7 @@ export class IncomeStoreDetailComponent  {
     };
 
 
-    
+   
     this._servicesuser.createIncomeDetailStore(body).subscribe(res => {
       console.log(res);
       if (res.status == 'success') {
@@ -340,7 +345,7 @@ UpdateobservationsIncome(){
 
   const body={
     id: this.id,
-    observations: this.observations,
+    observation: this.observations,
   };
   this.isLoading = true;
   this._servicesuser. updateIncomeStore(body).subscribe(res => {

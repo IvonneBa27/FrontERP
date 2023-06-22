@@ -18,5 +18,9 @@ export class HomeInventoryComponent {
     this.router.navigateByUrl('/dashboard/income-store')
   }
 
+  TransferStore(){
+    this.router.navigateByUrl('/dashboard/transfer-store')
+  }
+
 
 }

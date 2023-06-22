@@ -9,4 +9,6 @@ export class product_detail_warehouse_entry {
     amount!:                             string;
     created_at!:                         null;
     updated_at!:                         null;
+    idDet!:                              number;
+    isChecked!:                          boolean;
 }

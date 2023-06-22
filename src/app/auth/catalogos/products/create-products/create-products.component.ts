@@ -139,7 +139,7 @@ export class CreateProductsComponent {
    obtIdCategory(){
     const id_categoty = this.productsForm.value['id_categoty'];
 
-    this._servicesuser.getCatSubCategorie(id_categoty).subscribe(respuesta => {
+    this._servicesuser.getCatalog_SubCategorie(id_categoty).subscribe(respuesta => {
       this.SubCategorie = respuesta.data;
 
     });

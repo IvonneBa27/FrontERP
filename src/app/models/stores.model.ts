@@ -9,6 +9,9 @@ export class Stores{
     nombre_completo!:               string;
     nombre!:                        string;
     secctions_count!:               number;
+    nameStore!:                     string;
+    idStore!:                       number;
+    idSecction!:                    number;
     //users!:                         Users;
     //estatus!:                       Estatus;
     //secctions!:                     Secctions[];

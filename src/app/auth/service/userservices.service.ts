@@ -459,16 +459,17 @@ export class UserservicesService {
   
       }
 
-    getCatSubCategorie(id:any): Observable<any> {
-      const URL = this.baseUrl + `subcategories/subcatid?id_category=${id}`;
-      const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
-  
-      const headers = new HttpHeaders()
-        .set('Accept', 'application/json')
-        .set('Authorization', token);
-  
-      return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
-    }
+      //Lista de Subcateogrie para Detalle de Ingreso de Almacen
+      getCatalog_SubCategorie(id: any): Observable<any> {
+        const URL = this.baseUrl + `subcategories/catalogSubcat?id_category=${id}`;
+        const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+    
+        const headers = new HttpHeaders()
+          .set('Accept', 'application/json')
+          .set('Authorization', token);
+    
+        return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+      }
   
     getSubCategoriebyId(id: any): Observable<any> {
       const URL = this.baseUrl + `subcategories/id?id=${id}`;
@@ -800,8 +801,9 @@ export class UserservicesService {
       
         }
 
-        getCatSubProducto(id_category:any, id_subcategory: any): Observable<any> {
-          const URL = this.baseUrl + `products/getCatSubCategory?id_category=${id_category}&id_subcategory=${id_subcategory}`;
+        //Catalogo para obtener el producto de acuerdo a la categoria y subcategoria
+        getCatalog_productCategorie(id_category:any, id_subcategory: any): Observable<any> {
+          const URL = this.baseUrl + `products/getCatalog_productCategorie?id_category=${id_category}&id_subcategory=${id_subcategory}`;
           const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
       
           const headers = new HttpHeaders()
@@ -811,8 +813,9 @@ export class UserservicesService {
           return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
         }
 
-        getCatSubProductoDet(id: any): Observable<any> {
-          const URL = this.baseUrl + `products/getCatSubCategoryDet?id=${id}`;
+        //Lista de productos de acuerdo al id de producto, categoria y subcategoria
+        getList_productCateogie(id: any, id_category: any, id_subcategory: any): Observable<any> {
+          const URL = this.baseUrl + `products/getListProduct_Categorie?id=${id}&id_category=${id_category}&id_subcategory=${id_subcategory}`;
           const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
       
           const headers = new HttpHeaders()
@@ -865,7 +868,7 @@ export class UserservicesService {
         }
 
         updateIncomeStore(data: {
-          observations:any;  
+          observation:any;  
           id: string | null;
         }): Observable<any> {
           const URL = this.baseUrl + 'incomeStores/update';
@@ -874,6 +877,43 @@ export class UserservicesService {
           return this.http.post(URL, data, { headers }).pipe(map((res) => res));
 
         }
+
+        //Lista de Ingresos a Almacen
+        getListIncomeStore(): Observable<any> {
+          const URL = this.baseUrl + 'incomeStores/getListIncomeStore';
+          const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+      
+          const headers = new HttpHeaders()
+            .set('Accept', 'application/json')
+            .set('Authorization', token);
+      
+          return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+        }
+
+        getListStoreSecction(): Observable<any> {
+          const URL = this.baseUrl + 'stores/getListStoreSecction';
+          const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+      
+          const headers = new HttpHeaders()
+            .set('Accept', 'application/json')
+            .set('Authorization', token);
+      
+          return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+        }
+
+        getListIncomeProduct(idStore: any, idSecction: any): Observable<any> {
+          const URL = this.baseUrl + `incomeStoresDetailProduct/getListIncomeProduct?warehouse_id=${idStore}&section_id=${idSecction}`;
+          const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+      
+          const headers = new HttpHeaders()
+            .set('Accept', 'application/json')
+            .set('Authorization', token);
+      
+          return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+      
+        }
+
+
   
 
     

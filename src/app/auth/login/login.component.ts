@@ -45,11 +45,9 @@ export class LoginComponent implements OnInit {
         this.setPermission(respuesta['data']['id']);
         this._srvStorage.set('token', respuesta['access_token']);
         this._srvStorage.set('user_id', respuesta['data']['id']);
-        this._srvStorage.set(
-          'nombre_completo',
-          respuesta['data']['nombre_completo']
-        );
+        this._srvStorage.set('nombre_completo',respuesta['data']['nombre_completo']);
         this._srvStorage.set('email', respuesta['data']['email']);
+        this._srvStorage.set('usuario', respuesta['data']['usuario']);
         //this._srvStorage.set('role', respuesta['data']['role']['nombre']);
 
        

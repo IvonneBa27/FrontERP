@@ -10,4 +10,9 @@ export class warehouse_entry {
     observations!:                string;
     created_at!:                  null;
     updated_at!:                  null;
+
+    nameStore!:                   string;
+    idIncome!:                    number;
+    idStore!:                     number;
+    idSecction!:                  number;
 }
