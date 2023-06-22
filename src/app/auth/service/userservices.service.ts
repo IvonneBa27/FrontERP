@@ -913,11 +913,6 @@ export class UserservicesService {
           return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
       
         }
-=======
-        /*getListIncomeStore(){
-
-        }*/
->>>>>>> origin/dev_transferStore
 
 
   
