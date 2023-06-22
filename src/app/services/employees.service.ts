@@ -37,4 +37,22 @@ export class EmployeesService {
       .get(URL, { headers: headers, params: params })
       .pipe(map((res) => res));
   }
+
+  createEmployee(data: any): Observable<any> {
+    const URL = this.baseUrl + 'employees/create';
+    // const token = 'Bearer ' + this.storageSrv.get('token');
+
+    const headers = new HttpHeaders().set('Accept', 'application/json');
+
+    return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+  }
+
+  updateEmployee(data: any): Observable<any> {
+    const URL = this.baseUrl + 'employees/update';
+    // const token = 'Bearer ' + this.storageSrv.get('token');
+
+    const headers = new HttpHeaders().set('Accept', 'application/json');
+
+    return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+  }
 }

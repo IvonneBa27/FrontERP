@@ -466,7 +466,8 @@ export class GeneralService {
     let response14 = this.getTypeBloods();
     let response15 = this.getRelationship();
     let response16 = this.getSubCategoria();
-
+    let response17 = this.getBanco();
+    let response18 = this.getTipoUsuario();
     // estado civil
 
     return forkJoin([
@@ -486,6 +487,8 @@ export class GeneralService {
       response14,
       response15,
       response16,
+      response17,
+      response18,
     ]);
   }
 }

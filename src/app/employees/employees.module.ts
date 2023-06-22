@@ -8,6 +8,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmployeeCreateComponent } from './employee-create/employee-create.component';
 import { AuthModule } from '../auth/auth.module';
+import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
 
 
 
@@ -16,6 +17,7 @@ import { AuthModule } from '../auth/auth.module';
     EmployeesComponent,
     EmployeesListComponent,
     EmployeeCreateComponent,
+    EmployeeEditComponent,
   ],
   imports: [
     CommonModule,

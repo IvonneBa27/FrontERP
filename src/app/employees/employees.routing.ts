@@ -6,6 +6,7 @@ import { DashboardComponent } from '../pages/dashboard/dashboard.component';
 import { EmployeesListComponent } from './employees-list/employees-list.component';
 import { PagesComponent } from '../pages/pages.component';
 import { EmployeeCreateComponent } from './employee-create/employee-create.component';
+import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
 
 
 
@@ -30,6 +31,12 @@ const routes: Routes = [
         path: 'empleyee-create',
         component: EmployeeCreateComponent,
         data: { titulo: 'Crear empleado' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'empleyee-edit',
+        component: EmployeeEditComponent,
+        data: { titulo: 'Editar empleado' },
         canActivate: [AccesoGuard],
       },
     ],

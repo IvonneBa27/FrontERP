@@ -42,7 +42,7 @@
                                         <td>{{ employee.administrative_execution?.nombre }}</td>
                                         <td class="actions">
                                             <a href="#"><i class="mdi mdi-eye"></i></a>
-                                            <a href="#"><i class="mdi mdi-pencil"></i></a>
+                                            <a (click)="editEmployee(employee)" ><i class="mdi mdi-pencil"></i></a>
                                             <a href="#"><i class="mdi mdi-delete"></i></a>
                                         </td>
                                     </tr>
