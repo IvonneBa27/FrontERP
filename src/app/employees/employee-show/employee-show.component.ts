@@ -13,7 +13,7 @@ import { Civilstatuses } from 'src/app/models/civilstatuses.model';
 import { Delegaciones } from 'src/app/models/delegaciones.model';
 import { Departamento } from 'src/app/models/departamento.model';
 import { EjecucionAdministrativa } from 'src/app/models/ejecucionAdministrativa.model';
-import { Gender } from 'src/app/models/employee.model';
+import { Employee, Gender } from 'src/app/models/employee.model';
 import { Empresa } from 'src/app/models/empresa.model';
 import { Estatus } from 'src/app/models/estatus.model';
 import { Paises } from 'src/app/models/paises.model';
@@ -26,14 +26,31 @@ import { TypeBlood } from 'src/app/models/typeBlood.model';
 import { Ubicacion } from 'src/app/models/ubicacion.model';
 import { EmployeesService } from 'src/app/services/employees.service';
 import { GeneralService } from 'src/app/services/general.service';
+import { StorageService } from 'src/app/services/storage.service';
 import swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-employee-create',
-  templateUrl: './employee-create.component.html',
-  styleUrls: ['./employee-create.component.css'],
+  selector: 'app-employee-show',
+  templateUrl: './employee-show.component.html',
+  styleUrls: ['./employee-show.component.css'],
 })
-export class EmployeeCreateComponent implements OnInit {
+export class EmployeeShowComponent implements OnInit {
+  employees: Employee[] = [];
+  companies: Empresa[] = [];
+  paramSerach: string = '';
+  company: number = 0;
+
+  p: number = 1;
+  numPag: number = 15;
+  totalReg: number = 0;
+  config: any;
+  configCustomPagination: any;
+  public maxSize: number = 7;
+  public directionLinks: boolean = true;
+  public autoHide: boolean = false;
+  public responsive: boolean = true;
+  isLoading: boolean = false;
+
   employeeForm: FormGroup;
   country = 152;
   city = 2449;
@@ -41,11 +58,7 @@ export class EmployeeCreateComponent implements OnInit {
   genders: Gender[] = [];
   countrys: Paises[] = [];
   citys: Ciudades[] = [];
-  citysRespaldo: Ciudades[] = [];
-
   states: Delegaciones[] = [];
-  statesRespaldo: Delegaciones[] = [];
-
   departments: Departamento[] = [];
   categoryes: SubCategoria[] = [];
   shifts: Turno[] = [];
@@ -58,9 +71,11 @@ export class EmployeeCreateComponent implements OnInit {
   banks: Banco[] = [];
   userTypes: TipoUsuario[] = [];
   administrative_executions: EjecucionAdministrativa[] = [];
-  isLoading: boolean = false;
 
+  citysRespaldo: Ciudades[] = [];
+  statesRespaldo: Delegaciones[] = [];
   constructor(
+    private _srvStorage: StorageService,
     private formBuilder: FormBuilder,
     private _srvGeneral: GeneralService,
     private _srvEmployee: EmployeesService,
@@ -98,7 +113,7 @@ export class EmployeeCreateComponent implements OnInit {
       contacto_emergencia_tip_sangre: new FormControl(''),
       contacto_emergencia_padecimientos: new FormControl(''),
       contacto_emergencia_movil: new FormControl(''),
-
+      id: new FormControl(''),
       id_puesto: new FormControl(''),
       ejecucion_administrativa: new FormControl(''),
       id_departamento_empresa: new FormControl(''),
@@ -124,6 +139,7 @@ export class EmployeeCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoading = true;
+
     this._srvGeneral.catalogsEmployees().subscribe((res) => {
       this.status = res[0].data;
       this.genders = res[11].data;
@@ -152,40 +168,66 @@ export class EmployeeCreateComponent implements OnInit {
       this.banks = res[16].data;
       this.userTypes = res[17].data;
 
-      this.isLoading = false;
+      this.setForm();
     });
   }
 
-  createEmployee() {
-    this.isLoading = true;
-    console.log(this.employeeForm.value);
-    this._srvEmployee
-      .createEmployee(this.employeeForm.value)
-      .subscribe((res) => {
-        console.log(res);
-        if (res.status == 'success') {
-          this.isLoading = false;
-          swal.fire('Do It Right', res.msg, 'success');
-          this.router.navigate([`/dashboard/list`]);
-        } else {
-          this.isLoading = false;
-          swal.fire('Do It Right', res.msg, 'error');
-        }
-      });
+  setForm() {
+    const employee = JSON.parse(this._srvStorage.get('employee'));
+    this.employeeForm.patchValue({
+      apellido_pat: employee.apellido_pat,
+      apellido_mat: employee.apellido_mat,
+      nombre: employee.nombre,
+      fecha_nacimiento: employee.fecha_nacimiento,
+      rfc: employee.rfc,
+      curp: employee.curp,
+      id_sexo: employee.id_sexo,
+      id_estado_civil: employee.id_estado_civil,
+      nacionalidad: employee.nacionalidad,
+      nss: employee.nss,
+      id_pais: employee.id_pais,
+      id_estado: employee.id_estado,
+      id_municipio: employee.id_municipio,
+      colonia: employee.colonia,
+      calle: employee.calle,
+      no_ext: employee.no_ext,
+      no_int: employee.no_int,
+      cp: employee.cp,
+      referencia: employee.referencia,
+      tel_personal: employee.tel_personal,
+      email_personal: employee.email_personal,
+      contacto_emergencia_nombre: employee.contacto_emergencia_nombre,
+      contacto_emergencia_parentesco: employee.contacto_emergencia_parentesco,
+      contacto_emergencia_telefono: employee.contacto_emergencia_telefono,
+      contacto_emergencia_tip_sangre: employee.contacto_emergencia_tip_sangre,
+      contacto_emergencia_padecimientos:
+        employee.contacto_emergencia_padecimientos,
+      contacto_emergencia_movil: employee.contacto_emergencia_movil,
+      id_puesto: employee.id_puesto,
+      ejecucion_administrativa: employee.ejecucion_administrativa,
+      id_departamento_empresa: employee.id_departamento_empresa,
+      id_subcategoria: employee.id_subcategoria,
+      id_turno: employee.id_turno,
+      id_ubicacion: employee.id_ubicacion,
+      fecha_ingreso: employee.fecha_ingreso,
+      tel_laboral: employee.tel_laboral,
+      email: employee.email,
+      id_empresa_rh: employee.id_empresa_rh,
+      sueldo: employee.sueldo,
+      fecha_pago: employee.fecha_pago,
+      id_banco: employee.id_banco,
+      numero_cuenta_bancaria: employee.numero_cuenta_bancaria,
+      clabe_inter_bancaria: employee.clabe_inter_bancaria,
+      usuario: employee.usuario,
+      password: employee.password,
+      id_estatus: employee.id_estatus,
+      numero_empleado: employee.numero_empleado,
+      id: employee.id,
+    });
+
+    this.isLoading = false;
   }
 
-  selectCity(event: any) {
-    const selectedValue = event.target.value;
 
-    this.citys = this.citysRespaldo.filter(
-      (x: { idpais: number }) => x.idpais == selectedValue
-    );
-  }
-  selectState(event: any) {
-    const selectedValue = event.target.value;
-
-    this.states = this.statesRespaldo.filter(
-      (x: { idciudad: number }) => x.idciudad == selectedValue
-    );
-  }
+ 
 }

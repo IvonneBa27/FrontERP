@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmployeeCreateComponent } from './employee-create/employee-create.component';
 import { AuthModule } from '../auth/auth.module';
 import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
+import { EmployeeShowComponent } from './employee-show/employee-show.component';
 
 
 
@@ -18,6 +19,7 @@ import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
     EmployeesListComponent,
     EmployeeCreateComponent,
     EmployeeEditComponent,
+    EmployeeShowComponent,
   ],
   imports: [
     CommonModule,

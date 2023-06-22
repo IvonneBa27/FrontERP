@@ -5,6 +5,7 @@ import { GeneralService } from 'src/app/services/general.service';
 import { Empresa } from 'src/app/models/empresa.model';
 import { StorageService } from 'src/app/services/storage.service';
 import { Router } from '@angular/router';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-employees-list',
@@ -72,7 +73,7 @@ export class EmployeesListComponent implements OnInit {
       .searchEmployees(this.company, this.paramSerach)
       .subscribe((res) => {
         console.log(res.data);
-        
+
         this.employees = res.data;
         this.isLoading = false;
       });
@@ -81,5 +82,25 @@ export class EmployeesListComponent implements OnInit {
   editEmployee(employee: any) {
     this._srvStorage.set('employee', employee);
     this.router.navigate([`/dashboard/empleyee-edit`]);
+  }
+
+  showEmployee(employee: any) {
+    this._srvStorage.set('employee', employee);
+    this.router.navigate([`/dashboard/empleyee-show`]);
+  }
+  deleteEmployee(idEmployee: any) {
+    this.isLoading = true;
+
+    this._srvEmployees.deleteEmployee(idEmployee).subscribe((res) => {
+      if (res.status == 'success') {
+        this._srvStorage.remove('employee');
+        swal.fire('Do It Right', res.msg, 'success');
+        this.getEmployees();
+        this.isLoading = false;
+      } else {
+        this.isLoading = false;
+        swal.fire('Do It Right', res.msg, 'error');
+      }
+    });
   }
 }

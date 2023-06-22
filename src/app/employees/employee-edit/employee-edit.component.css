@@ -12,3 +12,7 @@
 .red-icon {
     border-color: #dc3545;
 }
+
+.justify-content-end {
+    padding-right: 20px;
+}

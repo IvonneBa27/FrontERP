@@ -55,4 +55,19 @@ export class EmployeesService {
 
     return this.http.post(URL, data, { headers }).pipe(map((res) => res));
   }
+
+  deleteEmployee(id: number): Observable<any>{
+    const URL = this.baseUrl + 'employees/delete';
+    const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Authorization', token);
+
+    const params = new HttpParams().set('id', id);
+
+    return this.http
+      .get(URL, { headers: headers, params: params })
+      .pipe(map((res) => res));
+  }
 }

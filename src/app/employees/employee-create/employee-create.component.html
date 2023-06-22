@@ -1,6 +1,11 @@
 <loading *ngIf="isLoading">{{ isLoading }}</loading>
 
+<div class="row justify-content-end">
+    <h4 class="card-title"><a class="btn btn-primary" [routerLink]="['/dashboard/list']"
+            value=""><i class="mdi mdi-playlist-check"></i> Listado de empleados</a></h4>
+</div>
 <div class="row">
+    
     <form action="" [formGroup]="employeeForm" id="usersForm" (submit)="createEmployee()">
         <div class="col-12">
             <div class="card">
@@ -103,8 +108,8 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">País *</label>
-                                <select name="" class="form-control" id="" formControlName="id_pais" [class.red-icon]="this.employeeForm.get('id_pais')?.invalid && this.employeeForm.get('id_pais')?.touched ">
-                                    <option value=""></option>
+                                <select name="" [(ngModel)]="country" class="form-control" id="" (change)="selectCity($event)" formControlName="id_pais" [class.red-icon]="this.employeeForm.get('id_pais')?.invalid && this.employeeForm.get('id_pais')?.touched ">
+                                    <option value="0"></option>
                                     <option [value]="country.idpais" *ngFor="let country of countrys">{{ country.pais }}
                                     </option>
                                 </select>
@@ -113,7 +118,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Entidad *</label>
-                                <select name="" class="form-control" id="" [(ngModel)]="city" formControlName="id_estado" [class.red-icon]="this.employeeForm.get('id_estado')?.invalid && this.employeeForm.get('id_estado')?.touched ">
+                                <select name="" class="form-control" id="" [(ngModel)]="city" (change)="selectState($event)" formControlName="id_estado" [class.red-icon]="this.employeeForm.get('id_estado')?.invalid && this.employeeForm.get('id_estado')?.touched ">
                                     <option value=""></option>
                                     <option [value]="city.idciudad" *ngFor="let city of citys">{{ city.ciudad }}
                                     </option>

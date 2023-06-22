@@ -7,6 +7,7 @@ import { EmployeesListComponent } from './employees-list/employees-list.componen
 import { PagesComponent } from '../pages/pages.component';
 import { EmployeeCreateComponent } from './employee-create/employee-create.component';
 import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
+import { EmployeeShowComponent } from './employee-show/employee-show.component';
 
 
 
@@ -37,6 +38,12 @@ const routes: Routes = [
         path: 'empleyee-edit',
         component: EmployeeEditComponent,
         data: { titulo: 'Editar empleado' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'empleyee-show',
+        component: EmployeeShowComponent,
+        data: { titulo: 'Detalle empleado' },
         canActivate: [AccesoGuard],
       },
     ],

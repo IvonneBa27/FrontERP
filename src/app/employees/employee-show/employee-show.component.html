@@ -1,11 +1,11 @@
 <loading *ngIf="isLoading">{{ isLoading }}</loading>
 <div class="row justify-content-end">
-    <h4 class="card-title" ><a class="btn btn-primary" [routerLink]="['/dashboard/list']"
-            value=""><i class="mdi mdi-playlist-check"></i> Listado de empleados</a></h4>
+    <h4 class="card-title"><a class="btn btn-primary" [routerLink]="['/dashboard/list']" value=""><i
+                class="mdi mdi-playlist-check"></i> Listado de empleados</a></h4>
 
 </div>
 <div class="row">
-    <form action="" [formGroup]="employeeForm" id="usersForm" (submit)="editEmployee()">
+    <form action="" [formGroup]="employeeForm" id="usersForm">
         <div class="col-12">
             <div class="card">
                 <h5 class="card-header primary">Datos personales</h5>
@@ -15,22 +15,22 @@
                             <div class="form-group">
                                 <label class="control-label">Apellido Paterno *</label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
-                                    formControlName="apellido_pat"
-                                    [class.red-icon]="this.employeeForm.get('apellido_pat')?.invalid && this.employeeForm.get('apellido_pat')?.touched ">
+                                   readonly formControlName="apellido_pat"
+                                    >
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Apellido materno</label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
-                                    formControlName="apellido_mat">
+                                   readonly formControlName="apellido_mat" readonly>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Nombre(s) *</label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
-                                    formControlName="nombre"
+                                   readonly formControlName="nombre"
                                     [class.red-icon]="this.employeeForm.get('nombre')?.invalid && this.employeeForm.get('nombre')?.touched ">
                             </div>
                         </div>
@@ -38,7 +38,7 @@
                             <div class="form-group">
                                 <label class="control-label">Fecha de nacimiento *</label>
                                 <input type="date" id="firstName" class="form-control" placeholder=""
-                                    formControlName="fecha_nacimiento"
+                                   readonly formControlName="fecha_nacimiento"
                                     [class.red-icon]="this.employeeForm.get('fecha_nacimiento')?.invalid && this.employeeForm.get('fecha_nacimiento')?.touched ">
                             </div>
                         </div>
@@ -46,21 +46,21 @@
                             <div class="form-group">
                                 <label class="control-label">RFC</label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
-                                    formControlName="rfc">
+                                   readonly formControlName="rfc">
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">CURP *</label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
-                                    formControlName="curp"
+                                   readonly formControlName="curp"
                                     [class.red-icon]="this.employeeForm.get('curp')?.invalid && this.employeeForm.get('curp')?.touched ">
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Género *</label>
-                                <select name="" class="form-control" id="" formControlName="id_sexo"
+                                <select name="" class="form-control" id=""readonly formControlName="id_sexo"
                                     [class.red-icon]="this.employeeForm.get('id_sexo')?.invalid && this.employeeForm.get('id_sexo')?.touched ">
                                     <option value=""></option>
                                     <option [value]="gender.id" *ngFor="let gender of genders">{{ gender.nombre }}
@@ -71,7 +71,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Estado civil *</label>
-                                <select name="" class="form-control" id="" formControlName="id_estado_civil"
+                                <select name="" class="form-control" id=""readonly formControlName="id_estado_civil"
                                     [class.red-icon]="this.employeeForm.get('id_estado_civil')?.invalid && this.employeeForm.get('id_estado_civil')?.touched ">
                                     <option value=""></option>
                                     <option [value]="civilstatus.id" *ngFor="let civilstatus of civilstatuses">{{
@@ -82,7 +82,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Nacionalidad *</label>
-                                <select name="" class="form-control" id="" formControlName="nacionalidad"
+                                <select name="" class="form-control" id=""readonly formControlName="nacionalidad"
                                     [class.red-icon]="this.employeeForm.get('nacionalidad')?.invalid && this.employeeForm.get('nacionalidad')?.touched ">
                                     <option value=""></option>
                                     <option [value]="country.idpais" *ngFor="let country of countrys">{{ country.pais }}
@@ -93,14 +93,14 @@
                             <div class="form-group">
                                 <label class="control-label">NSS </label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
-                                    formControlName="nss">
+                                   readonly formControlName="nss">
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Numero de empleado *</label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
-                                    formControlName="numero_empleado"
+                                   readonly formControlName="numero_empleado"
                                     [class.red-icon]="this.employeeForm.get('numero_empleado')?.invalid && this.employeeForm.get('numero_empleado')?.touched ">
                             </div>
                         </div>
@@ -116,8 +116,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">País *</label>
-                                <select name="" class="form-control" id="" formControlName="id_pais" (change)="selectCity($event)"
-                                    [class.red-icon]="this.employeeForm.get('id_pais')?.invalid && this.employeeForm.get('id_pais')?.touched ">
+                                <select name="" class="form-control" id=""readonly formControlName="id_pais">
                                     <option value=""></option>
                                     <option [value]="country.idpais" *ngFor="let country of countrys">{{ country.pais }}
                                     </option>
@@ -128,8 +127,7 @@
                             <div class="form-group">
                                 <label class="control-label">Entidad *</label>
                                 <select name="" class="form-control" id="" [(ngModel)]="city"
-                                    formControlName="id_estado" (change)="selectState($event)"
-                                    [class.red-icon]="this.employeeForm.get('id_estado')?.invalid && this.employeeForm.get('id_estado')?.touched ">
+                                   readonly formControlName="id_estado">
                                     <option value=""></option>
                                     <option [value]="city.idciudad" *ngFor="let city of citys">{{ city.ciudad }}
                                     </option>
@@ -139,8 +137,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Municipio / Alcaldía *</label>
-                                <select name="" class="form-control" id="" formControlName="id_municipio"
-                                    [class.red-icon]="this.employeeForm.get('id_municipio')?.invalid && this.employeeForm.get('id_municipio')?.touched ">
+                                <select name="" class="form-control" id=""readonly formControlName="id_municipio">
                                     <option value=""></option>
                                     <option [value]="state.iddelegacion" *ngFor="let state of states">{{
                                         state.delegacion }}
@@ -152,45 +149,44 @@
                             <div class="form-group">
                                 <label class="control-label">Colonia </label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
-                                    formControlName="colonia">
+                                   readonly formControlName="colonia">
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Calle *</label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
-                                    formControlName="calle"
-                                    [class.red-icon]="this.employeeForm.get('calle')?.invalid && this.employeeForm.get('calle')?.touched ">
+                                   readonly formControlName="calle">
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">No. Exterior *</label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
-                                    formControlName="no_ext"
-                                    [class.red-icon]="this.employeeForm.get('no_ext')?.invalid && this.employeeForm.get('no_ext')?.touched ">
+                                   readonly formControlName="no_ext"
+                                    >
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">No. Interior </label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
-                                    formControlName="no_int">
+                                   readonly formControlName="no_int">
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Código postal *</label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
-                                    formControlName="cp"
-                                    [class.red-icon]="this.employeeForm.get('cp')?.invalid && this.employeeForm.get('cp')?.touched ">
+                                   readonly formControlName="cp"
+                                    >
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Referencia</label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
-                                    formControlName="referencia">
+                                   readonly formControlName="referencia">
                             </div>
                         </div>
                     </div>
@@ -206,16 +202,16 @@
                             <div class="form-group">
                                 <label class="control-label">Tel. movil personal *</label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
-                                    formControlName="tel_personal"
-                                    [class.red-icon]="this.employeeForm.get('tel_personal')?.invalid && this.employeeForm.get('tel_personal')?.touched ">
+                                   readonly formControlName="tel_personal"
+                                    >
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Email personal *</label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
-                                    formControlName="email_personal"
-                                    [class.red-icon]="this.employeeForm.get('email_personal')?.invalid && this.employeeForm.get('email_personal')?.touched ">
+                                   readonly formControlName="email_personal"
+                                    >
                             </div>
                         </div>
                     </div>
@@ -231,14 +227,14 @@
                             <div class="form-group">
                                 <label class="control-label">Nombre completo</label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
-                                    formControlName="contacto_emergencia_nombre">
+                                   readonly formControlName="contacto_emergencia_nombre">
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Parentesco</label>
                                 <select name="" class="form-control" id=""
-                                    formControlName="contacto_emergencia_parentesco">
+                                   readonly formControlName="contacto_emergencia_parentesco">
                                     <option value=""></option>
                                     <option [value]="relationship.id" *ngFor="let relationship of relationships">{{
                                         relationship.nombre }}</option>
@@ -249,14 +245,14 @@
                             <div class="form-group">
                                 <label class="control-label">Tel. fijo del contacto</label>
                                 <input type="text" id="firstName" class="form-control" maxlength="10" placeholder=""
-                                    formControlName="contacto_emergencia_telefono">
+                                   readonly formControlName="contacto_emergencia_telefono">
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Tipo de sangre</label>
                                 <select name="" class="form-control" id=""
-                                    formControlName="contacto_emergencia_tip_sangre">
+                                   readonly formControlName="contacto_emergencia_tip_sangre">
                                     <option value=""></option>
                                     <option [value]="typeBlood.id" *ngFor="let typeBlood of typeBloods">{{
                                         typeBlood.nombre
@@ -268,14 +264,14 @@
                             <div class="form-group">
                                 <label class="control-label">Padecimiento preexistentes</label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
-                                    formControlName="contacto_emergencia_padecimientos">
+                                   readonly formControlName="contacto_emergencia_padecimientos">
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Tel movil del contacto</label>
                                 <input type="text" id="firstName" class="form-control" maxlength="10" placeholder=""
-                                    formControlName="contacto_emergencia_movil">
+                                   readonly formControlName="contacto_emergencia_movil">
                             </div>
                         </div>
                     </div>
@@ -290,7 +286,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Puesto</label>
-                                <select name="" class="form-control" id="" formControlName="id_puesto">
+                                <select name="" class="form-control" id=""readonly formControlName="id_puesto">
                                     <option value=""></option>
                                     <option [value]="stall.id" *ngFor="let stall of stalls">{{ stall.nombre }}</option>
                                 </select>
@@ -299,7 +295,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Ejecución administrativa</label>
-                                <select name="" class="form-control" id="" formControlName="ejecucion_administrativa">
+                                <select name="" class="form-control" id=""readonly formControlName="ejecucion_administrativa">
                                     <option value=""></option>
                                     <option [value]="administrative_execution.id"
                                         *ngFor="let administrative_execution of administrative_executions">{{
@@ -310,7 +306,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Departamento</label>
-                                <select name="" class="form-control" id="" formControlName="id_departamento_empresa">
+                                <select name="" class="form-control" id=""readonly formControlName="id_departamento_empresa">
                                     <option value=""></option>
                                     <option [value]="department.id" *ngFor="let department of departments">{{
                                         department.nombre }}</option>
@@ -321,7 +317,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Categoría</label>
-                                <select name="" class="form-control" id="" formControlName="id_subcategoria">
+                                <select name="" class="form-control" id=""readonly formControlName="id_subcategoria">
                                     <option value=""></option>
                                     <option [value]="categorye.id" *ngFor="let categorye of categoryes">{{
                                         categorye.nombre }}</option>
@@ -332,7 +328,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Turno</label>
-                                <select name="" class="form-control" id="" formControlName="id_turno">
+                                <select name="" class="form-control" id=""readonly formControlName="id_turno">
                                     <option value=""></option>
                                     <option [value]="shift.id" *ngFor="let shift of shifts">{{
                                         shift.nombre }}</option>
@@ -343,7 +339,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Ubicación de trabajo</label>
-                                <select name="" class="form-control" id="" formControlName="id_ubicacion">
+                                <select name="" class="form-control" id=""readonly formControlName="id_ubicacion">
 
                                     <option value=""></option>
                                     <option [value]="location.id" *ngFor="let location of locations">{{
@@ -355,21 +351,21 @@
                             <div class="form-group">
                                 <label class="control-label">Fecha de ingreso</label>
                                 <input type="date" id="firstName" class="form-control" placeholder=""
-                                    formControlName="fecha_ingreso">
+                                   readonly formControlName="fecha_ingreso">
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Tel. movil laboral</label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
-                                    formControlName="tel_laboral">
+                                   readonly formControlName="tel_laboral">
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Email laboral</label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
-                                    formControlName="email">
+                                   readonly formControlName="email">
                             </div>
                         </div>
 
@@ -385,7 +381,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Empresa pago</label>
-                                <select name="" class="form-control" id="" formControlName="id_empresa_rh">
+                                <select name="" class="form-control" id=""readonly formControlName="id_empresa_rh">
                                     <option value=""></option>
                                     <option [value]="company.id" *ngFor="let company of companys">{{ company.nombre }}
                                     </option>
@@ -396,13 +392,13 @@
                             <div class="form-group">
                                 <label class="control-label">Sueldo</label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
-                                    formControlName="sueldo">
+                                   readonly formControlName="sueldo">
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Fecha de pago</label>
-                                <select name="" class="form-control" id="" formControlName="fecha_pago">
+                                <select name="" class="form-control" id=""readonly formControlName="fecha_pago">
                                     <option value=""></option>
                                     <option value="7-22">7 - 22</option>
                                     <option value="15-30">15 - 30</option>
@@ -421,7 +417,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Banco</label>
-                                <select name="" id="" class="form-control" formControlName="id_banco">
+                                <select name="" id="" class="form-control"readonly formControlName="id_banco">
                                     <option value=""></option>
                                     <option [value]="bank.id" *ngFor="let bank of banks">{{ bank.nombre }} </option>
                                 </select>
@@ -431,14 +427,14 @@
                             <div class="form-group">
                                 <label class="control-label">No. cuenta</label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
-                                    formControlName="numero_cuenta_bancaria">
+                                   readonly formControlName="numero_cuenta_bancaria">
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">CLABE interbancaria</label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
-                                    formControlName="clabe_inter_bancaria">
+                                   readonly formControlName="clabe_inter_bancaria">
                             </div>
                         </div>
                     </div>
@@ -454,51 +450,32 @@
                             <div class="form-group">
                                 <label class="control-label">Usuario *</label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
-                                    formControlName="usuario"
-                                    [class.red-icon]="this.employeeForm.get('usuario')?.invalid && this.employeeForm.get('usuario')?.touched ">
+                                   readonly formControlName="usuario"
+                                    >
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Contraseña *</label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
-                                    formControlName="password"
-                                    [class.red-icon]="this.employeeForm.get('password')?.invalid && this.employeeForm.get('password')?.touched ">
+                                   readonly formControlName="password"
+                                   >
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Estatus *</label>
-                                <select name="" class="form-control" id="" formControlName="id_estatus"
-                                    [class.red-icon]="this.employeeForm.get('id_estatus')?.invalid && this.employeeForm.get('id_estatus')?.touched ">
+                                <select name="" class="form-control" id=""readonly formControlName="id_estatus"
+                                   >
                                     <option value=""></option>
                                     <option [value]="statu.id" *ngFor="let statu of status">{{ statu.nombre }}</option>
                                 </select>
                             </div>
                         </div>
-                        <!-- <div class="col-4">
-                            <div class="form-group">
-                                <label class="control-label">Tipo de usuario *</label>
-                                <select name="" class="form-control" id="" formControlName="id_tipo_usuario">
-                                    <option value=""></option>
-                                    <option [value]="tipoUsuario.id" *ngFor="let tipoUsuario of userTypes">{{ tipoUsuario.nombre }}</option>
-                                </select>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <div mat-dialog-actions class="btn-create">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-                        <button class="btn btn-warning">Cancelar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </form>
 </div>

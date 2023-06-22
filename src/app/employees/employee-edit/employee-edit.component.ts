@@ -71,6 +71,8 @@ export class EmployeeEditComponent implements OnInit {
   userTypes: TipoUsuario[] = [];
   administrative_executions: EjecucionAdministrativa[] = [];
 
+  citysRespaldo: Ciudades[] = [];
+  statesRespaldo: Delegaciones[] = [];
   constructor(
     private _srvStorage: StorageService,
     private formBuilder: FormBuilder,
@@ -142,13 +144,13 @@ export class EmployeeEditComponent implements OnInit {
       this.genders = res[11].data;
       this.countrys = res[8].data;
 
-      const citys = res[9].data;
-      this.citys = citys.filter(
+      this.citysRespaldo = res[9].data;
+      this.citys = this.citysRespaldo.filter(
         (x: { idpais: number }) => x.idpais == this.country
       );
 
-      const states = res[10].data;
-      this.states = states.filter(
+      this.statesRespaldo = res[10].data;
+      this.states = this.statesRespaldo.filter(
         (x: { idciudad: number }) => x.idciudad == this.city
       );
 
@@ -239,5 +241,20 @@ export class EmployeeEditComponent implements OnInit {
           swal.fire('Do It Right', res.msg, 'error');
         }
       });
+  }
+
+  selectCity(event: any) {
+    const selectedValue = event.target.value;
+
+    this.citys = this.citysRespaldo.filter(
+      (x: { idpais: number }) => x.idpais == selectedValue
+    );
+  }
+  selectState(event: any) {
+    const selectedValue = event.target.value;
+
+    this.states = this.statesRespaldo.filter(
+      (x: { idciudad: number }) => x.idciudad == selectedValue
+    );
   }
 }
