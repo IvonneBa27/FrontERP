@@ -874,6 +874,12 @@ export class UserservicesService {
           return this.http.post(URL, data, { headers }).pipe(map((res) => res));
 
         }
+
+        /*getListIncomeStore(){
+
+        }*/
+
+
   
 
     
