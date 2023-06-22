@@ -878,7 +878,6 @@ export class UserservicesService {
 
         }
 
-<<<<<<< HEAD
         //Lista de Ingresos a Almacen
         getListIncomeStore(): Observable<any> {
           const URL = this.baseUrl + 'incomeStores/getListIncomeStore';
