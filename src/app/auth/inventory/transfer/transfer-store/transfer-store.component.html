@@ -1,4 +1,4 @@
-<loading *ngIf="isLoading">{{ isLoading }}</loading>
+<!--<loading *ngIf="isLoading">{{ isLoading }}</loading>
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -53,7 +53,7 @@
                             </div>
 
 
-                         <!-- Inicio Tabla de productos  Detalle de Ingreso Almacen-->
+                         
                          <table class="table">
                             <thead class="table-dark">
                                 <tr>
@@ -70,11 +70,7 @@
                                     <tr *ngFor="let listprod of productDetail | paginate: { itemsPerPage: numPag, currentPage: p, totalItems: totalReg }">
             
                                         <td> 
-                                           
-                                            <!--<div class="form-check">
-                                                 <input type="checkbox" [(ngModel)]="listprod.isChecked" name="something"(change)="changeSelection()" value="{{listprod.product_name}}" [ngModelOptions]="{standalone: true}">
-                                                <label class ="form-check-label" for="checkbox">#</label>
-                                            </div>-->
+                                        
 
                                             <div class="checkbox checkbox-primary p-t-0">
                                                 <input id="checkbox-create-{{listprod.idDet}}" type="checkbox" [(ngModel)]="listprod.isChecked" name="something" (change)="changeSelection()" value="{{listprod.product_name}}" [ngModelOptions]="{standalone: true}">
@@ -144,3 +140,4 @@
         </div>
     </div>
 </div>
+-->

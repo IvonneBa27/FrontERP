@@ -878,6 +878,7 @@ export class UserservicesService {
 
         }
 
+<<<<<<< HEAD
         //Lista de Ingresos a Almacen
         getListIncomeStore(): Observable<any> {
           const URL = this.baseUrl + 'incomeStores/getListIncomeStore';
@@ -912,6 +913,11 @@ export class UserservicesService {
           return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
       
         }
+=======
+        /*getListIncomeStore(){
+
+        }*/
+>>>>>>> origin/dev_transferStore
 
 
   
