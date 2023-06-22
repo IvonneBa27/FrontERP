@@ -1,0 +1,146 @@
+<loading *ngIf="isLoading">{{ isLoading }}</loading>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+              <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="homeInventory()"
+                        value=""><i class="mdi mdi-keyboard-backspace"></i> Regresar</button></h4>
+              <form (submit)="transferir()" >
+                    <fieldset class="scheduler-border">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <legend class="scheduler-border"><h4 class="card-title;  font-weight-bold" > Traspaso Almacén</h4></legend>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label">Almacén Origen:</label> 
+                            </div>              
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <select class="form-control" id="idorigin"  (change)="obtIdOrigin()" >
+                                    <option value="0">Seleccionar un Almacén</option>
+                                    <option [value]="item.id" *ngFor="let item of  incomeStore">{{item.nameStore}} </option>
+                                </select>  
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label">Almacén Destino:</label> 
+                            </div>              
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <select class="form-control" id="iddestiny" (change)="obtIdDestiny()">
+                                    <option [value]="item.id" *ngFor="let item of  storeSecction">{{item.nameStore}}</option>
+                                </select>  
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <h4 class="card-title" style="text-align: end;"><button class="btn btn-success" (click)="ListProduct()"
+                                value=""><i class="mdi mdi-tooltip-outline-plus"></i> Continuar </button></h4>
+                        </div>
+
+                           
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <legend class="scheduler-border"><h4 class="card-title;  font-weight-bold" > Productos a Traspasar</h4></legend>
+                                </div>
+                            </div>
+
+
+                         <!-- Inicio Tabla de productos  Detalle de Ingreso Almacen-->
+                         <table class="table">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Item</th>
+                                    <th>Producto</th>
+                                    <th>Sku</th>
+                                    <th>Marca</th>
+                                    <th>Unidad de medida</th>
+                                    <th>N. Serie</th>
+                                </tr>
+                            </thead>
+                                <tbody>
+                                    <tr *ngFor="let listprod of productDetail | paginate: { itemsPerPage: numPag, currentPage: p, totalItems: totalReg }">
+            
+                                        <td> 
+                                           
+                                            <!--<div class="form-check">
+                                                 <input type="checkbox" [(ngModel)]="listprod.isChecked" name="something"(change)="changeSelection()" value="{{listprod.product_name}}" [ngModelOptions]="{standalone: true}">
+                                                <label class ="form-check-label" for="checkbox">#</label>
+                                            </div>-->
+
+                                            <div class="checkbox checkbox-primary p-t-0">
+                                                <input id="checkbox-create-{{listprod.idDet}}" type="checkbox" [(ngModel)]="listprod.isChecked" name="something" (change)="changeSelection()" value="{{listprod.product_name}}" [ngModelOptions]="{standalone: true}">
+                                                <label for="checkbox-create-{{listprod.idDet}}"></label>
+                                            </div>
+                                        </td>
+                                        <td>{{listprod.idDet }}</td>
+                                        <td>{{listprod.product_name}}</td>
+                                        <td>{{listprod.sku}}</td>
+                                        <td>{{listprod.brand_name}}</td>
+                                        <td>Pieza</td>
+                                        <td>{{listprod.serial_number}}</td>
+                                     </tr>
+                                </tbody>
+                            </table>
+                            <pagination-controls  [maxSize]="maxSize"   [directionLinks]="directionLinks" [autoHide]="autoHide"  [responsive]="responsive"  previousLabel="Anterior"  nextLabel="Siguiente" (pageChange)="p = $event" style="text-align: center;"></pagination-controls>
+                        
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <legend class="scheduler-border"><h4 class="card-title;  font-weight-bold" > Información del Traspaso</h4></legend>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <fieldset disabled>
+                                    <label class="control-label">Responsable: </label> 
+                                    </fieldset>
+                                </div>              
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">{{nombre_completo}}</label> 
+             
+                                </div>
+                            </div>
+                            <div class="col-md-3">  
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <fieldset disabled>
+                                    <label class="control-label">Observaciones: *</label> 
+                                    </fieldset>
+                                </div>              
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <textarea class="form-control" id="observations" rows="3"></textarea>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-3">  
+                            </div>
+                        </div>
+                        <div mat-dialog-actions class="btn-create botones">
+                            <button class="btn btn-warning" style="text-align: end;">Cancelar</button>
+    
+                            <button type="submit" class="btn btn-primary" style="text-align: end;">Agregar</button>
+    
+                        </div> 
+               
+                </fieldset>  
+                   
+               
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
