@@ -15,4 +15,8 @@ export class warehouse_entry {
     idIncome!:                    number;
     idStore!:                     number;
     idSecction!:                  number;
+    idbrand!:                     number;
+    idcategory!:                  number;
+    idsubcategory!:               number;
+    idproduct!:                   number;
 }

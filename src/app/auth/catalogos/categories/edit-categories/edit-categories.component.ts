@@ -33,6 +33,7 @@ export class EditCategoriesComponent {
     });
 
     this.id_categorie = this.activatedRoute.snapshot.paramMap.get('id');
+    this.isLoading = true;
     this._servicesuser.getCategoriebyId(this.id_categorie).subscribe((res) => {
       this.categories = res.data;
   
@@ -52,6 +53,7 @@ export class EditCategoriesComponent {
    setForm() {
     this.categoriesForm.controls['name'].setValue(this.categories.name);
     this.categoriesForm.controls['id_status'].setValue(this.categories.id_status);
+    this.isLoading = false;
   }
 
   ListCategories() {
@@ -60,7 +62,7 @@ export class EditCategoriesComponent {
   }
 
   UpdateCategories() {
-    this.isLoading = true;
+   
     const name = this.categoriesForm.value['name'];
     const id_status = this.categoriesForm.value['id_status'];
 
@@ -86,7 +88,7 @@ export class EditCategoriesComponent {
     }
 
   });
-  this.isLoading = false;
+ 
 
  
   }

@@ -32,6 +32,7 @@ export class SeeCategoriesComponent {
     });
 
     this.id_categorie = this.activatedRoute.snapshot.paramMap.get('id');
+    this.isLoading = true;
     this._servicesuser.getCategoriebyId(this.id_categorie).subscribe((res) => {
       this.categories = res.data;
   
@@ -51,6 +52,8 @@ export class SeeCategoriesComponent {
    setForm() {
     this.categoriesForm.controls['name'].setValue(this.categories.name);
     this.categoriesForm.controls['id_status'].setValue(this.categories.id_status);
+    
+    this.isLoading = false;
   }
 
   ListCategories() {

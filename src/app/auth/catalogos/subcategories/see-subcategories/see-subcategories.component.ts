@@ -39,6 +39,8 @@ export class SeeSubcategoriesComponent {
   });
 
   this.id_subcategorie = this.activatedRoute.snapshot.paramMap.get('id');
+  
+  this.isLoading = true;
   this._servicesuser.getSubCategoriebyId(this.id_subcategorie).subscribe((res) => {
     this.subcategories = res.data;
 
@@ -60,20 +62,21 @@ export class SeeSubcategoriesComponent {
   this.subcategoriesForm.controls['id_category'].setValue(this.subcategories.id_category);
   this.subcategoriesForm.controls['id_status'].setValue(this.subcategories.id_status);
   this.subcategoriesForm.controls['sku_indispensable'].setValue(this.subcategories.sku_indispensable);
+  this.isLoading = false;
 }
 
 
 
 seeSubCategories() {
 
-  this.isLoading = true;
+
 
   const name = this.subcategoriesForm.value['name'];
   const id_category = this.subcategoriesForm.value['id_category'];
   const status = this.subcategoriesForm.value['id_status'];
   const sku_indispensable = this.subcategoriesForm.value['sku_indispensable'];
 
-  this.isLoading = false;
+  
 
 
 }

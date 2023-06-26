@@ -44,6 +44,7 @@ export class EditBrandComponent {
 
 
     this.id_brand = this.activatedRoute.snapshot.paramMap.get('id');
+    this.isLoading = true;
     this._servicesuser.getBrandbyId(this.id_brand).subscribe((res) => {
 
       this.brand = res.data;
@@ -81,11 +82,11 @@ export class EditBrandComponent {
     this.brandsForm.controls['name'].setValue(this.brand.name);
     this.brandsForm.controls['id_subcategory'].setValue(this.brand.id_subcategory);
     this.brandsForm.controls['id_status'].setValue(this.brand.id_status);
-   
+    this.isLoading = false;
   }
 
   updateBrand() {
-    this.isLoading = true;
+   
     const name = this.brandsForm.value['name'];
 
     const id_subcategory = this.brandsForm.value['id_subcategory'];
@@ -114,7 +115,7 @@ export class EditBrandComponent {
       }
 
     });
-    this.isLoading = false;
+   
 
 
 

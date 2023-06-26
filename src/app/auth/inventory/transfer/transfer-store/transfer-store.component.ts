@@ -9,6 +9,7 @@ import { warehouse_entry } from 'src/app/models/warehouse_entry.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { GeneralService } from 'src/app/services/general.service';
 import { StorageService } from 'src/app/services/storage.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-transfer-store',
@@ -24,9 +25,15 @@ export class TransferStoreComponent {
   idIncome: any;
   idStoreO: any;
   idSecctionO: any;
+  idBrand: any;
+  idCategory: any;
+  idSubcategory: any;
+  idProduct: any;
   idStoreD: any;
   idSecctionD: any;
+  id_transfer_store: any;
   nombre_completo: any;
+  iduser: any;
   p: number = 1;
   numPag: number = 50;
   totalReg: number = 0;
@@ -40,6 +47,10 @@ export class TransferStoreComponent {
   id: any;
   selectedItemsList : product_detail_warehouse_entry[] = [];
   checkedIDs: any [] = [];
+  totalAmount: any;
+  totalReceived: any;
+  idStatus: any;
+  observation: any;
 
 
 
@@ -54,63 +65,108 @@ export class TransferStoreComponent {
   ) {
 
     this.nombre_completo = this._srvStorage.get('nombre_completo');
+    this.iduser = this._srvStorage.get('user_id');
+
+    console.log(this.nombre_completo);
+    console.log(this.iduser);
 
     this._servicesuser.getListIncomeStore().subscribe(respuesta => {
       this.isLoading = true;
       this.incomeStore = respuesta.data;
-
-    
-
-
+      console.log(this.incomeStore);
       this.isLoading = false;
+
     });
 
     this._servicesuser.getListStoreSecction().subscribe(respuesta => {
       this.isLoading = true;
       this.storeSecction = respuesta.data;
-
+      console.log(this.storeSecction);
       this.isLoading = false;
 
     });
 
   }
 
-  obtIdOrigin() {
-    this._srvStorage.set('idStore', this.incomeStore[0].idStore);
-    this._srvStorage.set('idSecction', this.incomeStore[0].idSecction);
 
 
-    this.idStoreO = this._srvStorage.get('idStore');
-    this.idSecctionO = this._srvStorage.get('idSecction');
+  obtIdOrigin(event: any) {
+    const selectedValue = event.target.value;
+    console.log(selectedValue);
+    console.log(this.incomeStore);
+
+    this.idStoreO = this.incomeStore[selectedValue].idStore
+    this.idSecctionO = this.incomeStore[selectedValue].idSecction;
+    this.idBrand = this.incomeStore[selectedValue].idbrand;
+    this.idCategory = this.incomeStore[selectedValue].idcategory;
+    this.idSubcategory = this.incomeStore[selectedValue].idsubcategory;
+    this.idProduct = this.incomeStore[selectedValue].idproduct;
+
+  console.log(this.idStoreO);
+  console.log(this.idSecctionO);
+  console.log(this.idBrand);
+  console.log(this.idCategory);
+  console.log(this.idSubcategory);
+  console.log(this.idProduct);
+    
 
   }
 
-  obtIdDestiny() {
+  obtIdDestiny(event: any) {
+    const selectedValue = event.target.value;
 
-    this._srvStorage.set('idStore', this.storeSecction[0].idStore);
-    this._srvStorage.set('idSecction', this.storeSecction[0].idSecction);
+    console.log(selectedValue);
+    console.log(this.storeSecction);
+    this.idStoreD = this.storeSecction[selectedValue].idStore
+    this.idSecctionD = this.storeSecction[selectedValue].idSecction
 
-
-    this.idStoreD = this._srvStorage.get('idStore');
-    this.idSecctionD = this._srvStorage.get('idSecction');
+    console.log(this.idStoreD);
+    console.log(this.idSecctionD);
 
   }
 
-  doSomething(event:any){
-  
-    if(event.target.checked==true){
-      console.log('checkbox is checked');
-    }
-    else{
-      console.log('checkbox is unchecked');
-    }
+  createTransferStore(){
+    const body ={
+      store_origin_id : this.idStoreO,
+      section_origin_id : this.idSecctionO,
+      store_destiny_id : this.idStoreD, 
+      section_destiny_id : this.idSecctionD,
+      category_id: this.idCategory,
+      subcategory_id : this.idSubcategory,
+      brand_id : this.idBrand,
+      user_id: this.iduser,
+
+
+    };
+    this._servicesuser.createTransferStore(body).subscribe(res => {
+      //console.log(res);
+      if (res.status == 'success') {
+       // swal.fire('Do It Right', res.message, 'success');
+       // this._serviceauth.createLog('Crear Transfer', 'CREATE').subscribe(() => { });
+        this._srvStorage.set('id_transfer_store', res['data']['id']);
+
+        this.id_transfer_store = this._srvStorage.get('id_transfer_store');
+
+        console.log('Id Transfer');
+        console.log(this.id_transfer_store);
+
+        this.ListProduct();
+      }
+
+      else {
+       // swal.fire('Do It Right', res.msg, 'error');
+      }
+    });
+
+
+
   }
+
 
   ListProduct() {
-    //this._servicesuser. getIncomeStoryDetailbyId(this.idIncome).subscribe(respuesta => {
+
     this._servicesuser.getListIncomeProduct(this.idStoreO, this.idSecctionO).subscribe(respuesta => {
       this.isLoading = true;
-      //this.productDetail = respuesta.data;
       for(let listproduct of respuesta.data) {
           let product = new product_detail_warehouse_entry();
           product.idDet = listproduct.idDet;
@@ -124,7 +180,13 @@ export class TransferStoreComponent {
       }
 
       console.log(this.productDetail);
+      this.totalAmount= (this.productDetail.length);
+      console.log(this.totalAmount);
+  
+
       this.isLoading = false;
+
+      
     });
   }
 
@@ -162,16 +224,73 @@ export class TransferStoreComponent {
 
 
 
-  transferir(){
+  createTransferDetailStore(){
     this.fetchCheckedIDs();
     console.log(this.selectedItemsList);
 
-    for(let idDeta of this.selectedItemsList){
-     
+
+
+    const data =[];
+    for(let transferDetail of this.selectedItemsList){
+      data.push({
+          id_transfer_store: this.id_transfer_store,
+          id_det:transferDetail.idDet,
+          product_id: transferDetail.product_id,
+          product_name: transferDetail.product_name,
+          brand_name: transferDetail.brand_name,
+          sku: transferDetail.sku,
+          serial_number: transferDetail.serial_number,
+      });
+      console.log('Body')
+      console.log(data)
 
     }
 
+    this.totalReceived = (this.selectedItemsList.length);
+    console.log(this.totalReceived);
+
+    this._servicesuser.createTransferDetailStore(data).subscribe(res => {
+     // console.log(res);
+   
+    });
+
+    this.updateTransferStore();
+
+
   }
+
+  updateTransferStore(){
+
+
+
+
+    if(this.totalAmount == this.totalReceived){
+       this.idStatus = 1;
+    }
+    else{
+       this.idStatus = 4;
+    }
+
+    const body ={
+      id: this.id_transfer_store,
+      amount: this.totalAmount,
+      total_received: this.totalReceived,
+      id_status: this.idStatus,
+      observation: this.observation,
+ 
+    };
+    this.isLoading = true;
+    this._servicesuser. updateTransferStore(body).subscribe(res => {
+      console.log(res);
+  
+  
+    });
+    this.isLoading = false;
+ 
+    this.homeInventory();
+  }
+
+
 
 
 

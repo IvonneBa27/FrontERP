@@ -144,7 +144,7 @@ export class CreateSupplierComponent  {
       tel_trabajo: tel_trabajo,
       ext: ext,
       puesto: puesto,
-      idestatus : idestatus,
+      idestatus : 1,
    
 
     };

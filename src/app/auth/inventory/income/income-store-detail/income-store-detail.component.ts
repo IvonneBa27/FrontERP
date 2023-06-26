@@ -365,6 +365,7 @@ UpdateobservationsIncome(){
 
   });
   this.isLoading = false;
+  this.homeInventory();
   
 }
 

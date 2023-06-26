@@ -38,6 +38,7 @@ export class EditSubcategoriesComponent {
   });
 
   this.id_subcategorie = this.activatedRoute.snapshot.paramMap.get('id');
+  this.isLoading = true;
   this._servicesuser.getSubCategoriebyId(this.id_subcategorie).subscribe((res) => {
     this.subcategories = res.data;
 
@@ -60,6 +61,7 @@ export class EditSubcategoriesComponent {
   this.subcategoriesForm.controls['id_category'].setValue(this.subcategories.id_category);
   this.subcategoriesForm.controls['id_status'].setValue(this.subcategories.id_status);
   this.subcategoriesForm.controls['sku_indispensable'].setValue(this.subcategories.sku_indispensable);
+  this.isLoading = false;
 }
 
 ListSubCategories() {
@@ -69,7 +71,7 @@ ListSubCategories() {
 }
 
 updateSubCategories() {
-  this.isLoading = true;
+ 
 
   const name = this.subcategoriesForm.value['name'];
   const id_category = this.subcategoriesForm.value['id_category'];
@@ -101,7 +103,7 @@ updateSubCategories() {
     }
 
   });
-  this.isLoading = false;
+
 
 }
 

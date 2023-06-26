@@ -1,11 +1,11 @@
-<!--<loading *ngIf="isLoading">{{ isLoading }}</loading>
+<loading *ngIf="isLoading">{{ isLoading }}</loading>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
               <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="homeInventory()"
                         value=""><i class="mdi mdi-keyboard-backspace"></i> Regresar</button></h4>
-              <form (submit)="transferir()" >
+              <form>
                     <fieldset class="scheduler-border">
                     <div class="row">
                         <div class="col-md-12">
@@ -20,9 +20,9 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <select class="form-control" id="idorigin"  (change)="obtIdOrigin()" >
+                                <select class="form-control" id="idorigin"  (change)="obtIdOrigin($event)" >
                                     <option value="0">Seleccionar un Almacén</option>
-                                    <option [value]="item.id" *ngFor="let item of  incomeStore">{{item.nameStore}} </option>
+                                    <option [value]="i" *ngFor="let item of  incomeStore; let i = index;">{{item.nameStore}} </option>
                                 </select>  
                             </div>
                         </div>
@@ -35,13 +35,13 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <select class="form-control" id="iddestiny" (change)="obtIdDestiny()">
-                                    <option [value]="item.id" *ngFor="let item of  storeSecction">{{item.nameStore}}</option>
+                                <select class="form-control" id="iddestiny" (change)="obtIdDestiny($event)">
+                                    <option [value]="i" *ngFor="let item of  storeSecction; let i = index;">{{item.nameStore}}</option>
                                 </select>  
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <h4 class="card-title" style="text-align: end;"><button class="btn btn-success" (click)="ListProduct()"
+                            <h4 class="card-title" style="text-align: end;"><button class="btn btn-success" (click)="createTransferStore()"
                                 value=""><i class="mdi mdi-tooltip-outline-plus"></i> Continuar </button></h4>
                         </div>
 
@@ -118,7 +118,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <textarea class="form-control" id="observations" rows="3"></textarea>
+                                    <textarea class="form-control" id="observations" rows="3" placeholder=" " [(ngModel)]="observation" [ngModelOptions]="{standalone:true}"></textarea>
                                     
                                 </div>
                             </div>
@@ -128,7 +128,7 @@
                         <div mat-dialog-actions class="btn-create botones">
                             <button class="btn btn-warning" style="text-align: end;">Cancelar</button>
     
-                            <button type="submit" class="btn btn-primary" style="text-align: end;">Agregar</button>
+                            <button type="submit" class="btn btn-primary" style="text-align: end;" (click)="createTransferDetailStore()">Agregar</button>
     
                         </div> 
                
@@ -140,4 +140,4 @@
         </div>
     </div>
 </div>
--->
+

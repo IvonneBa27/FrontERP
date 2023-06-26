@@ -841,7 +841,6 @@ export class UserservicesService {
           const headers = new HttpHeaders().set('Accept', 'application/json');
           return this.http.post(URL, data, { headers }).pipe(map((res) => res));
         
-        
         }
 
         getIncomeStoryDetailbyId(id: any): Observable<any> {
@@ -912,6 +911,56 @@ export class UserservicesService {
           return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
       
         }
+
+ 
+
+        
+         createTransferStore(data: {store_origin_id: any; section_origin_id: any; store_destiny_id: any; section_destiny_id: any; category_id: any; subcategory_id: any; brand_id: any; user_id: any; }): Observable<any> {
+          const URL = this.baseUrl + 'transferStore/create';
+      
+          const headers = new HttpHeaders().set('Accept', 'application/json');
+          return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+        
+        }
+
+        updateTransferStore(data: {
+          amount:any;
+          total_received:any;
+          id_status:any;
+          observation:any;  
+          id: string | null;
+        }): Observable<any> {
+          const URL = this.baseUrl + 'transferStore/update';
+      
+          const headers = new HttpHeaders().set('Accept', 'application/json');
+          return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+
+        }
+
+        createTransferDetailStore(
+          body : {
+ 
+            id_transfer_store:number;
+            id_det: any;
+            product_id: any;
+            product_name: any;
+            brand_name: any,
+            sku: any;
+            serial_number:any,
+ 
+        }[]
+
+        ): Observable<any> {
+          const URL = this.baseUrl + 'transferDetailStore/create';
+          const headers = new HttpHeaders().set('Accept', 'application/json');
+  
+
+          return this.http.post(URL, body, { headers }).pipe(map((res) => res));
+        
+        
+        }
+
+        
 
 
   

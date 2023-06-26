@@ -260,9 +260,8 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Estatus</label>
-                                    <select class="form-control" id="idestatus" formControlName="idestatus">
-                                    <option [value]="item.id" *ngFor="let item of Estatus">{{item.nombre}}</option>
-                                </select>
+                                   <br>
+                                    <input type="text" style="text-transform:uppercase;" id="idestatus" class="form-control" placeholder="ACTIVO" value="1" formControlName="idestatus">
                                 </div>
                             </div>
                 </div>
