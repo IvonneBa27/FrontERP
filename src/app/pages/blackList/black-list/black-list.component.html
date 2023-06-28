@@ -39,8 +39,8 @@
                                         <td>{{ employee.date }}</td>
                                         <td>{{ employee.name }} {{ employee.apellido_pat }} {{ employee.apellido_mat }}</td>
                                         <td>{{ employee.curp }}</td>
-                                        <td>{{ employee.id_cause }}</td>
-                                        <td>{{ employee.id_reasons }}</td>
+                                        <td>{{ employee.cause!.name }}</td>
+                                        <td>{{ employee.reasons!.name }}</td>
                                         <td>{{ employee.description }}</td>
                                         <td class="actions">
                                             <a class="link-options" (click)="editEmployee(employee)"><i

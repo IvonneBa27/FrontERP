@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BlackList } from 'src/app/models/blackList.model';
 import { BlackListService } from 'src/app/services/black-list.service';
+import { StorageService } from 'src/app/services/storage.service';
 import swal from 'sweetalert2';
 import * as XLSX from 'xlsx';
 @Component({
@@ -24,7 +26,11 @@ export class BlackListComponent implements OnInit {
   public responsive: boolean = true;
 
   fileName = 'Lista Negra.xlsx';
-  constructor(private _srvBlackList: BlackListService) {}
+  constructor(
+    private _srvBlackList: BlackListService,
+    private _srvStorage: StorageService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getBlackList();
@@ -36,6 +42,9 @@ export class BlackListComponent implements OnInit {
     this._srvBlackList.getBlackList().subscribe((res) => {
       if (res.status == 'success') {
         this.employees = res.data;
+
+        console.log(this.employees);
+        
       }
 
       this.isLoading = false;
@@ -51,7 +60,10 @@ export class BlackListComponent implements OnInit {
     });
   }
 
-  editEmployee(item: any) {}
+  editEmployee(employee: any) {
+    this._srvStorage.set('blackListRegister', employee);
+    this.router.navigate([`/dashboard/black-list-edit`]);
+  }
 
   deleteEmployee(item: any) {
     swal

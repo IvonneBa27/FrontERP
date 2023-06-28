@@ -31,6 +31,7 @@ import { AuthModule } from '../auth/auth.module';
 import { BlackListComponent } from './blackList/black-list/black-list.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BlackListCreateComponent } from './blackList/black-list-create/black-list-create.component';
+import { BlackListEditComponent } from './blackList/black-list-edit/black-list-edit.component';
 
 const materialModules = [
   MatButtonModule,
@@ -59,6 +60,7 @@ const materialModules = [
     CreateUserComponent,
     BlackListComponent,
     BlackListCreateComponent,
+    BlackListEditComponent,
   ],
   exports: [
     DashboardComponent,

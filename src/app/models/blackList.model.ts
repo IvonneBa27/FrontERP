@@ -12,4 +12,12 @@ export class BlackList {
   id_user?: number;
   created_at?: Date;
   updated_at?: Date;
+  reasons!: General;
+  cause!: General;
+}
+
+
+export class General {
+  id!: number;
+  name!: string;
 }

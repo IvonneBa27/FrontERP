@@ -83,6 +83,7 @@ import { IncomeStoreDetailComponent } from '../auth/inventory/income/income-stor
 import { TransferStoreComponent } from '../auth/inventory/transfer/transfer-store/transfer-store.component';
 import { BlackListComponent } from './blackList/black-list/black-list.component';
 import { BlackListCreateComponent } from './blackList/black-list-create/black-list-create.component';
+import { BlackListEditComponent } from './blackList/black-list-edit/black-list-edit.component';
 
 
 
@@ -582,7 +583,12 @@ const routes: Routes = [
         data: { titulo: 'Crear registro de lista negra' },
         canActivate: [AccesoGuard],
       },
-
+      {
+        path: 'black-list-edit',
+        component: BlackListEditComponent,
+        data: { titulo: 'Editar registro de lista negra' },
+        canActivate: [AccesoGuard],
+      },
       //   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
     ],
   },

@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { General } from 'src/app/models/general.model';
 import { BlackListService } from 'src/app/services/black-list.service';
 import { GeneralService } from 'src/app/services/general.service';
 import { StorageService } from 'src/app/services/storage.service';
 import swal from 'sweetalert2';
-
 @Component({
-  selector: 'app-black-list-create',
-  templateUrl: './black-list-create.component.html',
-  styleUrls: ['./black-list-create.component.css'],
+  selector: 'app-black-list-edit',
+  templateUrl: './black-list-edit.component.html',
+  styleUrls: ['./black-list-edit.component.css'],
 })
-export class BlackListCreateComponent implements OnInit {
+export class BlackListEditComponent implements OnInit {
   isLoading: boolean = false;
   employeeForm: FormGroup;
   causes: General[] = [];
@@ -23,9 +22,7 @@ export class BlackListCreateComponent implements OnInit {
     private _srvBlackList: BlackListService,
     private router: Router,
     private _srvStorage: StorageService
-
   ) {
-    
     const idUser = JSON.parse(this._srvStorage.get('user_id'));
     this.employeeForm = this.formBuilder.group({
       apellido_pat: new FormControl('', [Validators.required]),
@@ -38,33 +35,52 @@ export class BlackListCreateComponent implements OnInit {
       id_cause: new FormControl('', [Validators.required]),
       id_status: new FormControl('1'),
       id_user: new FormControl(idUser),
+      id: new FormControl(''),
     });
   }
 
   ngOnInit(): void {
-    this._srvGenera.gerReasons().subscribe((res) => {
-      console.log(res);
-      this.reasons = res.data;
-    });
-
-    this._srvGenera.getCauses().subscribe((res) => {
-      console.log(res);
-      this.causes = res.data;
+    this.isLoading = true;
+    this._srvGenera.catalogsBlackList().subscribe((res) => {
+      this.reasons = res[1].data;
+      this.causes = res[0].data;
+      this.setForm();
     });
   }
 
-  createRegistro() {
+  setForm() {
+    const blackList = JSON.parse(this._srvStorage.get('blackListRegister'));
+    const idUser = JSON.parse(this._srvStorage.get('user_id'));
+
+    this.employeeForm.patchValue({
+      apellido_pat: blackList.apellido_pat,
+      apellido_mat: blackList.apellido_mat,
+      name: blackList.name,
+      date: blackList.date,
+      description: blackList.description,
+      curp: blackList.curp,
+      id_reasons: blackList.id_reasons,
+      id_cause: blackList.id_cause,
+      id_status: blackList.id_status,
+      id_user: idUser,
+      id: blackList.id,
+    });
+    this.isLoading = false;
+  }
+
+  editarRegistro(){
     this.isLoading = true;
-    console.log(this.employeeForm.value);
-    this._srvBlackList.create(this.employeeForm.value).subscribe( res => {
+    this._srvBlackList.edit(this.employeeForm.value).subscribe(res => {
         if (res.status == 'success') {
-          this.isLoading = false;
+          this._srvStorage.remove('employee');
           swal.fire('Do It Right', res.msg, 'success');
-          this.router.navigate([`/dashboard/black-list`]);
-        } else { 
-          swal.fire('Do It Right', res.msg, 'error');
           this.isLoading = false;
+          this.router.navigate([`/dashboard/black-list`]);
+        } else {
+          this.isLoading = false;
+          swal.fire('Do It Right', res.msg, 'error');
         }
-    })    
+      
+    });
   }
 }

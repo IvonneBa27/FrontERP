@@ -61,4 +61,13 @@ export class BlackListService {
       .get(URL, { headers: headers, params: params })
       .pipe(map((res) => res));
   }
+
+  edit(data: any): Observable<any> {
+    const URL = this.baseUrl + 'blacklist/update';
+    // const token = 'Bearer ' + this.storageSrv.get('token');
+
+    const headers = new HttpHeaders().set('Accept', 'application/json');
+
+    return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+  }
 }

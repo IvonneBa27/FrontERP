@@ -1,0 +1,100 @@
+<loading *ngIf="isLoading">{{ isLoading }}</loading>
+
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title" style="text-align: end;"><a class="btn btn-primary"
+                        [routerLink]="['/dashboard/black-list']" value=""><i class="mdi mdi-playlist-check"></i>
+                        Listada negra</a>
+                </h4>
+                <form [formGroup]="employeeForm" (submit)="editarRegistro()">
+                    <div class="row">
+
+
+
+
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Apellido paterno *</label>
+                                <input type="text" id="firstName" class="form-control" placeholder=""
+                                    formControlName="apellido_pat"
+                                    [class.red-icon]="this.employeeForm.get('apellido_pat')?.invalid && this.employeeForm.get('apellido_pat')?.touched ">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Apellido materno</label>
+                                <input type="text" id="firstName" class="form-control" placeholder=""
+                                    formControlName="apellido_mat">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Nombre(s) *</label>
+                                <input type="text" id="firstName" class="form-control" placeholder=""
+                                    formControlName="name"
+                                    [class.red-icon]="this.employeeForm.get('name')?.invalid && this.employeeForm.get('name')?.touched ">
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">CURP </label>
+                                <input type="text" id="firstName" class="form-control" placeholder=""
+                                    formControlName="curp">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Motivo *</label>
+                                <select name="" class="form-control" id="" formControlName="id_reasons"
+                                    [class.red-icon]="this.employeeForm.get('id_reasons')?.invalid && this.employeeForm.get('id_reasons')?.touched ">
+                                    <option [value]="reasons.id" *ngFor="let reasons of reasons">{{reasons.name}}
+                                    </option>
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Causa *</label>
+                                <select name="" class="form-control" id="" formControlName="id_cause"
+                                    [class.red-icon]="this.employeeForm.get('id_cause')?.invalid && this.employeeForm.get('id_cause')?.touched ">
+                                    <option [value]="cause.id" *ngFor="let cause of causes">{{cause.name}}</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Fecha *</label>
+                                <input type="date" id="firstName" class="form-control" placeholder=""
+                                    formControlName="date"
+                                    [class.red-icon]="this.employeeForm.get('date')?.invalid && this.employeeForm.get('date')?.touched ">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="control-label">Observaciones </label>
+                                <textarea class="form-control" placeholder="" formControlName="description"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div mat-dialog-actions class="btn-create">
+                                <button type="submit" class="btn btn-primary"
+                                    [disabled]="employeeForm.invalid">Guardar</button>
+                                <button class="btn btn-warning">Cancelar</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

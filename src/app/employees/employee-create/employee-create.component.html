@@ -267,12 +267,12 @@
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">Ejecución administrativa</label>
-                                <select name="" class="form-control" id=""  formControlName="ejecucion_administrativa">
+                                <label class="control-label">Area</label>
+                                <select name="" class="form-control" id="" formControlName="id_subcategoria">
                                     <option value=""></option>
-                                    <option [value]="administrative_execution.id"
-                                        *ngFor="let administrative_execution of administrative_executions">{{
-                                        administrative_execution.nombre }}</option>
+                                    <option [value]="categorye.id" *ngFor="let categorye of categoryes">{{
+                                        categorye.nombre }}</option>
+                        
                                 </select>
                             </div>
                         </div>
@@ -289,15 +289,16 @@
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">Categoría</label>
-                                <select name="" class="form-control" id=""  formControlName="id_subcategoria">
+                                <label class="control-label">Ejecución administrativa</label>
+                                <select name="" class="form-control" id="" formControlName="ejecucion_administrativa">
                                     <option value=""></option>
-                                    <option [value]="categorye.id" *ngFor="let categorye of categoryes">{{
-                                        categorye.nombre }}</option>
-
+                                    <option [value]="administrative_execution.id"
+                                        *ngFor="let administrative_execution of administrative_executions">{{
+                                        administrative_execution.nombre }}</option>
                                 </select>
                             </div>
                         </div>
+                       
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Turno</label>

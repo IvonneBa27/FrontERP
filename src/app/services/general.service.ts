@@ -512,4 +512,15 @@ export class GeneralService {
       response18,
     ]);
   }
+
+  public catalogsBlackList(): Observable<any[]>{
+    let response1 = this.getCauses();
+    let response2 = this.gerReasons();
+
+    return forkJoin([
+      response1,
+      response2
+    ]);
+
+  }
 }
