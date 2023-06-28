@@ -329,6 +329,15 @@ export class ModulesService {
       delete: false,
       create: false,
     },
+    {
+      name: 'Lista negra',
+      id: 37,
+      show: false,
+      read: false,
+      edit: false,
+      delete: false,
+      create: false,
+    },
   ];
   constructor() {}
 }
