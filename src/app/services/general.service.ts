@@ -389,6 +389,27 @@ export class GeneralService {
     return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
   }
 
+  getCauses(): Observable<any> {
+    const URL = this.baseUrl + 'getCauses';
+    const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Authorization', token);
+
+    return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  }
+
+  gerReasons(): Observable<any> {
+    const URL = this.baseUrl + 'gerReasons';
+    const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Authorization', token);
+
+    return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  }
   public requestCatalogos(): Observable<any[]> {
     let response1 = this.getTipoUsuario();
     let response2 = this.getSexo();
@@ -490,5 +511,16 @@ export class GeneralService {
       response17,
       response18,
     ]);
+  }
+
+  public catalogsBlackList(): Observable<any[]>{
+    let response1 = this.getCauses();
+    let response2 = this.gerReasons();
+
+    return forkJoin([
+      response1,
+      response2
+    ]);
+
   }
 }

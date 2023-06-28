@@ -1,0 +1,71 @@
+<loading *ngIf="isLoading">{{ isLoading }}</loading>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-4 search-div">
+                        <input class="form-control" type="search" name="" id=""
+                            placeholder="No. Empleado, nombre, curp" [(ngModel)]="paramSerach">
+                            <button type="submit" class="btn btn-primary search-employees" (click)="serachEmployees()"><i
+                                class="mdi mdi-account-search"></i> </button>
+                        </div>
+
+                        
+                    <div class="col-8">
+                        <h4 class="card-title " style="text-align: end;">
+                            <button class="btn btn-primary" (click)="exportexcel()"><i class="mdi mdi-plus"></i> Exportar XLS</button>
+                            <a style="margin-left: 15px;" [routerLink]="['/dashboard/black-list-crate']"
+                                class="btn btn-primary"><i class="mdi mdi-plus"></i> Crear nuevo</a></h4>
+                    </div>
+                    <div class="col-12">
+                        <div class="table-responsive">
+                            <table class="table"  id="excel-table"> 
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Nombre completo</th>
+                                        <th>CURP</th>
+                                        <th>Motivo</th>
+                                        <th>Causa</th>
+                                        <th>Observaciones</th>
+                                        <th>Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr
+                                        *ngFor="let employee of employees | paginate: { itemsPerPage: numPag, currentPage: p, totalItems: totalReg }">
+                                        <td>{{ employee.date }}</td>
+                                        <td>{{ employee.name }} {{ employee.apellido_pat }} {{ employee.apellido_mat }}</td>
+                                        <td>{{ employee.curp }}</td>
+                                        <td>{{ employee.cause!.name }}</td>
+                                        <td>{{ employee.reasons!.name }}</td>
+                                        <td>{{ employee.description }}</td>
+                                        <td class="actions">
+                                            <a class="link-options" (click)="editEmployee(employee)"><i
+                                                    class="mdi mdi-pencil"></i></a>
+                                            <a class="link-options" (click)="deleteEmployee(employee.id)"><i
+                                                    class="mdi mdi-delete"></i></a>
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                                </tbody>
+                            </table>
+                            <pagination-controls [maxSize]="maxSize" [directionLinks]="directionLinks"
+                                [autoHide]="autoHide" [responsive]="responsive" previousLabel="Anterior"
+                                nextLabel="Siguiente" (pageChange)="p = $event"
+                                style="text-align: center;"></pagination-controls>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

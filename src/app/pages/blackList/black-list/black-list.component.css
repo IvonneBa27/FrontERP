@@ -1,0 +1,14 @@
+.search-employees {
+  height: 37px !important;
+  margin-left: 10px !important;
+}
+
+.search-div {
+  display: flex;
+}
+
+.link-options {
+  color: #745af2 !important;
+  cursor: pointer !important;
+  margin: 5px !important;
+}

@@ -81,16 +81,16 @@ export class EmployeeCreateComponent implements OnInit {
 
       id_pais: new FormControl('', [Validators.required]), // todo : add - database
       id_estado: new FormControl('', [Validators.required]), // todo : add - database
-      id_municipio: new FormControl('', [Validators.required]), // todo : add - database
+      id_municipio: new FormControl(''), // todo : add - database
       colonia: new FormControl(''), // todo : add - database
       calle: new FormControl('', [Validators.required]), // todo : add - database
-      no_ext: new FormControl('', [Validators.required]), // todo : add - database
+      no_ext: new FormControl(''), // todo : add - database
       no_int: new FormControl(''), // todo : add - database
-      cp: new FormControl('', [Validators.required]), // todo : add - database
+      cp: new FormControl(''), // todo : add - database
       referencia: new FormControl(''), // todo : add - database
 
-      tel_personal: new FormControl('', [Validators.required]), // todo : add - database
-      email_personal: new FormControl('', [Validators.required]),
+      tel_personal: new FormControl(''), // todo : add - database
+      email_personal: new FormControl(''),
 
       contacto_emergencia_nombre: new FormControl(''),
       contacto_emergencia_parentesco: new FormControl(''),

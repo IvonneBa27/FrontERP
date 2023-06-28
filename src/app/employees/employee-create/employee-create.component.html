@@ -127,8 +127,8 @@
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">Municipio / Alcaldía *</label>
-                                <select name="" class="form-control" id="" formControlName="id_municipio" [class.red-icon]="this.employeeForm.get('id_municipio')?.invalid && this.employeeForm.get('id_municipio')?.touched ">
+                                <label class="control-label">Municipio / Alcaldía </label>
+                                <select name="" class="form-control" id="" formControlName="id_municipio" >
                                     <option value=""></option>
                                     <option [value]="state.iddelegacion" *ngFor="let state of states">{{
                                         state.delegacion }}
@@ -150,8 +150,8 @@
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">No. Exterior *</label>
-                                <input type="text" id="firstName" class="form-control" placeholder="" formControlName="no_ext" [class.red-icon]="this.employeeForm.get('no_ext')?.invalid && this.employeeForm.get('no_ext')?.touched "> 
+                                <label class="control-label">No. Exterior </label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" formControlName="no_ext"> 
                             </div>
                         </div>
                         <div class="col-4">
@@ -162,8 +162,8 @@
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">Código postal *</label>
-                                <input type="text" id="firstName" class="form-control" placeholder="" formControlName="cp" [class.red-icon]="this.employeeForm.get('cp')?.invalid && this.employeeForm.get('cp')?.touched ">
+                                <label class="control-label">Código postal </label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" formControlName="cp" >
                             </div>
                         </div>
                         <div class="col-4">
@@ -183,14 +183,14 @@
                     <div class="row">
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">Tel. movil personal *</label>
-                                <input type="text" id="firstName" class="form-control" placeholder="" formControlName="tel_personal" [class.red-icon]="this.employeeForm.get('tel_personal')?.invalid && this.employeeForm.get('tel_personal')?.touched ">
+                                <label class="control-label">Tel. movil personal </label>
+                                <input type="text" id="firstName" class="form-control" maxlength="10" placeholder="" formControlName="tel_personal" >
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">Email personal *</label>
-                                <input type="text" id="firstName" class="form-control" placeholder="" formControlName="email_personal" [class.red-icon]="this.employeeForm.get('email_personal')?.invalid && this.employeeForm.get('email_personal')?.touched ">
+                                <label class="control-label">Email personal </label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" formControlName="email_personal" >
                             </div>
                         </div>
                     </div>
@@ -267,12 +267,12 @@
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">Ejecución administrativa</label>
-                                <select name="" class="form-control" id=""  formControlName="ejecucion_administrativa">
+                                <label class="control-label">Area</label>
+                                <select name="" class="form-control" id="" formControlName="id_subcategoria">
                                     <option value=""></option>
-                                    <option [value]="administrative_execution.id"
-                                        *ngFor="let administrative_execution of administrative_executions">{{
-                                        administrative_execution.nombre }}</option>
+                                    <option [value]="categorye.id" *ngFor="let categorye of categoryes">{{
+                                        categorye.nombre }}</option>
+                        
                                 </select>
                             </div>
                         </div>
@@ -289,15 +289,16 @@
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">Categoría</label>
-                                <select name="" class="form-control" id=""  formControlName="id_subcategoria">
+                                <label class="control-label">Ejecución administrativa</label>
+                                <select name="" class="form-control" id="" formControlName="ejecucion_administrativa">
                                     <option value=""></option>
-                                    <option [value]="categorye.id" *ngFor="let categorye of categoryes">{{
-                                        categorye.nombre }}</option>
-
+                                    <option [value]="administrative_execution.id"
+                                        *ngFor="let administrative_execution of administrative_executions">{{
+                                        administrative_execution.nombre }}</option>
                                 </select>
                             </div>
                         </div>
+                       
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Turno</label>

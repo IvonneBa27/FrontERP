@@ -13,7 +13,7 @@
                     <div class="row">
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">Apellido Paterno *</label>
+                                <label class="control-label">Apellido Paterno </label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
                                    readonly formControlName="apellido_pat"
                                     >
@@ -28,7 +28,7 @@
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">Nombre(s) *</label>
+                                <label class="control-label">Nombre(s) </label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
                                    readonly formControlName="nombre"
                                     [class.red-icon]="this.employeeForm.get('nombre')?.invalid && this.employeeForm.get('nombre')?.touched ">
@@ -36,7 +36,7 @@
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">Fecha de nacimiento *</label>
+                                <label class="control-label">Fecha de nacimiento </label>
                                 <input type="date" id="firstName" class="form-control" placeholder=""
                                    readonly formControlName="fecha_nacimiento"
                                     [class.red-icon]="this.employeeForm.get('fecha_nacimiento')?.invalid && this.employeeForm.get('fecha_nacimiento')?.touched ">
@@ -51,7 +51,7 @@
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">CURP *</label>
+                                <label class="control-label">CURP </label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
                                    readonly formControlName="curp"
                                     [class.red-icon]="this.employeeForm.get('curp')?.invalid && this.employeeForm.get('curp')?.touched ">
@@ -59,7 +59,7 @@
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">Género *</label>
+                                <label class="control-label">Género </label>
                                 <select name="" class="form-control" id=""readonly formControlName="id_sexo"
                                     [class.red-icon]="this.employeeForm.get('id_sexo')?.invalid && this.employeeForm.get('id_sexo')?.touched ">
                                     <option value=""></option>
@@ -70,7 +70,7 @@
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">Estado civil *</label>
+                                <label class="control-label">Estado civil </label>
                                 <select name="" class="form-control" id=""readonly formControlName="id_estado_civil"
                                     [class.red-icon]="this.employeeForm.get('id_estado_civil')?.invalid && this.employeeForm.get('id_estado_civil')?.touched ">
                                     <option value=""></option>
@@ -81,7 +81,7 @@
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">Nacionalidad *</label>
+                                <label class="control-label">Nacionalidad </label>
                                 <select name="" class="form-control" id=""readonly formControlName="nacionalidad"
                                     [class.red-icon]="this.employeeForm.get('nacionalidad')?.invalid && this.employeeForm.get('nacionalidad')?.touched ">
                                     <option value=""></option>
@@ -98,7 +98,7 @@
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">Numero de empleado *</label>
+                                <label class="control-label">Numero de empleado </label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
                                    readonly formControlName="numero_empleado"
                                     [class.red-icon]="this.employeeForm.get('numero_empleado')?.invalid && this.employeeForm.get('numero_empleado')?.touched ">
@@ -115,7 +115,7 @@
                     <div class="row">
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">País *</label>
+                                <label class="control-label">País </label>
                                 <select name="" class="form-control" id=""readonly formControlName="id_pais">
                                     <option value=""></option>
                                     <option [value]="country.idpais" *ngFor="let country of countrys">{{ country.pais }}
@@ -125,7 +125,7 @@
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">Entidad *</label>
+                                <label class="control-label">Entidad </label>
                                 <select name="" class="form-control" id="" [(ngModel)]="city"
                                    readonly formControlName="id_estado">
                                     <option value=""></option>
@@ -136,7 +136,7 @@
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">Municipio / Alcaldía *</label>
+                                <label class="control-label">Municipio / Alcaldía </label>
                                 <select name="" class="form-control" id=""readonly formControlName="id_municipio">
                                     <option value=""></option>
                                     <option [value]="state.iddelegacion" *ngFor="let state of states">{{
@@ -154,14 +154,14 @@
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">Calle *</label>
+                                <label class="control-label">Calle </label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
                                    readonly formControlName="calle">
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">No. Exterior *</label>
+                                <label class="control-label">No. Exterior </label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
                                    readonly formControlName="no_ext"
                                     >
@@ -176,7 +176,7 @@
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">Código postal *</label>
+                                <label class="control-label">Código postal </label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
                                    readonly formControlName="cp"
                                     >
@@ -200,7 +200,7 @@
                     <div class="row">
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">Tel. movil personal *</label>
+                                <label class="control-label">Tel. movil personal </label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
                                    readonly formControlName="tel_personal"
                                     >
@@ -208,7 +208,7 @@
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">Email personal *</label>
+                                <label class="control-label">Email personal </label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
                                    readonly formControlName="email_personal"
                                     >
@@ -292,17 +292,17 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-4">
-                            <div class="form-group">
-                                <label class="control-label">Ejecución administrativa</label>
-                                <select name="" class="form-control" id=""readonly formControlName="ejecucion_administrativa">
-                                    <option value=""></option>
-                                    <option [value]="administrative_execution.id"
-                                        *ngFor="let administrative_execution of administrative_executions">{{
-                                        administrative_execution.nombre }}</option>
-                                </select>
-                            </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label class="control-label">Area</label>
+                            <select name="" class="form-control" id="" readonly formControlName="id_subcategoria">
+                                <option value=""></option>
+                                <option [value]="categorye.id" *ngFor="let categorye of categoryes">{{
+                                    categorye.nombre }}</option>
+                    
+                            </select>
                         </div>
+                    </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Departamento</label>
@@ -316,15 +316,16 @@
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">Categoría</label>
-                                <select name="" class="form-control" id=""readonly formControlName="id_subcategoria">
+                                <label class="control-label">Ejecución administrativa</label>
+                                <select name="" class="form-control" id="" readonly formControlName="ejecucion_administrativa">
                                     <option value=""></option>
-                                    <option [value]="categorye.id" *ngFor="let categorye of categoryes">{{
-                                        categorye.nombre }}</option>
-
+                                    <option [value]="administrative_execution.id"
+                                        *ngFor="let administrative_execution of administrative_executions">{{
+                                        administrative_execution.nombre }}</option>
                                 </select>
                             </div>
                         </div>
+                        
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="control-label">Turno</label>
@@ -448,23 +449,16 @@
                     <div class="row">
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">Usuario *</label>
+                                <label class="control-label">Usuario</label>
                                 <input type="text" id="firstName" class="form-control" placeholder=""
                                    readonly formControlName="usuario"
                                     >
                             </div>
                         </div>
+                       
                         <div class="col-4">
                             <div class="form-group">
-                                <label class="control-label">Contraseña *</label>
-                                <input type="text" id="firstName" class="form-control" placeholder=""
-                                   readonly formControlName="password"
-                                   >
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="form-group">
-                                <label class="control-label">Estatus *</label>
+                                <label class="control-label">Estatus</label>
                                 <select name="" class="form-control" id=""readonly formControlName="id_estatus"
                                    >
                                     <option value=""></option>

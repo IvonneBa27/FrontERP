@@ -13,7 +13,6 @@ export class SidebarService {
           titulo: 'Dashboard',
           url: 'listado-grupos',
           roles: [{ name: 'Administrador' }],
-          
         },
       ],
     },
@@ -24,6 +23,11 @@ export class SidebarService {
         {
           titulo: 'Empleados',
           url: 'list',
+          roles: [{ name: 'Administrador' }],
+        },
+        {
+          titulo: 'Lista negra',
+          url: 'black-list',
           roles: [{ name: 'Administrador' }],
         },
         {
