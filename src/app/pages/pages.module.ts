@@ -28,6 +28,9 @@ import { AgentsListComponent } from './agents/agents-list/agents-list.component'
 import { LoadFileComponent } from './agents/load-file/load-file.component';
 import { CreateUserComponent } from '../auth/users/create-user/create-user.component';
 import { AuthModule } from '../auth/auth.module';
+import { BlackListComponent } from './blackList/black-list/black-list.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { BlackListCreateComponent } from './blackList/black-list-create/black-list-create.component';
 
 const materialModules = [
   MatButtonModule,
@@ -54,6 +57,8 @@ const materialModules = [
     AgentsListComponent,
     LoadFileComponent,
     CreateUserComponent,
+    BlackListComponent,
+    BlackListCreateComponent,
   ],
   exports: [
     DashboardComponent,
@@ -61,7 +66,6 @@ const materialModules = [
     PagesComponent,
     AccountSettingsComponent,
     materialModules,
-    
   ],
   imports: [
     CommonModule,
@@ -73,6 +77,7 @@ const materialModules = [
     ReactiveFormsModule,
     FileUploadModule,
     AuthModule,
+    NgxPaginationModule,
   ],
   entryComponents: [CreateGroupComponent],
 })

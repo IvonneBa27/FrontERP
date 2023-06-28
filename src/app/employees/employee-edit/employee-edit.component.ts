@@ -130,7 +130,6 @@ export class EmployeeEditComponent implements OnInit {
       clabe_inter_bancaria: new FormControl(''),
 
       usuario: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required]),
       id_estatus: new FormControl('', [Validators.required]),
       numero_empleado: new FormControl('', [Validators.required]),
     });
@@ -218,7 +217,6 @@ export class EmployeeEditComponent implements OnInit {
       numero_cuenta_bancaria: employee.numero_cuenta_bancaria,
       clabe_inter_bancaria: employee.clabe_inter_bancaria,
       usuario: employee.usuario,
-      password: employee.password,
       id_estatus: employee.id_estatus,
       numero_empleado: employee.numero_empleado,
       id: employee.id,
