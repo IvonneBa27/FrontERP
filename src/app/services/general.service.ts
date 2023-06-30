@@ -410,6 +410,19 @@ export class GeneralService {
 
     return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
   }
+  getTypeExit(): Observable<any> {
+    const URL = this.baseUrl + 'typeExit/get';
+    const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Authorization', token);
+
+    return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  }
+
+
+
   public requestCatalogos(): Observable<any[]> {
     let response1 = this.getTipoUsuario();
     let response2 = this.getSexo();
@@ -436,6 +449,7 @@ export class GeneralService {
     let response23 = this.getStores();
     let response24 = this.getTypeIncome();
     let response25 = this.getSupplier();
+    let response26 = this.getTypeExit();
 
     return forkJoin([
       response1,
@@ -463,6 +477,7 @@ export class GeneralService {
       response23,
       response24,
       response25,
+      response26,
     ]);
   }
 
@@ -523,4 +538,25 @@ export class GeneralService {
     ]);
 
   }
+
+  public catalogsInventory(): Observable<any[]>{
+    let response1 = this.getSecction();
+    let response2 = this.getStores();
+    let response3 = this.getTypeIncome();
+    let response4 = this.getTypeExit();
+    let response5 = this.getUsers();
+
+
+    return forkJoin([
+      response1,
+      response2,
+      response3,
+      response4,
+      response5,
+
+    ]);
+
+  }
+
+  
 }
