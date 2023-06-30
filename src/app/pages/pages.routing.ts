@@ -84,6 +84,8 @@ import { TransferStoreComponent } from '../auth/inventory/transfer/transfer-stor
 import { BlackListComponent } from './blackList/black-list/black-list.component';
 import { BlackListCreateComponent } from './blackList/black-list-create/black-list-create.component';
 import { BlackListEditComponent } from './blackList/black-list-edit/black-list-edit.component';
+import { ExitStoreComponent } from '../auth/inventory/exit/exit-store/exit-store.component';
+import { ExitStoreDetailComponent } from '../auth/inventory/exit/exit-store-detail/exit-store-detail.component';
 
 
 
@@ -587,6 +589,18 @@ const routes: Routes = [
         path: 'black-list-edit',
         component: BlackListEditComponent,
         data: { titulo: 'Editar registro de lista negra' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'exit-store',
+        component: ExitStoreComponent,
+        data: { titulo: 'Salida de Almacén' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'exit-store-detail/:id',
+        component: ExitStoreDetailComponent,
+        data: { titulo: 'Salida de Detalle de Almacén' },
         canActivate: [AccesoGuard],
       },
       //   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },

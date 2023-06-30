@@ -1,1 +1,106 @@
-<p>exit-store works!</p>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+              <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" 
+                        value=""><i class="mdi mdi-keyboard-backspace"></i> Regresar</button></h4>
+              <form  action="" [formGroup]="exitStoreForm" id="usersForm" (submit)="createStoreExit()">
+                    <fieldset class="scheduler-border">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <legend class="scheduler-border"><h4 class="card-title;  font-weight-bold" > Datos Principales</h4></legend>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label class="control-label">Almacén *:</label> 
+                            </div>              
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <select class="form-control" id="store_origin_id"  (change)="getStoreSecction($event)" formControlName="store_origin_id" [class.red-icon]="this.exitStoreForm.get('store_origin_id')?.invalid && this.exitStoreForm.get('store_origin_id')?.touched " >
+                                    <option value="0">Seleccionar un Almacén / Sección</option>
+                                    <option [value]="i" *ngFor="let item of  incomeStore; let i = index;">{{item.nameStore}} </option>
+                                </select>  
+                               
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label class="control-label">Tipo de Salida *:</label> 
+                            </div>              
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <select class="form-control" id="id_type_exit" formControlName="id_type_exit" [class.red-icon]="this.exitStoreForm.get('id_type_exit')?.invalid && this.exitStoreForm.get('authorized_id')?.touched " >
+                                        <option value="0">Seleccionar un Tipo de Salida</option>
+                                        <option [value]="item.id" *ngFor="let item of typeExit">{{item.name}}</option>         
+                                </select>
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label class="control-label">Creado por:</label> 
+                            </div>              
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                               <label class="control-label"> {{nombre_completo}}</label>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label class="control-label">Autorizado por *:</label> 
+                            </div>              
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <select class="form-control" id="authorized_id"  formControlName="authorized_id" [class.red-icon]="this.exitStoreForm.get('authorized_id')?.invalid && this.exitStoreForm.get('authorized_id')?.touched " >
+                                    <option value="0">Seleccionar Persona que Autorizada</option>
+                                    <option [value]="item.id" *ngFor="let item of users">{{item.nombre_completo}}</option>         
+                            </select>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                        </div>
+                
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label class="control-label">Persona que recibe *:</label> 
+                            </div>              
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <input type="text" id="person_who_receives" class="form-control" formControlName="person_who_receives" [class.red-icon]="this.exitStoreForm.get('person_who_receives')?.invalid && this.exitStoreForm.get('person_who_receives')?.touched " >
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                        </div>
+                   
+                   
+                    </div>
+                </fieldset>  
+                    <div mat-dialog-actions class="btn-create botones">
+                        <button class="btn btn-warning" style="text-align: end;">Cancelar</button>
+
+                        <button type="submit" class="btn btn-primary" style="text-align: end;" >Siguiente</button>
+
+                    </div> 
+               
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

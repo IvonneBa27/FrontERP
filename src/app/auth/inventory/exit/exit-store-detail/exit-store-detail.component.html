@@ -1,1 +1,191 @@
-<p>exit-store-detail works!</p>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+              <h4 class="card-title" style="text-align: end;"><button class="btn btn-primary" (click)="homeInventory()"
+                        value=""><i class="mdi mdi-keyboard-backspace"></i> Regresar</button></h4>
+                <!-- Inicio de Formulario de Datos principales de Ingreso Almacen-->
+                <fieldset class="scheduler-border">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <legend class="scheduler-border"><h4 class="card-title;  font-weight-bold" > Salida de Almacén</h4></legend>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                <label class="control-label">No. de Salida</label> 
+                                </fieldset>
+                            </div>              
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                <label class="control-label">{{this.id}} </label> 
+                            
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                <label class="control-label">Almacen: </label>
+                                </fieldset>
+                            </div>              
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                    <label class="control-label">{{storeDetail.name}} / {{secctionDetail.name}} </label> 
+                                 </fieldset>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                <label class="control-label">Tipo de Salida: </label> 
+                                </fieldset>
+                            </div>              
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                    <label class="control-label">{{typeStoreDetail.name}}</label> 
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                <label class="control-label">Creado por: </label> 
+                                </fieldset>
+                            </div>              
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                <label class="control-label">{{this.nombre_completo}}</label> 
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                <label class="control-label">Autorizado por: </label> 
+                                </fieldset>
+                            </div>              
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                    <label class="control-label">{{usersDetail.nombre_completo}}</label> 
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                    <label class="control-label">Recibirá: </label> 
+                                </fieldset>
+                            </div>              
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <fieldset disabled>
+                                    <label class="control-label">{{exitStore.person_who_receives}}</label> 
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="col-md-12">  
+                            <h4 class="card-title" style="text-align: end;"><button class="btn btn-success" (click)="ListProduct() "
+                                value=""><i class="mdi mdi-tooltip-outline-plus"></i> Continuar</button></h4>
+                 
+                        </div>
+                        
+            
+                    </div>
+                </fieldset>
+      
+            <!-- Fin de Formulario de Datos principales de Salida de Almacen-->
+                <fieldset class="scheduler-border">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <legend class="scheduler-border"><h4 class="card-title;  font-weight-bold" > Productos a retirar</h4></legend>
+                            </div>
+                        </div>
+                        <table class="table">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Item</th>
+                                    <th>Producto</th>
+                                    <th>Sku</th>
+                                    <th>Marca</th>
+                                    <th>Unidad de medida</th>
+                                    <th>N. Serie</th>
+                                </tr>
+                            </thead>
+                                <tbody>
+                                    <tr *ngFor="let listprod of productDetail | paginate: { itemsPerPage: numPag, currentPage: p, totalItems: totalReg }">
+            
+                                        <td> 
+                                        
+
+                                            <div class="checkbox checkbox-primary p-t-0">
+                                                <input id="checkbox-create-{{listprod.idDet}}" type="checkbox" [(ngModel)]="listprod.isChecked" name="something" (change)="changeSelection()"  value="{{listprod.product_name}}" [ngModelOptions]="{standalone: true}">
+                                                <label for="checkbox-create-{{listprod.idDet}}"></label>
+                                            </div>
+                                        </td>
+                                        <td>{{listprod.idDet }}</td>
+                                        <td>{{listprod.product_name}}</td>
+                                        <td>{{listprod.sku}}</td>
+                                        <td>{{listprod.brand_name}}</td>
+                                        <td>Pieza</td>
+                                        <td>{{listprod.serial_number}}</td>
+                                     </tr>
+                                </tbody>
+                            </table>
+                            <pagination-controls  [maxSize]="maxSize"   [directionLinks]="directionLinks" [autoHide]="autoHide"  [responsive]="responsive"  previousLabel="Anterior"  nextLabel="Siguiente" (pageChange)="p = $event" style="text-align: center;"></pagination-controls>
+                        
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <legend class="scheduler-border"><h4 class="card-title;  font-weight-bold" > Información del Traspaso</h4></legend>
+                                </div>
+                            </div>
+                            
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <fieldset disabled>
+                                    <label class="control-label">Observaciones: *</label> 
+                                    </fieldset>
+                                </div>              
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <textarea class="form-control" id="observations" rows="3" placeholder=" " [(ngModel)]="observations" [ngModelOptions]="{standalone:true}" ></textarea>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-3">  
+                            </div>
+                        </div>
+                        <div mat-dialog-actions class="btn-create botones">
+                            <button class="btn btn-warning" style="text-align: end;">Cancelar</button>
+    
+                            <button type="submit" class="btn btn-primary" style="text-align: end;"  (click)=" createExitSToreDetail()">Agregar</button>
+    
+                        </div> 
+
+
+
+             
+                </fieldset>
+
+            </div>
+        </div>
+    </div>
+</div>        

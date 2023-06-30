@@ -22,5 +22,9 @@ export class HomeInventoryComponent {
     this.router.navigateByUrl('/dashboard/transfer-store')
   }
 
+  StoreExit(){
+    this.router.navigateByUrl('/dashboard/exit-store')
+  }
+
 
 }
