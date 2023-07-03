@@ -20,8 +20,8 @@ export class HeaderComponent implements OnInit {
     private _srvAuth: AuthService
    
   ) {
-    this.nombrecompleto =this._srvStorage.get('nombre_completo');
-    this.email = this._srvStorage.get('email');
+    this.nombrecompleto = JSON.parse(this._srvStorage.get('nombre_completo'));
+    this.email = JSON.parse(this._srvStorage.get('email'));
     
   }
 

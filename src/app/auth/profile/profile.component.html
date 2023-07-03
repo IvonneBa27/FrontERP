@@ -1,0 +1,473 @@
+<loading *ngIf="isLoading">{{ isLoading }}</loading>
+
+<div class="row">
+    <form action="" [formGroup]="employeeForm" id="usersForm">
+        <div class="col-12">
+            <div class="card">
+                <h5 class="card-header primary">Datos personales</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Apellido Paterno </label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" readonly
+                                    formControlName="apellido_pat">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Apellido materno</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" readonly
+                                    formControlName="apellido_mat" readonly>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Nombre(s) </label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" readonly
+                                    formControlName="nombre"
+                                    [class.red-icon]="this.employeeForm.get('nombre')?.invalid && this.employeeForm.get('nombre')?.touched ">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Fecha de nacimiento </label>
+                                <input type="date" id="firstName" class="form-control" placeholder="" readonly
+                                    formControlName="fecha_nacimiento"
+                                    [class.red-icon]="this.employeeForm.get('fecha_nacimiento')?.invalid && this.employeeForm.get('fecha_nacimiento')?.touched ">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">RFC</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" readonly
+                                    formControlName="rfc">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">CURP </label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" readonly
+                                    formControlName="curp"
+                                    [class.red-icon]="this.employeeForm.get('curp')?.invalid && this.employeeForm.get('curp')?.touched ">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Género </label>
+                                <select name="" class="form-control" id="" readonly formControlName="id_sexo"
+                                    [class.red-icon]="this.employeeForm.get('id_sexo')?.invalid && this.employeeForm.get('id_sexo')?.touched ">
+                                    <option value=""></option>
+                                    <option [value]="gender.id" *ngFor="let gender of genders">{{ gender.nombre }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Estado civil </label>
+                                <select name="" class="form-control" id="" readonly formControlName="id_estado_civil"
+                                    [class.red-icon]="this.employeeForm.get('id_estado_civil')?.invalid && this.employeeForm.get('id_estado_civil')?.touched ">
+                                    <option value=""></option>
+                                    <option [value]="civilstatus.id" *ngFor="let civilstatus of civilstatuses">{{
+                                        civilstatus.nombre }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Nacionalidad </label>
+                                <select name="" class="form-control" id="" readonly formControlName="nacionalidad"
+                                    [class.red-icon]="this.employeeForm.get('nacionalidad')?.invalid && this.employeeForm.get('nacionalidad')?.touched ">
+                                    <option value=""></option>
+                                    <option [value]="country.idpais" *ngFor="let country of countrys">{{ country.pais }}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">NSS </label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" readonly
+                                    formControlName="nss">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Numero de empleado </label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" readonly
+                                    formControlName="numero_empleado"
+                                    [class.red-icon]="this.employeeForm.get('numero_empleado')?.invalid && this.employeeForm.get('numero_empleado')?.touched ">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <h5 class="card-header">Domicilio</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">País </label>
+                                <select name="" class="form-control" id="" readonly formControlName="id_pais">
+                                    <option value=""></option>
+                                    <option [value]="country.idpais" *ngFor="let country of countrys">{{ country.pais }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Entidad </label>
+                                <select name="" class="form-control" id="" [(ngModel)]="city" readonly
+                                    formControlName="id_estado">
+                                    <option value=""></option>
+                                    <option [value]="city.idciudad" *ngFor="let city of citys">{{ city.ciudad }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Municipio / Alcaldía </label>
+                                <select name="" class="form-control" id="" readonly formControlName="id_municipio">
+                                    <option value=""></option>
+                                    <option [value]="state.iddelegacion" *ngFor="let state of states">{{
+                                        state.delegacion }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Colonia </label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" readonly
+                                    formControlName="colonia">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Calle </label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" readonly
+                                    formControlName="calle">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">No. Exterior </label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" readonly
+                                    formControlName="no_ext">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">No. Interior </label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" readonly
+                                    formControlName="no_int">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Código postal </label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" readonly
+                                    formControlName="cp">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Referencia</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" readonly
+                                    formControlName="referencia">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <h5 class="card-header">Datos de contacto</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Tel. movil personal </label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" readonly
+                                    formControlName="tel_personal">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Email personal </label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" readonly
+                                    formControlName="email_personal">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <h5 class="card-header">Contacto de emergencia</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Nombre completo</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" readonly
+                                    formControlName="contacto_emergencia_nombre">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Parentesco</label>
+                                <select name="" class="form-control" id="" readonly
+                                    formControlName="contacto_emergencia_parentesco">
+                                    <option value=""></option>
+                                    <option [value]="relationship.id" *ngFor="let relationship of relationships">{{
+                                        relationship.nombre }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Tel. fijo del contacto</label>
+                                <input type="text" id="firstName" class="form-control" maxlength="10" placeholder=""
+                                    readonly formControlName="contacto_emergencia_telefono">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Tipo de sangre</label>
+                                <select name="" class="form-control" id="" readonly
+                                    formControlName="contacto_emergencia_tip_sangre">
+                                    <option value=""></option>
+                                    <option [value]="typeBlood.id" *ngFor="let typeBlood of typeBloods">{{
+                                        typeBlood.nombre
+                                        }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Padecimiento preexistentes</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" readonly
+                                    formControlName="contacto_emergencia_padecimientos">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Tel movil del contacto</label>
+                                <input type="text" id="firstName" class="form-control" maxlength="10" placeholder=""
+                                    readonly formControlName="contacto_emergencia_movil">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <h5 class="card-header">Datos laborales</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Puesto</label>
+                                <select name="" class="form-control" id="" readonly formControlName="id_puesto">
+                                    <option value=""></option>
+                                    <option [value]="stall.id" *ngFor="let stall of stalls">{{ stall.nombre }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Area</label>
+                                <select name="" class="form-control" id="" readonly formControlName="id_subcategoria">
+                                    <option value=""></option>
+                                    <option [value]="categorye.id" *ngFor="let categorye of categoryes">{{
+                                        categorye.nombre }}</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Departamento</label>
+                                <select name="" class="form-control" id="" readonly
+                                    formControlName="id_departamento_empresa">
+                                    <option value=""></option>
+                                    <option [value]="department.id" *ngFor="let department of departments">{{
+                                        department.nombre }}</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Ejecución administrativa</label>
+                                <select name="" class="form-control" id="" readonly
+                                    formControlName="ejecucion_administrativa">
+                                    <option value=""></option>
+                                    <option [value]="administrative_execution.id"
+                                        *ngFor="let administrative_execution of administrative_executions">{{
+                                        administrative_execution.nombre }}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Turno</label>
+                                <select name="" class="form-control" id="" readonly formControlName="id_turno">
+                                    <option value=""></option>
+                                    <option [value]="shift.id" *ngFor="let shift of shifts">{{
+                                        shift.nombre }}</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Ubicación de trabajo</label>
+                                <select name="" class="form-control" id="" readonly formControlName="id_ubicacion">
+
+                                    <option value=""></option>
+                                    <option [value]="location.id" *ngFor="let location of locations">{{
+                                        location.nombre }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Fecha de ingreso</label>
+                                <input type="date" id="firstName" class="form-control" placeholder="" readonly
+                                    formControlName="fecha_ingreso">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Tel. movil laboral</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" readonly
+                                    formControlName="tel_laboral">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Email laboral</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" readonly
+                                    formControlName="email">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <h5 class="card-header">Datos de nómina</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Empresa pago</label>
+                                <select name="" class="form-control" id="" readonly formControlName="id_empresa_rh">
+                                    <option value=""></option>
+                                    <option [value]="company.id" *ngFor="let company of companys">{{ company.nombre }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Sueldo</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" readonly
+                                    formControlName="sueldo">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Fecha de pago</label>
+                                <select name="" class="form-control" id="" readonly formControlName="fecha_pago">
+                                    <option value=""></option>
+                                    <option value="7-22">7 - 22</option>
+                                    <option value="15-30">15 - 30</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <h5 class="card-header">Datos cuenta bancaria</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Banco</label>
+                                <select name="" id="" class="form-control" readonly formControlName="id_banco">
+                                    <option value=""></option>
+                                    <option [value]="bank.id" *ngFor="let bank of banks">{{ bank.nombre }} </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">No. cuenta</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" readonly
+                                    formControlName="numero_cuenta_bancaria">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">CLABE interbancaria</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" readonly
+                                    formControlName="clabe_inter_bancaria">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <h5 class="card-header">Datos de acceso</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Usuario</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="" readonly
+                                    formControlName="usuario">
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="control-label">Estatus</label>
+                                <select name="" class="form-control" id="" readonly formControlName="id_estatus">
+                                    <option value=""></option>
+                                    <option [value]="statu.id" *ngFor="let statu of status">{{ statu.nombre }}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <p><strong>NOTA: </strong>En caso de tener alguna actualización o duda acércate al departamente de Capital Humano</p>
+        </div>
+            <div class="col-12">
+                <div mat-dialog-actions class="btn-create">
+                    <button class="btn btn-warning" (click)="back()">Regresar</button>
+                </div>
+            </div>
+    </form>
+</div>

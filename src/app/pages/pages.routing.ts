@@ -86,6 +86,8 @@ import { BlackListCreateComponent } from './blackList/black-list-create/black-li
 import { BlackListEditComponent } from './blackList/black-list-edit/black-list-edit.component';
 import { ExitStoreComponent } from '../auth/inventory/exit/exit-store/exit-store.component';
 import { ExitStoreDetailComponent } from '../auth/inventory/exit/exit-store-detail/exit-store-detail.component';
+import { RetrievePasswordComponent } from '../auth/retrieve-password/retrieve-password.component';
+import { ProfileComponent } from '../auth/profile/profile.component';
 
 
 
@@ -601,6 +603,18 @@ const routes: Routes = [
         path: 'exit-store-detail/:id',
         component: ExitStoreDetailComponent,
         data: { titulo: 'Salida de Detalle de Almacén' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'retrieve-password',
+        component: RetrievePasswordComponent,
+        data: { titulo: 'Cambiar contraseña' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'perfil',
+        component: ProfileComponent,
+        data: { titulo: 'Mi perfil' },
         canActivate: [AccesoGuard],
       },
       //   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },

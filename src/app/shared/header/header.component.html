@@ -31,12 +31,12 @@
             <!-- ============================================================== -->
             <ul class="navbar-nav mr-auto">
                 <!-- This is  -->
-              <!-- <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark"
+                <!-- <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark"
                         href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
                 <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down waves-effect waves-dark"
                         href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
                 <li class="nav-item hidden-sm-down"></li>
-                --> 
+                -->
             </ul>
             <!-- ============================================================== -->
             <!-- User profile and search -->
@@ -63,7 +63,7 @@
                     </a>-->
                     <div class="dropdown-menu dropdown-menu-right mailbox animated fadeIn fast">
                         <ul>
-                          <!-- <li>
+                            <!-- <li>
                                 <div class="drop-title">Notifications</div>
                             </li>-->
                             <li>
@@ -76,9 +76,9 @@
                                                 admin!</span> <span class="time">9:30 AM</span>
                                         </div>
                                     </a>
-                                    
-                                
-                                    
+
+
+
                                 </div>
                             </li>
                             <li>
@@ -95,20 +95,20 @@
                 <!-- Messages -->
                 <!-- ============================================================== -->
                 <li class="nav-item dropdown">
-                  <!--  <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown"
+                    <!--  <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-email"></i>
                         <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
                     </a>
                     -->
-                   <!-- <div class="dropdown-menu mailbox dropdown-menu-right animated fadeIn fast" aria-labelledby="2">
+                    <!-- <div class="dropdown-menu mailbox dropdown-menu-right animated fadeIn fast" aria-labelledby="2">
                         <ul>
                             <li>
                                 <div class="drop-title">You have 4 new messages</div>
                             </li>
                             <li>
                                 <div class="message-center">-->
-                                    <!-- Message -->
-                                   <!-- <a href="#">
+                    <!-- Message -->
+                    <!-- <a href="#">
                                         <div class="user-img"> <img src="./assets/images/users/image_profile.jpg" alt="user"
                                                 class="img-circle"> <span
                                                 class="profile-status online pull-right"></span> </div>
@@ -151,27 +151,30 @@
                 <!-- ============================================================== -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false"><img src="./assets/images/users/image_profile.jpg" alt="user"
-                            class="profile-pic" /></a>
+                        aria-haspopup="true" aria-expanded="false"><img src="./assets/images/users/image_profile.jpg"
+                            alt="user" class="profile-pic" /></a>
                     <div class="dropdown-menu dropdown-menu-right animated fadeIn fast">
                         <ul class="dropdown-user">
                             <li>
                                 <div class="dw-user-box">
-                                    <div class="u-img"><img src="./assets/images/users/image_profile.jpg" alt="user"></div>
+                                    <div class="u-img"><img src="./assets/images/users/image_profile.jpg" alt="user">
+                                    </div>
                                     <div class="u-text">
                                         <h4>{{nombrecompleto}}</h4>
-                                        <p class="text-muted">{{email}}</p><a href="pages-profile.html"
+                                        <p class="text-muted">{{email}}</p>
+                                        <a [routerLink]="['/dashboard/perfil']"
                                             class="btn btn-rounded btn-danger btn-sm">Ver Perfil</a>
                                     </div>
                                 </div>
                             </li>
                             <li role="separator" class="divider"></li>
-                            <!--<li><a href="#"><i class="ti-user"></i> My Profile</a></li>-->
+
+                            <li><a [routerLink]="['/dashboard/retrieve-password']" style="cursor: pointer;"><i class="fa fa-lock"
+                                        aria-hidden="true"></i> Cambiar contraseña</a></li>
 
                             <li role="separator" class="divider"></li>
-                            <!--<li><a routerLink="acount-settings"><i class="ti-settings"></i> Account Setting</a></li>-->
-                            <li role="separator" class="divider"></li>
-                            <li><a (click)="logout()" style="cursor: pointer;"><i class="fa fa-power-off"></i> Logout</a></li>
+                            <li><a (click)="logout()" style="cursor: pointer;"><i class="fa fa-power-off"></i> Cerrar
+                                    sesión</a></li>
                         </ul>
                     </div>
                 </li>

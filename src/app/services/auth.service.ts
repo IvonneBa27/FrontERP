@@ -142,4 +142,11 @@ export class AuthService {
       .get(URL, { headers: headers, params: params })
       .pipe(map((res) => res));
   }
+
+  retrievePassword(body: { id: any; password: any; }): Observable<any> {
+    const URL = this.baseUrl + 'user/retiervePassword';
+
+    const headers = new HttpHeaders().set('Accept', 'application/json');
+    return this.http.post(URL, body, { headers }).pipe(map((res) => res));
+  }
 }
