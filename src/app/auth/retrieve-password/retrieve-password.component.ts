@@ -11,6 +11,9 @@ import swal from 'sweetalert2';
 export class RetrievePasswordComponent implements OnInit {
   passwordsNotMatch: boolean = false;
   isLoading: boolean = false;
+  showPassword: boolean = false;
+  showPassword2: boolean = false;
+
   newPassword = new FormControl(null, [
     (c: AbstractControl) => Validators.required(c),
   ]);
@@ -26,7 +29,11 @@ export class RetrievePasswordComponent implements OnInit {
       validator: this.ConfirmedValidator('newPassword', 'confirmPassword'),
     }
   );
-  constructor(private fb: FormBuilder, private _srvStorage: StorageService, private _srvAuth: AuthService) {}
+  constructor(
+    private fb: FormBuilder,
+    private _srvStorage: StorageService,
+    private _srvAuth: AuthService
+  ) {}
 
   ngOnInit() {}
 
@@ -67,5 +74,13 @@ export class RetrievePasswordComponent implements OnInit {
     // if (!this.resetPasswordForm?.valid) {
     //   return;
     // }
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+
+  togglePasswordVisibility2() {
+    this.showPassword2 = !this.showPassword2;
   }
 }
