@@ -7,6 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./home-inventory.component.css']
 })
 export class HomeInventoryComponent {
+  inventory:any;
+
+
 
   constructor(
     private router: Router,
@@ -24,6 +27,10 @@ export class HomeInventoryComponent {
 
   StoreExit(){
     this.router.navigateByUrl('/dashboard/exit-store')
+  }
+
+ getListInventoryAll(){
+
   }
 
 

@@ -23,20 +23,27 @@
                                     </div>
                             </div>
                             <div class="col-md-3">
-                                <div class="form-group">
-                                    <div>
-                                        <input type="radio" id="" name=""  value="" checked>
-                                        <label for=""> Todos</label>
-                                    </div>
-                                    <div>
-                                        <input type="radio" id="" name=""  value="" checked>
-                                        <label for=""> Activos  Do It Right</label>
-                                    </div>
-                                    <div>
-                                        <input type="radio" id="" name=""  value="" checked>
-                                        <label for=""> Activos Externos</label>
-                                    </div>
-                                
+                                <div class="form-check">
+                                    <label class="custom-control custom-radio">
+                                        <input value="2" name="inventory" type="radio" class="custom-control-input"
+                                            formControlName="inventory" [(ngModel)]='inventory' (change)="getListInventoryAll()" >
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">Todos</span>
+                                    </label>
+                                    <br>
+                                    <label class="custom-control custom-radio">
+                                        <input value="0" name="inventory" type="radio" class="custom-control-input"
+                                            formControlName="inventory" [(ngModel)]='inventory'>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">Activos Do It Right</span>
+                                    </label>
+                                    <br>
+                                    <label class="custom-control custom-radio">
+                                        <input value="1" name="inventory" type="radio" class="custom-control-input"
+                                            formControlName="inventory" [(ngModel)]='inventory'>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">Activos Externos</span>
+                                    </label>
                                 </div>
                         </div>
                         <div class="col-md-4">
