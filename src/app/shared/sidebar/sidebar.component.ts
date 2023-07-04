@@ -17,6 +17,7 @@ export class SidebarComponent implements OnInit {
   role: string;
   nombrecompleto: any;
   permissions: any;
+  imgProfile: string = '';
 
   constructor(
     private sidebarService: SidebarService,
@@ -38,7 +39,9 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     
-
+            this._srvAuth.getprofileImage().subscribe((params) => {
+              this.imgProfile = params;
+            });
     
   }
 

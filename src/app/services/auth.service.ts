@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { StorageService } from './storage.service';
 
@@ -10,7 +10,14 @@ import { StorageService } from './storage.service';
 })
 export class AuthService {
   baseUrl: string = environment.api;
-  constructor(private http: HttpClient, private _srvStorage: StorageService) {}
+  private profileImage$ = new BehaviorSubject<string>('');
+
+  constructor(private http: HttpClient, private _srvStorage: StorageService) {
+        const savedProfileImage = localStorage.getItem('profileImage');
+         if (savedProfileImage) {
+           this.profileImage$.next(savedProfileImage);
+         }
+  }
 
   login(usuario: string, password: string): Observable<any> {
     const URL = this.baseUrl + 'login';
@@ -143,10 +150,25 @@ export class AuthService {
       .pipe(map((res) => res));
   }
 
-  retrievePassword(body: { id: any; password: any; }): Observable<any> {
+  retrievePassword(body: { id: any; password: any }): Observable<any> {
     const URL = this.baseUrl + 'user/retiervePassword';
 
     const headers = new HttpHeaders().set('Accept', 'application/json');
     return this.http.post(URL, body, { headers }).pipe(map((res) => res));
+  }
+  updateImgProfile(body: { id: any; img_profile: any }): Observable<any> {
+    const URL = this.baseUrl + 'user/updateImgProfile';
+
+    const headers = new HttpHeaders().set('Accept', 'application/json');
+    return this.http.post(URL, body, { headers }).pipe(map((res) => res));
+  }
+
+  setprofileImage(params: string) {
+    this.profileImage$.next(params);
+        localStorage.setItem('profileImage', params);
+  }
+
+  getprofileImage() {
+    return this.profileImage$.asObservable();
   }
 }

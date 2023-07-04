@@ -151,13 +151,14 @@
                 <!-- ============================================================== -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false"><img src="./assets/images/users/image_profile.jpg"
-                            alt="user" class="profile-pic" /></a>
+                        aria-haspopup="true" aria-expanded="false"><img [src]="imgProfile" alt="user"
+                            class="profile-pic" /></a>
                     <div class="dropdown-menu dropdown-menu-right animated fadeIn fast">
                         <ul class="dropdown-user">
                             <li>
                                 <div class="dw-user-box">
-                                    <div class="u-img"><img src="./assets/images/users/image_profile.jpg" alt="user">
+                                    <div class="u-img" (click)="modalFoto()"><img [src]="imgProfile" alt="user"
+                                            style="cursor: pointer;">
                                     </div>
                                     <div class="u-text">
                                         <h4>{{nombrecompleto}}</h4>
@@ -169,8 +170,8 @@
                             </li>
                             <li role="separator" class="divider"></li>
 
-                            <li><a [routerLink]="['/dashboard/retrieve-password']" style="cursor: pointer;"><i class="fa fa-lock"
-                                        aria-hidden="true"></i> Cambiar contraseña</a></li>
+                            <li><a [routerLink]="['/dashboard/retrieve-password']" style="cursor: pointer;"><i
+                                        class="fa fa-lock" aria-hidden="true"></i> Cambiar contraseña</a></li>
 
                             <li role="separator" class="divider"></li>
                             <li><a (click)="logout()" style="cursor: pointer;"><i class="fa fa-power-off"></i> Cerrar
