@@ -79,6 +79,7 @@ import { ExitStoreDetailComponent } from './inventory/exit/exit-store-detail/exi
 
 import { RetrievePasswordComponent } from './retrieve-password/retrieve-password.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ProfilePictureComponent } from './profile-picture/profile-picture.component';
 
 import { HomeInventoryDetailComponent } from './inventory/home-inventory-detail/home-inventory-detail/home-inventory-detail.component';
 
@@ -87,10 +88,15 @@ import { HomeInventoryDetailComponent } from './inventory/home-inventory-detail/
 
 
 @NgModule({
+<<<<<<< HEAD
 
   declarations: [LoginComponent, RegisterComponent, ChangePasswordComponent, UserListComponent, EditUserComponent, ListRolesComponent, CreateRolesComponent, EditRolesComponent, ListPermissComponent, CreatePermissComponent, EditPermissComponent, SeeUserComponent, DeleteUserComponent, CreateModuleComponent, EditModuleComponent, ListModuleComponent, DeleteModuleComponent, SeeModuleComponent, CreateTypemoduleComponent, DeleteTypemoduleComponent, EditTypemoduleComponent, SeeTypemoduleComponent, ListTypemoduleComponent, AddPermisseUserComponent, CreateClientComponent, SeeClientComponent, DeleteClientComponent, EditClientComponent, ListClientComponent, CreateSupplierComponent, ListSuppliersComponent, SeeSupplierComponent, DeleteSupplierComponent, UpdateSupplierComponent,EditCategoriesComponent, ListCategoriesComponent, SeeCategoriesComponent, DeleteCategoriesComponent,CreateCategoriesComponent, CreateSubcategoriesComponent, ListSubcategoriesComponent, SeeSubcategoriesComponent, EditSubcategoriesComponent, DeleteSubcategoriesComponent, CreateProductsComponent, DeleteProductsComponent, EditProductsComponent, ListProductsComponent, SeeProductsComponent, CreateStoreComponent, EditStoreComponent, DeleteStoreComponent, ListStoreComponent, SeeStoreComponent, CreateSecctionComponent, DeleteSecctionComponent, EditSecctionComponent, ListSecctionComponent, SeeSecctionComponent, LoadingComponent, CreateBrandComponent, DeleteBrandComponent, EditBrandComponent, ListBrandComponent, SeeBrandComponent, HomeInventoryComponent, IncomeStoreComponent, IncomeStoreDetailComponent, TransferStoreComponent, ExitStoreComponent, ExitStoreDetailComponent, RetrievePasswordComponent, ProfileComponent, HomeInventoryDetailComponent],
+=======
+  declarations: [LoginComponent, RegisterComponent, ChangePasswordComponent, UserListComponent, EditUserComponent, ListRolesComponent, CreateRolesComponent, EditRolesComponent, ListPermissComponent, CreatePermissComponent, EditPermissComponent, SeeUserComponent, DeleteUserComponent, CreateModuleComponent, EditModuleComponent, ListModuleComponent, DeleteModuleComponent, SeeModuleComponent, CreateTypemoduleComponent, DeleteTypemoduleComponent, EditTypemoduleComponent, SeeTypemoduleComponent, ListTypemoduleComponent, AddPermisseUserComponent, CreateClientComponent, SeeClientComponent, DeleteClientComponent, EditClientComponent, ListClientComponent, CreateSupplierComponent, ListSuppliersComponent, SeeSupplierComponent, DeleteSupplierComponent, UpdateSupplierComponent,EditCategoriesComponent, ListCategoriesComponent, SeeCategoriesComponent, DeleteCategoriesComponent,CreateCategoriesComponent, CreateSubcategoriesComponent, ListSubcategoriesComponent, SeeSubcategoriesComponent, EditSubcategoriesComponent, DeleteSubcategoriesComponent, CreateProductsComponent, DeleteProductsComponent, EditProductsComponent, ListProductsComponent, SeeProductsComponent, CreateStoreComponent, EditStoreComponent, DeleteStoreComponent, ListStoreComponent, SeeStoreComponent, CreateSecctionComponent, DeleteSecctionComponent, EditSecctionComponent, ListSecctionComponent, SeeSecctionComponent, LoadingComponent, CreateBrandComponent, DeleteBrandComponent, EditBrandComponent, ListBrandComponent, SeeBrandComponent, HomeInventoryComponent, IncomeStoreComponent, IncomeStoreDetailComponent, TransferStoreComponent, ExitStoreComponent, ExitStoreDetailComponent, RetrievePasswordComponent, ProfileComponent, ProfilePictureComponent],
+>>>>>>> origin/dev_myprofile_Roman
   exports: [LoginComponent, RegisterComponent, LoadingComponent],
   imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule, NgxPaginationModule],
+  entryComponents: [ProfilePictureComponent]
 
 })
 export class AuthModule {}

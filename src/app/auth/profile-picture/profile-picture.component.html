@@ -1,0 +1,38 @@
+<loading *ngIf="isLoading">{{ isLoading }}</loading>
+
+<div class="modal-header">
+    <h4 class="modal-title">Cambiar foto de perfil</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <i class="fa fa-times" aria-hidden="true"></i>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="container">
+
+        <div class="row mb-3">
+            <div class="col-12">
+                <p>Selecciona tu nueva foto de perfil </p>
+            </div>
+
+            <div class="col-12">
+                <input type="file" (change)="handleFileInput($event)" accept="image/*">
+                
+            </div>
+            <div class="col-12 img">
+
+                <img *ngIf="convertedImage" [src]="convertedImage" alt="Imagen convertida">
+            </div>
+
+            
+
+        </div>
+
+
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="col-12 mt-3 div-btn-pagar">
+        <button class="btn btn-primary btn-md" (click)="guardar()">Guardar</button>
+    
+    </div>
+</div>

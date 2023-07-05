@@ -49,7 +49,10 @@ export class LoginComponent implements OnInit {
         this._srvStorage.set('email', respuesta['data']['email']);
         this._srvStorage.set('usuario', respuesta['data']['usuario']);
         //this._srvStorage.set('role', respuesta['data']['role']['nombre']);
-
+        const img = respuesta['data']['img_profile']
+          ? respuesta['data']['img_profile']
+          : './assets/images/users/image_profile.jpg';
+        this._srvAuth.setprofileImage(img);
        
       } else {
         swal.fire('Alerta', respuesta.message, 'error');
