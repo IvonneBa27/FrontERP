@@ -45,10 +45,10 @@
                         <tbody>
                             <tr *ngFor="let customers of customers | paginate: { itemsPerPage: numPag, currentPage: p, totalItems: totalReg }">
                                 <td>{{customers.id }}</td>
-                                <td>{{customers.razon_social }}</td>
-                                <td>{{customers.cp }}</td>
-                                <td>{{customers.nombre_completo }}</td>
-                                <td>{{customers.nombre }}</td>
+                                <td>{{customers.razon_social | uppercase }}</td>
+                                <td>{{customers.cp | uppercase}}</td>
+                                <td>{{customers.nombre_completo | uppercase }}</td>
+                                <td>{{customers.nombre | uppercase}}</td>
                                 <td class="actions">
                                     <a [routerLink]="['/dashboard/see-client', customers.id ]"  ><i class="mdi mdi-eye"></i></a>
                                     &nbsp; 
