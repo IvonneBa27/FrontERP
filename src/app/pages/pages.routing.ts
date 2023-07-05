@@ -89,6 +89,7 @@ import { ExitStoreDetailComponent } from '../auth/inventory/exit/exit-store-deta
 import { RetrievePasswordComponent } from '../auth/retrieve-password/retrieve-password.component';
 import { ProfileComponent } from '../auth/profile/profile.component';
 import { HomeInventoryDetailComponent } from '../auth/inventory/home-inventory-detail/home-inventory-detail/home-inventory-detail.component';
+import { ProfilePictureComponent } from '../auth/profile-picture/profile-picture.component';
 
 
 
@@ -620,6 +621,13 @@ const routes: Routes = [
         data: { titulo: 'Mi perfil' },
         canActivate: [AccesoGuard],
       },
+      {
+        path: 'profile-picture',
+        component: ProfilePictureComponent,
+        data: { titulo: 'Mi perfil' },
+        canActivate: [AccesoGuard],
+      },
+
       {
         path: 'home-inventory-detail',
         component: HomeInventoryDetailComponent,

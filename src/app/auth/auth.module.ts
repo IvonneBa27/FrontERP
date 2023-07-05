@@ -76,11 +76,9 @@ import { IncomeStoreDetailComponent } from './inventory/income/income-store-deta
 import { TransferStoreComponent } from './inventory/transfer/transfer-store/transfer-store.component';
 import { ExitStoreComponent } from './inventory/exit/exit-store/exit-store.component';
 import { ExitStoreDetailComponent } from './inventory/exit/exit-store-detail/exit-store-detail.component';
-
 import { RetrievePasswordComponent } from './retrieve-password/retrieve-password.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfilePictureComponent } from './profile-picture/profile-picture.component';
-
 import { HomeInventoryDetailComponent } from './inventory/home-inventory-detail/home-inventory-detail/home-inventory-detail.component';
 
 
@@ -95,7 +93,7 @@ import { HomeInventoryDetailComponent } from './inventory/home-inventory-detail/
 
   exports: [LoginComponent, RegisterComponent, LoadingComponent],
   imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule, NgxPaginationModule],
-  entryComponents: [ProfilePictureComponent]
+
 
 })
 export class AuthModule {}
