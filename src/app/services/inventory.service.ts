@@ -130,7 +130,8 @@ export class InventoryService {
 
     //*HOME INVENTARIO*
 
-       //Mostrar todos los productos
+       //Mostrar productos agrupados por Almacen
+       //Todos
     getListInventoryAll(): Observable<any> {
       const URL = this.baseUrl + 'reports/get';
       const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
@@ -141,6 +142,46 @@ export class InventoryService {
   
       return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
     }
+
+     //Mostrar productos agrupados por Almacen por tipo de Inventario
+
+    getListInventory(inventory: any): Observable<any> {
+      const URL = this.baseUrl + `reports/getInventariable?id_unitmeasure=${inventory}`;
+      const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+  
+      const headers = new HttpHeaders()
+        .set('Accept', 'application/json')
+        .set('Authorization', token);
+  
+      return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+  
+    }
+         //Mostrar productos agrupados por Categoria
+       //Todos
+       getListInventoryDetailAll(): Observable<any> {
+        const URL = this.baseUrl + 'reportsdetail/get';
+        const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+    
+        const headers = new HttpHeaders()
+          .set('Accept', 'application/json')
+          .set('Authorization', token);
+    
+        return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+      }
+
+          //Mostrar productos agrupados por Categoria
+  
+      getListInventoryDetail(inventory: any): Observable<any> {
+        const URL = this.baseUrl + `reportsdetail/getDetail?id_unitmeasure=${inventory}`;
+        const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+    
+        const headers = new HttpHeaders()
+          .set('Accept', 'application/json')
+          .set('Authorization', token);
+    
+        return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+      }
+  
 
 
 

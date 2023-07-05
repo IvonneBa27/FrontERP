@@ -208,12 +208,23 @@ export class UserservicesService {
 
   //Clientes
   createClient(data: {
-    no_cliente: any; razon_social: any; rfc: any; idPais: any; idCiudad: any; idMunicipio: any; calle: any; no_ext: any; no_int: any; colonia: any; cp: any;  sitio_web:any; url_map: any; observaciones: any; cp_fiscal: any; idUsoCfdi: any; idRegimenFiscal: any; nombre_completo: any; email: any; movil: any; tel_trabajo: any; ext: any; puesto: any; nombre_completo_tecnico: any; email_tecnico: any; movil_tecnico: any; tel_trabajo_tecnico: any; ext_tecnico: any; puesto_tecnico: any; nombre_completo_pago: any; email_pago: any; movil_pago: any; tel_trabajo_pago: any; ext_pago: any; puesto_pago: any; idestatus: any;
+    razon_social: any; rfc: any; idPais: any; idCiudad: any; idMunicipio: any; calle: any; no_ext: any; no_int: any; colonia: any; cp: any;  sitio_web:any; url_map: any; observaciones: any; cp_fiscal: any; idUsoCfdi: any; idRegimenFiscal: any; nombre_completo: any; email: any; movil: any; tel_trabajo: any; ext: any; puesto: any; nombre_completo_tecnico: any; email_tecnico: any; movil_tecnico: any; tel_trabajo_tecnico: any; ext_tecnico: any; puesto_tecnico: any; nombre_completo_pago: any; email_pago: any; movil_pago: any; tel_trabajo_pago: any; ext_pago: any; puesto_pago: any; idestatus: any;
   }): Observable<any> {
     const URL = this.baseUrl + 'customers/create';
 
     const headers = new HttpHeaders().set('Accept', 'application/json');
     return this.http.post(URL, data, { headers }).pipe(map((res) => res));
+  }
+
+  getListCustomers(): Observable<any> {
+    const URL = this.baseUrl + 'customers/getListCustomers';
+    const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Authorization', token);
+
+    return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
   }
 
   getClient(): Observable<any> {

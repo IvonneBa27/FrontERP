@@ -88,6 +88,7 @@ export class SeeClientComponent  {
     });
 
     this.id_cliente = this.activatedRoute.snapshot.paramMap.get('id');
+    this.isLoading = true;
     this._servicesuser.getClientbyId(this.id_cliente).subscribe((res) => {
 
       this.client = res.data[0];
@@ -112,7 +113,7 @@ export class SeeClientComponent  {
    }
 
    setForm() {
-    this.clientForm.controls['no_cliente'].setValue(this.client.no_cliente);
+    this.clientForm.controls['no_cliente'].setValue(this.client.id);
     this.clientForm.controls['razon_social'].setValue(this.client.razon_social);
     this.clientForm.controls['rfc'].setValue(this.client.rfc);
     this.clientForm.controls['idPais'].setValue(this.client.idPais);
@@ -148,7 +149,7 @@ export class SeeClientComponent  {
     this.clientForm.controls['ext_pago'].setValue(this.client.ext_pago);
     this.clientForm.controls['puesto_pago'].setValue(this.client.puesto_pago);
     this.clientForm.controls['idestatus'].setValue(this.client.idestatus);
-
+    this.isLoading = false;
    }
 
 

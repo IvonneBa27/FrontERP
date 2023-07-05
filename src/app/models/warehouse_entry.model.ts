@@ -19,4 +19,11 @@ export class warehouse_entry {
     idcategory!:                  number;
     idsubcategory!:               number;
     idproduct!:                   number;
+
+    Store!:                       string;
+    Secction!:                    string;
+    user_id!:                     number;
+    nombre_completo!:             string;
+    Total_Product!:               number;
+
 }

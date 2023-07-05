@@ -90,6 +90,7 @@ export class EditClientComponent  {
     });
 
     this.id_cliente = this.activatedRoute.snapshot.paramMap.get('id');
+    this.isLoading = true;
     this._servicesuser.getClientbyId(this.id_cliente).subscribe((res) => {
 
       this.client = res.data[0];
@@ -146,7 +147,7 @@ export class EditClientComponent  {
     this.clientForm.controls['tel_trabajo_pago'].setValue(this.client.tel_trabajo_pago);
     this.clientForm.controls['ext_pago'].setValue(this.client.ext_pago);
     this.clientForm.controls['puesto_pago'].setValue(this.client.puesto_pago)
-
+    this.isLoading = false;
   }
 
    ListClient() {
@@ -195,7 +196,7 @@ export class EditClientComponent  {
 
     const body = {
       id: this.id_cliente,
-      //no_cliente: this.nocliente + 1,
+      no_cliente: this.nocliente,
       razon_social: razon_social,
       rfc: rfc,
       idPais: idPais,
