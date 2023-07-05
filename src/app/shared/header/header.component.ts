@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
   nombrecompleto: any;
   email: any;
   imgProfile = '';
+  imgProfile2 = '';
   constructor(
     private _srvStorage: StorageService,
     private router: Router,
@@ -25,17 +26,22 @@ export class HeaderComponent implements OnInit {
     this.nombrecompleto = JSON.parse(this._srvStorage.get('nombre_completo'));
     this.email = JSON.parse(this._srvStorage.get('email'));
 
-        this._srvAuth.getprofileImage().subscribe((params) => {
+    // this._srvAuth.getprofileImage().subscribe((params) => {
 
-
-          this.imgProfile = params;
-        });
+    //   this.imgProfile = params;
+    // });
   }
 
   ngOnInit(): void {
-        this._srvAuth.getprofileImage().subscribe((params) => {
-          this.imgProfile = params;
-        });
+    this._srvAuth.getprofileImage().subscribe((params) => {
+      this.imgProfile = params;
+      this.imgProfile2 = params;
+      console.log(params);
+      console.log(this.imgProfile);
+      console.log(this.imgProfile2);
+
+      
+    });
   }
 
   logout() {

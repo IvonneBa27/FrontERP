@@ -165,7 +165,7 @@ export class AuthService {
 
   setprofileImage(params: string) {
     this.profileImage$.next(params);
-        localStorage.setItem('profileImage', params);
+    localStorage.setItem('profileImage', params);
   }
 
   getprofileImage() {
