@@ -47,17 +47,21 @@ export class HomeInventoryComponent implements OnInit{
    }
 
    ngOnInit(): void {
+  
+      this.getListInventoryAll();
+
+ 
+   }
+
+   getListInventoryAll(){
     this.isLoading = true;
     this._serviceinventory.getListInventoryAll().subscribe(res => {
       this.incomeStoreAll = res.data;
       this.incomeStore = res.data;
       console.log(this.incomeStoreAll);
-  
+      this.isLoading = false;
 
     });
-
-
-    this.isLoading = false;
    }
 
 
@@ -80,16 +84,18 @@ export class HomeInventoryComponent implements OnInit{
  getListInventory(){
   this.isLoading = true;
 
+
   if(this.inventory==2){
+    console.log(this.inventory);
     this.incomeStoreAll = this.incomeStore;
+    console.log(this.incomeStore);
   }else{
     console.log(this.inventory);
+    this.isLoading = true;
     this._serviceinventory.getListInventory(this.inventory).subscribe((res) => {
-      this.incomeStore =[];
+     this.incomeStore =[];
       this.incomeStore = res.data;
-      this.totalReg = (this.incomeStore.length);
-      console.log(this.incomeStore);
-      
+      console.log(res.data);
       this.isLoading = false;
     });
     }
