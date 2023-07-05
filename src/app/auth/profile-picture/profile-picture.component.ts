@@ -11,6 +11,7 @@ import swal from 'sweetalert2';
 export class ProfilePictureComponent implements OnInit {
   convertedImage: string = '';
   isLoading: boolean = false;
+  
   constructor(
     public activeModal: NgbActiveModal,
     private _srvAuth: AuthService,
