@@ -86,13 +86,10 @@ import { BlackListCreateComponent } from './blackList/black-list-create/black-li
 import { BlackListEditComponent } from './blackList/black-list-edit/black-list-edit.component';
 import { ExitStoreComponent } from '../auth/inventory/exit/exit-store/exit-store.component';
 import { ExitStoreDetailComponent } from '../auth/inventory/exit/exit-store-detail/exit-store-detail.component';
-<<<<<<< HEAD
 import { RetrievePasswordComponent } from '../auth/retrieve-password/retrieve-password.component';
 import { ProfileComponent } from '../auth/profile/profile.component';
 import { HomeInventoryDetailComponent } from '../auth/inventory/home-inventory-detail/home-inventory-detail/home-inventory-detail.component';
-=======
-import { HomeInventoryDetailComponent } from '../auth/inventory/home-inventory-detail/home-inventory-detail/home-inventory-detail.component';
->>>>>>> origin/dev_modules_list_Ivonne
+
 
 
 
