@@ -154,7 +154,7 @@ export class CreateClientComponent {
 
 
     const body = {
-      no_cliente: this.nocliente + 1,
+      //no_cliente: this.nocliente + 1,
       razon_social: razon_social,
       rfc: rfc,
       idPais: idPais,
@@ -189,7 +189,7 @@ export class CreateClientComponent {
       tel_trabajo_pago: tel_trabajo_pago,
       ext_pago: ext_pago,
       puesto_pago: puesto_pago,
-      idestatus : idestatus,
+      idestatus : 1,
 
     };
 

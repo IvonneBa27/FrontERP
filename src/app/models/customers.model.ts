@@ -38,4 +38,5 @@ export class Customers {
     idestatus!:                     number;
     created_at!:                    null;
     updated_at!:                    null;
+    nombre!:                        string;
 }

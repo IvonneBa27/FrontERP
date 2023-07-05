@@ -44,11 +44,11 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let customers of customers | paginate: { itemsPerPage: numPag, currentPage: p, totalItems: totalReg }">
-                                <td>{{customers.no_cliente }}</td>
+                                <td>{{customers.id }}</td>
                                 <td>{{customers.razon_social }}</td>
                                 <td>{{customers.cp }}</td>
                                 <td>{{customers.nombre_completo }}</td>
-                                <td>{{customers.idestatus }}</td>
+                                <td>{{customers.nombre }}</td>
                                 <td class="actions">
                                     <a [routerLink]="['/dashboard/see-client', customers.id ]"  ><i class="mdi mdi-eye"></i></a>
                                     &nbsp; 

@@ -9,4 +9,14 @@ export class warehouse_entry_detail {
     total_received!:              number;
     created_at!:                  null;
     updated_at!:                  null;
+
+    sku!:                         string;
+    product_name!:                string;
+    nameCategorie!:               string;
+    idCat!:                       number;
+    nameSubcategorie!:            string;
+    brand_name!:                  string;
+    nameModel!:                   string;
+    CountProduct!:                number;
+
 }

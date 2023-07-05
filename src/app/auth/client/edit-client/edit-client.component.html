@@ -20,15 +20,15 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">No. Cliente</label>
-                                <fieldset disabled><input type="text" id="no_cliente" required="" class="form-control"
-                                    placeholder="{{nocliente}}" formControlName="no_cliente" value="{{nocliente}}"></fieldset>
+                                <fieldset disabled><label class="control-label">{{id_cliente}}</label> </fieldset>
+                        
                             </div>
                         </div>
 
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Razón Social *</label>
-                                <input type="text" id="razon_social" class="form-control" placeholder="Razón Social"
+                                <input type="text" id="razon_social" class="form-control" 
                                     formControlName="razon_social" >
                                    
                             </div>
@@ -36,7 +36,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">RFC *</label>
-                                <input type="text" id="rfc" class="form-control" placeholder="RFC"
+                                <input type="text" id="rfc" class="form-control" 
                                     formControlName="rfc" >
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">País *</label>
-                                <select class="form-control" id="idPais" placeholder="País"
+                                <select class="form-control" id="idPais" 
                                     formControlName="idPais" (change)="obtIdPais()" [(ngModel)]="idPais">
                                     <option [value]="item.idpais" *ngFor="let item of Paises">{{item.pais}}</option>
                                 </select>
@@ -54,7 +54,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Ciudad *</label>
-                                <select class="form-control" id="idCiudad" placeholder="Ciudad"
+                                <select class="form-control" id="idCiudad" 
                                     formControlName="idCiudad" (change)="obtIdCiudad()" [(ngModel)]="idCiudad">
                                     <option [value]="item.idciudad" *ngFor="let item of Ciudades">{{item.ciudad}}</option>
                                 </select>
@@ -63,7 +63,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Municipio/Alcadía *</label>
-                                <select class="form-control" id="idMunicipio" placeholder="Municipio / Alcadia"
+                                <select class="form-control" id="idMunicipio" 
                                     formControlName="idMunicipio"(change)="obtIdMunicipio()" [(ngModel)]="idMunicipio">
                                     <option [value]="item.iddelegacion" *ngFor="let item of Delegaciones">{{item.delegacion}}</option>
                                 </select>
@@ -73,7 +73,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Calle *</label>
-                                <input type="text" id="calle" class="form-control" placeholder="Calle"
+                                <input type="text" id="calle" class="form-control" 
                                     formControlName="calle">
                                   
                             </div>
@@ -81,7 +81,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">No. Ext *</label>
-                                <input type="text" id="no_ext" class="form-control" placeholder="No. Ext"
+                                <input type="text" id="no_ext" class="form-control" 
                                     formControlName="no_ext">
                                   
                             </div>
@@ -89,7 +89,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">No. Int </label>
-                                <input type="text" id="no_int" class="form-control" placeholder="No. Int"
+                                <input type="text" id="no_int" class="form-control" 
                                     formControlName="no_int">
                             </div>
                         </div>
@@ -97,7 +97,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Colonia *</label>
-                                <input type="text" id="colonia" class="form-control" placeholder="Colonia"
+                                <input type="text" id="colonia" class="form-control" 
                                     formControlName="colonia">
                                   
                             </div>
@@ -105,7 +105,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Código Postal *</label>
-                                <input type="text" id="cp" class="form-control" placeholder="Codigo Postal"
+                                <input type="text" id="cp" class="form-control" 
                                     formControlName="cp">
                                    
                             </div>
@@ -113,7 +113,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Sitio Web</label>
-                                <input type="text" id="sitio_web" class="form-control" placeholder="Sitio Web"
+                                <input type="text" id="sitio_web" class="form-control"
                                     formControlName="sitio_web">
                             </div>
                         </div>
@@ -122,14 +122,14 @@
                         <div class="col-md-8">
                             <div class="form-group">
                                 <label class="control-label">URL Google Maps</label>
-                                <input type="text" id="url_map" class="form-control" placeholder="URL Google Maps"
+                                <input type="text" id="url_map" class="form-control" 
                                     formControlName="url_map">
                             </div>
                         </div>
                         <div class="col-md-8">
                             <div class="form-group">
                                 <label class="control-label">Observaciones</label>
-                            <textarea class="form-control" id="observaciones" rows="3"placeholder="Observaciones" formControlName="observaciones"></textarea>
+                            <textarea class="form-control" id="observaciones" rows="3" formControlName="observaciones"></textarea>
                             </div>
                         </div>
                     </div>
@@ -147,14 +147,14 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Codigo Postal Fiscal</label>
-                                    <input type="text" id="cp_fiscal" class="form-control" placeholder="Codigo Postal Fiscal"
+                                    <input type="text" id="cp_fiscal" class="form-control" 
                                         formControlName="cp_fiscal">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Uso de CFDI</label>
-                                    <select class="form-control" id="idUsoCfdi" placeholder="CFDI"
+                                    <select class="form-control" id="idUsoCfdi" 
                                         formControlName="idUsoCfdi">
                                         <option [value]="item.id" *ngFor="let item of  CatalagoSatCFDI">{{item.nombre}}</option>
                                     </select>
@@ -163,7 +163,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Régimen Fiscal</label>
-                                    <select class="form-control" id="idRegimenFiscal" placeholder="Régimen Fiscal"
+                                    <select class="form-control" id="idRegimenFiscal" 
                                         formControlName="idRegimenFiscal">
                                         <option [value]="item.id" *ngFor="let item of  CatalogoSatRegimenFiscal">{{item.nombre}}</option>
                                     </select>
@@ -183,42 +183,42 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Nombre Completo</label>
-                                    <input type="text" id="nombre_completo" class="form-control" placeholder="Nombre Completo"
+                                    <input type="text" id="nombre_completo" class="form-control" 
                                         formControlName="nombre_completo">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Email</label>
-                                    <input type="text" id="email" class="form-control" placeholder="Email"
+                                    <input type="text" id="email" class="form-control" 
                                         formControlName="email">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Tel Móvil</label>
-                                    <input type="text" id="movil" class="form-control" placeholder="Movil"
+                                    <input type="text" id="movil" class="form-control" 
                                     formControlName="movil">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Tel Trabajo</label>
-                                    <input type="text" id="tel_trabajo" class="form-control" placeholder="Tel. Trabajo"
+                                    <input type="text" id="tel_trabajo" class="form-control" 
                                     formControlName="tel_trabajo">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Ext</label>
-                                    <input type="text" id="ext" class="form-control" placeholder="Ext"
+                                    <input type="text" id="ext" class="form-control" 
                                     formControlName="ext">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Puesto</label>
-                                    <input type="text" id="puesto" class="form-control" placeholder="Puesto"
+                                    <input type="text" id="puesto" class="form-control" 
                                     formControlName="puesto">
                                 </div>
                             </div>
@@ -236,42 +236,42 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Nombre Completo</label>
-                                    <input type="text" id="nombre_completo_tecnico" class="form-control" placeholder="Nombre Completo"
+                                    <input type="text" id="nombre_completo_tecnico" class="form-control" 
                                         formControlName="nombre_completo_tecnico">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Email</label>
-                                    <input type="text" id="email_tecnico" class="form-control" placeholder="Email"
+                                    <input type="text" id="email_tecnico" class="form-control" 
                                         formControlName="email_tecnico">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Tel Móvil</label>
-                                    <input type="text" id="movil_tecnico" class="form-control" placeholder="Movil"
+                                    <input type="text" id="movil_tecnico" class="form-control" 
                                     formControlName="movil_tecnico">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Tel Trabajo</label>
-                                    <input type="text" id="tel_trabajo_tecnico" class="form-control" placeholder="Tel. Trabajo"
+                                    <input type="text" id="tel_trabajo_tecnico" class="form-control" 
                                     formControlName="tel_trabajo_tecnico">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Ext</label>
-                                    <input type="text" id="ext_tecnico" class="form-control" placeholder="Ext"
+                                    <input type="text" id="ext_tecnico" class="form-control" 
                                     formControlName="ext_tecnico">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Puesto</label>
-                                    <input type="text" id="puesto_tecnico" class="form-control" placeholder="Puesto"
+                                    <input type="text" id="puesto_tecnico" class="form-control" 
                                     formControlName="puesto_tecnico">
                                 </div>
                             </div>
@@ -288,42 +288,42 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Nombre Completo</label>
-                                    <input type="text" id="nombre_completo_pago" class="form-control" placeholder="Nombre Completo"
+                                    <input type="text" id="nombre_completo_pago" class="form-control" 
                                         formControlName="nombre_completo_pago">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Email</label>
-                                    <input type="text" id="email_pago" class="form-control" placeholder="Email"
+                                    <input type="text" id="email_pago" class="form-control" 
                                         formControlName="email_pago">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Tel Móvil</label>
-                                    <input type="text" id="movil_pago" class="form-control" placeholder="Movil"
+                                    <input type="text" id="movil_pago" class="form-control" 
                                     formControlName="movil_pago">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Tel Trabajo</label>
-                                    <input type="text" id="tel_trabajo_pago" class="form-control" placeholder="Tel. Trabajo"
+                                    <input type="text" id="tel_trabajo_pago" class="form-control" 
                                     formControlName="tel_trabajo_pago">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Ext</label>
-                                    <input type="text" id="ext_pago" class="form-control" placeholder="Ext"
+                                    <input type="text" id="ext_pago" class="form-control" 
                                     formControlName="ext_pago">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Puesto</label>
-                                    <input type="text" id="puesto_pago" class="form-control" placeholder="Puesto"
+                                    <input type="text" id="puesto_pago" class="form-control" 
                                     formControlName="puesto_pago">
                                 </div>
                             </div>

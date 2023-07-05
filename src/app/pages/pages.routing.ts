@@ -86,8 +86,12 @@ import { BlackListCreateComponent } from './blackList/black-list-create/black-li
 import { BlackListEditComponent } from './blackList/black-list-edit/black-list-edit.component';
 import { ExitStoreComponent } from '../auth/inventory/exit/exit-store/exit-store.component';
 import { ExitStoreDetailComponent } from '../auth/inventory/exit/exit-store-detail/exit-store-detail.component';
+<<<<<<< HEAD
 import { RetrievePasswordComponent } from '../auth/retrieve-password/retrieve-password.component';
 import { ProfileComponent } from '../auth/profile/profile.component';
+=======
+import { HomeInventoryDetailComponent } from '../auth/inventory/home-inventory-detail/home-inventory-detail/home-inventory-detail.component';
+>>>>>>> origin/dev_modules_list_Ivonne
 
 
 
@@ -606,6 +610,7 @@ const routes: Routes = [
         canActivate: [AccesoGuard],
       },
       {
+<<<<<<< HEAD
         path: 'retrieve-password',
         component: RetrievePasswordComponent,
         data: { titulo: 'Cambiar contraseña' },
@@ -615,6 +620,11 @@ const routes: Routes = [
         path: 'perfil',
         component: ProfileComponent,
         data: { titulo: 'Mi perfil' },
+=======
+        path: 'home-inventory-detail',
+        component: HomeInventoryDetailComponent,
+        data: { titulo: 'Inventario de Almacenes Detalle' },
+>>>>>>> origin/dev_modules_list_Ivonne
         canActivate: [AccesoGuard],
       },
       //   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },

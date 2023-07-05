@@ -5,14 +5,9 @@
                 <div class="card-body">
                     <div  class="card-title"  style="text-align: end;" >
                     <h4>
-                        <button class="btn btn-primary"  value="" (click)="IncomeStore()"><i class="mdi mdi-database-plus"></i> Kardex de Producto</button>
+                        
                         &nbsp; 
-                        &nbsp;
-                        <button class="btn btn-primary"  value="" (click)="IncomeStore()"><i class="mdi mdi-database-plus"></i> Ingreso de Almacén </button>
-                        &nbsp; 
-                        <button class="btn btn-primary" value="" (click)="TransferStore()"><i class="mdi mdi-database"></i> Traspaso de Almacén</button>
-                        &nbsp; 
-                        <button class="btn btn-primary" value="" (click)="StoreExit()"><i class="mdi mdi-database-minus"></i> Salida de Almacén</button>
+                        <button class="btn btn-primary" value="" (click)="homeInventory()" ><i class="mdi mdi-database-minus"></i>Control de Inventario</button>
                     </h4>
                     </div>
                     <br>
@@ -28,7 +23,7 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <select class="form-control" id="inventario" 
-                                     (change)="getListInventory()" [(ngModel)]="inventory" [ngModelOptions]="{standalone:true}"  >
+                                     (change)="getListInventoryDetail()" [(ngModel)]="inventory" [ngModelOptions]="{standalone:true}"  >
                                     <option value="2">TODOS </option>
                                     <option value="0">ACTIVOS DO IT RIGHT </option>
                                     <option value="1">ACTIVOS EXTERNOS </option>
@@ -53,17 +48,25 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Almacen</th>
-                                <th>Responsable</th>
-                                <th>Productos</th>
-                                <th>Detalle</th>
+                                <th>SKU</th>
+                                <th>Producto</th>
+                                <th>Categoria</th>
+                                <th>SubCategoria</th>
+                                <th>Marca</th>
+                                <th>Modelo</th>
+                                <th>Cantidad</th>
+                                <th>Ubicación</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let incomeStore of incomeStore | paginate: { itemsPerPage: numPag, currentPage: p, totalItems: totalReg }">
-                                <td>{{incomeStore.Store }}</td>
-                                <td>{{incomeStore.nombre_completo }}</td>
-                                <td>{{incomeStore.Total_Product }}</td>
+                            <tr *ngFor="let incomeStoreDetail of incomeStoreDetail | paginate: { itemsPerPage: numPag, currentPage: p, totalItems: totalReg }">
+                                <td>{{incomeStoreDetail.sku }}</td>
+                                <td>{{incomeStoreDetail.product_name }}</td>
+                                <td>{{incomeStoreDetail.nameCategorie }}</td>
+                                <td>{{incomeStoreDetail.nameSubcategorie }}</td>
+                                <td>{{incomeStoreDetail.brand_name }}</td>
+                                <td>{{incomeStoreDetail.nameModel }}</td>
+                                <td>{{incomeStoreDetail.CountProduct }}</td>
                                
                                 <td class="actions">
                                     <a [routerLink]="['/dashboard/home-inventory-detail']"><i class="mdi mdi-library-books"></i></a>
@@ -80,3 +83,4 @@
         </div>
     </div>
 </div>
+
