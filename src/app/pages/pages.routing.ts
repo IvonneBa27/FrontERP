@@ -622,13 +622,6 @@ const routes: Routes = [
         canActivate: [AccesoGuard],
       },
       {
-        path: 'profile-picture',
-        component: ProfilePictureComponent,
-        data: { titulo: 'Mi perfil' },
-        canActivate: [AccesoGuard],
-      },
-
-      {
         path: 'home-inventory-detail',
         component: HomeInventoryDetailComponent,
         data: { titulo: 'Inventario de Almacenes Detalle' },
