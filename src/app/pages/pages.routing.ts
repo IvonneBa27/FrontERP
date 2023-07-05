@@ -89,6 +89,7 @@ import { ExitStoreDetailComponent } from '../auth/inventory/exit/exit-store-deta
 <<<<<<< HEAD
 import { RetrievePasswordComponent } from '../auth/retrieve-password/retrieve-password.component';
 import { ProfileComponent } from '../auth/profile/profile.component';
+import { HomeInventoryDetailComponent } from '../auth/inventory/home-inventory-detail/home-inventory-detail/home-inventory-detail.component';
 =======
 import { HomeInventoryDetailComponent } from '../auth/inventory/home-inventory-detail/home-inventory-detail/home-inventory-detail.component';
 >>>>>>> origin/dev_modules_list_Ivonne
@@ -610,7 +611,7 @@ const routes: Routes = [
         canActivate: [AccesoGuard],
       },
       {
-<<<<<<< HEAD
+
         path: 'retrieve-password',
         component: RetrievePasswordComponent,
         data: { titulo: 'Cambiar contraseña' },
@@ -620,11 +621,13 @@ const routes: Routes = [
         path: 'perfil',
         component: ProfileComponent,
         data: { titulo: 'Mi perfil' },
-=======
+        canActivate: [AccesoGuard],
+      },
+      {
         path: 'home-inventory-detail',
         component: HomeInventoryDetailComponent,
         data: { titulo: 'Inventario de Almacenes Detalle' },
->>>>>>> origin/dev_modules_list_Ivonne
+
         canActivate: [AccesoGuard],
       },
       //   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
