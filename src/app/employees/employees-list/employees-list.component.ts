@@ -23,11 +23,12 @@ export class EmployeesListComponent implements OnInit {
   totalReg: number = 0;
   config: any;
   configCustomPagination: any;
-  public maxSize: number = 7;
+  public maxSize: number = 15;
   public directionLinks: boolean = true;
   public autoHide: boolean = false;
   public responsive: boolean = true;
   isLoading: boolean = false;
+  status: number = 0;
   constructor(
     private _srvEmployees: EmployeesService,
     private _srvGeneral: GeneralService,
@@ -54,6 +55,7 @@ export class EmployeesListComponent implements OnInit {
 
     this._srvEmployees.getEmployees().subscribe((res) => {
       this.employees = res.data;
+      this.totalReg = this.employees.length;
       this.isLoading = false;
     });
   }
@@ -70,11 +72,12 @@ export class EmployeesListComponent implements OnInit {
 
     this.employees = [];
     this._srvEmployees
-      .searchEmployees(this.company, this.paramSerach)
+      .searchEmployees(this.company, this.paramSerach, this.status)
       .subscribe((res) => {
         console.log(res.data);
 
         this.employees = res.data;
+        this.totalReg = this.employees.length;
         this.isLoading = false;
       });
   }

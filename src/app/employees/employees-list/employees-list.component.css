@@ -12,3 +12,8 @@
   cursor: pointer !important;
   margin: 5px !important;
 }
+
+.registros {
+  font-size: 1rem;
+  font-weight: bold;
+}
