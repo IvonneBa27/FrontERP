@@ -90,6 +90,8 @@ import { RetrievePasswordComponent } from '../auth/retrieve-password/retrieve-pa
 import { ProfileComponent } from '../auth/profile/profile.component';
 import { HomeInventoryDetailComponent } from '../auth/inventory/home-inventory-detail/home-inventory-detail/home-inventory-detail.component';
 import { ProfilePictureComponent } from '../auth/profile-picture/profile-picture.component';
+import { InventoryDetailProductsComponent } from '../auth/inventory/home-inventory/inventory-products/inventory-detail-products/inventory-detail-products.component';
+import { ImagenInventorySecctionComponent } from '../auth/inventory/home-inventory/inventory-products/imagen-inventory-secction/imagen-inventory-secction/imagen-inventory-secction.component';
 
 
 
@@ -625,7 +627,18 @@ const routes: Routes = [
         path: 'home-inventory-detail',
         component: HomeInventoryDetailComponent,
         data: { titulo: 'Inventario de Almacenes Detalle' },
-
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'inventory-detail-products/:id',
+        component: InventoryDetailProductsComponent,
+        data: { titulo: 'Producto Detalle' },
+        canActivate: [AccesoGuard],
+      },
+      {
+        path: 'imagen-inventory-secction/:id',
+        component: ImagenInventorySecctionComponent,
+        data: { titulo: 'Ubicación Sección' },
         canActivate: [AccesoGuard],
       },
       //   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },

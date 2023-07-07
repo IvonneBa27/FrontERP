@@ -4,8 +4,7 @@
         <div class="card">
                 <div class="card-body">
                     <div  class="card-title"  style="text-align: end;" >
-                    <h4>
-                        
+                    <h4>   
                         &nbsp; 
                         <button class="btn btn-primary" value="" (click)="homeInventory()" ><i class="mdi mdi-database-minus"></i>Control de Inventario</button>
                     </h4>
@@ -67,18 +66,14 @@
                                 <td>{{incomeStoreDetail.brand_name }}</td>
                                 <td>{{incomeStoreDetail.nameModel }}</td>
                                 <td>{{incomeStoreDetail.CountProduct }}</td>
-                               
                                 <td class="actions">
-                                    <a [routerLink]="['/dashboard/home-inventory-detail']"><i class="mdi mdi-library-books"></i></a>
+                                    <a [routerLink]="['/dashboard/inventory-detail-products', incomeStoreDetail.IdCat]"><i class="mdi mdi-library-books"></i></a>
                                 </td>
                             </tr>
-                            
                         </tbody>
                     </table>
                     <pagination-controls  [maxSize]="maxSize"   [directionLinks]="directionLinks" [autoHide]="autoHide"  [responsive]="responsive"  previousLabel="Anterior"  nextLabel="Siguiente" (pageChange)="p = $event"
-                    style="text-align: center;"></pagination-controls>
-
-                        
+                    style="text-align: center;"></pagination-controls>       
              </div>
         </div>
     </div>

@@ -18,5 +18,6 @@ export class warehouse_entry_detail {
     brand_name!:                  string;
     nameModel!:                   string;
     CountProduct!:                number;
+    IdCat!:                       number;
 
 }

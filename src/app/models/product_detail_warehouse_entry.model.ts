@@ -11,4 +11,12 @@ export class product_detail_warehouse_entry {
     updated_at!:                         null;
     idDet!:                              number;
     isChecked!:                          boolean;
+
+
+    model!:                              string;
+    image!:                              string;
+    nameCat!:                            string;
+    nameSubCat!:                         string;
+    Location!:                           string;
+    idSecction!:                         number;
 }

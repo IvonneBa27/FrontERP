@@ -87,8 +87,8 @@ export class HomeInventoryComponent implements OnInit{
 
   if(this.inventory==2){
     console.log(this.inventory);
-    this.incomeStoreAll = this.incomeStore;
-    console.log(this.incomeStore);
+    this.getListInventoryAll();
+
   }else{
     console.log(this.inventory);
     this.isLoading = true;

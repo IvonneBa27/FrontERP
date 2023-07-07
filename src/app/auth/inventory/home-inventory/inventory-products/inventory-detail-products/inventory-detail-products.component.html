@@ -1,0 +1,46 @@
+<loading *ngIf="isLoading">{{ isLoading }}</loading>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+                <div class="card-body">
+                    <div  class="card-title"  style="text-align: end;" >
+                    <h4>   
+                        &nbsp; 
+                        <button class="btn btn-primary" value="" (click)="homeInventory()" ><i class="mdi mdi-database-minus"></i>Control de Inventario</button>
+                    </h4>
+                    </div>
+                    <br>
+                    <br>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>SKU</th>
+                                <th>Num. Serie</th>
+                                <th>Producto</th>
+                                <th>Categoria</th>
+                                <th>SubCategoria</th>
+                                <th>Marca</th>
+                                <th>Modelo</th>
+                                <th>Ubicación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let productDetail of productDetail| paginate: { itemsPerPage: numPag, currentPage: p, totalItems: totalReg }">
+                                <td>{{productDetail.sku }}</td>
+                                <td>{{productDetail.serial_number}}</td>
+                                <td>{{productDetail.product_name }}</td>
+                                <td>{{productDetail.nameCat }}</td>
+                                <td>{{productDetail.nameSubCat }}</td>
+                                <td>{{productDetail.brand_name }}</td>
+                                <td>{{productDetail.model }}</td>
+                                <td class="actions">
+                                   {{productDetail.Location}} <a [routerLink]="['/dashboard/imagen-inventory-secction', productDetail.idSecction]"><i class="mdi mdi-image"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <pagination-controls  [maxSize]="maxSize"   [directionLinks]="directionLinks" [autoHide]="autoHide"  [responsive]="responsive"  previousLabel="Anterior"  nextLabel="Siguiente" (pageChange)="p = $event"
+                    style="text-align: center;"></pagination-controls>       
+             </div>
+        </div>
+    </div>

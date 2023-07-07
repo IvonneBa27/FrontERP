@@ -40,15 +40,8 @@ export class HomeInventoryDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.isLoading = true;
-    this._serviceinventory.getListInventoryDetailAll().subscribe(res => {
-      this.incomeStoreDetailAll = res.data;
-      this.incomeStoreDetail = res.data;
-      console.log(this.incomeStoreDetailAll);
   
-
-    });
-    this.isLoading = false;
+    this.getListInventoryDetailAll();
     
   }
 
@@ -57,14 +50,26 @@ export class HomeInventoryDetailComponent implements OnInit {
 
   }
 
+  getListInventoryDetailAll(){
+    this.isLoading = true;
+    this._serviceinventory.getListInventoryDetailAll().subscribe(res => {
+      this.incomeStoreDetailAll = res.data;
+      this.incomeStoreDetail = res.data;
+      console.log(this.incomeStoreDetailAll);
+      this.isLoading = false;
+
+    });
+  }
+
 
   getListInventoryDetail(){
     this.isLoading = true;
   
     if(this.inventory==2){
-      this.incomeStoreDetailAll = this.incomeStoreDetail;
+      this.getListInventoryDetailAll();
     }else{
       console.log(this.inventory);
+      this.isLoading = true;
       this._serviceinventory.getListInventoryDetail(this.inventory).subscribe((res) => {
         this.incomeStoreDetail =[];
         this.incomeStoreDetail = res.data;
