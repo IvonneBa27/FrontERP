@@ -23,7 +23,7 @@ export class EmployeesService {
     return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
   }
 
-  searchEmployees(company: number, param: string): Observable<any> {
+  searchEmployees(company: number, param: string, status: number): Observable<any> {
     const URL = this.baseUrl + 'employees/searchEmployees';
     const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
 
@@ -31,7 +31,7 @@ export class EmployeesService {
       .set('Accept', 'application/json')
       .set('Authorization', token);
 
-    const params = new HttpParams().set('company', company).set('param', param);
+    const params = new HttpParams().set('company', company).set('param', param).set('status', status);
 
     return this.http
       .get(URL, { headers: headers, params: params })

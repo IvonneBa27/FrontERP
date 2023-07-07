@@ -5,17 +5,27 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-4"><input class="form-control" type="search" name="" id="" placeholder="No. Empleado, nombre, curp" [(ngModel)]="paramSerach"></div>
-                    <div class="col-4 search-div">
+                    <div class="col-3">
+                        <input class="form-control" type="search" name="" id="" placeholder="No. Empleado, nombre, curp" [(ngModel)]="paramSerach">
+                    </div>
+                    <div class="col-3 search-div">
                         <select class="form-control" name="" id="" [(ngModel)]="company">
-                            <option value="0">Seleccione una empresa</option>
+                            <option value="0">Empresa pago de nomina</option>
                             <option [value]="company.id" *ngFor="let company of companies"> {{ company.nombre }}</option>
                         </select>
-                        <button type="submit" class="btn btn-primary search-employees" (click)="serachEmployees()"><i class="mdi mdi-account-search"></i> </button>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3 search-div">
+                        <select class="form-control" name="" id="" [(ngModel)]="status">
+                            <option value="0">Todos</option>
+                            <option value="1">Activo</option>
+                            <option value="2">Inactivo</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary search-employees" (click)="serachEmployees()"><i
+                                class="mdi mdi-account-search"></i> </button>
+                    </div>
+                    <div class="col-3">
                         <h4 class="card-title" style="text-align: end;"><a [routerLink]="['/dashboard/empleyee-create']" class="btn btn-primary"><i
-                                    class="mdi mdi-plus"></i> Crear emplreado</a></h4>
+                                    class="mdi mdi-plus"></i> Crear empleado</a></h4>
                     </div>
                     <div class="col-12">
                         <div class="table-responsive">
@@ -33,7 +43,7 @@
                                 </thead>
                                 <tbody>
                                     <tr
-                                        *ngFor="let employee of employees | paginate: { itemsPerPage: numPag, currentPage: p, totalItems: totalReg }">
+                                        *ngFor="let employee of employees | paginate: { itemsPerPage: numPag, currentPage: p }">
                                         <td>{{ employee.numero_empleado }}</td>
                                         <td>{{ employee.nombre_completo }}</td>
                                         <td>{{ employee.curp }}</td>
@@ -53,6 +63,7 @@
 
                                 </tbody>
                             </table>
+                            <span class="registros">Total de registros: {{ totalReg }}</span>
                             <pagination-controls [maxSize]="maxSize" [directionLinks]="directionLinks"
                                 [autoHide]="autoHide" [responsive]="responsive" previousLabel="Anterior"
                                 nextLabel="Siguiente" (pageChange)="p = $event"
