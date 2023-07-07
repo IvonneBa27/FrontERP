@@ -146,7 +146,7 @@ export class InventoryService {
      //Mostrar productos agrupados por Almacen por tipo de Inventario
 
     getListInventory(inventory: any): Observable<any> {
-      const URL = this.baseUrl + `reports/getInventariable?id_unitmeasure=${inventory}`;
+      const URL = this.baseUrl + `reports/getInventariable?inventory=${inventory}`;
       const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
   
       const headers = new HttpHeaders()
@@ -172,7 +172,19 @@ export class InventoryService {
           //Mostrar productos agrupados por Categoria
   
       getListInventoryDetail(inventory: any): Observable<any> {
-        const URL = this.baseUrl + `reportsdetail/getDetail?id_unitmeasure=${inventory}`;
+        const URL = this.baseUrl + `reportsdetail/getDetail?inventory=${inventory}`;
+        const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
+    
+        const headers = new HttpHeaders()
+          .set('Accept', 'application/json')
+          .set('Authorization', token);
+    
+        return this.http.get(URL, { headers: headers }).pipe(map((res) => res));
+      }
+
+
+      getListProductDetail(idcategory: any): Observable<any> {
+        const URL = this.baseUrl + `reportsproducts/get?idcategory=${idcategory}`;
         const token = 'Bearer ' + JSON.parse(this._srvStorage.get('token'));
     
         const headers = new HttpHeaders()
