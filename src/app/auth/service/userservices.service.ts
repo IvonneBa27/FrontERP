@@ -878,7 +878,9 @@ export class UserservicesService {
         }
 
         updateIncomeStore(data: {
-          observation:any;  
+          observation:any; 
+          id_status: any;
+          user_id: any; 
           id: string | null;
         }): Observable<any> {
           const URL = this.baseUrl + 'incomeStores/update';

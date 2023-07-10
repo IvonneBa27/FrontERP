@@ -261,9 +261,6 @@ export class TransferStoreComponent {
 
   updateTransferStore(){
 
-
-
-
     if(this.totalAmount == this.totalReceived){
        this.idStatus = 1;
     }
@@ -289,6 +286,8 @@ export class TransferStoreComponent {
  
     this.homeInventory();
   }
+
+  
 
 
 

@@ -66,6 +66,8 @@ export class IncomeStoreDetailComponent  {
   supplierDetail:Suppliers = new Suppliers();
   observations: any;
   productDetail: product_detail_warehouse_entry = new product_detail_warehouse_entry();
+  iduser: any;
+  idStatus: any;
 
 
   constructor(
@@ -79,7 +81,7 @@ export class IncomeStoreDetailComponent  {
   ) { 
 
    
-
+    this.iduser = this._srvStorage.get('user_id');
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     this.isLoading = true;
     this._servicesuser.getIncomeStorybyId(this.id).subscribe((res) => {
@@ -343,9 +345,19 @@ IncomeStoreDetailProduct(){
 
 UpdateobservationsIncome(){
 
+  if(this.amount == this.totalreceived){
+    this.idStatus = 1;
+ }
+ else{
+    this.idStatus = 4;
+ }
+
   const body={
     id: this.id,
     observation: this.observations,
+    id_status: this.idStatus,
+    user_id: this.iduser
+
   };
   this.isLoading = true;
   this._servicesuser. updateIncomeStore(body).subscribe(res => {
